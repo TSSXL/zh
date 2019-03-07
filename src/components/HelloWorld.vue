@@ -1,14 +1,6 @@
 <template>
   <div class="container">
-    <el-row>
-      <el-col  :xs="2" :sm="3"  :lg="3" :xl="3"><div class="aDiv" ></div></el-col>
-      <el-col  :xs="2" :sm="3"  :lg="3" :xl="3"><div class="bg aDiv"  ></div></el-col>
-      <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><a class="aDiv" href="" style="color:#6393ff;">首页</a></el-col>
-      <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><a class="aDiv" href="">在线评估</a></el-col>
-      <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><a class="aDiv" href="">新闻资讯</a></el-col>
-      <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><a class="aDiv" href="">关于我们</a></el-col>
-      <el-col  :xs="4" :sm="6"  :lg="6" :xl="6"><div class="aDiv"></div></el-col>
-    </el-row>
+   <Head-Component></Head-Component>
      <div class="image">
        <div class="input">
          <input type="text" placeholder="请输入完整小区的名称">
@@ -25,13 +17,13 @@
      </div>
     <div class="info">
       <el-row>
-        <el-col  :xs="2" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
-        <el-col  :xs="2" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
-        <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/first.svg" alt=""><div class="itemText">60,000个</div><div class="itemText">评估项目</div></div></el-col>
-        <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/house.svg" alt=""><div class="itemText">1.2亿平方米</div><div class="itemText">建筑面积</div></div></el-col>
-        <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/tu.svg" alt=""><div class="itemText">60,000个</div><div class="itemText">土地面积</div></div></el-col>
-        <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/money.svg" alt=""><div class="itemText">1.9万亿元</div><div class="itemText">评估总值</div></div></el-col>
-        <el-col  :xs="4" :sm="6"  :lg="6" :xl="6"><div class="item"></div></el-col>
+        <el-col  :xs="0" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
+        <el-col  :xs="0" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/first.svg" alt=""><div class="itemText">60,000个</div><div class="itemText">评估项目</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/house.svg" alt=""><div class="itemText">1.2亿平方米</div><div class="itemText">建筑面积</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/tu.svg" alt=""><div class="itemText">60,000个</div><div class="itemText">土地面积</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/money.svg" alt=""><div class="itemText">1.9万亿元</div><div class="itemText">评估总值</div></div></el-col>
+        <el-col  :xs="0" :sm="6"  :lg="6" :xl="6"><div class="item"></div></el-col>
       </el-row>
     </div>
     <div class="title">
@@ -62,17 +54,15 @@
            <span>非法定估价</span>
            <img src="../image/first.svg" alt="">
          </div>
-         <div class="fwItem two">
+         <div class="fwItem">
            <span>法定估价</span>
            <img src="../image/first.svg" alt="">
          </div>
-       </div>
-       <div class="fw" style="margin-top: 0;">
          <div class="fwItem">
-           <span>非法定估价</span>
+           <span>法定估价</span>
            <img src="../image/first.svg" alt="">
          </div>
-         <div class="fwItem two">
+         <div class="fwItem">
            <span>法定估价</span>
            <img src="../image/first.svg" alt="">
          </div>
@@ -89,17 +79,17 @@
      <span class="newsTitle">新闻资讯</span>
       <div class="newsItem">
         <span class="newsLittleTitle">标题标题标题标题</span>
-        <span class="newsContent">新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容</span>
+        <span class="newsContent">闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容</span>
         <img src="../image/first.svg" alt="">
       </div>
       <div class="newsItem" style="margin-top: 1%;">
         <span class="newsLittleTitle">标题标题标题标题</span>
-        <span class="newsContent">新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容</span>
+        <span class="newsContent">新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容</span>
         <img src="../image/first.svg" alt="">
       </div>
       <div class="newsItem" style="margin-top: 1%;">
         <span class="newsLittleTitle">标题标题标题标题</span>
-        <span class="newsContent">新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容</span>
+        <span class="newsContent">内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容</span>
         <img src="../image/first.svg" alt="">
       </div>
     </div>
@@ -110,50 +100,55 @@
         <div class="workerImage"></div>
         <div class="workInfo">
           <p>曹亦中</p>
-          <p>介绍即使世界顶级撒交代就是第几啊基督教大海生地哈师大uiddiasdjasj的计算机等级啊是</p>
+          <p>啊基督教大海生地哈师大uiddiasdjasj的计算机等级啊是</p>
         </div>
       </div>
       <div class="workerItem second"></div>
     </div>
     <div class="mainPeople">重要客户</div>
       <div class="mainImage">
-        <div class="spanImage"></div>
+        <span class="goLeft"> <a href=""><</a> </span>
+        <span class="goRight"> <a href="">></a> </span>
+        <div class="spanImage">
+          <img src="../image/first.svg" alt="">
+          <img src="../image/first.svg" alt="">
+          <img src="../image/first.svg" alt="">
+          <img src="../image/first.svg" alt="">
+          <img src="../image/first.svg" alt="">
+          <img src="../image/first.svg" alt="">
+          <img src="../image/first.svg" alt="">
+          <img src="../image/first.svg" alt="">
+        </div>
       </div>
+    <Foot-Component></Foot-Component>
   </div>
 </template>
 
 <script>
+import HeadComponent from './mayBe'
+import FootComponent from './foot'
 export default {
   name: 'HelloWorld',
   data () {
     return {
-
     }
+  },
+  components:{
+    HeadComponent,
+    FootComponent
+  },
+  methods:{
   }
 }
 </script>
 
 <style scoped>
   .container{
-    width:98%;
-    margin: 0.5% 1%;
-    border: 1px solid black;
+    width:100%;
   }
-  .bg{
-    background-color: #91C4D5;
-  }
-    .aDiv {
-      height: 4rem;
-      font-size: 1.5em;
-      line-height: 4rem;
-      display: block;
-    }
     a {
       text-decoration: none;
       color: black;
-    }
-    a:active {
-      color: #6393ff;
     }
     .image {
       height: 400px;
@@ -308,12 +303,6 @@ export default {
   height:100%;
   float: right;
 }
-.two span{
-  float: right;
-}
-.two img{
-  float: left;
-}
 .js{
   width:100%;
 }
@@ -322,6 +311,7 @@ export default {
   width:100%;
   background-color: #A6A9AA;
   padding-top: 40px;
+  color:white;
 }
 .msgText{
   width:60%;
@@ -337,7 +327,7 @@ export default {
   width:80%;
   margin-left: 10%;
   margin-top: 6%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .newsTitle{
   font-size: 1.5em;
@@ -412,7 +402,7 @@ export default {
   margin-top: 5%;
 }
 .workInfo{
- height:100%;
+ height:90%;
   width:50%;
   margin-left: 4%;
   font-size: 1.5em;
@@ -428,15 +418,33 @@ export default {
   width:70%;
   margin-left: 15%;
   height:200px;
-  border: 1px solid black;
-  margin-top: 3%;
+  margin-top: 5%;
+  padding-bottom: 200px;
+}
+.mainImage span{
+  display: inline-block;
+  position: absolute;
+  margin-top: 5%;
+  font-size: 2em;
+  font-weight: bolder;
+}
+.goLeft{
+  margin-left: -32.5%;
+}
+.goRight{
+  margin-left: 32.5%;
 }
 .spanImage{
   height: 100%;
   width:90%;
-  margin-left: 5%;
-  background-color: red;
+  margin-left: 5%;;
 }
+.spanImage img{
+  width:24%;
+  border: 1px solid black;
+  height:48%;
+}
+
 
 
   @media only screen and (max-width: 1366px) {
@@ -465,22 +473,23 @@ export default {
       margin-left: -83%;
     }
     .newsContent{
-      overflow-y: scroll;
       margin-top: 9%;
     }
     .more{
       margin-left: 66%;
     }
+    .mainImage span{
+      margin-top: 6%;
+    }
+    .goLeft{
+      margin-left: -32.5%;
+    }
+    .goRight{
+      margin-left: 31.5%;
+    }
+
   }
   @media only screen and (max-width: 768px) {
-    .aDiv{
-      height:40px;
-      line-height: 40px;
-      font-size: 1em;
-    }
-    .bg{
-      background-color: white;
-    }
     .image{
       height:300px;
       width:100%;
@@ -568,14 +577,18 @@ export default {
     }
     .serviceImage{
       height:100px;
-      width:60%;
-      margin-left: 20%;
+      width:90%;
+      margin-left: 5%;
       display: flex;
       margin-top: 0px;
     }
     .serviceItem img{
       height:60%;
       width:80%;
+    }
+    .fw{
+      width:90%;
+      margin-left: 5%;
     }
    .fwItem{
      height:120px;
@@ -591,70 +604,118 @@ export default {
    .msg{
      margin-top: 8%;
    }
+   .msg{
+     padding-top: 10px;
+   }
    .msgText{
-     width:80%;
-     margin-left: 10%;
-     font-size: 0.7em;
+     width:90%;
+     margin-left: 5%;
+     font-size: 0.5em;
+   }
+   .js{
+     line-height: 15px;
    }
    .newsItem{
      height:120px;
      margin-top: 12%;
    }
+   .news{
+     width:90%;
+     margin-left: 5%;
+   }
     .newsTitle{
       margin-left: -69%;
+    }
+    .newsItem{
+      margin-top: 3%;
     }
     .newsLittleTitle{
       height:40px;
       width:55%;
       background-color: white;
-      float: left;
+      float: right;
       margin-top:7%;
       line-height: 40px;
       font-size: 1.5em;
     }
     .newsContent{
       display: inline-block;
-      width:55%;
-      float: left;
-      margin-top: 25%;
-      height:86px;
-      margin-left: -55%;
+      width:76.5%;
+      height:75px;
       padding-bottom: 10px;
       font-size: 0.5em;
       overflow-y: scroll;
+      border: 1px solid black;
+      position: absolute;
+      margin-left: 0;
+      margin-top: 22%;
     }
     .newsItem img{
-      height:100px;
-      width:100px;
-      float: right;
-      margin-top: -61%;
+      height:60px;
+      width:40%;
+      float: left;
+      margin-top: 18px;
+    border: 1px solid black;
+      margin-left: 0%;
     }
     .more{
-      margin-left: 55%;
+      margin-left: 62%;
+    }
+    .worker{
+      display: flex;
+      flex-direction: column;
+      width:80%;
+      margin-left: 10%;
     }
     .workerItem{
-      display:block;
-    }
-    .workerImage{
-      height:50px;
-      width:50px;
-      border-radius: 50%;
-      border: 1px solid black;
-      margin-left: 30%;
+      display: flex;
+      height:100px;
+      width:100%;
       margin-top: 10px;
     }
+    .second{
+      margin-left: 0;
+    }
+    .workerImage{
+      height:80px;
+      width:80px;
+      border-radius: 50%;
+      border: 1px solid black;
+      margin-top: 10px;
+      margin-left: 5%;
+    }
     .workInfo{
-      width:100%;
-      height:120px;
+      width:65%;
       font-size: 1.3em;
       text-align: left;
-      margin-left: 0;
+      margin-left: 10px;
+      padding-top: 0;
+      height:100%;
       overflow-y: scroll;
-      margin-top: -10px;
     }
     .mainPeople{
-      margin-left: -50%;
+      margin-left: -55%;
     }
+    .mainImage{
+      width:90%;
+      margin-left: 5%;
+      height:120px;
+      padding-bottom:60px;
+    }
+    .mainImage span{
+      margin-top: 14%;
+    }
+    .goLeft{
+      margin-left: -40%;
+    }
+    .goRight{
+      margin-left: 37%;
+    }
+    .spanImage img{
+      width:20%;
+      height:47%;
+    }
+
   }
 
 

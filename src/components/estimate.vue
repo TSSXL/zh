@@ -307,7 +307,7 @@
   @media only screen and (max-width: 768px)
   {
     .bt ul{
-   width:100%;
+   width:89%;
    li{
      margin-left: 10%;
      font-size: 1em;
@@ -365,6 +365,9 @@
           letter-spacing: 0.5px;
           margin-left: 20px;
           margin-top: -30px;
+          .hrStyle{
+            margin-top: -24px;
+          }
         }
         .right{
           display: inline-block;

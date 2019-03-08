@@ -2,18 +2,18 @@
   <div class="container">
    <Head-Component></Head-Component>
      <div class="image">
+       <div class="lb">
+         <el-carousel height="400px" class="carousel"  trigger="click"  :loop="true">
+           <el-carousel-item v-for="item in imageList" :key="item">
+             <img :src="item" alt="背景图">
+           </el-carousel-item>
+         </el-carousel>
+       </div>
        <div class="input">
          <input type="text" placeholder="请输入完整小区的名称">
          <span class="firstSpan"><a href="">选择城市</a>&nbsp;&nbsp;v <hr  class="hrStyle"></span>
          <span class="right"><a href="">评估</a></span>
        </div>
-        <div class="dot">
-          <ul>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-          </ul>
-        </div>
      </div>
     <div class="info">
       <el-row>
@@ -131,6 +131,12 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      imageList:[
+        require("../image/zero.jpg"),
+        require("../image/first.jpg"),
+        require("../image/two.jpg"),
+        require("../image/three.jpg"),
+      ]
     }
   },
   components:{
@@ -146,6 +152,10 @@ export default {
   .container{
     width:100%;
   }
+  .el-carousel__item img{
+    height:400px;
+    width:100%;
+  }
     a {
       text-decoration: none;
       color: black;
@@ -153,15 +163,24 @@ export default {
     .image {
       height: 400px;
       width: 100%;
-      background-color: #80b2c3;
+        background-color: #80b2c3;
+      position: relative;
     }
+    .lb{
+      height:400px;
+      width:100%;
+      position: absolute;
+      z-index: 0;
+    }
+
     .image .input {
       height: 60px;
       width: 30%;
-      margin-top: 15rem;
-      position: absolute;
       margin-left: 35%;
+      margin-top: 15%;
       color: #606060;
+      position: absolute;
+      z-index: 10;
     }
     .input input {
       width: 95%;
@@ -210,36 +229,6 @@ export default {
       width: 100%;
       background-color: #60b2fd;
     }
-    .dot{
-      height:30px;
-      width:50%;
-      position: absolute;
-      margin-top: 18%;
-      margin-left: 32%;
-    }
-    .dot ul{
-      text-decoration: none;
-      list-style: none;
-      width:50%;
-      height:100%;
-      display: inline-block;
-      margin-top: 0px;
-    }
-  .dot ul li {
-    float: left;
-    margin-left: 30px;
-  }
-  .dot ul li a{
-    display: inline-block;
-    height:15px;
-    width:15px;
-    background-color: white;
-    border-radius: 50%;
-
-  }
-.dot ul li a:active{
-  background-color: blueviolet;
-}
 .item{
   display: flex;
   height:120px;
@@ -459,10 +448,6 @@ export default {
     .right{
       margin-right: -5px;
     }
-    .dot{
-      margin-top: 25%;
-      margin-left: 30%;
-    }
     .hrStyle{
       margin-top: -24px;
     }
@@ -495,10 +480,23 @@ export default {
       width:100%;
       background-color: #80b2c3;
     }
+    .lb{
+      height:300px;
+    }
+    .el-carousel{
+      overflow: hidden;
+    }
+    .carousel{
+      height:300px;
+    }
+    .el-carousel__item img{
+      height:300px;
+      width:100%;
+    }
     .image .input{
       height:40px;
       width:90%;
-      margin-top:12rem;
+      margin-top:30%;
       position: absolute;
       margin-left: 5%;
     }
@@ -510,7 +508,7 @@ export default {
       border: none;
       padding-left: 20px;
       line-height: 30px;
-      font-size: 1.3em;
+      font-size: 1.1em;
       text-indent: 90px;
     }
     .firstSpan{
@@ -535,24 +533,6 @@ export default {
       margin-top: -40px;
       line-height: 40px;
       margin-right: 1px;
-    }
-    .dot{
-      margin-top: 260px;
-      margin-left: 20%;
-    }
-    .dot ul{
-      text-decoration: none;
-      list-style: none;
-      width:100%;
-      height:100%;
-      display: inline-block;
-    }
-    .dot ul li a{
-      display: inline-block;
-      height:10px;
-      width:10px;
-      background-color: white;
-      border-radius: 50%;
     }
     .info{
       height:90px;

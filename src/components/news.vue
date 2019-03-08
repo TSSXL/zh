@@ -35,6 +35,15 @@
           <img src="../image/tu.svg" alt="">
         </div>
       </div>
+      <div class="newsContent">
+        <div class="leftNews">
+          <div class="leftNewsTitle">我是标题</div>
+          <div class="leftNewsCon">我是内容</div>
+        </div>
+        <div class="rightImage">
+          <img src="../image/tu.svg" alt="">
+        </div>
+      </div>
         <el-pagination
           background
           layout="prev, pager, next"

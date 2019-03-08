@@ -13,20 +13,20 @@
           <div class="dontKnow">
             <div class="five">
               <div class="fiveLeft">
-                <p>公司荣誉</p>
-                <p>执业资质</p>
-                <p>经典案例</p>
+                <p @click="gotoFirst">公司荣誉</p>
+                <p @click="gotoSecond">执业资质</p>
+                <p @click="gotoThird">经典案例</p>
               </div>
               <div class="fiveRight">
-                <p>联系我们</p>
-                <p>招贤纳士</p>
+                <p @click="gotoFour">联系我们</p>
+                <p @click="gotoFive">招贤纳士</p>
               </div>
             </div>
           </div>
           <hr>
           <div class="dontKnow">
             <img class="gzh" src="../image/tu.svg" alt="">
-            <p>关注公众号</p>
+            <p class="gzNum">关注公众号</p>
           </div>
         </div>
       </div>
@@ -35,18 +35,40 @@
 
 <script>
     export default {
-        name: "foot"
+        name: "foot",
+      data(){
+          return{
+          }
+      },
+      methods:{
+          gotoFirst(){
+            this.$router.push({path:'/mine',query:{idx:0}})
+          },
+        gotoSecond(){
+          this.$router.push({path:'/mine',query:{idx:1}})
+        },
+        gotoThird(){
+          this.$router.push({path:'/mine',query:{idx:2}})
+        },
+        gotoFour(){
+          this.$router.push({path:'/mine',query:{idx:3}})
+        },
+        gotoFive(){
+          this.$router.push({path:'/mine',query:{idx:4}})
+        }
+      }
     }
 </script>
 
 <style scoped>
   .footer{
-    bottom: 0;
     height:220px;
     width:100%;
     background-color: #2882C6;
     color:white;
     font-weight: bold;
+    bottom: 0;
+
   }
   .companyInfo{
     width:60%;
@@ -56,15 +78,15 @@
     flex-direction: row;
   }
   .companyInfo hr{
-    height:70%;
+    height:80%;
     margin-left: 30px;
-    margin-top: 4.5%;
+    margin-top: 2.5%;
   }
   .dontKnow{
     height:80%;
     width:30%;
     margin-left: 3%;
-    margin-top: 3%;
+    margin-top: 2%;
   }
   .dontKnowFirst{
     height:50%;
@@ -103,6 +125,12 @@
     display: inline-block;
     margin-top:15px;
   }
+  .five p:hover{
+    cursor: pointer;
+  }
+  .five p:active{
+    color:black;
+  }
   .fiveRight{
     margin-left: 10%;
     margin-top: 5%;
@@ -140,51 +168,74 @@
       width:40%;
     }
   }
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 780px){
     .footer{
-      height:150px;
+      height:300px;
       width:100%;
       background-color: #2882C6;
       padding-bottom: 0;
       bottom: 0;
     }
     .dontKnow{
-      height:80%;
-      width:32%;
-      margin-left: 10px;
+      height:95px;
+      width:100%;
+      margin-left: 0;
+     margin-top: 0;
       font-size: 0.5em;
     }
     .companyInfo{
-      width:100%;
-      margin-left: 0;
-    }
-    .dontKnowFirst img{
-      height:50px;
-      width:50px;
-      margin-left: -50px;
-    }
-    .dontKnowFirst span{
-      margin-left: -4px;
-      margin-top: 4.5%;
-    }
-    .dontKnowSecond{
-      margin-left: -40px;
-      margin-top: -8%;
+      width:60%;
+      margin-left: 20%;
+      display:flex;
+      flex-direction: column;
     }
     .companyInfo hr{
-      display: none;
+      height:0;
+      width:80%;
+      margin-top: 10px;
+      margin-left: 1%;
+    }
+    .dontKnowFirst img{
+      height:80px;
+      width:80px;
+      margin-left: -60%;
+      margin-top: 5px;
+    }
+    .dontKnowFirst span{
+      margin-left: 8%;
+      margin-top: 6%;
+    }
+    .dontKnowSecond{
+      margin-left: 50px;
+      margin-top: -4%;
     }
     .fiveLeft{
-      margin-left:-10px;
+      margin-left:30px;
+      display: flex;
+      flex-direction: column;
+    }
+    .five p{
+      display: inline-block;
+      margin-top:5px;
     }
     .fiveRight{
-      margin-left: 0px;
+      display: flex;
+      flex-direction: column;
+      margin-left: 24%;
     }
     .five{
-      width:110%;
+      width:100%;
     }
     .gzh{
-      width:50%;
+      width:30%;
+      float: left;
+      margin-left: 15px;
+      margin-top: 5%;
+    }
+    .gzNum{
+      margin-top: 25px;
+      display: inline-block;
+      margin-left: -18%;
     }
   }
 

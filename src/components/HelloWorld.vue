@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="hel">
    <Head-Component></Head-Component>
      <div class="image">
        <div class="lb">
@@ -11,7 +11,14 @@
        </div>
        <div class="input">
          <input type="text" placeholder="请输入完整小区的名称">
-         <span class="firstSpan"><a href="">选择城市</a>&nbsp;&nbsp;v <hr  class="hrStyle"></span>
+         <el-select class="select" v-model="value" placeholder="选择城市">
+           <el-option
+             v-for="item in options"
+             :key="item.value"
+             :label="item.label"
+             :value="item.value">
+           </el-option>
+         </el-select>
          <span class="right"><a href="">评估</a></span>
        </div>
      </div>
@@ -103,22 +110,25 @@
           <p>啊基督教大海生地哈师大uiddiasdjasj的计算机等级啊是</p>
         </div>
       </div>
-      <div class="workerItem second"></div>
+      <div class="workerItem"></div>
+      <div class="workerItem"></div>
+      <div class="workerItem"></div>
     </div>
+
+
     <div class="mainPeople">重要客户</div>
+
       <div class="mainImage">
-        <span class="goLeft"> <a href=""><</a> </span>
-        <span class="goRight"> <a href="">></a> </span>
-        <div class="spanImage">
-          <img src="../image/first.svg" alt="">
-          <img src="../image/first.svg" alt="">
-          <img src="../image/first.svg" alt="">
-          <img src="../image/first.svg" alt="">
-          <img src="../image/first.svg" alt="">
-          <img src="../image/first.svg" alt="">
-          <img src="../image/first.svg" alt="">
-          <img src="../image/first.svg" alt="">
-        </div>
+        <el-carousel height="200px" class="x"  trigger="click"  :loop="true">
+          <el-carousel-item v-for="item in imageList" :key="item">
+            <div class="i">
+              <img src="../image/first.jpg" alt="">
+              <img src="../image/three.jpg" alt="">
+              <img src="../image/two.jpg" alt="">
+              <img src="../image/first.jpg" alt="">
+            </div>
+          </el-carousel-item>
+        </el-carousel>
       </div>
     <Foot-Component></Foot-Component>
   </div>
@@ -136,7 +146,24 @@ export default {
         require("../image/first.jpg"),
         require("../image/two.jpg"),
         require("../image/three.jpg"),
-      ]
+      ],
+      options: [{
+        value: '选项1',
+        label: '宁波'
+      }, {
+        value: '选项2',
+        label: '金华'
+      }, {
+        value: '选项3',
+        label: '温州'
+      }, {
+        value: '选项4',
+        label: '奉化'
+      }, {
+        value: '选项5',
+        label: '衢州'
+      }],
+      value: ''
     }
   },
   components:{
@@ -149,7 +176,7 @@ export default {
 </script>
 
 <style scoped>
-  .container{
+  .hel{
     width:100%;
   }
   .el-carousel__item img{
@@ -193,23 +220,12 @@ export default {
       text-indent: 180px;
       font-size: 1.8em;
     }
-  .firstSpan{
-    display: inline-block;
-    height:30px;
-    font-size: 2em;
-    float: left;
-    margin-top: -40px;
-    letter-spacing: 5px;
-    margin-left: 30px;
-  }
-  .hrStyle{
-    height:30px;
-    width:1px;
-    float: right;
-    margin-top: -27px;
-    margin-right: -5px;
-    background-color: black
-  }
+    .select{
+      margin-top: -9%;
+      float: left;
+      width:25%;
+      margin-left: 5%;
+    }
   .right{
     display: inline-block;
     height: 58px;
@@ -308,6 +324,7 @@ export default {
   text-align: left;
   color:white;
   padding-bottom: 20px;
+  letter-spacing: 1px;
 }
 .jsTwo{
   width:40%;
@@ -329,6 +346,7 @@ export default {
   margin-left: 6%;
   text-align: left;
   padding-bottom: 50px;
+  letter-spacing: 3px;
 }
 .newsLittleTitle{
   display: inline-block;
@@ -339,6 +357,7 @@ export default {
   margin-top:3%;
   line-height: 40px;
   font-size: 1.5em;
+  margin-left: 5px;
 }
 .newsContent{
   display: inline-block;
@@ -367,20 +386,19 @@ export default {
   margin-left: 14.6%;
   padding-bottom: 10px;
   display: flex;
+  flex-wrap: wrap;
 }
 .worker span{
   font-size: 2em;
 }
 .workerItem{
- height:180px;
-  width:44%;
+  height:180px;
+  width:42%;
   margin-top: 2%;
   box-shadow:3px 3px 3px 3px #aaaaaa;
   border-radius: 5px;
   display: flex;
-}
-.second{
-  margin-left: 10.7%;
+  margin-left: 5%;
 }
 .workerImage{
   height:100px;
@@ -404,36 +422,26 @@ export default {
   margin-top: 6%;
 }
 .mainImage{
-  width:70%;
-  margin-left: 15%;
+  width: 62%;
+  margin-left: 19%;
   height:200px;
   margin-top: 5%;
   padding-bottom: 200px;
 }
-.mainImage span{
-  display: inline-block;
-  position: absolute;
-  margin-top: 5%;
-  font-size: 2em;
-  font-weight: bolder;
+.i{
+  height:200px;
+  width:100%;
 }
-.goLeft{
-  margin-left: -32.5%;
+.i img{
+  height:100%;
+  width:18%;
+  border: 1px solid red;
+  float: left;
+  margin-left: 3%;
 }
-.goRight{
-  margin-left: 32.5%;
+.i img:first-child{
+  margin-left: 9%;
 }
-.spanImage{
-  height: 100%;
-  width:90%;
-  margin-left: 5%;;
-}
-.spanImage img{
-  width:24%;
-  border: 1px solid black;
-  height:48%;
-}
-
 
 
   @media only screen and (max-width: 1366px) {
@@ -441,15 +449,14 @@ export default {
       text-indent: 120px;
       font-size: 1.5em;
     }
-    .firstSpan{
-      font-size: 1.5em;
-      letter-spacing: 2px;
-    }
     .right{
       margin-right: -5px;
     }
-    .hrStyle{
-      margin-top: -24px;
+    .select{
+      margin-top: -12.2%;
+      float: left;
+      width:25%;
+      margin-left: 5%;
     }
     .jsTwo{
       width:50%;
@@ -463,18 +470,15 @@ export default {
     .more{
       margin-left: 66%;
     }
-    .mainImage span{
-      margin-top: 6%;
+    .mainImage{
+      width:70%;
+      margin-left: 15%;
     }
-    .goLeft{
-      margin-left: -32.5%;
-    }
-    .goRight{
-      margin-left: 31.5%;
-    }
-
+  .i img{
+    margin-left: 3%;
   }
-  @media only screen and (max-width: 768px) {
+  }
+  @media only screen and (max-width: 1024px) {
     .image{
       height:300px;
       width:100%;
@@ -482,6 +486,12 @@ export default {
     }
     .lb{
       height:300px;
+    }
+    .select{
+      margin-top: -5.8%;
+      float: left;
+      width:31%;
+      margin-left: 5%;
     }
     .el-carousel{
       overflow: hidden;
@@ -509,16 +519,7 @@ export default {
       padding-left: 20px;
       line-height: 30px;
       font-size: 1.1em;
-      text-indent: 90px;
-    }
-    .firstSpan{
-      display: inline-block;
-      height:30px;
-      font-size: 1.5em;
-      float: left;
-      letter-spacing: 0.5px;
-      margin-left: 20px;
-      margin-top: -30px;
+      text-indent: 40.3%;
     }
     .right{
       display: inline-block;
@@ -551,9 +552,6 @@ export default {
       height:30px;
       width:100px;
       margin-left: -10px;
-    }
-    .hrStyle{
-      margin-top: -23px;
     }
     .serviceImage{
       height:100px;
@@ -652,8 +650,6 @@ export default {
       height:100px;
       width:100%;
       margin-top: 10px;
-    }
-    .second{
       margin-left: 0;
     }
     .workerImage{
@@ -677,26 +673,268 @@ export default {
       margin-left: -55%;
     }
     .mainImage{
-      width:90%;
-      margin-left: 5%;
-      height:120px;
+      width:100%;
+      margin-left: 0;
       padding-bottom:60px;
     }
-    .mainImage span{
-      margin-top: 14%;
+    .x{
+      height: 180px;
     }
-    .goLeft{
-      margin-left: -40%;
+    .i{
+      height:100%;
+      margin-left: -3%;
+      margin-top: 1%;
     }
-    .goRight{
-      margin-left: 37%;
+    .i img{
+      height:40%;
+      width:40%;
+      margin-left: 9%;
+      margin-top: 2%;
     }
-    .spanImage img{
-      width:20%;
-      height:47%;
-    }
-
   }
-
-
+  @media only screen and (max-width: 700px) {
+    .image{
+      height:300px;
+      width:100%;
+      background-color: #80b2c3;
+    }
+    .lb{
+      height:300px;
+    }
+    .select{
+      margin-top: -12%;
+      float: left;
+      width:31%;
+      margin-left: 5%;
+    }
+    .el-carousel{
+      overflow: hidden;
+    }
+    .carousel{
+      height:300px;
+    }
+    .el-carousel__item img{
+      height:300px;
+      width:100%;
+    }
+    .image .input{
+      height:40px;
+      width:90%;
+      margin-top:30%;
+      position: absolute;
+      margin-left: 5%;
+    }
+    .input input {
+      width:90%;
+      height:30px;
+      padding:5px 5px;
+      border-radius:30px;
+      border: none;
+      padding-left: 20px;
+      line-height: 30px;
+      font-size: 1.1em;
+      text-indent: 105px;
+    }
+    .right{
+      display: inline-block;
+      height: 100%;
+      padding-right: 20px;
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+      font-size: 2em;
+      width:60px;
+      float: right;
+      background-color: #2199FF;
+      margin-top: -40px;
+      line-height: 40px;
+      margin-right: 1px;
+    }
+    .info{
+      height:90px;
+    }
+    .item{
+      height:80px;
+    }
+    .item img{
+      height:30px;
+      width:30px;
+      margin-left: 36%;
+    }
+    .item .itemText{
+      font-size: 1em;
+      margin-top: 0;
+      height:30px;
+      width:100px;
+      margin-left: -10px;
+    }
+    .serviceImage{
+      height:100px;
+      width:90%;
+      margin-left: 5%;
+      display: flex;
+      margin-top: 0px;
+    }
+    .serviceItem img{
+      height:60%;
+      width:80%;
+    }
+    .fw{
+      width:90%;
+      margin-left: 5%;
+    }
+    .fwItem{
+      height:120px;
+    }
+    .fwItem img{
+      height:60%;
+    }
+    .fwItem span{
+      width:50%;
+      font-size: 0.8em;
+      line-height: 45px;
+    }
+    .msg{
+      margin-top: 8%;
+    }
+    .msg{
+      padding-top: 10px;
+    }
+    .msgText{
+      width:90%;
+      margin-left: 5%;
+      font-size: 0.5em;
+    }
+    .js{
+      line-height: 15px;
+    }
+    .newsItem{
+      height:120px;
+      margin-top: 12%;
+    }
+    .news{
+      width:90%;
+      margin-left: 5%;
+    }
+    .newsTitle{
+      margin-left: -69%;
+    }
+    .newsItem{
+      margin-top: 3%;
+    }
+    .newsLittleTitle{
+      height:40px;
+      width:55%;
+      background-color: white;
+      float: right;
+      margin-top:7%;
+      line-height: 40px;
+      font-size: 1.5em;
+    }
+    .newsContent{
+      display: inline-block;
+      width:76.5%;
+      height:75px;
+      padding-bottom: 10px;
+      font-size: 0.5em;
+      overflow-y: scroll;
+      border: 1px solid black;
+      position: absolute;
+      margin-left: 0;
+      margin-top: 22%;
+    }
+    .newsItem img{
+      height:60px;
+      width:40%;
+      float: left;
+      margin-top: 18px;
+      border: 1px solid black;
+      margin-left: 0%;
+    }
+    .more{
+      margin-left: 62%;
+    }
+    .worker{
+      display: flex;
+      flex-direction: column;
+      width:80%;
+      margin-left: 10%;
+    }
+    .workerItem{
+      display: flex;
+      height:100px;
+      width:100%;
+      margin-top: 10px;
+      margin-left: 0;
+    }
+    .workerImage{
+      height:80px;
+      width:80px;
+      border-radius: 50%;
+      border: 1px solid black;
+      margin-top: 10px;
+      margin-left: 5%;
+    }
+    .workInfo{
+      width:65%;
+      font-size: 1.3em;
+      text-align: left;
+      margin-left: 10px;
+      padding-top: 0;
+      height:100%;
+      overflow-y: scroll;
+    }
+    .mainPeople{
+      margin-left: -55%;
+    }
+    .mainImage{
+      width:100%;
+      margin-left: 0;
+      padding-bottom:60px;
+    }
+    .x{
+      height: 180px;
+    }
+    .i{
+      height:100%;
+      margin-left: -3%;
+      margin-top: 1%;
+    }
+    .i img{
+      height:40%;
+      width:40%;
+      margin-left: 9%;
+      margin-top: 2%;
+    }
+  }
+  @media only screen and (max-width: 435px){
+    .select{
+      margin-top: -10.2%;
+    }
+    .input input {
+     text-indent: 33.4%;
+    }
+  }
+  @media only screen and (max-width: 415px){
+    .select{
+      margin-top: -10.8%;
+    }
+  }
+  @media only screen and (max-width: 380px){
+    .select{
+      margin-top: -11.8%;
+    }
+    .input input {
+      text-indent: 33.4%;
+    }
+  }
+  @media only screen and (max-width: 360px){
+    .select{
+      margin-top: -12.2%;
+    }
+  }
+  @media only screen and (max-width: 320px){
+    .select{
+      margin-top: -13.8%;
+    }
+  }
 </style>

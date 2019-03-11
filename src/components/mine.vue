@@ -326,7 +326,7 @@
       flex-wrap: wrap;
       .licence{
         height:320px;
-        width:33%;
+        width:34%;
         margin-top: 20px;
         margin-left: 10%;
        img{
@@ -336,7 +336,7 @@
       }
       .book{
         height:320px;
-        width:33%;
+        width:34%;
         margin-top: 20px;
         margin-left: 10%;
         img{
@@ -346,7 +346,7 @@
       }
       .house{
         height:180px;
-        width:33%;
+        width:34%;
         margin-top: 40px;
         padding-bottom: 60px;
         margin-left: 10%;
@@ -592,9 +592,9 @@
         flex-wrap: wrap;
         .licence{
           height:200px;
-          width:33%;
+          width:45%;
           margin-top: 20px;
-          margin-left: 10%;
+          margin-left: 3%;
           img{
             height:200px;
             width:100%;
@@ -602,9 +602,9 @@
         }
         .book{
           height:200px;
-          width:33%;
+          width:45%;
           margin-top: 20px;
-          margin-left: 10%;
+          margin-left: 3%;
           img{
             height:200px;
             width:100%;
@@ -612,12 +612,12 @@
         }
         .house{
           height:180px;
-          width:50%;
+          width:60%;
           margin-top: 12%;
           padding-bottom: 0;
-          margin-left: 25%;
+          margin-left: 20%;
           img{
-            height:100px;
+            height:140px;
             width:100%;
           }
         }

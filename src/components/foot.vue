@@ -168,7 +168,7 @@
       width:40%;
     }
   }
-  @media only screen and (max-width: 780px){
+  @media only screen and (max-width: 680px){
     .footer{
       height:300px;
       width:100%;
@@ -210,18 +210,19 @@
       margin-top: -4%;
     }
     .fiveLeft{
-      margin-left:30px;
+      margin-left:32px;
       display: flex;
       flex-direction: column;
     }
     .five p{
       display: inline-block;
       margin-top:5px;
+      margin-left: -4%;
     }
     .fiveRight{
       display: flex;
       flex-direction: column;
-      margin-left: 24%;
+      margin-left: 19%;
     }
     .five{
       width:100%;
@@ -229,13 +230,13 @@
     .gzh{
       width:30%;
       float: left;
-      margin-left: 15px;
+        margin-left: 5px;
       margin-top: 5%;
     }
     .gzNum{
       margin-top: 25px;
       display: inline-block;
-      margin-left: -18%;
+      margin-left: -15%;
     }
   }
 

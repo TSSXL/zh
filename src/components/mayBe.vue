@@ -1,18 +1,37 @@
 <template>
     <div class="gj">
-      <el-row class="elRow" :style="elRowStyle" >
-        <el-col  :xs="2" :sm="3"  :lg="3" :xl="3"><div class="aDiv" ></div></el-col>
-        <el-col  :xs="2" :sm="3"  :lg="3" :xl="3"><div class="bg aDiv"  ></div></el-col>
-        <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><a class="aDiv" @click="gotoIndex" style="color:#6393ff;">首页</a></el-col>
-        <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><a class="aDiv" @click="gotoEstimate">在线评估</a></el-col>
-        <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><a class="aDiv" @click="gotoNews">新闻资讯</a></el-col>
-        <el-col  :xs="4" :sm="3"  :lg="3" :xl="3"><a class="aDiv" @click="gotoMine">关于我们</a></el-col>
-        <el-col  :xs="4" :sm="6"  :lg="6" :xl="6"><div class="aDiv"></div></el-col>
-      </el-row>
+      <el-menu
+        :default-active="activeIndex2"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b">
+        <el-menu-item class="menuItem" index="1" @click="gotoIndex">首页</el-menu-item>
+        <el-menu-item class="menuItem" index="2" @click="gotoEstimate">在线评估</el-menu-item>
+        <el-menu-item class="menuItem" index="3" @click="gotoNews">新闻资讯</el-menu-item>
+        <el-menu-item class="menuItem" index="4" @click="gotoMine">关于我们</el-menu-item>
+      </el-menu>
       <div class="show">
-        <img src="../image/first.jpg" alt="">
-        <span @click="show">展开</span>
-        <span @click="hide">隐藏</span>
+        <el-radio-group v-model="isCollapse" style="float: right;">
+          <el-radio-button :label="false" style="margin-top: 8px;">展开</el-radio-button>
+          <el-radio-button :label="true">收起</el-radio-button>
+        </el-radio-group>
+        <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+          <el-submenu index="1">
+            <template slot="title">
+              <img src="../image/nav.png" alt="" style="height:40px;width:40px;margin-left: -10px;">
+              <span slot="title">导航栏</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="1-1" @click="gotoIndex">首页</el-menu-item>
+              <el-menu-item index="1-2" @click="gotoEstimate">在线评估</el-menu-item>
+              <el-menu-item index="1-3" @click="gotoNews">新闻资讯</el-menu-item>
+              <el-menu-item index="1-4" @click="gotoMine">关于我们</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+        </el-menu>
       </div>
     </div>
 </template>
@@ -22,8 +41,11 @@
      data(){
           return{
             elRowStyle:{
-              display:""
-            }
+              display:"block"
+            },
+            activeIndex2:'',
+            isCollapse: true,
+            index:''
           }
      },
       methods:{
@@ -39,58 +61,35 @@
         gotoMine(){
           this.$router.push({path:'/mine'})
         },
-        show(){
-          this.elRowStyle.display="block"
+        handleSelect(key) {
+          this.activeIndex2=key;
         },
-        hide(){
-          this.elRowStyle.display="none"
+        handleOpen(key, keyPath) {
+          console.log(key, keyPath);
+        },
+        handleClose(key, keyPath) {
+          console.log(key, keyPath);
         }
       }
     }
 </script>
 
 <style  scoped>
-  .bg{
-    background-color: #B6E0EE;
-  }
-  .aDiv {
-    height: 4rem;
-    font-size: 1.5em;
-    line-height: 4rem;
-    display: block;
-  }
-  a {
-    text-decoration: none;
-    color: black;
-  }
-  a:hover{
-    cursor: pointer;
-  }
-  a:active {
-    color: #6393ff;
+  .menuItem{
+    margin-left: 15%;
   }
   .show{
     display: none;
   }
+
   @media only screen and (max-width: 768px){
-    .aDiv{
-      height:40px;
-      line-height: 40px;
-      font-size: 1em;
-    }
-    .bg{
-      background-color: white;
+    .el-menu-demo{
+      display: none;
     }
     .show{
       display: block;
-      background-color: gray;
-    }
-    .elRow{
-      display: none;
-    }
-    .show img{
-      width:60px;
-      height:40px;
+      width:100%;
+      background-color: #a9b5bd;
     }
   }
 

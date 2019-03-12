@@ -168,6 +168,80 @@
       width:40%;
     }
   }
+  @media only screen and (max-width: 1024px){
+    .footer{
+      height:300px;
+      width:100%;
+      background-color: #2882C6;
+      padding-bottom: 0;
+      bottom: 0;
+    }
+    .dontKnow{
+      height:95px;
+      width:100%;
+      margin-left: 0;
+      margin-top: 0;
+      font-size: 0.5em;
+    }
+    .companyInfo{
+      width:60%;
+      margin-left: 20%;
+      display:flex;
+      flex-direction: column;
+    }
+    .companyInfo hr{
+      height:0;
+      width:80%;
+      margin-top: 10px;
+      margin-left: 1%;
+    }
+    .dontKnowFirst img{
+      height:80px;
+      width:80px;
+      margin-left: -40%;
+      margin-top: 5px;
+    }
+    .dontKnowFirst span{
+      margin-left: 0%;
+      margin-top: 4%;
+    }
+    .dontKnowSecond{
+      margin-left: 10%;
+      margin-top: 0%;
+    }
+    .fiveLeft{
+      display: flex;
+      flex-direction: column;
+      margin-top: 1%;
+      margin-left: 25%;
+    }
+    .five p{
+      display: inline-block;
+      margin-top:5px;
+      margin-left: 0;
+    }
+    .fiveRight{
+      display: flex;
+      flex-direction: column;
+      margin-left: 19%;
+      margin-top: 1%;
+    }
+    .five{
+      width:100%;
+    }
+    .gzh{
+      width:20%;
+      height:50px;
+      float: left;
+      margin-left: 15%;
+      margin-top: 0%;
+    }
+    .gzNum{
+      margin-top: 25px;
+      display: inline-block;
+      margin-left: -25%;
+    }
+  }
   @media only screen and (max-width: 680px){
     .footer{
       height:300px;
@@ -239,5 +313,67 @@
       margin-left: -15%;
     }
   }
-
+  @media only screen and (max-width: 450px){
+    .dontKnowSecond{
+      margin-left: 18%;
+      margin-top: -4%;
+    }
+    .fiveLeft{
+      margin-left:16%;
+      display: flex;
+      flex-direction: column;
+    }
+    .five p{
+      display: inline-block;
+      margin-top:5px;
+      margin-left: -4%;
+    }
+    .fiveRight{
+      display: flex;
+      flex-direction: column;
+      margin-left: 19%;
+    }
+    .gzh{
+      width:30%;
+      float: left;
+      margin-left:5%;
+      margin-top: 5%;
+    }
+  }
+  @media only screen and (max-width: 380px){
+    .dontKnowSecond{
+      margin-left: 25%;
+      margin-top: -4%;
+    }
+    .fiveLeft{
+      margin-left:15%;
+      display: flex;
+      flex-direction: column;
+    }
+    .gzNum{
+      margin-top: 25px;
+      display: inline-block;
+      margin-left: -10%;
+    }
+  }
+  @media only screen and (max-width: 320px){
+    .dontKnowFirst span{
+      margin-left: 4%;
+      margin-top: 6%;
+    }
+    .dontKnowSecond{
+      margin-left: 20%;
+      margin-top: -4%;
+    }
+    .fiveLeft{
+      margin-left:10%;
+      display: flex;
+      flex-direction: column;
+    }
+    .gzNum{
+      margin-top: 25px;
+      display: inline-block;
+      margin-left: -10%;
+    }
+  }
 </style>

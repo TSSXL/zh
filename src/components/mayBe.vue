@@ -18,7 +18,7 @@
           <el-radio-button :label="false" style="margin-top: 8px;">展开</el-radio-button>
           <el-radio-button :label="true">收起</el-radio-button>
         </el-radio-group>
-        <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+          <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
           <el-submenu index="1">
             <template slot="title">
               <img src="../image/nav.png" alt="" style="height:40px;width:40px;margin-left: -10px;">
@@ -65,7 +65,7 @@
           this.activeIndex2=key;
         },
         handleOpen(key, keyPath) {
-          console.log(key, keyPath);
+
         },
         handleClose(key, keyPath) {
           console.log(key, keyPath);
@@ -82,13 +82,13 @@
     display: none;
   }
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 450px){
     .el-menu-demo{
       display: none;
     }
     .show{
       display: block;
-      width:100%;
+      width:99%;
       background-color: #a9b5bd;
     }
   }

@@ -5,7 +5,7 @@
        <div class="lb">
          <el-carousel height="400px" class="carousel"  trigger="click"  :loop="true">
            <el-carousel-item v-for="item in imageList" :key="item">
-             <img :src="item" alt="背景图">
+             <img :src="item" alt="背景图" style="height:400px;width:100%;">
            </el-carousel-item>
          </el-carousel>
        </div>
@@ -19,7 +19,7 @@
              :value="item.value">
            </el-option>
          </el-select>
-         <span class="right"><a href="">评估</a></span>
+         <span class="right"><a href="javascript:void(0)" @click="showLoading" >评估</a></span>
        </div>
      </div>
     <div class="info">
@@ -35,7 +35,7 @@
     </div>
     <div class="title">
       <span>服务理念</span>
-      <div class="serviceImage">
+      <div class="serviceImage" style="background-color: #e8e8e8;">
        <div class="serviceItem">
          <img src="../image/first.svg" alt="">
          <div class="serviceText">公正</div>
@@ -54,9 +54,9 @@
         </div>
       </div>
       </div>
-     <div class="title">
+     <div class="title" >
        <span>业务范围</span>
-       <div class="fw">
+       <div class="fw" style="background-color: #e8e8e8;">
          <div class="fwItem">
            <span>非法定估价</span>
            <img src="../image/first.svg" alt="">
@@ -82,7 +82,7 @@
         <div class="msgText jsTwo">大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答</div>
       </div>
     </div>
-    <div class="news">
+    <div class="news" >
      <span class="newsTitle">新闻资讯</span>
       <div class="newsItem">
         <span class="newsLittleTitle">标题标题标题标题</span>
@@ -102,7 +102,7 @@
     </div>
      <span class="more"><a href="">更多 >></a></span>
    <div style="font-size: 2em;">员工风采</div>
-    <div class="worker">
+    <div class="worker" style="background-color: #e8e8e8;" >
       <div class="workerItem">
         <div class="workerImage"></div>
         <div class="workInfo">
@@ -171,6 +171,36 @@ export default {
     FootComponent
   },
   methods:{
+    getInfo() {
+      this.$http
+        .get("/api/APP_Product/GetDayDealPosterList", {
+          params: {
+            type:1,
+            pageIndex: 1,
+            pageSize: 20
+          }
+        })
+        .then(
+          function (response) {
+            var status = response.data;
+          }.bind(this)
+        )
+        // 请求error
+        .catch(
+          function (error) {
+            this.$notify.error({
+              title: "错误",
+              message: "错误：请检查网络"
+            });
+          }.bind(this)
+        );
+    },
+    showLoading(){
+      console.log("555")
+    }
+  },
+  mounted() {
+    this.getInfo()
   }
 }
 </script>
@@ -336,8 +366,8 @@ export default {
   padding-bottom: 10px;
 }
 .newsTitle{
-  font-size: 1.5em;
-  margin-left: -84%;
+  font-size: 2em;
+  margin-left: -83%;
 }
 .newsItem{
   width:88%;
@@ -371,6 +401,8 @@ export default {
 }
 .newsItem img{
   margin-left: 15%;
+  margin-top: 2%;
+  background-color: wheat;
 }
 .more{
   display: inline-block;
@@ -384,7 +416,7 @@ export default {
   width:71%;
   margin-top: 5%;
   margin-left: 14.6%;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -399,6 +431,7 @@ export default {
   border-radius: 5px;
   display: flex;
   margin-left: 5%;
+  background-color: #ffffff;
 }
 .workerImage{
   height:100px;
@@ -611,33 +644,35 @@ export default {
       height:40px;
       width:55%;
       background-color: white;
-      float: right;
-      margin-top:7%;
+      float: left;
+      margin-top:2%;
       line-height: 40px;
       font-size: 1.5em;
     }
     .newsContent{
       display: inline-block;
-      width:76.5%;
+      width:48%;
       height:75px;
       padding-bottom: 10px;
       font-size: 0.5em;
-      overflow-y: scroll;
+      overflow-y: hidden;
       border: 1px solid black;
       position: absolute;
-      margin-left: 0;
-      margin-top: 22%;
+      margin-left: -43.5%;
+      margin-top: 8%;
+      float: left;
     }
     .newsItem img{
-      height:60px;
-      width:40%;
-      float: left;
-      margin-top: 18px;
-    border: 1px solid black;
+      height:100px;
+      width:30%;
+      float: right;
+      margin-top: 5%;
+      border: 1px solid black;
       margin-left: 0%;
+      margin-right: 2%;
     }
     .more{
-      margin-left: 62%;
+      margin-left: 66%;
     }
     .worker{
       display: flex;
@@ -661,13 +696,13 @@ export default {
       margin-left: 5%;
     }
     .workInfo{
-      width:65%;
+      width:69%;
       font-size: 1.3em;
       text-align: left;
       margin-left: 10px;
       padding-top: 0;
       height:100%;
-      overflow-y: scroll;
+      overflow-y: hidden;
     }
     .mainPeople{
       margin-left: -55%;
@@ -678,12 +713,12 @@ export default {
       padding-bottom:60px;
     }
     .x{
-      height: 180px;
+      height: 200px;
     }
     .i{
       height:100%;
       margin-left: -3%;
-      margin-top: 1%;
+      margin-top: 0%;
     }
     .i img{
       height:40%;
@@ -913,6 +948,37 @@ export default {
     .input input {
      text-indent: 33.4%;
     }
+    .newsLittleTitle{
+      height:40px;
+      width:55%;
+      background-color: white;
+      float: left;
+      margin-top:3%;
+      line-height: 40px;
+      font-size: 1.5em;
+    }
+    .newsContent{
+      display: inline-block;
+      width:48%;
+      height:75px;
+      padding-bottom: 10px;
+      font-size: 0.5em;
+      overflow-y: hidden;
+      border: 1px solid black;
+      position: absolute;
+      margin-left: -43.5%;
+      margin-top: 15%;
+      float: left;
+    }
+    .newsItem img{
+      height:100px;
+      width:30%;
+      float: right;
+      margin-top: 5%;
+      border: 1px solid black;
+      margin-left: 0%;
+      margin-right: 2%;
+    }
   }
   @media only screen and (max-width: 415px){
     .select{
@@ -925,6 +991,37 @@ export default {
     }
     .input input {
       text-indent: 33.4%;
+    }
+    .newsLittleTitle{
+      height:40px;
+      width:55%;
+      background-color: white;
+      float: left;
+      margin-top:6%;
+      line-height: 40px;
+      font-size: 1.5em;
+    }
+    .newsContent{
+      display: inline-block;
+      width:48%;
+      height:75px;
+      padding-bottom: 10px;
+      font-size: 0.5em;
+      overflow-y: hidden;
+      border: 1px solid black;
+      position: absolute;
+      margin-left: -43.5%;
+      margin-top: 18%;
+      float: left;
+    }
+    .newsItem img{
+      height:100px;
+      width:35%;
+      float: right;
+      margin-top: 5%;
+      border: 1px solid black;
+      margin-left: 0%;
+      margin-right: 2%;
     }
   }
   @media only screen and (max-width: 360px){

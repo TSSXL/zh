@@ -11,7 +11,7 @@
         <div class="leftBtn">
           <ul>
             <li v-for="(item,index) in leftList">
-             <button @click="changeColor(index)"  :style="index===select? colorStyle:''">{{item}}</button>
+             <button @click="changeColor(index)"  :style="Color(index)">{{item}}</button>
             </li>
           </ul>
         </div>
@@ -169,6 +169,10 @@
             backgroundColor:"#4982ff",
             color:"white"
           },
+          colorTwoStyle:{
+            backgroundColor:"#4982ff",
+            color:"white"
+          },
           rightConStyle:{
             display:"block"
           },
@@ -193,18 +197,30 @@
       created(){
         let idx=this.$route.query.idx
         this.changeColor(idx)
+
+        let arr=[1,2,3,4,5]
+        console.log(_.first(arr))
       },
       methods:{
+        Color(index){
+          if(index===0)
+          {
+            return this.colorTwoStyle
+          }
+          return index===this.select? this.colorStyle:''
+        },
         changeColor(index){
           this.select=index
           if (index===0)
           {
-
             this.needStyle.display="none"
             this.callStyle.display="none"
             this.zyStyle.display="none"
             this.exStyle.display="none"
             this.rightConStyle.display="block"
+            this.colorTwoStyle={
+              backgroundColor:"#4982ff",
+              color:"white"}
           }else if (index===1)
           {
             this.needStyle.display="none"
@@ -212,6 +228,7 @@
             this.rightConStyle.display="none"
             this.exStyle.display="none"
             this.zyStyle.display="flex"
+            this.colorTwoStyle={}
           }
           else if(index===2){
             this.needStyle.display="none"
@@ -219,6 +236,7 @@
             this.rightConStyle.display="none"
             this.zyStyle.display="none"
             this.exStyle.display="flex"
+            this.colorTwoStyle={}
           }else if (index===3)
           {
             this.exStyle.display="none"
@@ -226,12 +244,14 @@
             this.rightConStyle.display="none"
             this.zyStyle.display="none"
             this.callStyle.display="block"
+            this.colorTwoStyle={}
           }else if (index===4) {
             this.exStyle.display="none"
             this.rightConStyle.display="none"
             this.callStyle.display="none"
             this.zyStyle.display="none"
             this.needStyle.display="block"
+            this.colorTwoStyle={}
           }else{
             this.exStyle.display="none"
             this.needStyle.display="none"
@@ -449,8 +469,7 @@
    margin-top:750px;
   }
 
-  @media only screen and (max-width: 1366px)
-  {
+  @media only screen and (max-width: 1366px) {
   .mineInfo{
     .rightCon{
       width:60%;
@@ -509,6 +528,177 @@
     }
   }
   @media only screen and (max-width: 768px){
+    .img{
+      width:100%;
+      height: 200px;
+      background-color: #91C4D5;
+      .info{
+        height:20%;
+        width:100%;
+        position: absolute;
+        margin-top: 10%;
+        font-size: 1em;
+        p{
+          display: inline-block;
+          text-align: left;
+          width:80%;
+          color: white;
+          font-weight: bolder;
+          line-height: 20px;
+        }
+      }
+    }
+    .mineInfo{
+      width:100%;
+      margin-top:10px;
+      margin-left: 0;
+      .leftBtn{
+        height:40px;
+        width:100%;
+        border:none;
+        margin-left: 0;
+        ul{
+          height:40px;
+          width:87%;
+          li:first-child{
+            margin-left: 2%;
+          }
+          li{
+            height:40px;
+            float: left;
+            width: 18%;
+            margin-left: 2%;
+            button{
+              height:40px;
+              font-size:1em;
+              border: none;
+              border-radius: 10%;
+            }
+          }
+        }
+      }
+      .rightCon{
+        width:100%;
+        height:300px;
+        margin-right:0%;
+        margin-top: 60px;
+        ul{
+          margin-top:10px;
+          list-style: none;
+          height:270px;
+          width:100%;
+          margin-left: -5%;
+          li{
+            float: left;
+            height:90px;
+            width:32%;
+            margin-left: 5px;
+            margin-top: 20px;
+            img{
+              height:100px;
+              width:128px;
+            }
+          }
+        }
+      }
+      .zy{
+        width:100%;
+        float: right;
+        margin-right: 0;
+        margin-top: 50px;
+        border: none;
+        display: none;
+        flex-wrap: wrap;
+        .licence{
+          height:200px;
+          width:45%;
+          margin-top: 20px;
+          margin-left: 3%;
+          img{
+            height:200px;
+            width:100%;
+          }
+        }
+        .book{
+          height:200px;
+          width:45%;
+          margin-top: 20px;
+          margin-left: 3%;
+          img{
+            height:200px;
+            width:100%;
+          }
+        }
+        .house{
+          height:180px;
+          width:60%;
+          margin-top: 5%;
+          padding-bottom: 0;
+          margin-left: 20%;
+          img{
+            height:160px;
+            width:100%;
+          }
+        }
+      }
+      .example{
+        width:100%;
+        margin-right: 0;
+        margin-top: 60px;
+        height:400px;
+        border: none;
+      }
+      .callMe{
+        width:100%;
+        margin-right: 0;
+        margin-top: 60px;
+        border: none;
+        height:250px;
+        .callMeTitle{
+          margin-left: 0;
+          height:50%;
+          width:100%;
+          p:first-child,p:nth-child(2){
+            font-size: 1em;
+            margin-top: 5%;
+          }
+          p{
+            margin-left: 2%;
+          }
+        }
+        .map{
+          width:50%;
+          height:80%;
+          margin-top: 2%;
+          margin-left: 45%;
+          img{
+            margin-top: 0;
+            height:100%;
+            width:100%;
+          }
+        }
+      }
+      .need{
+        .callMeTitle{
+          p:nth-child(2)
+          {
+            margin-top: 3%;
+            font-weight: normal;
+            display: inline-block;
+            margin-left: -56%;
+            width: 40%;
+          }
+          p:nth-child(3){
+            margin-top: 5%;
+          }
+        }
+      }
+    }
+    .mineFoot{
+      margin-top:510px;
+    }
+  }
+  @media only screen and (max-width: 450px){
     .img{
       width:100%;
       height: 200px;
@@ -677,9 +867,7 @@
       margin-top:510px;
     }
   }
-
-  @media only screen and (max-width: 667px)
-  {
+  @media only screen and (max-width: 667px) {
     .mineInfo{
       .rightCon{
         width:96%;

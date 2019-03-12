@@ -8,6 +8,11 @@ import 'element-ui/lib/theme-chalk/index.css';
 import $ from 'jquery'
 Vue.use(ElementUI);
 
+import axios from 'axios'
+import qs from 'qs'
+Vue.prototype.$http = axios;
+axios.defaults.baseURL = 'http://jmj.kimijia.com/';
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

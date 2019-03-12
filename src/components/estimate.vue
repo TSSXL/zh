@@ -6,7 +6,6 @@
           <li v-for="(item,index) in list"><a @click="changeMain(index)" :style="index===select?colorStyle:''" >{{item}}</a></li>
         </ul>
       </div>
-       <div class="noContent" :style="noContentStyle"></div>
       <div class="main" :style="zeroStyle">
         <div class="form">
           <el-form ref="form" :model="form" label-width="120px">
@@ -126,9 +125,6 @@
             twoStyle:{
               display:"none"
             },
-            noContentStyle:{
-              display:"block"
-            },
             select:0,
             colorStyle:{
               color:"white"
@@ -173,6 +169,7 @@
       HeadComponent,
       FootComponent
     },
+      inject:['reload'],
       methods:{
         changeMain(index){
           this.select=index
@@ -183,12 +180,10 @@
             this.zeroStyle.display="block"
           }else if(index===1)
           {
-            this.noContentStyle.display="none"
             this.twoStyle.display="none"
             this.zeroStyle.display="none"
             this.oneStyle.display="block"
           }else{
-            this.noContentStyle.display="none"
             this.oneStyle.display="none"
             this.zeroStyle.display="none"
             this.twoStyle.display="block"
@@ -226,11 +221,6 @@
       }
     }
   }
-  .noContent{
-    height:60px;
-    background-color: #E8E8E8;
-    width:100%;
-  }
   .main{
     padding-bottom: 120px;
     .form{
@@ -239,11 +229,11 @@
       margin-top: 60px;
     }
     .mainHr{
-      height:580px;
+      height:560px;
       position: absolute;
       display: inline-block;
       top: 0;
-      margin-top: 12%;
+      margin-top: 8%;
     }
     .btn{
       font-size: 4em;
@@ -351,9 +341,6 @@
         font-size: 1em;
       }
     }
-    .noContent{
-      height:40px;
-    }
     .main{
       padding-bottom: 60px;
       margin-top: -50px;
@@ -426,9 +413,6 @@
      font-size: 1em;
    }
  }
-    .noContent{
-      height:40px;
-    }
     .main{
       padding-bottom: 60px;
       margin-top: -50px;
@@ -538,7 +522,7 @@
     .mainOne,.mainTwo{
       .input{
         .select{
-          margin-top: -14.5%;
+          margin-top: -13.8%;
           width:31.2%;
           margin-left: 5%;
         }

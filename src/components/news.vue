@@ -51,7 +51,7 @@
           small
         style="margin-top: 20px;">
         </el-pagination>
-      <Foot-Component class="footCom"></Foot-Component>
+      <Foot-Component class="footCom" ></Foot-Component>
     </div>
 </template>
 
@@ -63,7 +63,7 @@
       components:{
         HeadComponent,
         FootComponent
-      },
+      }
     }
 </script>
 
@@ -79,7 +79,7 @@
       height:60px;
       list-style: none;
       margin-top: 5%;
-      margin-left: 7%;
+      margin-left: 15%;
       li{
         float: left;
         margin-left: 60px;
@@ -87,9 +87,9 @@
     }
   }
   .newsContent{
-    width:75%;
-    height:300px;
-    margin-left: 12.5%;
+    width:60%;
+    height:200px;
+    margin-left: 20%;
     background-color: #E8E8E8;
     margin-top: 10px;
     display:flex;
@@ -98,21 +98,25 @@
       width:60%;
       .leftNewsTitle{
         width:60%;
-        height:50px;
+        height:30px;
         background-color: white;
         margin-top: 4%;
         margin-left: 2%;
-        line-height: 50px;
+        line-height: 30px;
         font-size: 2em;
         text-align: left;
+        letter-spacing: 1px;
       }
       .leftNewsCon{
-        width:80%;
+        width:90%;
         margin-top: 2%;
+        height:120px;
         margin-left: 2%;
-        line-height: 50px;
-        font-size: 2em;
+        line-height: 30px;
+        font-size: 1em;
         text-align: left;
+        letter-spacing: 1px;
+        background-color: #afd4f6;
       }
     }
     .rightImage{
@@ -120,7 +124,7 @@
       margin-left: 10%;
       img{
         width:100%;
-      height:300px;
+        height:200px;
       }
     }
   }
@@ -135,42 +139,42 @@
      }
     }
   }
-
-  @media only screen and (max-width: 768px)
-  {
- .title{
- height:60px;
-   ul{
-   width:100%;
-     height:40px;
-     margin-top: 8%;
-     margin-left: 0;
-     li{
-       margin-left: 10px;
-     }
- }
- }
+  @media only screen and (max-width: 768px) {
+    .title{
+      height:60px;
+      padding-bottom: 20px;
+      ul{
+        width:95%;
+        height:40px;
+        margin-top: 8%;
+        margin-left: 0;
+        li{
+          margin-left: 10px;
+        }
+      }
+    }
     .newsContent{
       width:95%;
       margin-left: 2.5%;
-      height:120px;
+      height:140px;
       margin-top: 30px;
       .leftNews{
         .leftNewsTitle{
           width:60%;
           height:30px;
           background-color: white;
-          margin-top: 8%;
+          margin-top: 2%;
           margin-left: 2%;
           line-height: 30px;
           font-size: 1em;
           text-align: left;
         }
         .leftNewsCon{
-          width:80%;
+          width:90%;
+          height:80px;
           margin-top: 2%;
           margin-left: 2%;
-          line-height: 50px;
+          line-height: 20px;
           font-size: 1em;
           text-align: left;
         }
@@ -186,6 +190,78 @@
     }
     .footCom{
       margin-top: 30px;
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    .title{
+      height:60px;
+      ul{
+        width:88%;
+        height:40px;
+        margin-top: 8%;
+        margin-left: 0;
+        li{
+          margin-left: 10px;
+        }
+      }
+    }
+    .newsContent{
+      width:95%;
+      margin-left: 2.5%;
+      height:120px;
+      margin-top: 30px;
+      .leftNews{
+        .leftNewsTitle{
+          width:80%;
+          height:30px;
+          background-color: white;
+          margin-top: 5%;
+          margin-left: 2%;
+          line-height: 30px;
+          font-size: 1em;
+          text-align: left;
+        }
+        .leftNewsCon{
+          width:100%;
+          margin-top: 3%;
+          margin-left: 2%;
+          line-height: 50px;
+          height:65px;
+          font-size: 1em;
+          text-align: left;
+        }
+      }
+      .rightImage{
+        width:35%;
+        margin-left: 5%;
+        img{
+          width:100%;
+          height:120px;
+        }
+      }
+    }
+    .footCom{
+      margin-top: 30px;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    .title{
+      height:60px;
+      ul{
+        width:87%;
+        height:40px;
+        margin-top: 8%;
+        margin-left: 0;
+        li:first-child{
+          margin-left: -10%;
+        }
+        li{
+          margin-left:15px;
+        }
+      }
+    }
+    .newsContent{
+      margin-top: 15px;
     }
   }
 }

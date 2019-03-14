@@ -689,7 +689,7 @@
             width: 40%;
           }
           p:nth-child(3){
-            margin-top: 5%;
+            margin-top: 3%;
           }
         }
       }
@@ -854,11 +854,13 @@
         .callMeTitle{
           p:nth-child(2)
           {
-            margin-top: 5%;
+            margin-top: 2%;
             font-weight: normal;
+            width:60%;
+            margin-left: -35%;
           }
           p:nth-child(3){
-            margin-top: 5%;
+            margin-top: 2%;
           }
         }
       }

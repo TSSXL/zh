@@ -111,8 +111,6 @@
         </div>
       </div>
       <div class="workerItem"></div>
-      <div class="workerItem"></div>
-      <div class="workerItem"></div>
     </div>
 
 
@@ -511,7 +509,7 @@ export default {
     margin-left: 3%;
   }
   }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 768px) {
     .image{
       height:300px;
       width:100%;
@@ -683,9 +681,9 @@ export default {
     .workerItem{
       display: flex;
       height:100px;
-      width:100%;
+      width:96%;
       margin-top: 10px;
-      margin-left: 0;
+      margin-left: 2%;
     }
     .workerImage{
       height:80px;
@@ -727,226 +725,12 @@ export default {
       margin-top: 2%;
     }
   }
-  @media only screen and (max-width: 700px) {
-    .image{
-      height:300px;
-      width:100%;
-      background-color: #80b2c3;
-    }
-    .lb{
-      height:300px;
-    }
-    .select{
-      margin-top: -12%;
-      float: left;
-      width:31%;
-      margin-left: 5%;
-    }
-    .el-carousel{
-      overflow: hidden;
-    }
-    .carousel{
-      height:300px;
-    }
-    .el-carousel__item img{
-      height:300px;
-      width:100%;
-    }
-    .image .input{
-      height:40px;
-      width:90%;
-      margin-top:30%;
-      position: absolute;
-      margin-left: 5%;
-    }
-    .input input {
-      width:90%;
-      height:30px;
-      padding:5px 5px;
-      border-radius:30px;
-      border: none;
-      padding-left: 20px;
-      line-height: 30px;
-      font-size: 1.1em;
-      text-indent: 105px;
-    }
-    .right{
-      display: inline-block;
-      height: 100%;
-      padding-right: 20px;
-      border-top-right-radius: 40px;
-      border-bottom-right-radius: 40px;
-      font-size: 2em;
-      width:60px;
-      float: right;
-      background-color: #2199FF;
-      margin-top: -40px;
-      line-height: 40px;
-      margin-right: 1px;
-    }
-    .info{
-      height:90px;
-    }
-    .item{
-      height:80px;
-    }
-    .item img{
-      height:30px;
-      width:30px;
-      margin-left: 36%;
-    }
-    .item .itemText{
-      font-size: 1em;
-      margin-top: 0;
-      height:30px;
-      width:100px;
-      margin-left: -10px;
-    }
-    .serviceImage{
-      height:100px;
-      width:90%;
-      margin-left: 5%;
-      display: flex;
-      margin-top: 0px;
-    }
-    .serviceItem img{
-      height:60%;
-      width:80%;
-    }
-    .fw{
-      width:90%;
-      margin-left: 5%;
-    }
-    .fwItem{
-      height:120px;
-    }
-    .fwItem img{
-      height:60%;
-    }
-    .fwItem span{
-      width:50%;
-      font-size: 0.8em;
-      line-height: 45px;
-    }
-    .msg{
-      margin-top: 8%;
-    }
-    .msg{
-      padding-top: 10px;
-    }
-    .msgText{
-      width:90%;
-      margin-left: 5%;
-      font-size: 0.5em;
-    }
-    .js{
-      line-height: 15px;
-    }
-    .newsItem{
-      height:120px;
-      margin-top: 12%;
-    }
-    .news{
-      width:90%;
-      margin-left: 5%;
-    }
-    .newsTitle{
-      margin-left: -69%;
-    }
-    .newsItem{
-      margin-top: 3%;
-    }
-    .newsLittleTitle{
-      height:40px;
-      width:55%;
-      background-color: white;
-      float: right;
-      margin-top:7%;
-      line-height: 40px;
-      font-size: 1.5em;
-    }
-    .newsContent{
-      display: inline-block;
-      width:76.5%;
-      height:75px;
-      padding-bottom: 10px;
-      font-size: 0.5em;
-      overflow-y: scroll;
-      border: 1px solid black;
-      position: absolute;
-      margin-left: 0;
-      margin-top: 22%;
-    }
-    .newsItem img{
-      height:60px;
-      width:40%;
-      float: left;
-      margin-top: 18px;
-      border: 1px solid black;
-      margin-left: 0%;
-    }
-    .more{
-      margin-left: 62%;
-    }
-    .worker{
-      display: flex;
-      flex-direction: column;
-      width:80%;
-      margin-left: 10%;
-    }
-    .workerItem{
-      display: flex;
-      height:100px;
-      width:100%;
-      margin-top: 10px;
-      margin-left: 0;
-    }
-    .workerImage{
-      height:80px;
-      width:80px;
-      border-radius: 50%;
-      border: 1px solid black;
-      margin-top: 10px;
-      margin-left: 5%;
-    }
-    .workInfo{
-      width:65%;
-      font-size: 1.3em;
-      text-align: left;
-      margin-left: 10px;
-      padding-top: 0;
-      height:100%;
-      overflow-y: scroll;
-    }
-    .mainPeople{
-      margin-left: -55%;
-    }
-    .mainImage{
-      width:100%;
-      margin-left: 0;
-      padding-bottom:60px;
-    }
-    .x{
-      height: 180px;
-    }
-    .i{
-      height:100%;
-      margin-left: -3%;
-      margin-top: 1%;
-    }
-    .i img{
-      height:40%;
-      width:40%;
-      margin-left: 9%;
-      margin-top: 2%;
-    }
-  }
   @media only screen and (max-width: 435px){
     .select{
       margin-top: -10.2%;
     }
     .input input {
-     text-indent: 33.4%;
+     text-indent: 35%;
     }
     .newsLittleTitle{
       height:40px;

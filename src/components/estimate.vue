@@ -95,7 +95,7 @@
           <span class="right"><a >评估</a></span>
         </div>
       </div>
-      <Foot-Component></Foot-Component>
+      <Foot-Component class="footer"></Foot-Component>
     </div>
 </template>
 
@@ -169,7 +169,6 @@
       HeadComponent,
       FootComponent
     },
-      inject:['reload'],
       methods:{
         changeMain(index){
           this.select=index
@@ -210,7 +209,6 @@
         margin-left: 20%;
         line-height: 55px;
         font-size: 1.5em;
-
       a{
         text-decoration: none;
         color:black;
@@ -333,12 +331,13 @@
       }
     }
   }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 768px) {
     .bt ul{
       width:89%;
       li{
         margin-left: 19%;
         font-size: 1em;
+        line-height: 50px;
       }
     }
     .main{
@@ -347,6 +346,7 @@
       .form{
         width:100%;
         margin-left: -10px;
+        margin-top: 75px;
       }
       .mainHr,.content,.btn{
         display: none;
@@ -362,7 +362,7 @@
     .mainOne,.mainTwo{
       background-color: #80b2c3;
       width:100%;
-      height:425px;
+      height:605px;
       span{
         display: inline-block;
         height:30px;
@@ -405,12 +405,13 @@
       }
     }
   }
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 435px) {
     .bt ul{
-   width:89%;
+      width:89%;
    li{
      margin-left: 10%;
-     font-size: 1em;
+     font-size: 1.3em;
+     line-height: 60px;
    }
  }
     .main{
@@ -456,7 +457,7 @@
           text-indent: 33%;
         }
         .select{
-          margin-top: -11.8%;
+          margin-top: -10.2%;
           width:30%;
           margin-left: 5%;
         }
@@ -473,15 +474,6 @@
           margin-top: -40px;
           line-height: 40px;
           margin-right: 1px;
-        }
-      }
-    }
-  }
-  @media only screen and (max-width: 435px) {
-    .mainOne,.mainTwo{
-      .input{
-        .select{
-          margin-top: -10.2%;
         }
       }
     }

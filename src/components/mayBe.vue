@@ -76,20 +76,19 @@
 
 <style  scoped>
   .menuItem{
-    margin-left: 15%;
-  }
+      margin-left: 15%;
+    }
   .show{
     display: none;
   }
-
-  @media only screen and (max-width: 450px){
+  @media only screen and (max-width: 768px){
     .el-menu-demo{
       display: none;
     }
     .show{
       display: block;
-      width:99%;
-      background-color: #a9b5bd;
+      width:100%;
+      background-color: #545C64;
     }
   }
 

@@ -1,28 +1,14 @@
 <template>
   <div id="app">
-    <router-view v-if="isRouterAlive" />
+    <router-view  />
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
-  provide(){
-   return{
-    reload:this.reload
-}
-  },
   data(){
     return{
-      isRouterAlive:true
-    }
-  },
-  methods:{
-    reload(){
-      this.isRouterAlive=false
-      this.$nextTick(()=>{
-        this.isRouterAlive=true
-      })
     }
   }
 }
@@ -34,6 +20,28 @@ export default {
     padding: 0;
     font-size: 62.5%;
   }
+  .el-radio-button{
+    margin-top: 16px;
+  }
+  .el-menu--horizontal>.el-menu-item{
+    margin-left: 15%;
+  }
+  .el-input__inner{
+    border: none;
+  }
+  .el-menu--popup{
+    min-width:100px;
+    background-color: #A9B5BD;
+  }
+  .el-menu{
+    background-color: #c2ced6;
+  }
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+  }
+  .el-submenu .el-menu-item{
+    color:gray;
+  }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -43,16 +51,4 @@ export default {
   border: 1px solid #EFEFEF;
   width: 100%;
 }
-  .el-input__inner{
-    border: 1px solid #ffffff;
-  }
-  .el-range-editor.is-active, .el-range-editor.is-active:hover, .el-select .el-input.is-focus .el-input__inner{
-    border-color: #ffffff;
-  }
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-  }
-  .el-submenu .el-menu-item{
-    color:gray;
-  }
 </style>

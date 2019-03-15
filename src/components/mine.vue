@@ -15,7 +15,7 @@
               </li>
             </ul>
           </div>
-          <div class="rightCon" :style="rightConStyle">
+          <div class="rightCon"  v-if="num==0">
             <ul>
               <li><img src="../image/first.jpg" alt=""></li>
               <li><img src="../image/two.jpg" alt=""></li>
@@ -28,7 +28,7 @@
               <li><img src="../image/two.jpg" alt=""></li>
             </ul>
           </div>
-          <div class="zy" :style="zyStyle">
+          <div class="zy" v-else-if="num==1" >
             <div class="licence">
               <img src="../image/first.jpg" alt="">
               <p>营业执照</p>
@@ -42,7 +42,7 @@
               <p>房地产资质</p>
             </div>
           </div>
-          <div class="example" :style="exStyle">
+          <div class="example"  v-else-if="num==2">
             <div class="exampleItem">
               <p>银行抵押</p>
               <div class="exampleImage">
@@ -161,7 +161,7 @@
               </div>
             </div>
           </div>
-          <div class="callMe" :style="callStyle">
+          <div class="callMe"  v-else-if="num==3">
             <div class="callMeTitle">
               <p>联系我们</p>
               <p>宁波仲恒房地产估价有限公司</p>
@@ -174,7 +174,7 @@
               <img src="../image/first.jpg" alt="">
             </div>
           </div>
-          <div class="callMe need" :style="needStyle">
+          <div class="callMe need"  v-else="num==4">
             <div class="callMeTitle">
               <p>招贤纳士</p>
               <p>公司常年诚招房地产估价师,土地估价师，测绘工程师，仲恒估价公司欢迎您的加入</p>
@@ -204,6 +204,7 @@
             "招贤纳士"
           ],
           select:0,
+          num:0,
           colorStyle:{
             backgroundColor:"#4982ff",
             color:"white"
@@ -211,21 +212,6 @@
           colorTwoStyle:{
             backgroundColor:"#4982ff",
             color:"white"
-          },
-          rightConStyle:{
-            display:"block"
-          },
-          zyStyle:{
-            display:""
-          },
-          callStyle:{
-            display:""
-        },
-          needStyle:{
-            display:""
-          },
-          exStyle:{
-            display:""
           }
         }
       },
@@ -234,8 +220,7 @@
         FootComponent
       },
       created(){
-        let idx=this.$route.query.idx
-        this.changeColor(idx)
+        this.num=this.$route.query.idx
       },
       methods:{
         Color(index){
@@ -247,66 +232,40 @@
         },
         changeColor(index){
           this.select=index
+          this.num=index
           if (index===0)
           {
-            this.needStyle.display="none"
-            this.callStyle.display="none"
-            this.zyStyle.display="none"
-            this.exStyle.display="none"
-            this.rightConStyle.display="block"
             this.colorTwoStyle={
               backgroundColor:"#4982ff",
               color:"white"}
           }else if (index===1)
           {
-            this.needStyle.display="none"
-            this.callStyle.display="none"
-            this.rightConStyle.display="none"
-            this.exStyle.display="none"
-            this.zyStyle.display="flex"
             this.colorTwoStyle={}
           }
           else if(index===2){
-            this.needStyle.display="none"
-            this.callStyle.display="none"
-            this.rightConStyle.display="none"
-            this.zyStyle.display="none"
-            this.exStyle.display="flex"
             this.colorTwoStyle={}
           }else if (index===3)
           {
-            this.exStyle.display="none"
-            this.needStyle.display="none"
-            this.rightConStyle.display="none"
-            this.zyStyle.display="none"
-            this.callStyle.display="block"
             this.colorTwoStyle={}
           }else if (index===4) {
-            this.exStyle.display="none"
-            this.rightConStyle.display="none"
-            this.callStyle.display="none"
-            this.zyStyle.display="none"
-            this.needStyle.display="block"
             this.colorTwoStyle={}
           }else{
-            this.exStyle.display="none"
-            this.needStyle.display="none"
-            this.callStyle.display="none"
-            this.zyStyle.display="none"
-            this.rightConStyle.display="block"
+
           }
-        },
+        }
       }
     }
 </script>
 
 <style lang="scss" scoped>
+  $bg:#91C4D5;
+  $borderColor:#4982ff;
 .mine{
   width:100%;
   .img{
     width:100%;
     height: 400px;
-    background-color: #91C4D5;
+    background-color: $bg;
     .info{
       height:20%;
       width:80%;
@@ -332,7 +291,7 @@
     .leftBtn{
       height:350px;
       width:12%;
-      border: 1px solid #4982ff;
+      border: 1px solid $borderColor;
       margin-left: 3.5%;
       ul{
         height:350px;
@@ -348,7 +307,6 @@
             height:70px;
             font-size: 1.5em;
           }
-
         }
       }
     }
@@ -379,7 +337,7 @@
       margin-left: 25%;
       margin-top: -23%;
       border: 1px solid blueviolet;
-      display: none;
+      display: flex;
       flex-wrap: wrap;
       .licence{
         height:320px;
@@ -415,7 +373,7 @@
     }
     .example{
       width:50%;
-      display: none;
+      display: flex;
       margin-left: 25%;
       margin-top: -23.2%;
       flex-direction: column;
@@ -450,7 +408,6 @@
       margin-left: 25%;
       margin-top: -23%;
       height:350px;
-      display: none;
       border: 1px solid blueviolet;
       position: relative;
       .callMeTitle{
@@ -569,7 +526,7 @@
     .img{
       width:100%;
       height: 200px;
-      background-color: #91C4D5;
+      background-color: $bg;
       .info{
         height:10%;
         width:100%;
@@ -736,7 +693,7 @@
     .img{
       width:100%;
       height: 200px;
-      background-color: #91C4D5;
+      background-color: $bg;
       .info{
         height:20%;
         width:100%;

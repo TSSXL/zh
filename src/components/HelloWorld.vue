@@ -365,13 +365,12 @@ export default {
 }
 .newsTitle{
   font-size: 2em;
-  margin-left: -83%;
 }
 .newsItem{
-  width:88%;
+  width:73%;
   background-color: #E8E8E8;
   margin-top: 5%;
-  margin-left: 6%;
+  margin-left: 14%;
   text-align: left;
   padding-bottom: 50px;
   letter-spacing: 3px;
@@ -404,16 +403,16 @@ export default {
 }
 .more{
   display: inline-block;
-  margin-left: 67%;
+  margin-left: 55%;
   font-size: 1.5em;
 }
 .more a{
   color:blue;
 }
 .worker{
-  width:71%;
+  width:59%;
   margin-top: 5%;
-  margin-left: 14.6%;
+  margin-left: 21%;
   padding-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
@@ -449,7 +448,6 @@ export default {
 }
 .mainPeople{
   font-size: 2em;
-  margin-left: -67%;
   margin-top: 6%;
 }
 .mainImage{
@@ -492,14 +490,14 @@ export default {
     .jsTwo{
       width:50%;
     }
-    .newsTitle{
-      margin-left: -83%;
+    .newsItem img{
+      margin-left: 68%;
+      margin-top: -22%;
+      background-color: wheat;
     }
     .newsContent{
       margin-top: 9%;
-    }
-    .more{
-      margin-left: 66%;
+      width:68%;
     }
     .mainImage{
       width:70%;
@@ -626,18 +624,14 @@ export default {
    }
    .newsItem{
      height:120px;
-     margin-top: 12%;
+     margin-top:3%;
+     width:100%;
+     margin-left: 0;
    }
    .news{
      width:90%;
      margin-left: 5%;
    }
-    .newsTitle{
-      margin-left: -69%;
-    }
-    .newsItem{
-      margin-top: 3%;
-    }
     .newsLittleTitle{
       height:40px;
       width:55%;
@@ -649,14 +643,14 @@ export default {
     }
     .newsContent{
       display: inline-block;
-      width:48%;
+      width:55%;
       height:75px;
       padding-bottom: 10px;
       font-size: 0.5em;
       overflow-y: hidden;
       border: 1px solid black;
       position: absolute;
-      margin-left: -43.5%;
+      margin-left: -49.5%;
       margin-top: 8%;
       float: left;
     }
@@ -670,17 +664,17 @@ export default {
       margin-right: 2%;
     }
     .more{
-      margin-left: 66%;
+      margin-left: 80%;
     }
     .worker{
       display: flex;
       flex-direction: column;
-      width:80%;
-      margin-left: 10%;
+      width:90%;
+      margin-left: 5%;
     }
     .workerItem{
       display: flex;
-      height:100px;
+      height:140px;
       width:96%;
       margin-top: 10px;
       margin-left: 2%;
@@ -701,9 +695,6 @@ export default {
       padding-top: 0;
       height:100%;
       overflow-y: hidden;
-    }
-    .mainPeople{
-      margin-left: -55%;
     }
     .mainImage{
       width:100%;
@@ -733,35 +724,13 @@ export default {
      text-indent: 35%;
     }
     .newsLittleTitle{
-      height:40px;
-      width:55%;
-      background-color: white;
-      float: left;
       margin-top:3%;
-      line-height: 40px;
-      font-size: 1.5em;
     }
     .newsContent{
-      display: inline-block;
-      width:48%;
-      height:75px;
-      padding-bottom: 10px;
-      font-size: 0.5em;
-      overflow-y: hidden;
-      border: 1px solid black;
-      position: absolute;
-      margin-left: -43.5%;
       margin-top: 15%;
-      float: left;
     }
-    .newsItem img{
-      height:100px;
-      width:30%;
-      float: right;
-      margin-top: 5%;
-      border: 1px solid black;
-      margin-left: 0%;
-      margin-right: 2%;
+    .more{
+      margin-left: 75%;
     }
   }
   @media only screen and (max-width: 415px){
@@ -777,35 +746,14 @@ export default {
       text-indent: 33.4%;
     }
     .newsLittleTitle{
-      height:40px;
-      width:55%;
-      background-color: white;
-      float: left;
       margin-top:6%;
-      line-height: 40px;
-      font-size: 1.5em;
     }
     .newsContent{
-      display: inline-block;
-      width:48%;
-      height:75px;
-      padding-bottom: 10px;
-      font-size: 0.5em;
-      overflow-y: hidden;
-      border: 1px solid black;
-      position: absolute;
-      margin-left: -43.5%;
+      width:50%;
       margin-top: 18%;
-      float: left;
     }
     .newsItem img{
-      height:100px;
       width:35%;
-      float: right;
-      margin-top: 5%;
-      border: 1px solid black;
-      margin-left: 0%;
-      margin-right: 2%;
     }
   }
   @media only screen and (max-width: 360px){

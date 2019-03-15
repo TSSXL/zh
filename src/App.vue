@@ -21,7 +21,7 @@ export default {
     font-size: 62.5%;
   }
   .el-radio-button{
-    margin-top: 16px;
+    margin-top: 10px;
   }
   .el-menu--horizontal>.el-menu-item{
     margin-left: 15%;

@@ -1,5 +1,6 @@
 <template>
     <div class="gj">
+      <span style="height:60px;width:25%;background-color: gray;margin-left: 8%;">aaa</span>
       <el-menu
         :default-active="activeIndex2"
         class="el-menu-demo"
@@ -15,7 +16,7 @@
       </el-menu>
       <div class="show">
         <el-radio-group v-model="isCollapse" style="float: right;">
-          <el-radio-button :label="false" style="margin-top: 8px;">展开</el-radio-button>
+          <el-radio-button :label="false">展开</el-radio-button>
           <el-radio-button :label="true">收起</el-radio-button>
         </el-radio-group>
           <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
@@ -75,13 +76,23 @@
 </script>
 
 <style  scoped>
+  .gj{
+    display: flex;
+
+  }
+  .el-menu-demo{
+    width:68%;
+  }
   .menuItem{
-      margin-left: 15%;
+      margin-left: 10%;
     }
   .show{
     display: none;
   }
   @media only screen and (max-width: 768px){
+    span{
+      display: none;
+    }
     .el-menu-demo{
       display: none;
     }

@@ -42,8 +42,8 @@
       },
       methods:{
           gotoFirst(){
-            this.$router.push({path:'/mine',query:{idx:0}})
-          },
+          this.$router.push({path:'/mine',query:{idx:0}})
+        },
         gotoSecond(){
           this.$router.push({path:'/mine',query:{idx:1}})
         },
@@ -64,11 +64,10 @@
   .footer{
     height:220px;
     width:100%;
+    position: relative;
     background-color: #2882C6;
     color:white;
     font-weight: bold;
-    bottom: 0;
-
   }
   .companyInfo{
     width:60%;
@@ -76,6 +75,7 @@
     margin-left: 20%;
     display: flex;
     flex-direction: row;
+    position: absolute;
   }
   .companyInfo hr{
     height:80%;
@@ -168,7 +168,7 @@
       width:40%;
     }
   }
-  @media only screen and (max-width: 1024px){
+  @media only screen and (max-width: 768px){
     .footer{
       height:300px;
       width:100%;
@@ -185,7 +185,7 @@
     }
     .companyInfo{
       width:60%;
-      margin-left: 20%;
+      margin-left: 22%;
       display:flex;
       flex-direction: column;
     }
@@ -203,7 +203,7 @@
     }
     .dontKnowFirst span{
       margin-left: 0%;
-      margin-top: 4%;
+      margin-top: 8%;
     }
     .dontKnowSecond{
       margin-left: 10%;
@@ -276,8 +276,8 @@
       margin-top: 5px;
     }
     .dontKnowFirst span{
-      margin-left: 8%;
-      margin-top: 6%;
+      margin-left:-2%;
+      margin-top: 12%;
     }
     .dontKnowSecond{
       margin-left: 50px;

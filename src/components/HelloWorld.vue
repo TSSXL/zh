@@ -608,7 +608,7 @@ export default {
    .fwItem span{
      width:50%;
      font-size: 0.8em;
-     line-height: 45px;
+     line-height: 68px;
    }
    .msg{
      margin-top: 8%;

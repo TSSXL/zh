@@ -386,8 +386,6 @@
       .t{
         width:100%;
         height:240px;
-        border: 1px solid black;
-        background-color: red;
         .input{
           height: 60px;
           width: 50%;
@@ -482,7 +480,6 @@
   @media only screen and (max-width: 435px) {
     .navComponent{
       margin-top: 60px;
-
     }
     .bt ul{
       width:100%;

@@ -74,11 +74,14 @@
     color:black
   }
   @media only screen and (max-width: 768px){
+    .gjImg{
+      margin-left: 10%;
+    }
     .nav{
       width:100%;
       height:60px;
       margin-top: 2%;
-      margin-left: 0%;
+      margin-left: -10%;
     }
     .nav ul{
       list-style: none;

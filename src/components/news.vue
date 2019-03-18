@@ -1,6 +1,6 @@
 <template>
     <div class="news">
-      <NavComponent></NavComponent>
+        <NavComponent class="navComponent"></NavComponent>
       <img src="../image/divider.png" alt="" style="height:60px;width:100%;">
       <div class="title">
         <ul>
@@ -194,6 +194,9 @@
     }
   }
   @media only screen and (max-width: 450px) {
+    .navComponent{
+      margin-top: 60px;
+    }
     .title{
       height:60px;
       ul{

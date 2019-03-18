@@ -438,7 +438,7 @@ import HeadComponent from  './mayBe'
         margin-left: 50%;
         img{
           height:50%;
-          width:100%; 
+          width:100%;
           margin-top: 25%;
         }
       }
@@ -693,7 +693,6 @@ import HeadComponent from  './mayBe'
       width:100%;
       height: 200px;
       .info{
-        height:20%;
         width:100%;
         position: absolute;
         margin-top: 5%;

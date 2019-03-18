@@ -654,9 +654,7 @@ export default {
       margin-top: 0px;
     }
     .item img{
-      height:50px;
-      width:50px;
-      margin-left: 36%;
+      margin-left: 32%;
     }
     .item .itemText{
       font-size: 1em;
@@ -732,7 +730,7 @@ export default {
       width:80px;
       border-radius: 50%;
       border: 1px solid black;
-      margin-top: 10px;
+      margin-top: 26px;
       margin-left: 5%;
     }
     .workInfo{
@@ -740,7 +738,7 @@ export default {
       font-size: 1.3em;
       text-align: left;
       margin-left: 10px;
-      padding-top: 0;
+      padding-top: 20px;
       height:100%;
       overflow-y: hidden;
     }
@@ -769,7 +767,14 @@ export default {
   }
   @media only screen and (max-width: 435px){
     .header{
+      margin-top: 30px;
       margin-left: 5%;
+    }
+    .item img{
+      margin-left: 26%;
+    }
+    .item .itemText,.d{
+      margin-left: 15px;
     }
     .image .input{
       height:40px;
@@ -789,6 +794,9 @@ export default {
     }
     .fwItem{
       margin-top: 0;
+    }
+    .fwItem img{
+      height:20%;
     }
     .title{
       font-size: 1em;

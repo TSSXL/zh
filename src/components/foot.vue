@@ -258,11 +258,12 @@
       height:520px;
     }
     .dontKnowFirst img{
-     height:90px;
-      margin-top: 0;
+      margin-top: 10px;
+      height: 80px;
+      width: 144px;
     }
     .companyInfo hr{
-      margin-top: 25px;
+      margin-top: 0px;
       width:60%;
       margin-left: 0;
     }

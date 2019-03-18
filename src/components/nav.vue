@@ -76,11 +76,14 @@
     color:red
   }
   @media only screen and (max-width: 768px){
+    .gjImg{
+      margin-left: 10%;
+    }
     .nav{
       width:100%;
       height:60px;
       margin-top: 2%;
-      margin-left: 0%;
+      margin-left:-10%;
     }
     .nav ul{
       list-style: none;
@@ -107,6 +110,16 @@
     .nav ul li{
       font-size: 1.5em;
       margin-left: 5%;
+    }
+  }
+  @media only screen and (max-width: 320px){
+    .nav {
+      margin-left: -15%;
+      margin-top: -15%;
+    }
+    .nav ul li{
+      font-size: 1.5em;
+      margin-left: 2.5%;
     }
   }
 

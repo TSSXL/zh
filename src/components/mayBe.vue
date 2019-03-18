@@ -1,38 +1,13 @@
 <template>
     <div class="gj">
-      <span style="height:60px;width:25%;background-color: gray;margin-left: 8%;">aaa</span>
-      <el-menu
-        :default-active="activeIndex2"
-        class="el-menu-demo"
-        mode="horizontal"
-        @select="handleSelect"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b">
-        <el-menu-item class="menuItem" index="1" @click="gotoIndex">首页</el-menu-item>
-        <el-menu-item class="menuItem" index="2" @click="gotoEstimate">在线评估</el-menu-item>
-        <el-menu-item class="menuItem" index="3" @click="gotoNews">新闻资讯</el-menu-item>
-        <el-menu-item class="menuItem" index="4" @click="gotoMine">关于我们</el-menu-item>
-      </el-menu>
-      <div class="show">
-        <el-radio-group v-model="isCollapse" style="float: right;">
-          <el-radio-button :label="false">展开</el-radio-button>
-          <el-radio-button :label="true">收起</el-radio-button>
-        </el-radio-group>
-          <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-          <el-submenu index="1">
-            <template slot="title">
-              <img src="../image/nav.png" alt="" style="height:40px;width:40px;margin-left: -10px;">
-              <span slot="title">导航栏</span>
-            </template>
-            <el-menu-item-group>
-              <el-menu-item index="1-1" @click="gotoIndex">首页</el-menu-item>
-              <el-menu-item index="1-2" @click="gotoEstimate">在线评估</el-menu-item>
-              <el-menu-item index="1-3" @click="gotoNews">新闻资讯</el-menu-item>
-              <el-menu-item index="1-4" @click="gotoMine">关于我们</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-        </el-menu>
+        <img class="gjImg" src="../image/top_logo.png" alt="">
+      <div class="nav">
+        <ul>
+          <li><a  @click="gotoIndex">首页</a></li>
+          <li><a @click="gotoEstimate">在线估价</a></li>
+          <li><a @click="gotoNews">新闻资讯</a></li>
+          <li><a @click="gotoMine">关于我们</a></li>
+        </ul>
       </div>
     </div>
 </template>
@@ -41,12 +16,6 @@
     export default {
      data(){
           return{
-            elRowStyle:{
-              display:"block"
-            },
-            activeIndex2:'',
-            isCollapse: true,
-            index:''
           }
      },
       methods:{
@@ -78,29 +47,100 @@
 <style  scoped>
   .gj{
     display: flex;
-
+    padding-bottom: 10px;
   }
-  .el-menu-demo{
-    width:68%;
+  .gjImg{
+  margin-left: 18%;
   }
-  .menuItem{
-      margin-left: 10%;
-    }
-  .show{
-    display: none;
+  .nav{
+    width:60%;
+    margin-top: 2%;
+    margin-left: 12%;
+  }
+  .nav ul{
+    list-style: none;
+    width:100%;
+  }
+  .nav ul li{
+    float: left;
+    margin-left: 10%;
+    font-size: 2em;
+    color:white;
+  }
+  .nav ul li a:hover{
+    cursor: pointer;
+  }
+  .nav ul li a:active{
+    color:black
   }
   @media only screen and (max-width: 768px){
-    span{
-      display: none;
-    }
-    .el-menu-demo{
-      display: none;
-    }
-    .show{
-      display: block;
+    .nav{
       width:100%;
-      background-color: #545C64;
+      height:60px;
+      margin-top: 2%;
+      margin-left: 0%;
+    }
+    .nav ul{
+      list-style: none;
+      width:100%;
+    }
+    .nav ul li{
+      float: left;
+      margin-left: 10%;
+      font-size: 2em;
+      color:white;
     }
   }
-
+  @media only screen and (max-width: 600px){
+    .gjImg{
+      height:60px;
+      width:60px;
+      margin-top: -60px;
+     margin-left: 10px;
+    }
+    .nav {
+      margin-left: -10%;
+      margin-top: -13%;
+    }
+ .nav ul li{
+  font-size: 1.5em;
+   margin-left: 5%;
+ }
+  }
+  @media only screen and (max-width: 450px){
+    .gjImg{
+      height:80px;
+      width:80px;
+      margin-left: 5%;
+      margin-top: 0;
+    }
+    .nav {
+      margin-left: -10%;
+      margin-top: 5%;
+    }
+    .nav ul li{
+      font-size: 1.5em;
+      margin-left: 5%;
+    }
+  }
+  @media only screen and (max-width: 380px){
+    .nav {
+      margin-left: -14%;
+    }
+  }
+  @media only screen and (max-width: 360px){
+    .nav {
+      margin-left: -17%;
+    }
+  }
+  @media only screen and (max-width: 320px){
+    .nav {
+      margin-left: -10%;
+      margin-top: 7%;
+    }
+    .nav ul li{
+      font-size: 1.3em;
+      margin-left:2%;
+    }
+  }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div class="hel">
-   <Head-Component></Head-Component>
      <div class="image">
+       <div class="header"><Head-Component></Head-Component></div>
        <div class="lb">
-         <el-carousel height="400px" class="carousel"  trigger="click"  :loop="true">
+         <el-carousel height="600px" class="carousel"  trigger="click"  :loop="true">
            <el-carousel-item v-for="item in imageList" :key="item">
-             <img :src="item" alt="背景图" style="height:400px;width:100%;">
+             <img :src="item" alt="背景图">
            </el-carousel-item>
          </el-carousel>
        </div>
@@ -26,94 +26,117 @@
       <el-row>
         <el-col  :xs="0" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
         <el-col  :xs="0" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/first.svg" alt=""><div class="itemText">60,000个</div><div class="itemText">评估项目</div></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/house.svg" alt=""><div class="itemText">1.2亿平方米</div><div class="itemText">建筑面积</div></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/tu.svg" alt=""><div class="itemText">60,000个</div><div class="itemText">土地面积</div></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/money.svg" alt=""><div class="itemText">1.9万亿元</div><div class="itemText">评估总值</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/evaluation_project.png" alt=""><div class="itemText">评估项目</div><div class="itemHr"></div><div class="itemText" style="font-weight: bolder">600</div><div class="d" >(个)</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/construction_area.png" alt=""><div class="itemText">建筑面积</div><div class="itemHr"></div><div class="itemText" style="font-weight: bolder">4.2亿</div><div class="d">(平方米)</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/land_area.png" alt=""><div class="itemText">土地面积</div><div class="itemHr"></div><div class="itemText" style="font-weight: bolder">1.1亿</div><div class="d">(平方米)</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/total_cost_assessment.png" alt=""><div class="itemText">评估总值</div><div class="itemHr"></div><div class="itemText" style="font-weight: bolder">128万亿</div><div class="d">(元)</div></div></el-col>
         <el-col  :xs="0" :sm="6"  :lg="6" :xl="6"><div class="item"></div></el-col>
       </el-row>
     </div>
-    <div class="title">
-      <span>服务理念</span>
-      <div class="serviceImage" style="background-color: #e8e8e8;">
-       <div class="serviceItem">
-         <img src="../image/first.svg" alt="">
-         <div class="serviceText">公正</div>
-       </div>
-        <div class="serviceItem">
-          <img src="../image/tu.svg" alt="">
-        <div class="serviceText">严谨</div>
-        </div>
-        <div class="serviceItem">
-          <img src="../image/house.svg" alt="">
-          <div class="serviceText">专注</div>
-        </div>
-        <div class="serviceItem">
-          <img src="../image/money.svg" alt="">
-          <div class="serviceText">创新</div>
-        </div>
+    <div class="title ser">
+      <span style="font-weight: bolder;">服务理念</span>
+      <div class="serviceImage">
+        <ul>
+          <li><img src="../image/justice.png" alt=""></li>
+          <li><img src="../image/focus.png" alt=""></li>
+          <li><img src="../image/rigorous.png" alt=""></li>
+          <li><img src="../image/innovation.png" alt=""></li>
+        </ul>
       </div>
       </div>
      <div class="title" >
-       <span>业务范围</span>
-       <div class="fw" style="background-color: #e8e8e8;">
+       <span style="font-weight: bolder">业务范围</span>
+       <div class="fw">
          <div class="fwItem">
-           <span>非法定估价</span>
+           <div class="fwLeft">
+             <span>非法定估价</span>
+             <span>·抵押估价·转让租赁估价·投资性房地产公允价值计量估价·移民资产估价</span>
+           </div>
            <img src="../image/first.svg" alt="">
          </div>
          <div class="fwItem">
-           <span>法定估价</span>
+           <img src="../image/first.svg" alt="">
+           <div class="fwLeft">
+             <span>法定估价</span>
+             <span>·司法估价·征收估价·政府委托估价</span>
+           </div>
+         </div>
+         <div class="fwItem">
+           <div class="fwLeft">
+             <span>咨询顾问估价</span>
+             <span>投资、收购估价·纠纷赁估价·资产处置估价·分割、合并估价</span>
+           </div>
            <img src="../image/first.svg" alt="">
          </div>
          <div class="fwItem">
-           <span>法定估价</span>
            <img src="../image/first.svg" alt="">
-         </div>
-         <div class="fwItem">
-           <span>法定估价</span>
-           <img src="../image/first.svg" alt="">
+           <div class="fwLeft">
+             <span>非法定估价</span>
+             <span>·抵押估价·转让租赁估价·投资性房地产公允价值计量估价·移民资产估价</span>
+           </div>
          </div>
        </div>
      </div>
     <div class="title js">
-      <span>技术力量</span>
+      <span style="font-weight: bolder">技术力量</span>
       <div class="msg">
-        <div class="msgText">估价师例会制度</div>
-        <div class="msgText jsTwo">大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答</div>
+        <div class="msgText zd">估价师例会制度</div>
+        <div class="msgText">大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答</div>
       </div>
     </div>
     <div class="news" >
-     <span class="newsTitle">新闻资讯</span>
+     <span class="newsTitle" style="font-weight: bolder">新闻资讯</span>
+      <span class="more"><a href="">更多 >></a></span>
       <div class="newsItem">
-        <span class="newsLittleTitle">标题标题标题标题</span>
-        <span class="newsContent">闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容</span>
-        <img src="../image/first.svg" alt="">
-      </div>
-      <div class="newsItem" style="margin-top: 1%;">
-        <span class="newsLittleTitle">标题标题标题标题</span>
-        <span class="newsContent">新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容</span>
-        <img src="../image/first.svg" alt="">
-      </div>
-      <div class="newsItem" style="margin-top: 1%;">
-        <span class="newsLittleTitle">标题标题标题标题</span>
-        <span class="newsContent">内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容内容新闻内容新闻内容</span>
-        <img src="../image/first.svg" alt="">
-      </div>
-    </div>
-     <span class="more"><a href="">更多 >></a></span>
-   <div style="font-size: 2em;">员工风采</div>
-    <div class="worker" style="background-color: #e8e8e8;" >
-      <div class="workerItem">
-        <div class="workerImage"></div>
-        <div class="workInfo">
-          <p>曹亦中</p>
-          <p>啊基督教大海生地哈师大uiddiasdjasj的计算机等级啊是</p>
+        <div class="n">
+          <img src="../image/first.jpg" alt="">
+          <div class="nc">
+            <span>新闻标题</span>
+            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+          </div>
+        </div>
+        <div class="n">
+          <img src="../image/first.jpg" alt="">
+          <div class="nc">
+            <span>新闻标题</span>
+            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+          </div>
+        </div>
+        <div class="n">
+          <img src="../image/first.jpg" alt="">
+          <div class="nc">
+            <span>新闻标题</span>
+            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+          </div>
+        </div>
+        <div class="n">
+          <img src="../image/first.jpg" alt="">
+          <div class="nc">
+            <span>新闻标题</span>
+            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+          </div>
         </div>
       </div>
-      <div class="workerItem"></div>
     </div>
-
-
+    <div class="w">
+    <span>员工风采</span>
+      <div class="worker" >
+        <div class="workerItem">
+          <div class="workerImage"></div>
+          <div class="workInfo">
+            <p>曹亦中(同志)</p>
+            <p>啊基督教大海生地哈师大uiddiasdjasj的计算机等级啊是</p>
+          </div>
+        </div>
+        <div class="workerItem">
+          <div class="workerImage"></div>
+          <div class="workInfo">
+            <p>曹亦中(同志)</p>
+            <p>啊基督教大海生地哈师大uiddiasdjasj的计算机等级啊是</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="mainPeople">重要客户</div>
 
       <div class="mainImage">
@@ -140,10 +163,7 @@ export default {
   data () {
     return {
       imageList:[
-        require("../image/zero.jpg"),
-        require("../image/first.jpg"),
-        require("../image/two.jpg"),
-        require("../image/three.jpg"),
+        require("../image/top_banner.png")
       ],
       options: [{
         value: '选项1',
@@ -208,7 +228,7 @@ export default {
     width:100%;
   }
   .el-carousel__item img{
-    height:400px;
+    height:100%;
     width:100%;
   }
     a {
@@ -216,18 +236,23 @@ export default {
       color: black;
     }
     .image {
-      height: 400px;
+      height: 600px;
       width: 100%;
-        background-color: #80b2c3;
+      background-color: #80b2c3;
       position: relative;
     }
     .lb{
-      height:400px;
+      height:600px;
       width:100%;
       position: absolute;
       z-index: 0;
     }
-
+.header{
+  width:100%;
+  position: absolute;
+  z-index: 9999;
+  margin-top:70px;
+}
     .image .input {
       height: 60px;
       width: 30%;
@@ -263,57 +288,68 @@ export default {
     font-size: 2em;
     width:80px;
     float: right;
-    background-color: #2199FF;
+    background-color: #009645;
     margin-top: -58px;
     line-height: 60px;
     margin-right: 1px;
   }
     .info {
-      height: 120px;
       width: 100%;
-      background-color: #60b2fd;
     }
 .item{
   display: flex;
-  height:120px;
+  height:180px;
+  margin-top: 60px;
   flex-direction: column;
 }
 .item img{
-  height:60px;
+  height:70px;
   width:60px;
-  margin-left: 37%;
+  margin-left: 38%;
   margin-top: 5px;
 }
+.item .itemHr{
+  height:2px;
+  width:30px;
+  background-color: red;
+  margin-left: 45%;
+}
 .item .itemText{
-  font-size: 1.5em;
+  font-size: 2em;
   margin-top: 5px;
-  color:white;
 }
 .title{
   width:100%;
-  margin-top: 6%;
+  margin-top:3%;
   line-height: 30px;
   font-size: 2em;
 }
+.title span{
+  display: inline-block;
+  margin-top: 2%;
+}
+.ser{
+  background-color: #F5F7FA;
+  margin-top: 30px;
+}
 .serviceImage{
-  height:160px;
   width:60%;
   margin-left: 20%;
   margin-top: 30px;
   display: flex;
-
 }
-.serviceItem{
-  height:100%;
-  width:20%;
-  margin-left: 4%;
+.serviceImage ul{
+  width:100%;
+  list-style: none;
 }
-.serviceItem img{
-  height:80%;
-  width:80%;
+.serviceImage ul li{
+  float: left;
+  margin-left: 60px;
 }
-.serviceText{
-  line-height: 10px;
+.serviceImage ul li img{
+  height:220px;
+  width: 180px;
+  border-radius: 4%;
 }
 .fw{
   width:60%;
@@ -322,98 +358,116 @@ export default {
 }
 .fwItem{
   width:100%;
-  height:200px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
 }
-.fwItem span{
-  display: inline-block;
+.fwLeft{
    width:45%;
-  height:100%;
-  float: left;
-  line-height: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-left: 5%;
+  text-align: left;
 }
 .fwItem img{
   width:45%;
-  height:100%;
-  float: right;
+  border: 1px solid black;
+  border-radius: 2%;
+  margin-left:5%;
 }
 .js{
   width:100%;
+  background-color: wheat;
+  background: url("../image/technical_force_bg.png");
 }
 .msg{
   margin-top: 2%;
   width:100%;
-  background-color: #A6A9AA;
-  padding-top: 40px;
-  color:white;
+  padding-bottom: 60px;
 }
 .msgText{
-  width:60%;
-  margin-left: 20%;
-  text-align: left;
-  color:white;
+  width:59%;
+  margin-left: 21%;
+  text-align: center;
   padding-bottom: 20px;
   letter-spacing: 1px;
+  font-size: 0.8em;
 }
-.jsTwo{
-  width:40%;
+.zd{
+  font-size: 1em;
 }
 .news{
   width:80%;
   margin-left: 10%;
-  margin-top: 6%;
-  padding-bottom: 10px;
+  margin-top: 3%;
 }
 .newsTitle{
   font-size: 2em;
+  margin-left: 17%;
 }
 .newsItem{
-  width:73%;
-  background-color: #E8E8E8;
+  width:75%;
   margin-top: 5%;
-  margin-left: 14%;
+  margin-left: 13%;
   text-align: left;
   padding-bottom: 50px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  display: flex;
+  flex-wrap: wrap;
 }
-.newsLittleTitle{
-  display: inline-block;
-  height:40px;
-  width:40%;
-  background-color: white;
-  float: left;
-  margin-top:3%;
-  line-height: 40px;
-  font-size: 1.5em;
-  margin-left: 5px;
-}
-.newsContent{
-  display: inline-block;
-  width:60%;
-  float: left;
-  margin-top: 7%;
-  height:120px;
-  margin-left: -40%;
-  padding-bottom: 10px;
-  font-size: 1.3em;
-}
-.newsItem img{
-  margin-left: 15%;
+.n{
+  height:160px;
+  width:47%;
+  margin-left: 2%;
   margin-top: 2%;
-  background-color: wheat;
+  display: flex;
+  flex-direction: row;
+}
+.n img{
+  height:100%;
+  width:48%;
+  margin-left: 2%;
+  border-radius: 4%;
+}
+.nc{
+  display: flex;
+  flex-direction: column;
+  width:48%;
+  margin-left: 2%;
+}
+.nc span:first-child{
+  font-size: 1.5em;
+
+}
+.nc span:last-child{
+  display: inline-block;
+  margin-top: 5%;
+  height:130px;
 }
 .more{
   display: inline-block;
-  margin-left: 55%;
   font-size: 1.5em;
+  float: right;
+  margin-right: 14.5%
 }
 .more a{
-  color:blue;
+  color:gray;
+}
+.w{
+  width:100%;
+  background-color: #F5F7FA;
+}
+.w span{
+  display: inline-block;
+  font-size: 2em;
+  padding-top: 40px;
+  font-weight: bolder;
 }
 .worker{
-  width:59%;
-  margin-top: 5%;
-  margin-left: 21%;
-  padding-bottom: 30px;
+  width:63%;
+  margin-left: 18%;
+  padding-bottom: 60px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -422,7 +476,7 @@ export default {
 }
 .workerItem{
   height:180px;
-  width:42%;
+  width:44%;
   margin-top: 2%;
   box-shadow:3px 3px 3px 3px #aaaaaa;
   border-radius: 5px;
@@ -448,7 +502,8 @@ export default {
 }
 .mainPeople{
   font-size: 2em;
-  margin-top: 6%;
+  margin-top: 3%;
+  font-weight: bolder
 }
 .mainImage{
   width: 62%;
@@ -478,26 +533,50 @@ export default {
       text-indent: 120px;
       font-size: 1.5em;
     }
+    .d{
+      margin-left: 15px;
+    }
+    .item .itemText{
+      font-size: 2em;
+      margin-top: 2px;
+      margin-left: 15px;
+    }
     .right{
       margin-right: -5px;
+    }
+    .msg{
+      margin-top: 2%;
+      width:100%;
+      padding-bottom: 60px;
+    }
+    .newsItem{
+      width:78%;
+      margin-left: 12%;
+    }
+    .n{
+      margin-top: 4%;
+    }
+    .serviceImage{
+     width:80%;
+      margin-left: 10%;
+    }
+    .more{
+      display: inline-block;
+      font-size: 1.5em;
+      float: right;
+      margin-right: 13%
+    }
+    .nc span:last-child{
+      display: inline-block;
+      margin-top: 5%;
+      height:130px;
+      overflow-y: scroll;
     }
     .select{
       margin-top: -12.2%;
       float: left;
       width:25%;
       margin-left: 5%;
-    }
-    .jsTwo{
-      width:50%;
-    }
-    .newsItem img{
-      margin-left: 68%;
-      margin-top: -22%;
-      background-color: wheat;
-    }
-    .newsContent{
-      margin-top: 9%;
-      width:68%;
     }
     .mainImage{
       width:70%;
@@ -534,10 +613,10 @@ export default {
     }
     .image .input{
       height:40px;
-      width:90%;
-      margin-top:30%;
+      width:70%;
+      margin-top:25%;
       position: absolute;
-      margin-left: 5%;
+      margin-left: 15%;
     }
     .input input {
       width:90%;
@@ -550,6 +629,9 @@ export default {
       font-size: 1.1em;
       text-indent: 40.3%;
     }
+    .select{
+      margin-top: -7.5%;
+    }
     .right{
       display: inline-block;
       height: 100%;
@@ -559,7 +641,7 @@ export default {
       font-size: 2em;
       width:60px;
       float: right;
-      background-color: #2199FF;
+      background-color: #009645;
       margin-top: -40px;
       line-height: 40px;
       margin-right: 1px;
@@ -569,21 +651,21 @@ export default {
     }
     .item{
       height:80px;
+      margin-top: 0px;
     }
     .item img{
-      height:30px;
-      width:30px;
+      height:50px;
+      width:50px;
       margin-left: 36%;
     }
     .item .itemText{
-        font-size: 1em;
-      margin-top: 0;
-      height:30px;
-      width:100px;
-      margin-left: -10px;
+      font-size: 1em;
+      margin-left: 20px;
+    }
+    .d{
+      margin-left: 20px;
     }
     .serviceImage{
-      height:100px;
       width:90%;
       margin-left: 5%;
       display: flex;
@@ -593,23 +675,21 @@ export default {
       height:60%;
       width:80%;
     }
+    .serviceImage ul li{
+      float: left;
+      margin-left: 13%;
+      margin-top: 2%;
+    }
     .fw{
       width:90%;
       margin-left: 5%;
     }
-   .fwItem{
-     height:120px;
-   }
    .fwItem img{
-     height:60%;
-   }
-   .fwItem span{
-     width:50%;
-     font-size: 0.8em;
-     line-height: 68px;
+     width:40%;
    }
    .msg{
-     margin-top: 8%;
+     margin-top: 4%;
+     padding-bottom: 20px;
    }
    .msg{
      padding-top: 10px;
@@ -623,49 +703,17 @@ export default {
      line-height: 15px;
    }
    .newsItem{
-     height:120px;
      margin-top:3%;
      width:100%;
      margin-left: 0;
+   }
+   .newsTitle{
+     margin-left: 21%;
    }
    .news{
      width:90%;
      margin-left: 5%;
    }
-    .newsLittleTitle{
-      height:40px;
-      width:55%;
-      background-color: white;
-      float: left;
-      margin-top:2%;
-      line-height: 40px;
-      font-size: 1.5em;
-    }
-    .newsContent{
-      display: inline-block;
-      width:55%;
-      height:75px;
-      padding-bottom: 10px;
-      font-size: 0.5em;
-      overflow-y: hidden;
-      border: 1px solid black;
-      position: absolute;
-      margin-left: -49.5%;
-      margin-top: 8%;
-      float: left;
-    }
-    .newsItem img{
-      height:100px;
-      width:30%;
-      float: right;
-      margin-top: 5%;
-      border: 1px solid black;
-      margin-left: 0%;
-      margin-right: 2%;
-    }
-    .more{
-      margin-left: 80%;
-    }
     .worker{
       display: flex;
       flex-direction: column;
@@ -676,7 +724,7 @@ export default {
       display: flex;
       height:140px;
       width:96%;
-      margin-top: 10px;
+      margin-top: 30px;
       margin-left: 2%;
     }
     .workerImage{
@@ -695,6 +743,9 @@ export default {
       padding-top: 0;
       height:100%;
       overflow-y: hidden;
+    }
+    .zd{
+      font-size: 0.7em;
     }
     .mainImage{
       width:100%;
@@ -717,53 +768,87 @@ export default {
     }
   }
   @media only screen and (max-width: 435px){
+    .header{
+      margin-left: 5%;
+    }
+    .image .input{
+      height:40px;
+      width:90%;
+      margin-top:40%;
+      position: absolute;
+      margin-left: 5%;
+    }
     .select{
       margin-top: -10.2%;
     }
     .input input {
      text-indent: 35%;
     }
-    .newsLittleTitle{
-      margin-top:3%;
+    .serviceImage{
+      margin-left: 10%;
     }
-    .newsContent{
-      margin-top: 15%;
+    .fwItem{
+      margin-top: 0;
     }
-    .more{
-      margin-left: 75%;
+    .title{
+      font-size: 1em;
     }
+    .newsTitle{
+      font-size: 1em;
+      margin-left: 21%;
+    }
+    .w span{
+      font-size: 1em;
+    }
+    .mainPeople{
+      font-size: 1em;
+    }
+.newsItem{
+  flex-direction: column;
+}
+.n{
+  width:100%;
+}
+.more{
+  margin-right:6%;
+}
   }
   @media only screen and (max-width: 415px){
     .select{
-      margin-top: -10.8%;
+           margin-top: -10.7%;
+         }
+    .serviceImage{
+      margin-left: 8%;
     }
   }
   @media only screen and (max-width: 380px){
+    .header{
+      margin-left: 0;
+    }
     .select{
       margin-top: -11.8%;
     }
     .input input {
       text-indent: 33.4%;
     }
-    .newsLittleTitle{
-      margin-top:6%;
-    }
-    .newsContent{
-      width:50%;
-      margin-top: 18%;
-    }
-    .newsItem img{
-      width:35%;
+    .serviceImage{
+      margin-left: 6%;
     }
   }
   @media only screen and (max-width: 360px){
     .select{
       margin-top: -12.2%;
     }
+    .serviceImage{
+      margin-left: 4%;
+    }
   }
   @media only screen and (max-width: 320px){
     .select{
       margin-top: -13.8%;
+    }
+    .serviceImage{
+      margin-left: 0%;
     }
   }
 </style>

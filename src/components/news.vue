@@ -1,6 +1,7 @@
 <template>
     <div class="news">
-      <Head-Component></Head-Component>
+      <NavComponent></NavComponent>
+      <img src="../image/divider.png" alt="" style="height:60px;width:100%;">
       <div class="title">
         <ul>
           <li><el-button type="primary">全部</el-button></li>
@@ -56,12 +57,12 @@
 </template>
 
 <script>
-  import HeadComponent from './mayBe'
+  import NavComponent from './nav'
   import FootComponent from './foot'
     export default {
         name: "news",
       components:{
-        HeadComponent,
+        NavComponent,
         FootComponent
       }
     }

@@ -20,6 +20,9 @@ export default {
     padding: 0;
     font-size: 62.5%;
   }
+  .el-input--suffix .el-input__inner{
+    background-color: #F5F7F6;
+  }
   .el-radio-button{
     margin-top: 10px;
   }
@@ -28,6 +31,7 @@ export default {
   }
   .el-input__inner{
     border: none;
+    background-color: #F5F7F6;
   }
   .el-menu--popup{
     min-width:100px;
@@ -35,6 +39,9 @@ export default {
   }
   .el-menu{
     background-color: #c2ced6;
+  }
+  .el-menu.el-menu--horizontal{
+    border-bottom: 0;
   }
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;

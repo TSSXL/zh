@@ -1,7 +1,9 @@
 <template>
     <div class="mine">
-      <Head-Component></Head-Component>
         <div class="img">
+          <div style="height:60px;width:100%;">
+            <head-component class="headComponent"></head-component>
+          </div>
           <div class="info">
             <p>公司概况</p>
             <p>宁波仲恒房地产估价有限公司成立于2001年，原为房管处转制企业，是具有国家房地产二级评估资质和土地评估资质的双资质房地产评估专业机构</p>
@@ -11,7 +13,8 @@
           <div class="leftBtn">
             <ul>
               <li v-for="(item,index) in leftList">
-                <button @click="changeColor(index)"  :style="Color(index)">{{item}}</button>
+
+                <el-button @click="changeColor(index)"  :style="Color(index)">{{item}}</el-button>
               </li>
             </ul>
           </div>
@@ -191,7 +194,7 @@
 </template>
 
 <script>
-  import HeadComponent from './mayBe'
+import HeadComponent from  './mayBe'
   import FootComponent from './foot'
     export default {
       data(){
@@ -216,8 +219,8 @@
         }
       },
       components:{
-        HeadComponent,
-        FootComponent
+        FootComponent,
+        HeadComponent
       },
       created(){
         this.num=this.$route.query.idx
@@ -265,18 +268,19 @@
   .img{
     width:100%;
     height: 400px;
-    background-color: $bg;
+    background: url("../image/top_banner.png");
+    background-size: 100% 100%;
     .info{
       height:20%;
       width:80%;
       position: absolute;
-      margin-top: 10%;
+      margin-top: 5%;
       font-size: 2em;
       p{
         display: inline-block;
-        text-align: left;
-        width:70%;
-        margin-left: 2%;
+        text-align: center;
+        width:86%;
+        margin-left: 20%;
         color: white;
         font-weight: bolder;
       }
@@ -526,19 +530,14 @@
     .img{
       width:100%;
       height: 200px;
-      background-color: $bg;
       .info{
         height:10%;
         width:100%;
         position: absolute;
         font-size: 1em;
+        margin-top: 30px;
         p{
-          display: inline-block;
-          text-align: left;
-          width:80%;
-          color: white;
-          font-weight: bolder;
-          line-height: 20px;
+        margin-left: 0;
         }
       }
     }
@@ -550,7 +549,7 @@
       .leftBtn{
         height:40px;
         width:100%;
-        border:none;
+        border: none;
         margin-left: 0;
         ul{
           height:40px;
@@ -693,20 +692,20 @@
     .img{
       width:100%;
       height: 200px;
-      background-color: $bg;
       .info{
         height:20%;
         width:100%;
         position: absolute;
-        margin-top: 10%;
+        margin-top: 5%;
         font-size: 1em;
+        margin-left: -10px;
         p{
           display: inline-block;
           text-align: left;
           width:80%;
           color: white;
           font-weight: bolder;
-          line-height: 20px;
+          line-height: 18px;
         }
       }
     }

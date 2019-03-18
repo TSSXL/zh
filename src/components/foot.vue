@@ -4,14 +4,17 @@
         <div class="companyInfo">
           <div class="dontKnow">
             <div class="dontKnowFirst">
-              <img src="../image/first.svg" alt="">
-              <span>仲恒天下</span>
+              <img src="../image/bottom_logo.png" alt="">
             </div>
-            <div class="dontKnowSecond"><p>备案号</p><p>版权所有</p></div>
+
           </div>
           <hr>
-          <div class="dontKnow">
+          <div class="center">
             <div class="five">
+              <div class="f">
+                <p>备案号</p>
+                <p>版权所有</p>
+              </div>
               <div class="fiveLeft">
                 <p @click="gotoFirst">公司荣誉</p>
                 <p @click="gotoSecond">执业资质</p>
@@ -25,7 +28,7 @@
           </div>
           <hr>
           <div class="dontKnow">
-            <img class="gzh" src="../image/tu.svg" alt="">
+            <img class="gzh" src="../image/qr_code.png" alt="">
             <p class="gzNum">关注公众号</p>
           </div>
         </div>
@@ -65,7 +68,7 @@
     height:220px;
     width:100%;
     position: relative;
-    background-color: #2882C6;
+    background-color: #343434;
     color:white;
     font-weight: bold;
   }
@@ -93,33 +96,28 @@
     width:100%;
   }
   .dontKnowFirst img{
-    height:120px;
-    width:120px;
     margin-left: -30px;
-  }
-  .dontKnowFirst span{
-    display: inline-block;
-    height:30px;
-    position: absolute;
-    margin-top: 2.5%;
-    margin-left: -10px;
-    font-size: 2em;
-  }
-  .dontKnowSecond{
-    height:60px;
-    font-size: 1.5em;
-    margin-left: -50px;
     margin-top: 8%;
+  }
+  .center{
+    width:50%;
   }
   .five{
     height:100%;
     width:90%;
     display: flex;
-    font-size: 1.9em;
+    font-size: 1.5em;
+    color:#979797;
+    margin-top: 30px;
   }
   .fiveLeft{
     margin-left: 10%;
     margin-top: 5%;
+  }
+  .f{
+    margin-left: 10%;
+    margin-top: 5%;
+    width:45%;
   }
   .five p{
     display: inline-block;
@@ -136,25 +134,32 @@
     margin-top: 5%;
   }
   .gzh{
-    height: 50%;
-    width:30%;
-    border: 1px solid blue;
-    margin-top: 10%;
+    height: 70%;
+    width:45%;
+    margin-top: 8%;
   }
   @media only screen and (max-width: 1366px){
     .dontKnowFirst img{
       height:100px;
-      width:100px;
-      margin-left: -50px;
+      width:180px;
+      margin-left: -20px;
+      margin-top: 20%;
     }
-    .dontKnowSecond{
-      margin-left: -65px;
-      margin-top: 0;
+    .companyInfo hr{
+      height:60%;
+      margin-left: 10px;
+      margin-top: 5%;
     }
     .five{
       width:100%;
       margin-left: -5%;
       font-size: 1.6em;
+      margin-top: 20px;
+    }
+    .f{
+      margin-left: 7%;
+      margin-top: 5%;
+      width:44%;
     }
     .fiveLeft{
       margin-left: 10%;
@@ -165,14 +170,15 @@
       margin-top: 4%;
     }
     .gzh{
-      width:40%;
+      width:50%;
+      height: 50%;
+      margin-top: 15%;
     }
   }
   @media only screen and (max-width: 768px){
     .footer{
-      height:300px;
+      height:450px;
       width:100%;
-      background-color: #2882C6;
       padding-bottom: 0;
       bottom: 0;
     }
@@ -184,36 +190,35 @@
       font-size: 0.5em;
     }
     .companyInfo{
-      width:60%;
-      margin-left: 22%;
+      width:75%;
+      margin-left: 30%;
       display:flex;
       flex-direction: column;
     }
     .companyInfo hr{
       height:0;
-      width:80%;
-      margin-top: 10px;
+      width:50%;
+      margin-top: 25px;
       margin-left: 1%;
     }
     .dontKnowFirst img{
-      height:80px;
-      width:80px;
-      margin-left: -40%;
-      margin-top: 5px;
+      margin-left:-35%;
+      margin-top: 10px;
     }
     .dontKnowFirst span{
       margin-left: 0%;
-      margin-top: 8%;
-    }
-    .dontKnowSecond{
-      margin-left: 10%;
-      margin-top: 0%;
+      margin-top: 5%;
+      font-size: 1.5em;
     }
     .fiveLeft{
       display: flex;
       flex-direction: column;
       margin-top: 1%;
-      margin-left: 25%;
+      margin-left: 12%;
+    }
+    .f{
+      width:20%;
+      margin-left: 10%;
     }
     .five p{
       display: inline-block;
@@ -223,157 +228,64 @@
     .fiveRight{
       display: flex;
       flex-direction: column;
-      margin-left: 19%;
+      margin-left: 10%;
       margin-top: 1%;
     }
     .five{
       width:100%;
+      margin-top: 0;
+      margin-left: 0;
+      display: flex;
+      flex-direction: row;
     }
     .gzh{
       width:20%;
-      height:50px;
+      height:100px;
       float: left;
-      margin-left: 15%;
-      margin-top: 0%;
+      margin-left: 10%;
+      margin-top: 3%;
+      padding-bottom: 10px;
     }
     .gzNum{
-      margin-top: 25px;
+      margin-top: 55px;
       display: inline-block;
-      margin-left: -25%;
-    }
-  }
-  @media only screen and (max-width: 680px){
-    .footer{
-      height:300px;
-      width:100%;
-      background-color: #2882C6;
-      padding-bottom: 0;
-      bottom: 0;
-    }
-    .dontKnow{
-      height:95px;
-      width:100%;
-      margin-left: 0;
-     margin-top: 0;
-      font-size: 0.5em;
-    }
-    .companyInfo{
-      width:60%;
-      margin-left: 20%;
-      display:flex;
-      flex-direction: column;
-    }
-    .companyInfo hr{
-      height:0;
-      width:80%;
-      margin-top: 10px;
-      margin-left: 1%;
-    }
-    .dontKnowFirst img{
-      height:80px;
-      width:80px;
-      margin-left: -60%;
-      margin-top: 5px;
-    }
-    .dontKnowFirst span{
-      margin-left:-2%;
-      margin-top: 12%;
-    }
-    .dontKnowSecond{
-      margin-left: 50px;
-      margin-top: -4%;
-    }
-    .fiveLeft{
-      margin-left:32px;
-      display: flex;
-      flex-direction: column;
-    }
-    .five p{
-      display: inline-block;
-      margin-top:5px;
-      margin-left: -4%;
-    }
-    .fiveRight{
-      display: flex;
-      flex-direction: column;
-      margin-left: 19%;
-    }
-    .five{
-      width:100%;
-    }
-    .gzh{
-      width:30%;
-      float: left;
-        margin-left: 5px;
-      margin-top: 5%;
-    }
-    .gzNum{
-      margin-top: 25px;
-      display: inline-block;
-      margin-left: -15%;
+      margin-left: -45%;
+      font-size:16px;
     }
   }
   @media only screen and (max-width: 450px){
-    .dontKnowSecond{
-      margin-left: 18%;
-      margin-top: -4%;
+    .footer{
+      height:520px;
     }
-    .fiveLeft{
-      margin-left:16%;
-      display: flex;
-      flex-direction: column;
+    .dontKnowFirst img{
+     height:90px;
+      margin-top: 0;
     }
-    .five p{
-      display: inline-block;
-      margin-top:5px;
-      margin-left: -4%;
+    .companyInfo hr{
+      margin-top: 25px;
+      width:60%;
+      margin-left: 0;
     }
-    .fiveRight{
-      display: flex;
-      flex-direction: column;
-      margin-left: 19%;
+    .five{
+      width:72%;
+      margin-left: 20%;
     }
     .gzh{
       width:30%;
+      height:80px;
       float: left;
-      margin-left:5%;
-      margin-top: 5%;
+      margin-left: 6%;
+      margin-top: 3%;
+    }
+    .gzNum{
+      margin-top:30px;
+      display: inline-block;
+      margin-left: -38%;
+      font-size:10px;
     }
   }
   @media only screen and (max-width: 380px){
-    .dontKnowSecond{
-      margin-left: 25%;
-      margin-top: -4%;
-    }
-    .fiveLeft{
-      margin-left:15%;
-      display: flex;
-      flex-direction: column;
-    }
-    .gzNum{
-      margin-top: 25px;
-      display: inline-block;
-      margin-left: -10%;
-    }
   }
   @media only screen and (max-width: 320px){
-    .dontKnowFirst span{
-      margin-left: 4%;
-      margin-top: 6%;
-    }
-    .dontKnowSecond{
-      margin-left: 20%;
-      margin-top: -4%;
-    }
-    .fiveLeft{
-      margin-left:10%;
-      display: flex;
-      flex-direction: column;
-    }
-    .gzNum{
-      margin-top: 25px;
-      display: inline-block;
-      margin-left: -10%;
-    }
   }
 </style>

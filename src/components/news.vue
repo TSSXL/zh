@@ -1,50 +1,37 @@
 <template>
     <div class="news">
-      <NavComponent></NavComponent>
+      <NavComponent class="navComponent"></NavComponent>
       <img src="../image/divider.png" alt="" style="height:60px;width:100%;">
       <div class="title">
         <ul>
-          <li><el-button type="primary">全部</el-button></li>
+          <li><el-button type="danger">全部</el-button></li>
           <li><el-button>公司新闻</el-button></li>
           <li><el-button>行业状态</el-button></li>
         </ul>
       </div>
-      <div class="newsContent">
-       <div class="leftNews">
-         <div class="leftNewsTitle">我是标题</div>
-         <div class="leftNewsCon">我是内容</div>
+       <div class="a">
+       <div class="item">
+         <span @click="gotoInfo"></span>
+         <div class="m">
+           <p>新闻标题</p>
+           <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+         </div>
        </div>
-        <div class="rightImage">
-          <img src="../image/tu.svg" alt="">
-        </div>
-      </div>
-      <div class="newsContent">
-        <div class="leftNews">
-          <div class="leftNewsTitle">我是标题</div>
-          <div class="leftNewsCon">我是内容</div>
-        </div>
-        <div class="rightImage">
-          <img src="../image/tu.svg" alt="">
-        </div>
-      </div>
-      <div class="newsContent">
-        <div class="leftNews">
-          <div class="leftNewsTitle">我是标题</div>
-          <div class="leftNewsCon">我是内容</div>
-        </div>
-        <div class="rightImage">
-          <img src="../image/tu.svg" alt="">
-        </div>
-      </div>
-      <div class="newsContent">
-        <div class="leftNews">
-          <div class="leftNewsTitle">我是标题</div>
-          <div class="leftNewsCon">我是内容</div>
-        </div>
-        <div class="rightImage">
-          <img src="../image/tu.svg" alt="">
-        </div>
-      </div>
+         <div class="item">
+           <span></span>
+           <div class="m">
+             <p>新闻标题</p>
+             <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+           </div>
+         </div>
+         <div class="item">
+           <span></span>
+           <div class="m">
+             <p>新闻标题</p>
+             <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+           </div>
+         </div>
+       </div>
         <el-pagination
           background
           layout="prev, pager, next"
@@ -64,6 +51,11 @@
       components:{
         NavComponent,
         FootComponent
+      },
+      methods:{
+        gotoInfo(){
+          this.$router.push({path:'/info'})
+        }
       }
     }
 </script>
@@ -87,48 +79,51 @@
       }
     }
   }
-  .newsContent{
-    width:60%;
-    height:200px;
-    margin-left: 20%;
-    background-color: #E8E8E8;
-    margin-top: 10px;
-    display:flex;
-    .leftNews{
-      height:100%;
-      width:60%;
-      .leftNewsTitle{
-        width:60%;
-        height:30px;
-        background-color: white;
+    .a{
+      width:70%;
+      margin-left: 17.2%;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .item{
+        width:46%;
+        margin-left: 4%;
         margin-top: 4%;
-        margin-left: 2%;
-        line-height: 30px;
-        font-size: 2em;
-        text-align: left;
-        letter-spacing: 1px;
-      }
-      .leftNewsCon{
-        width:90%;
-        margin-top: 2%;
-        height:120px;
-        margin-left: 2%;
-        line-height: 30px;
-        font-size: 1em;
-        text-align: left;
-        letter-spacing: 1px;
-        background-color: #afd4f6;
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 30px;
+        span{
+          display: inline-block;
+          height:200px;
+          width:40%;
+          background-color: blue;
+          border-radius: 6%;
+        }
+        span:hover{
+          cursor: pointer;
+        }
+        .m{
+          margin-left: 4%;
+          width:55%;
+          height:200px;
+          p:first-child{
+            font-size: 2em;
+            font-weight: bolder;
+          }
+          p:last-child{
+            height:150px;
+            overflow: hidden;
+            line-height: 25px;
+          }
+          p{
+            text-align: left;
+            margin-top: 0px;
+            font-size: 1.5em;
+          }
+        }
       }
     }
-    .rightImage{
-      width:30%;
-      margin-left: 10%;
-      img{
-        width:100%;
-        height:200px;
-      }
-    }
-  }
   .footCom{
     margin-top: 100px;
   }
@@ -137,10 +132,14 @@
     .title{
      ul{
        width:40%;
+       margin-left: 13%;
      }
     }
   }
   @media only screen and (max-width: 768px) {
+    .navComponent{
+      margin-top: 0;
+    }
     .title{
       height:60px;
       padding-bottom: 20px;
@@ -148,44 +147,51 @@
         width:95%;
         height:40px;
         margin-top: 8%;
-        margin-left: 0;
+        margin-left: 13%;
         li{
-          margin-left: 10px;
+          margin-left: 30px;
         }
       }
     }
-    .newsContent{
-      width:95%;
-      margin-left: 2.5%;
-      height:140px;
-      margin-top: 30px;
-      .leftNews{
-        .leftNewsTitle{
+    .a{
+      width:80%;
+      margin-left: 10%;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      .item{
+        width:70%;
+        margin-left: 15%;
+        margin-top: 8%;
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 30px;
+        height: 200px;
+        span{
+          display: inline-block;
+          height:100%;
+          width:40%;
+          background-color: blue;
+          border-radius: 6%;
+        }
+        .m{
+          margin-left: 4%;
           width:60%;
-          height:30px;
-          background-color: white;
-          margin-top: 2%;
-          margin-left: 2%;
-          line-height: 30px;
-          font-size: 1em;
-          text-align: left;
-        }
-        .leftNewsCon{
-          width:90%;
-          height:80px;
-          margin-top: 2%;
-          margin-left: 2%;
-          line-height: 20px;
-          font-size: 1em;
-          text-align: left;
-        }
-      }
-      .rightImage{
-        width:35%;
-        margin-left: 5%;
-        img{
-          width:100%;
-          height:120px;
+          height:100%;
+          p:first-child{
+            font-size: 2em;
+            font-weight: bolder;
+          }
+          p:last-child{
+            height:80%;
+            overflow: hidden;
+            line-height: 25px;
+          }
+          p{
+            text-align: left;
+            margin-top: 0px;
+            font-size: 1.5em;
+          }
         }
       }
     }
@@ -194,55 +200,84 @@
     }
   }
   @media only screen and (max-width: 450px) {
+    .navComponent{
+      margin-top: 60px;
+    }
     .title{
       height:60px;
       ul{
         width:88%;
         height:40px;
-        margin-top: 8%;
+        margin-top: 4%;
         margin-left: 0;
         li{
-          margin-left: 10px;
+          margin-left: 25px;
         }
       }
     }
-    .newsContent{
-      width:95%;
-      margin-left: 2.5%;
-      height:120px;
-      margin-top: 30px;
-      .leftNews{
-        .leftNewsTitle{
-          width:80%;
-          height:30px;
-          background-color: white;
-          margin-top: 5%;
-          margin-left: 2%;
-          line-height: 30px;
-          font-size: 1em;
-          text-align: left;
-        }
-        .leftNewsCon{
-          width:100%;
-          margin-top: 3%;
-          margin-left: 2%;
-          line-height: 50px;
-          height:65px;
-          font-size: 1em;
-          text-align: left;
-        }
-      }
-      .rightImage{
-        width:35%;
-        margin-left: 5%;
-        img{
-          width:100%;
-          height:120px;
+    .a{
+      width:90%;
+      margin-left: 5%;
+      .item{
+        width:100%;
+        margin-left:0%;
+        margin-top: 4%;
+        height: 120px;
+        .m{
+          margin-left: 4%;
+          width:60%;
+          height:100%;
+          p:first-child{
+            font-size: 1.5em;
+            font-weight: bolder;
+          }
+          p:last-child{
+            height:75%;
+            line-height: 18px;
+          }
+          p{
+            font-size: 1em;
+          }
         }
       }
     }
     .footCom{
       margin-top: 30px;
+    }
+  }
+  @media only screen and (max-width: 415px) {
+    .title{
+      ul{
+        width:88%;
+        height:40px;
+        margin-top: 4%;
+        margin-left: -10px;
+        li{
+          margin-left: 25px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 380px) {
+    .title{
+      ul{
+        width:88%;
+        height:40px;
+        margin-top: 4%;
+        margin-left: -10px;
+        li{
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 360px) {
+    .title{
+      ul{
+        li{
+          margin-left: 10px;
+        }
+      }
     }
   }
   @media only screen and (max-width: 320px) {

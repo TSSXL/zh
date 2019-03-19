@@ -1,9 +1,7 @@
 <template>
     <div class="mine">
         <div class="img">
-          <div style="height:60px;width:100%;">
-            <head-component class="headComponent"></head-component>
-          </div>
+          <Head-Component class="headComponent"></Head-Component>
           <div class="info">
             <p>公司概况</p>
             <p>宁波仲恒房地产估价有限公司成立于2001年，原为房管处转制企业，是具有国家房地产二级评估资质和土地评估资质的双资质房地产评估专业机构</p>
@@ -12,9 +10,35 @@
         <div class="mineInfo">
           <div class="leftBtn">
             <ul>
-              <li v-for="(item,index) in leftList">
-
-                <el-button @click="changeColor(index)"  :style="Color(index)">{{item}}</el-button>
+              <li>
+                <img class="liImg" src="../image/company_honor.png" v-if="one">
+                <img class="liImg" src="../image/company_honor_selected.png" v-else>
+                <el-button @click="changeColor(0)">公司荣誉</el-button>
+              </li>
+              <li>
+                <img class="liImg" src="../image/professional_qualifications.png" v-if="two">
+                <img class="liImg" src="../image/professional_qualifications_selected.png" v-else>
+                <el-button @click="changeColor(1)">执业资质</el-button>
+              </li>
+              <li>
+                <img class="liImg" src="../image/classic_case.png" v-if="three">
+                <img class="liImg" src="../image/classic_case_selected.png" v-else>
+                <el-button @click="changeColor(2)">经典案例</el-button>
+              </li>
+              <div class="twoUl" :style="isshowStyle(three)">
+                <ul>
+                  <li v-for="item in list" :key="item">{{item}}</li>
+                </ul>
+              </div>
+              <li>
+                <img class="liImg" src="../image/contact_us.png" v-if="four">
+                <img class="liImg" src="../image/contact_us_selected.png" v-else>
+                <el-button @click="changeColor(3)">联系我们</el-button>
+              </li>
+              <li>
+                <img class="liImg" src="../image/hiring.png" v-if="five">
+                <img class="liImg" src="../image/hiring_selected.png" v-else>
+                <el-button @click="changeColor(4)">招贤纳士</el-button>
               </li>
             </ul>
           </div>
@@ -47,7 +71,6 @@
           </div>
           <div class="example"  v-else-if="num==2">
             <div class="exampleItem">
-              <p>银行抵押</p>
               <div class="exampleImage">
                 <img src="../image/three.jpg" alt="">
                 <p>诚投大厦办公房地产抵押项目</p>
@@ -70,103 +93,12 @@
               </div>
               <div class="exampleImage">
                 <img src="../image/three.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/three.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/three.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/three.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-            </div>
-            <div class="exampleItem">
-              <p>征收评估</p>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-            </div>
-            <div class="exampleItem">
-              <p>征收评估</p>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/first.jpg" alt="">
                 <p>诚投大厦办公房地产抵押项目</p>
               </div>
             </div>
           </div>
           <div class="callMe"  v-else-if="num==3">
             <div class="callMeTitle">
-              <p>联系我们</p>
               <p>宁波仲恒房地产估价有限公司</p>
               <p>公司地址：宁波市鄞州区彩虹南路16号10楼C区</p>
               <p>邮编：315040</p>
@@ -177,10 +109,11 @@
               <img src="../image/first.jpg" alt="">
             </div>
           </div>
-          <div class="callMe need"  v-else="num==4">
+          <div class="callMe"  v-else="num==4">
             <div class="callMeTitle">
-              <p>招贤纳士</p>
-              <p>公司常年诚招房地产估价师,土地估价师，测绘工程师，仲恒估价公司欢迎您的加入</p>
+              <p>宁波仲恒房地产估价有限公司</p>
+              <p>公司常年诚招房地产估价师,土地估价师、</p>
+              <p>测绘工程师，仲恒估价公司欢迎您的加入。</p>
               <p>人事部电话：0574-87620698</p>
               <p>联系人：蔡老师</p>
             </div>
@@ -199,23 +132,19 @@ import HeadComponent from  './mayBe'
     export default {
       data(){
         return{
-          leftList:[
-            "公司荣誉",
-            "执业资质",
-            "经典案例",
-            "联系我们",
-            "招贤纳士"
-          ],
-          select:0,
           num:0,
-          colorStyle:{
-            backgroundColor:"#4982ff",
-            color:"white"
-          },
-          colorTwoStyle:{
-            backgroundColor:"#4982ff",
-            color:"white"
-          }
+          one:true,
+          two:true,
+          three:true,
+          four:true,
+          five:true,
+          list:[
+            "银行抵押",
+            "征收评估",
+            "咨询策划",
+            "司法评估",
+            "土地评估"
+          ]
         }
       },
       components:{
@@ -224,36 +153,51 @@ import HeadComponent from  './mayBe'
       },
       created(){
         this.num=this.$route.query.idx
+         if(this.num==undefined)
+         {
+           this.num=0
+         }
       },
       methods:{
-        Color(index){
-          if(index===0)
-          {
-            return this.colorTwoStyle
-          }
-          return index===this.select? this.colorStyle:''
+        isshowStyle(three){
+          return three===false?{display: 'block'}:{display:'none'}
         },
         changeColor(index){
-          this.select=index
           this.num=index
-          if (index===0)
+          if(index==0)
           {
-            this.colorTwoStyle={
-              backgroundColor:"#4982ff",
-              color:"white"}
-          }else if (index===1)
+            this.two=true
+            this.three=true
+            this.four=true
+            this.five=true
+            this.one=false
+          }else if(index==1)
           {
-            this.colorTwoStyle={}
-          }
-          else if(index===2){
-            this.colorTwoStyle={}
-          }else if (index===3)
+            this.one=true
+            this.three=true
+            this.four=true
+            this.five=true
+            this.two=false
+          }else if(index==2)
           {
-            this.colorTwoStyle={}
-          }else if (index===4) {
-            this.colorTwoStyle={}
+            this.one=true
+            this.two=true
+            this.four=true
+            this.five=true
+            this.three=false
+          }else if(index==3)
+          {
+            this.one=true
+            this.two=true
+            this.three=true
+            this.five=true
+            this.four=false
           }else{
-
+            this.one=true
+            this.two=true
+            this.three=true
+            this.four=true
+            this.five=false
           }
         }
       }
@@ -295,43 +239,66 @@ import HeadComponent from  './mayBe'
     .leftBtn{
       height:350px;
       width:12%;
-      border: 1px solid $borderColor;
       margin-left: 3.5%;
       ul{
         height:350px;
         width:100%;
         margin-top: 0;
         list-style: none;
+        .twoUl{
+          width:100%;
+          margin-left: -40px;
+          ul{
+            height:160px;
+            li{
+              height:40px;
+              line-height: 40px;
+            }
+            li:hover{
+              cursor: pointer;
+              color:red;
+            }
+          }
+        }
         li{
           width:100%;
           height:70px;
           margin-left: -40px;
+          box-shadow: 5px 5px 5px 5px #e2e2e2;
+          border-radius: 10%;
+          border: 1px solid #e2e2e2;
+          margin-top: -2px;
+          .liImg{
+            margin-top: 1.2%;
+            position: absolute;
+            margin-left: 1%;
+          }
           button{
             width:100%;
             height:70px;
             font-size: 1.5em;
+            border: none;
+            border-bottom: 1px solid #c6c6c6;
           }
         }
       }
     }
     .rightCon{
       width:55%;
-      height:500px;
       margin-left: 25%;
-      margin-top: -29%;
+      margin-top: -28.5%;
       ul{
         margin-top: -80px;
         list-style: none;
         margin-left: -15%;
         li{
           float: left;
-          height:100px;
-          width:100px;
-          margin-left: 150px;
+          margin-left: 120px;
           margin-top: 80px;
           img{
-            height:150px;
-            width:220px;
+            height:200px;
+            width:300px;
+            border-radius: 5%;
           }
         }
       }
@@ -339,8 +306,7 @@ import HeadComponent from  './mayBe'
     .zy{
       width:50%;
       margin-left: 25%;
-      margin-top: -23%;
-      border: 1px solid blueviolet;
+      margin-top: -24%;
       display: flex;
       flex-wrap: wrap;
       .licence{
@@ -351,6 +317,7 @@ import HeadComponent from  './mayBe'
        img{
        height:290px;
        width:90%;
+         border-radius: 5%;
      }
       }
       .book{
@@ -361,6 +328,7 @@ import HeadComponent from  './mayBe'
         img{
           height:290px;
           width:90%;
+          border-radius: 5%;
         }
       }
       .house{
@@ -372,6 +340,7 @@ import HeadComponent from  './mayBe'
         img{
           height:150px;
           width:90%;
+          border-radius: 5%;
         }
       }
     }
@@ -379,26 +348,20 @@ import HeadComponent from  './mayBe'
       width:50%;
       display: flex;
       margin-left: 25%;
-      margin-top: -23.2%;
+      margin-top: -25.2%;
       flex-direction: column;
-      border: 1px solid blueviolet;
       .exampleItem{
         width:90%;
         margin-left: 5%;
         margin-top: 2%;
-        p{
-          text-align: left;
-          font-size: 2em;
-          text-indent: 15px;
-          color:blueviolet;
-        }
         .exampleImage{
-          margin-left: 10px;
+          margin-left: 50px;
           margin-top: 15px;
           display: inline-block;
           img{
-            height:120px;
-            width:200px;
+            height:180px;
+            width:260px;
+            border-radius: 5%;
           }
           p{
             font-size: 1em;
@@ -411,25 +374,33 @@ import HeadComponent from  './mayBe'
       width:50%;
       margin-left: 25%;
       margin-top: -23%;
-      height:350px;
-      border: 1px solid blueviolet;
+      height:450px;
+      border: 2px solid #f0f0f0;
+      border-radius: 3%;
+      box-shadow: 5px 5px 5px  #e2e2e2;
       position: relative;
       .callMeTitle{
         height:100%;
         width:45%;
         margin-left: 2.5%;
         position: absolute;
-        p:first-child,p:nth-child(2){
-          margin-top: 15%;
+        p:first-child{
+          margin-top: 20%;
           font-size: 2em;
-          color:#5EB5FF;
           font-weight: bolder;
+        }
+        p:nth-child(2){
+          margin-top: 10%;
+        }
+        p:not(:first-child)
+        {
+          color: #9a9a9a;
         }
         p{
           text-align: left;
           margin-left: 10%;
           font-size: 1.2em;
-          color: #797979;
+          margin-top: 8%;
         }
       }
       .map{
@@ -439,26 +410,10 @@ import HeadComponent from  './mayBe'
         img{
           height:50%;
           width:100%; 
-          margin-top: 25%;
+          margin-top: 20%;
+          border-radius: 4%;
         }
       }
-    }
-    .need{
-     .callMeTitle{
-       p:nth-child(2)
-       {
-         margin-top: 10%;
-         font-weight: normal;
-       }
-       p:not(:first-child)
-       {
-         color: #797979;
-         font-size: 1em;
-       }
-       p:nth-child(3){
-         margin-top: 25%;
-       }
-     }
     }
   }
   .mineFoot{
@@ -467,6 +422,18 @@ import HeadComponent from  './mayBe'
 
   @media only screen and (max-width: 1366px) {
   .mineInfo{
+    .leftBtn{
+      ul{
+        li{
+          .liImg{
+         margin-top: 1.5%;
+          }
+          button{
+           text-indent: 10px;
+          }
+        }
+      }
+    }
     .rightCon{
       width:60%;
       margin-top: -38.5%;
@@ -485,7 +452,6 @@ import HeadComponent from  './mayBe'
     .zy{
       width:60%;
       margin-top: -32%;
-      border: 1px solid blueviolet;
       flex-wrap: wrap;
       .licence{
         height:320px;
@@ -519,9 +485,16 @@ import HeadComponent from  './mayBe'
       }
     }
     .example{
-      margin-top: -32%;
+      margin-top: -34%;
+      width:60%;
+      .exampleItem{
+        .exampleImage{
+          margin-left: 30px;
+        }
+      }
     }
     .callMe{
+      width:60%;
      margin-top: -32%;
     }
   }
@@ -529,9 +502,9 @@ import HeadComponent from  './mayBe'
   @media only screen and (max-width: 768px){
     .img{
       width:100%;
-      height: 200px;
+      height: 300px;
       .info{
-        height:10%;
+        height:8%;
         width:100%;
         position: absolute;
         font-size: 1em;
@@ -554,6 +527,24 @@ import HeadComponent from  './mayBe'
         ul{
           height:40px;
           width:87%;
+          .twoUl{
+            width:60%;
+            height:40px;
+            margin-left: 5.5rem;
+            margin-top: 3rem;
+            position: absolute;
+            ul{
+              height:160px;
+              li{
+                height:40px;
+                line-height: 40px;
+              }
+              li:hover{
+                cursor: pointer;
+                color:red;
+              }
+            }
+          }
           li:first-child{
             margin-left: 2%;
           }
@@ -561,12 +552,15 @@ import HeadComponent from  './mayBe'
             height:40px;
             float: left;
             width: 18%;
-            margin-left: 2%;
+            margin-left: 1%;
+            .liImg{
+              margin-top: 1%;
+            }
             button{
               height:40px;
               font-size:1em;
               border: none;
-              border-radius: 10%;
+              border-radius:5%;
             }
           }
         }
@@ -579,18 +573,15 @@ import HeadComponent from  './mayBe'
         ul{
           margin-top:10px;
           list-style: none;
-          height:270px;
           width:100%;
-          margin-left: -5%;
+          margin-left: 8%;
           li{
             float: left;
-            height:90px;
-            width:32%;
-            margin-left: 5px;
+            margin-left: 20px;
             margin-top: 20px;
             img{
-              height:100px;
-              width:128px;
+              height:160px;
+              width:260px;
             }
           }
         }
@@ -601,7 +592,7 @@ import HeadComponent from  './mayBe'
         margin-right: 0;
         margin-top: 30px;
         border: none;
-        display: none;
+        display: flex;
         flex-wrap: wrap;
         .licence{
           height:200px;
@@ -610,7 +601,7 @@ import HeadComponent from  './mayBe'
           margin-left: 3%;
           img{
             height:200px;
-            width:100%;
+            width:90%;
           }
         }
         .book{
@@ -620,7 +611,7 @@ import HeadComponent from  './mayBe'
           margin-left: 3%;
           img{
             height:200px;
-            width:100%;
+            width:90%;
           }
         }
         .house{
@@ -631,7 +622,7 @@ import HeadComponent from  './mayBe'
           margin-left: 20%;
           img{
             height:160px;
-            width:100%;
+            width:60%;
           }
         }
       }
@@ -642,21 +633,23 @@ import HeadComponent from  './mayBe'
         border: none;
       }
       .callMe{
-        width:100%;
-        margin-left: 0;
-        margin-top: 30px;
-        border: none;
-        height:250px;
+        width: 95%;
+        margin-left: 2.5%;
+        margin-top: 42px;
         .callMeTitle{
           margin-left: 0;
           height:50%;
           width:100%;
-          p:first-child,p:nth-child(2){
+          p:first-child{
             font-size: 1em;
-            margin-top: 2%;
+            margin-top: 3%;
+          }
+          p:nth-child(2){
+            margin-top: 6%;
           }
           p{
             margin-left: 8%;
+            margin-top: 4%;
           }
         }
         .map{
@@ -666,23 +659,8 @@ import HeadComponent from  './mayBe'
           margin-left: 45%;
           img{
             margin-top: 0;
-            height:100%;
-            width:100%;
-          }
-        }
-      }
-      .need{
-        .callMeTitle{
-          p:nth-child(2)
-          {
-            margin-top: 3%;
-            font-weight: normal;
-            display: inline-block;
-            margin-left: -56%;
-            width: 28%;
-          }
-          p:nth-child(3){
-            margin-top: 3%;
+            height: 61%;
+            width: 108%;
           }
         }
       }
@@ -690,15 +668,13 @@ import HeadComponent from  './mayBe'
   }
   @media only screen and (max-width: 450px){
     .img{
-      width:100%;
-      height: 200px;
       .info{
-        height:20%;
         width:100%;
         position: absolute;
         margin-top: 5%;
         font-size: 1em;
-        margin-left: -10px;
+        margin-left: -5px;
+        letter-spacing: 2px;
         p{
           display: inline-block;
           text-align: left;
@@ -721,6 +697,20 @@ import HeadComponent from  './mayBe'
         ul{
           height:40px;
           width:87%;
+          .twoUl{
+            width:100%;
+            height:35px;
+            margin-left: -2.5rem;
+            margin-top: 3rem;
+            position: absolute;
+            ul{
+              height:160px;
+              li{
+                height:30px;
+                line-height: 30px;
+              }
+            }
+          }
           li:first-child{
             margin-left: -8%;
           }
@@ -729,11 +719,15 @@ import HeadComponent from  './mayBe'
             float: left;
             width:20%;
             margin-left: 5px;
+            .liImg{
+            display: none;
+            }
             button{
               height:40px;
               font-size:1em;
-             border: none;
+              border: none;
               border-radius: 10%;
+              text-indent: -5px;
             }
           }
         }
@@ -742,22 +736,20 @@ import HeadComponent from  './mayBe'
         width:100%;
         height:300px;
         margin-left: 0%;
-        margin-top: 60px;
+        margin-top: 40px;
         ul{
-          margin-top:10px;
+          margin-top:0;
           list-style: none;
           height:270px;
           width:100%;
-          margin-left: -10%;
+          margin-left: -2%;
           li{
             float: left;
-            height:90px;
-            width:32%;
-            margin-left: 5px;
-            margin-top: 0;
+            margin-left: 20px;
+            margin-top: 30px;
             img{
-              height:80px;
-              width:108px;
+              height:150px;
+              width:160px;
             }
           }
         }
@@ -768,7 +760,7 @@ import HeadComponent from  './mayBe'
         margin-right: 0;
         margin-top: 50px;
         border: none;
-        display: none;
+        display: flex;
         flex-wrap: wrap;
         .licence{
           height:200px;
@@ -804,9 +796,10 @@ import HeadComponent from  './mayBe'
       }
       .example{
         width:100%;
-        margin-right: 0;
-        margin-top: 60px;
-        border: none;
+        margin-top: 40px;
+        .exampleItem{
+          margin-left: 3%;
+        }
       }
       .callMe{
         width:100%;
@@ -815,21 +808,17 @@ import HeadComponent from  './mayBe'
         .callMeTitle{
           margin-left: 2%;
           width:100%;
-          p:first-child,p:nth-child(2){
-            font-size: 1em;
-            margin-top: 0%;
-          }
           p{
             margin-left: 2%;
           }
         }
         .map{
-          width:100%;
+          width:94%;
           height:60%;
-          margin-top: 40%;
+          margin-top: 42%;
           margin-left: 0;
           img{
-            height:100%;
+            height:70%;
             width:100%;
             margin-top: 0;
           }
@@ -854,18 +843,61 @@ import HeadComponent from  './mayBe'
       margin-top:30px;
     }
   }
+  @media only screen and (max-width: 415px){
+   .mineInfo{
+     .leftBtn{
+       ul{
+         li{
+           margin-left: 2px;
+         }
+       }
+     }
+     .rightCon{
+       ul{
+         margin-left: -5%;
+       }
+     }
+   }
+  }
   @media only screen and (max-width:380px) {
     .mineInfo{
       .leftBtn{
-        margin-left: 2px;
-      }
-      .rightCon{
-        margin-left: 2%;
         ul{
-          margin-left: -45px;
+          margin-left: -0.4rem;
+          .twoUl{
+            margin-left: -2.1rem;
+          }
           li{
             margin-left: 2px;
+            button{
+              text-indent: -10px;
+            }
           }
+        }
+      }
+      .rightCon{
+        ul{
+          margin-left: -11%;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width:360px) {
+    .mineInfo{
+      .leftBtn{
+        ul{
+        margin-left: -0.5rem;
+          .twoUl{
+            margin-left: -2rem;
+          }
+          li{
+            margin-left: 0.2rem;
+          }
+        }
+      }
+      .rightCon{
+        ul{
+          margin-left: -14%;
         }
       }
     }
@@ -873,10 +905,36 @@ import HeadComponent from  './mayBe'
   @media only screen and (max-width:320px) {
     .mineInfo{
       .leftBtn{
-        margin-left: -5px;
+        ul{
+          margin-left: -1rem;
+          .twoUl{
+            margin-left: -1.5rem;
+          }
+          li{
+            margin-left: 0.1rem;
+            width:3.5rem;
+            .liImg{
+            display: none;
+            }
+            button{
+              text-indent: -1rem;
+            }
+          }
+        }
       }
       .rightCon{
-        margin-left: 1%;
+        ul{
+          margin-left: -10%;
+          li{
+            float: left;
+            margin-left: 20px;
+            margin-top: 30px;
+            img{
+              height:100px;
+              width:120px;
+            }
+          }
+        }
       }
       .callMe{
         .map{

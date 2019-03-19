@@ -74,11 +74,14 @@
     color:black
   }
   @media only screen and (max-width: 768px){
+    .gjImg{
+      margin-top: 0%;
+    }
     .nav{
       width:100%;
       height:60px;
-      margin-top: 2%;
-      margin-left: 0%;
+      margin-top: 4%;
+      margin-left: -10%;
     }
     .nav ul{
       list-style: none;
@@ -91,32 +94,15 @@
       color:white;
     }
   }
-  @media only screen and (max-width: 600px){
-    .gjImg{
-      height:60px;
-      width:60px;
-      margin-top: -60px;
-     margin-left: 10px;
-    }
-    .nav {
-      margin-left: -10%;
-      margin-top: -13%;
-    }
- .nav ul li{
-  font-size: 1.5em;
-   margin-left: 5%;
- }
-  }
   @media only screen and (max-width: 450px){
     .gjImg{
       height:80px;
       width:80px;
       margin-left: 5%;
-      margin-top: 0;
     }
     .nav {
       margin-left: -10%;
-      margin-top: 5%;
+      margin-top: 4%;
     }
     .nav ul li{
       font-size: 1.5em;
@@ -126,6 +112,7 @@
   @media only screen and (max-width: 380px){
     .nav {
       margin-left: -14%;
+      margin-top: 5.5%;
     }
   }
   @media only screen and (max-width: 360px){
@@ -135,8 +122,7 @@
   }
   @media only screen and (max-width: 320px){
     .nav {
-      margin-left: -10%;
-      margin-top: 7%;
+      margin-left: -12%;
     }
     .nav ul li{
       font-size: 1.3em;

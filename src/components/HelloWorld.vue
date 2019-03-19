@@ -34,7 +34,7 @@
       </el-row>
     </div>
     <div class="title ser">
-      <span style="font-weight: bolder;">服务理念</span>
+      <span class="q" style="font-weight: bolder;">服务理念</span>
       <div class="serviceImage">
         <ul>
           <li><img src="../image/justice.png" alt=""></li>
@@ -45,7 +45,7 @@
       </div>
       </div>
      <div class="title" >
-       <span style="font-weight: bolder">业务范围</span>
+       <span class="q" style="font-weight: bolder">业务范围</span>
        <div class="fw">
          <div class="fwItem">
            <div class="fwLeft">
@@ -78,42 +78,42 @@
        </div>
      </div>
     <div class="title js">
-      <span style="font-weight: bolder">技术力量</span>
+      <span class="q" style="font-weight: bolder">技术力量</span>
       <div class="msg">
         <div class="msgText zd">估价师例会制度</div>
         <div class="msgText">大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答</div>
       </div>
     </div>
     <div class="news" >
-     <span class="newsTitle" style="font-weight: bolder">新闻资讯</span>
+     <span class="newsTitle q" style="font-weight: bolder">新闻资讯</span>
       <span class="more"><a href="">更多 >></a></span>
       <div class="newsItem">
         <div class="n">
           <img src="../image/first.jpg" alt="">
           <div class="nc">
             <span>新闻标题</span>
-            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
           </div>
         </div>
         <div class="n">
           <img src="../image/first.jpg" alt="">
           <div class="nc">
             <span>新闻标题</span>
-            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
           </div>
         </div>
         <div class="n">
           <img src="../image/first.jpg" alt="">
           <div class="nc">
             <span>新闻标题</span>
-            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+            <span>内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
           </div>
         </div>
         <div class="n">
           <img src="../image/first.jpg" alt="">
           <div class="nc">
             <span>新闻标题</span>
-            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
           </div>
         </div>
       </div>
@@ -124,30 +124,30 @@
         <div class="workerItem">
           <div class="workerImage"></div>
           <div class="workInfo">
-            <p>曹亦中(同志)</p>
-            <p>啊基督教大海生地哈师大uiddiasdjasj的计算机等级啊是</p>
+            <div class="tz">
+              <p>方纪伟</p>
+              <p>同志</p>
+            </div>
+            <p class="tzCon">在百丈街道宁舟港二期地块拆迁工作中，被评为"拆迁工作先进个人",为公司赢得了荣誉</p>
           </div>
         </div>
         <div class="workerItem">
           <div class="workerImage"></div>
           <div class="workInfo">
-            <p>曹亦中(同志)</p>
-            <p>啊基督教大海生地哈师大uiddiasdjasj的计算机等级啊是</p>
+            <div class="tz">
+              <p>方纪伟</p>
+              <p>同志</p>
+            </div>
+            <p class="tzCon">在百丈街道宁舟港二期地块拆迁工作中，被评为"拆迁工作先进个人",为公司赢得了荣誉</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="mainPeople">重要客户</div>
-
+    <div class="mainPeople q">重要客户</div>
       <div class="mainImage">
-        <el-carousel height="200px" class="x"  trigger="click"  :loop="true">
-          <el-carousel-item v-for="item in imageList" :key="item">
-            <div class="i">
-              <img src="../image/first.jpg" alt="">
-              <img src="../image/three.jpg" alt="">
-              <img src="../image/two.jpg" alt="">
-              <img src="../image/first.jpg" alt="">
-            </div>
+        <el-carousel height="300px" class="x"  trigger="click"  :loop="true">
+          <el-carousel-item v-for="item in peopleList" :key="item">
+              <img class="xImg" :src="item" alt="" style="width:80%;">
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -164,6 +164,11 @@ export default {
     return {
       imageList:[
         require("../image/top_banner.png")
+      ],
+      peopleList:[
+        require("../image/first.jpg"),
+        require("../image/two.jpg"),
+        require("../image/three.jpg")
       ],
       options: [{
         value: '选项1',
@@ -251,7 +256,7 @@ export default {
   width:100%;
   position: absolute;
   z-index: 9999;
-  margin-top:70px;
+  margin-top:0px;
 }
     .image .input {
       height: 60px;
@@ -273,6 +278,9 @@ export default {
       text-indent: 180px;
       font-size: 1.8em;
     }
+    .q{
+      font-size: 1.5em;
+    }
     .select{
       margin-top: -9%;
       float: left;
@@ -293,6 +301,9 @@ export default {
     line-height: 60px;
     margin-right: 1px;
   }
+  .right a{
+    color:#ffffff;
+  }
     .info {
       width: 100%;
     }
@@ -303,7 +314,7 @@ export default {
   flex-direction: column;
 }
 .item img{
-  height:70px;
+  height:60px;
   width:60px;
   margin-left: 38%;
   margin-top: 5px;
@@ -313,10 +324,12 @@ export default {
   width:30px;
   background-color: red;
   margin-left: 45%;
+  margin-top: 2px;
 }
 .item .itemText{
   font-size: 2em;
-  margin-top: 5px;
+  margin-top: 7px;
+  margin-left: 5px;
 }
 .title{
   width:100%;
@@ -370,8 +383,13 @@ export default {
   margin-left: 5%;
   text-align: left;
 }
+.fwLeft span:first-child{
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
 .fwItem img{
   width:45%;
+
   border: 1px solid black;
   border-radius: 2%;
   margin-left:5%;
@@ -396,6 +414,7 @@ export default {
 }
 .zd{
   font-size: 1em;
+  color:black
 }
 .news{
   width:80%;
@@ -403,7 +422,7 @@ export default {
   margin-top: 3%;
 }
 .newsTitle{
-  font-size: 2em;
+  font-size: 3em;
   margin-left: 17%;
 }
 .newsItem{
@@ -435,6 +454,7 @@ export default {
   flex-direction: column;
   width:48%;
   margin-left: 2%;
+  overflow: hidden;
 }
 .nc span:first-child{
   font-size: 1.5em;
@@ -444,6 +464,7 @@ export default {
   display: inline-block;
   margin-top: 5%;
   height:130px;
+  line-height: 16px;
 }
 .more{
   display: inline-block;
@@ -460,7 +481,7 @@ export default {
 }
 .w span{
   display: inline-block;
-  font-size: 2em;
+  font-size: 3em;
   padding-top: 40px;
   font-weight: bolder;
 }
@@ -493,41 +514,44 @@ export default {
   margin-top: 5%;
 }
 .workInfo{
- height:90%;
+   height:90%;
+   width:40%;
+   margin-left: 4%;
+   font-size: 1.5em;
+   text-align: left;
+   padding-top: 10px;
+ }
+.tzCon{
+  margin-top: -1rem;
+  font-size: 0.9em;
+  letter-spacing: 2px;
+}
+.tz{
+  display: flex;
+  flex-direction: row;
   width:50%;
-  margin-left: 4%;
-  font-size: 1.5em;
-  text-align: left;
-  padding-top: 15px;
+}
+.tz p:first-child{
+  font-size: 1.2em;
+  color:black;
+  font-weight: bolder;
+}
+.tz p:last-child{
+  font-size: 10px;
+  line-height: 40px;
 }
 .mainPeople{
-  font-size: 2em;
+  font-size: 3em;
   margin-top: 3%;
   font-weight: bolder
 }
 .mainImage{
   width: 62%;
   margin-left: 19%;
-  height:200px;
-  margin-top: 5%;
+  height:300px;
+  margin-top: 2%;
   padding-bottom: 200px;
 }
-.i{
-  height:200px;
-  width:100%;
-}
-.i img{
-  height:100%;
-  width:18%;
-  border: 1px solid red;
-  float: left;
-  margin-left: 3%;
-}
-.i img:first-child{
-  margin-left: 9%;
-}
-
-
   @media only screen and (max-width: 1366px) {
     .image input{
       text-indent: 120px;
@@ -556,6 +580,13 @@ export default {
     .n{
       margin-top: 4%;
     }
+    .workerImage {
+      margin-top: 10%;
+    }
+    .workInfo{
+      padding-top: 20px;
+      width:50%;
+    }
     .serviceImage{
      width:80%;
       margin-left: 10%;
@@ -570,7 +601,6 @@ export default {
       display: inline-block;
       margin-top: 5%;
       height:130px;
-      overflow-y: scroll;
     }
     .select{
       margin-top: -12.2%;
@@ -582,15 +612,15 @@ export default {
       width:70%;
       margin-left: 15%;
     }
-  .i img{
-    margin-left: 3%;
-  }
   }
   @media only screen and (max-width: 768px) {
     .image{
       height:300px;
       width:100%;
       background-color: #80b2c3;
+    }
+    .item .itemText{
+      font-size: 1.2em;
     }
     .lb{
       height:300px;
@@ -685,7 +715,7 @@ export default {
       margin-left: 5%;
     }
    .fwItem img{
-     width:40%;
+     width:44%;
    }
    .msg{
      margin-top: 4%;
@@ -698,9 +728,11 @@ export default {
      width:90%;
      margin-left: 5%;
      font-size: 0.5em;
+     letter-spacing: 3px;
    }
    .js{
      line-height: 15px;
+     margin-top: 40px;
    }
    .newsItem{
      margin-top:3%;
@@ -732,7 +764,7 @@ export default {
       width:80px;
       border-radius: 50%;
       border: 1px solid black;
-      margin-top: 10px;
+      margin-top: 25px;
       margin-left: 5%;
     }
     .workInfo{
@@ -740,36 +772,24 @@ export default {
       font-size: 1.3em;
       text-align: left;
       margin-left: 10px;
-      padding-top: 0;
-      height:100%;
+      padding-top: 20px;
+      height:90%;
       overflow-y: hidden;
     }
     .zd{
-      font-size: 0.7em;
+      font-size: 1.5em;
+      font-weight: bolder;
+      letter-spacing: 1px;
     }
     .mainImage{
       width:100%;
       margin-left: 0;
       padding-bottom:60px;
     }
-    .x{
-      height: 200px;
-    }
-    .i{
-      height:100%;
-      margin-left: -3%;
-      margin-top: 0%;
-    }
-    .i img{
-      height:40%;
-      width:40%;
-      margin-left: 9%;
-      margin-top: 2%;
-    }
   }
   @media only screen and (max-width: 435px){
     .header{
-      margin-left: 5%;
+     margin-top: 0%;
     }
     .image .input{
       height:40px;
@@ -784,24 +804,52 @@ export default {
     .input input {
      text-indent: 35%;
     }
+    .item{
+      margin-top: 10px;
+    }
+    .item img{
+      height:40px;
+      width:40px;
+      margin-left: 32%;
+    }
+    .item .itemText{
+      margin-top: 0px;
+      margin-left: 2px;
+    }
+    .d{
+      margin-left: 3px;
+    }
     .serviceImage{
       margin-left: 10%;
     }
     .fwItem{
       margin-top: 0;
     }
+    .fwItem img{
+      height:120px;
+      margin-top: 20px;
+    }
+    .q{
+      font-size: 2em;
+    }
     .title{
       font-size: 1em;
     }
+    .js span{
+      margin-top: 20px;
+    }
     .newsTitle{
-      font-size: 1em;
-      margin-left: 21%;
+      font-size:2em;
+      margin-left: 12%;
     }
     .w span{
-      font-size: 1em;
+      font-size: 2em;
     }
     .mainPeople{
-      font-size: 1em;
+      font-size: 2em;
+    }
+    .nc span:last-child{
+      line-height: 15px;
     }
 .newsItem{
   flex-direction: column;
@@ -810,21 +858,25 @@ export default {
   width:100%;
 }
 .more{
-  margin-right:6%;
+  margin-right:0%;
 }
+    .tz p:last-child{
+      line-height: 28px;
+    }
+    .workInfo{
+      width:50%;
+      padding-top: 15px;
+    }
   }
   @media only screen and (max-width: 415px){
     .select{
-           margin-top: -10.7%;
+           margin-top: -10.8%;
          }
     .serviceImage{
       margin-left: 8%;
     }
   }
   @media only screen and (max-width: 380px){
-    .header{
-      margin-left: 0;
-    }
     .select{
       margin-top: -11.8%;
     }
@@ -842,6 +894,9 @@ export default {
     .serviceImage{
       margin-left: 4%;
     }
+    .fwItem img{
+      margin-top: 15px;
+    }
   }
   @media only screen and (max-width: 320px){
     .select{
@@ -849,6 +904,9 @@ export default {
     }
     .serviceImage{
       margin-left: 0%;
+    }
+    .workInfo{
+      width:55%;
     }
   }
 </style>

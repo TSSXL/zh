@@ -79,8 +79,8 @@
     .nav{
       width:100%;
       height:60px;
-      margin-top: 2%;
-      margin-left: 0%;
+      margin-top: 4%;
+      margin-left: -10%;
     }
     .nav ul{
       list-style: none;
@@ -107,6 +107,41 @@
     .nav ul li{
       font-size: 1.5em;
       margin-left: 5%;
+    }
+    @media only screen and (max-width: 450px){
+      .gjImg{
+        height:80px;
+        width:80px;
+        margin-left: 5%;
+      }
+      .nav {
+        margin-left: -10%;
+        margin-top: -10%;
+      }
+      .nav ul li{
+        font-size: 1.5em;
+        margin-left: 5%;
+      }
+    }
+    @media only screen and (max-width: 380px){
+      .nav {
+        margin-left: -14%;
+      }
+    }
+    @media only screen and (max-width: 360px){
+      .nav {
+        margin-left: -17%;
+        margin-top: -11%;
+      }
+    }
+    @media only screen and (max-width: 320px){
+      .nav {
+        margin-left: -12%;
+      }
+      .nav ul li{
+        font-size: 1.3em;
+        margin-left:2%;
+      }
     }
   }
 

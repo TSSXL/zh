@@ -272,7 +272,7 @@
       position: absolute;
       display: inline-block;
       top: 0;
-      margin-top: 15.1%;
+      margin-top: 16%;
     }
     .content{
       height:200px;
@@ -329,10 +329,13 @@
           font-size: 2em;
           width:80px;
           float: right;
-          background-color: #2199FF;
+          background-color:  #009645;
           margin-top: -58px;
           line-height: 60px;
           margin-right: 1px;
+          a{
+            color:#ffffff;
+          }
         }
       }
     }
@@ -371,7 +374,7 @@
     }
  .main{
    .mainHr{
-     margin-top: 21%;
+     margin-top: 22%;
    }
    .form{
      .formBtn{
@@ -429,6 +432,9 @@
     }
   }
   @media only screen and (max-width: 768px) {
+    .navComponent{
+      margin-top: 0;
+    }
     .bt ul{
       width:100%;
       margin-left: 0;
@@ -457,7 +463,6 @@
     .mainOne,.mainTwo{
       .t{
         .input{
-
           width:80%;
           margin-left: 10%;
           margin-top: 15%;
@@ -512,14 +517,20 @@
       margin-left: 1%;
       .t{
         .input{
-          width:100%;
-          margin-left: 0;
+          width:95%;
+          margin-left: 2.5%;
           input{
+            height:60%;
             text-indent: 130px;
             font-size: 1.5em;
           }
           .select{
-            margin-top: -12%;
+            margin-top: -10%;
+          }
+          .right{
+            height:46px;
+            line-height: 40px;
+            margin-top: -46px;
           }
         }
       }
@@ -531,7 +542,7 @@
       }
     }
   }
-  @media only screen and (max-width: 415px) {
+  @media only screen and (max-width: 411px) {
     .main{
       .form{
         .formBtn{
@@ -540,9 +551,14 @@
       }
     }
     .mainOne,.mainTwo{
-      .input{
-        .select{
-          margin-top: -10.8%;
+      .t{
+        .input{
+          input{
+            text-indent: 120px;
+          }
+          .select{
+            margin-top: -11%;
+          }
         }
       }
     }
@@ -575,7 +591,7 @@
             font-size: 1em;
           }
           .select{
-            margin-top: -13%;
+            margin-top: -11.5%;
             width:32%;
           }
         }
@@ -599,7 +615,7 @@
           }
           .select{
             width: 28%;
-            margin-top: -13.5%;
+            margin-top: -12%;
           }
         }
       }
@@ -621,7 +637,7 @@
           }
           .select{
             width: 32%;
-            margin-top: -15.5%;
+            margin-top: -13.5%;
           }
         }
       }

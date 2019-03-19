@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import estimate from '@/components/estimate'
 import news from '@/components/news'
 import mine from '@/components/mine'
+import info from '@/components/info'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path:'/mine',
       name:'Mine',
       component:mine
+    },
+    {
+      path:'/info',
+      name:'Info',
+      component:info
     }
   ]
 })

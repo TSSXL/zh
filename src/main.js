@@ -5,6 +5,10 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import $ from 'jquery'
+import '../static/utf8-php/ueditor.config.js'  //根据自己文件的路径接入
+import '../static/utf8-php/ueditor.all.min.js'
+import '../static/utf8-php/lang/zh-cn/zh-cn.js'
+import '../static/utf8-php/ueditor.parse.min.js'
 Vue.use(ElementUI);
 import App from './App'
 

@@ -107,7 +107,7 @@
     width:90%;
     display: flex;
     font-size: 1.5em;
-    color:#979797;
+    color: #e4e4e4;
     margin-top: 30px;
   }
   .fiveLeft{
@@ -179,7 +179,7 @@
     .footer{
       height:450px;
       width:100%;
-      padding-bottom: 0;
+      padding-bottom: 40px;
       bottom: 0;
     }
     .dontKnow{
@@ -202,7 +202,7 @@
       margin-left: 1%;
     }
     .dontKnowFirst img{
-      margin-left:-35%;
+      margin-left:-49%;
       margin-top: 10px;
     }
     .dontKnowFirst span{
@@ -258,8 +258,7 @@
       height:520px;
     }
     .dontKnowFirst img{
-     height:90px;
-      margin-top: 0;
+      margin-top: 10px;
     }
     .companyInfo hr{
       margin-top: 25px;

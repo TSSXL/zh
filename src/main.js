@@ -15,7 +15,7 @@ import App from './App'
 import axios from 'axios'
 import qs from 'qs'
 Vue.prototype.$http = axios;
-axios.defaults.baseURL = 'http://jmj.kimijia.com/';
+axios.defaults.baseURL = 'http://192.168.1.148/ZhongHeng';
 
 Vue.config.productionTip = false
 

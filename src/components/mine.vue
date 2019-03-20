@@ -26,9 +26,7 @@
                 <el-button @click="changeColor(2)">经典案例</el-button>
               </li>
               <div class="twoUl" :style="isshowStyle(three)">
-                <ul>
-                  <li v-for="item in list" :key="item">{{item}}</li>
-                </ul>
+                <span v-for="item in list" :key="item">{{item}}</span>
               </div>
               <li>
                 <img class="liImg" src="../image/contact_us.png" v-if="four">
@@ -241,31 +239,30 @@ import HeadComponent from  './mayBe'
       width:12%;
       margin-left: 3.5%;
       ul{
-        height:350px;
         width:100%;
         margin-top: 0;
         list-style: none;
+        box-shadow: 5px 5px 5px 5px #e2e2e2;
         .twoUl{
-          width:100%;
+          width:120%;
           margin-left: -40px;
-          ul{
-            height:160px;
-            li{
-              height:40px;
-              line-height: 40px;
-            }
-            li:hover{
-              cursor: pointer;
-              color:red;
-            }
+          border-radius: 5%;
+          span{
+            display: block;
+            height:2.5rem;
+            line-height: 2.5rem;
+          }
+          span:hover{
+            cursor: pointer;
+          }
+          span:active{
+            color:red
           }
         }
         li{
-          width:100%;
+          width:120%;
           height:70px;
           margin-left: -40px;
-          box-shadow: 5px 5px 5px 5px #e2e2e2;
-          border-radius: 10%;
           border: 1px solid #e2e2e2;
           margin-top: -2px;
           .liImg{
@@ -424,7 +421,8 @@ import HeadComponent from  './mayBe'
   .mineInfo{
     .leftBtn{
       ul{
-        li{
+        li,.twoUl{
+          width:130%;
           .liImg{
          margin-top: 1.5%;
           }
@@ -523,26 +521,27 @@ import HeadComponent from  './mayBe'
         height:40px;
         width:100%;
         border: none;
-        margin-left: 0;
+        margin-left: 2rem;
         ul{
           height:40px;
           width:87%;
           .twoUl{
-            width:60%;
+            width:80%;
             height:40px;
-            margin-left: 5.5rem;
+            margin-left: 1%;
             margin-top: 3rem;
             position: absolute;
-            ul{
-              height:160px;
-              li{
-                height:40px;
-                line-height: 40px;
-              }
-              li:hover{
-                cursor: pointer;
-                color:red;
-              }
+            span{
+              display: inline-block;
+              margin-left: 6%;
+              border: 1px solid black;
+              border-radius: 4%;
+              padding-left: 1rem;
+              padding-right: 1rem;
+            }
+            span:active{
+              background-color: red;
+              color:white;
             }
           }
           li:first-child{
@@ -634,7 +633,7 @@ import HeadComponent from  './mayBe'
       }
       .callMe{
         width: 95%;
-        margin-left: 2.5%;
+        margin-left: -1.5%;
         margin-top: 42px;
         .callMeTitle{
           margin-left: 0;
@@ -661,6 +660,7 @@ import HeadComponent from  './mayBe'
             margin-top: 0;
             height: 61%;
             width: 108%;
+            margin-left:3%;
           }
         }
       }
@@ -698,17 +698,13 @@ import HeadComponent from  './mayBe'
           height:40px;
           width:87%;
           .twoUl{
-            width:100%;
-            height:35px;
-            margin-left: -2.5rem;
-            margin-top: 3rem;
-            position: absolute;
-            ul{
-              height:160px;
-              li{
-                height:30px;
-                line-height: 30px;
-              }
+          width:100%;
+            margin-left: -11%;
+            span{
+              margin-left: 2%;
+              width:15%;
+              padding-left: 0;
+              padding-right: 0;
             }
           }
           li:first-child{
@@ -806,7 +802,7 @@ import HeadComponent from  './mayBe'
         margin-top: 30px;
         border: 1px solid white;
         .callMeTitle{
-          margin-left: 2%;
+          margin-left: 10%;
           width:100%;
           p{
             margin-left: 2%;
@@ -819,7 +815,7 @@ import HeadComponent from  './mayBe'
           margin-left: 0;
           img{
             height:70%;
-            width:100%;
+            width:80%;
             margin-top: 0;
           }
         }
@@ -865,7 +861,7 @@ import HeadComponent from  './mayBe'
         ul{
           margin-left: -0.4rem;
           .twoUl{
-            margin-left: -2.1rem;
+            margin-left: -12%;
           }
           li{
             margin-left: 2px;
@@ -888,7 +884,7 @@ import HeadComponent from  './mayBe'
         ul{
         margin-left: -0.5rem;
           .twoUl{
-            margin-left: -2rem;
+            margin-left: -11%;
           }
           li{
             margin-left: 0.2rem;
@@ -907,9 +903,6 @@ import HeadComponent from  './mayBe'
       .leftBtn{
         ul{
           margin-left: -1rem;
-          .twoUl{
-            margin-left: -1.5rem;
-          }
           li{
             margin-left: 0.1rem;
             width:3.5rem;

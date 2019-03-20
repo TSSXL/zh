@@ -20,11 +20,29 @@ export default {
     padding: 0;
     font-size: 62.5%;
   }
+  .el-menu{
+    border: none;
+  }
+  .el-menu-vertical-demo{
+    height:120px;
+    display: flex;
+    flex-direction: row;
+    width:220px;
+    flex-wrap: wrap;
+    background: transparent;
+  }
   .el-input--suffix .el-input__inner{
     background-color: #F5F7F6;
   }
   .el-radio-button{
     margin-top: 10px;
+  }
+  .el-icon-location:before,.el-icon-menu:before,.el-icon-document:before,.el-icon-setting:before{
+    color: #9dacff;
+  }
+  .el-menu-item, .el-submenu__title{
+    width:100px;
+    color:#9dacff;
   }
   .el-menu--horizontal>.el-menu-item{
     margin-left: 15%;
@@ -37,17 +55,8 @@ export default {
     min-width:100px;
     background-color: #A9B5BD;
   }
-  .el-menu{
-    background-color: #c2ced6;
-  }
   .el-menu.el-menu--horizontal{
     border-bottom: 0;
-  }
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-  }
-  .el-submenu .el-menu-item{
-    color:gray;
   }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

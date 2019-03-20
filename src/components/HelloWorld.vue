@@ -26,10 +26,10 @@
       <el-row>
         <el-col  :xs="0" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
         <el-col  :xs="0" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/evaluation_project.png" alt=""><div class="itemText">评估项目</div><div class="itemHr"></div><div class="itemText" style="font-weight: bolder">600</div><div class="d" >(个)</div></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/construction_area.png" alt=""><div class="itemText">建筑面积</div><div class="itemHr"></div><div class="itemText" style="font-weight: bolder">4.2亿</div><div class="d">(平方米)</div></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/land_area.png" alt=""><div class="itemText">土地面积</div><div class="itemHr"></div><div class="itemText" style="font-weight: bolder">1.1亿</div><div class="d">(平方米)</div></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/total_cost_assessment.png" alt=""><div class="itemText">评估总值</div><div class="itemHr"></div><div class="itemText" style="font-weight: bolder">128万亿</div><div class="d">(元)</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/evaluation_project.png" alt=""><div class="itemText">评估项目</div><div class="itemHr"></div><div class="itemText z">600</div><div class="d" >(个)</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/construction_area.png" alt=""><div class="itemText">建筑面积</div><div class="itemHr"></div><div class="itemText z" >4.2亿</div><div class="d">(平方米)</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/land_area.png" alt=""><div class="itemText">土地面积</div><div class="itemHr"></div><div class="itemText z" >1.1亿</div><div class="d">(平方米)</div></div></el-col>
+        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/total_cost_assessment.png" alt=""><div class="itemText">评估总值</div><div class="itemHr"></div><div class="itemText z" >128万亿</div><div class="d">(元)</div></div></el-col>
         <el-col  :xs="0" :sm="6"  :lg="6" :xl="6"><div class="item"></div></el-col>
       </el-row>
     </div>
@@ -81,7 +81,7 @@
       <span class="q" style="font-weight: bolder">技术力量</span>
       <div class="msg">
         <div class="msgText zd">估价师例会制度</div>
-        <div class="msgText">大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊倒萨是的哈说的话黑暗神殿回答</div>
+        <div class="msgText">大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊</div>
       </div>
     </div>
     <div class="news" >
@@ -92,7 +92,7 @@
           <img src="../image/first.jpg" alt="">
           <div class="nc">
             <span>新闻标题</span>
-            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
           </div>
         </div>
         <div class="n">
@@ -170,6 +170,7 @@ export default {
         require("../image/two.jpg"),
         require("../image/three.jpg")
       ],
+      category:1,
       options: [{
         value: '选项1',
         label: '宁波'
@@ -196,16 +197,14 @@ export default {
   methods:{
     getInfo() {
       this.$http
-        .get("/api/APP_Product/GetDayDealPosterList", {
+        .get("/api/Baidu/BaiduE", {
           params: {
-            type:1,
-            pageIndex: 1,
-            pageSize: 20
+          category:this.category
           }
         })
         .then(
           function (response) {
-            var status = response.data;
+           console.log(response)
           }.bind(this)
         )
         // 请求error
@@ -278,8 +277,16 @@ export default {
       text-indent: 180px;
       font-size: 1.8em;
     }
+    .z{
+      font-weight: bolder;
+      font-size: 24px;
+    }
+    .d{
+      font-size: 16px;
+      margin-left: 5px;
+    }
     .q{
-      font-size: 1.5em;
+      font-size: 22px;
     }
     .select{
       margin-top: -9%;
@@ -398,6 +405,7 @@ export default {
   width:100%;
   background-color: wheat;
   background: url("../image/technical_force_bg.png");
+  background-size: 100% 100%;
 }
 .msg{
   margin-top: 2%;
@@ -413,7 +421,7 @@ export default {
   font-size: 0.8em;
 }
 .zd{
-  font-size: 1em;
+  font-size: 18px;
   color:black
 }
 .news{
@@ -422,7 +430,7 @@ export default {
   margin-top: 3%;
 }
 .newsTitle{
-  font-size: 3em;
+  font-size: 22px;
   margin-left: 17%;
 }
 .newsItem{
@@ -454,17 +462,21 @@ export default {
   flex-direction: column;
   width:48%;
   margin-left: 2%;
-  overflow: hidden;
 }
 .nc span:first-child{
   font-size: 1.5em;
+  font-weight: bolder;
 
 }
 .nc span:last-child{
-  display: inline-block;
   margin-top: 5%;
-  height:130px;
+  height:95px;
   line-height: 16px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+  color:#808080;
 }
 .more{
   display: inline-block;
@@ -481,7 +493,7 @@ export default {
 }
 .w span{
   display: inline-block;
-  font-size: 3em;
+  font-size: 22px;
   padding-top: 40px;
   font-weight: bolder;
 }
@@ -525,6 +537,7 @@ export default {
   margin-top: -1rem;
   font-size: 0.9em;
   letter-spacing: 2px;
+  color:#808080;
 }
 .tz{
   display: flex;
@@ -539,9 +552,10 @@ export default {
 .tz p:last-child{
   font-size: 10px;
   line-height: 40px;
+  color:#808080;
 }
 .mainPeople{
-  font-size: 3em;
+  font-size: 22px;
   margin-top: 3%;
   font-weight: bolder
 }
@@ -598,9 +612,9 @@ export default {
       margin-right: 13%
     }
     .nc span:last-child{
-      display: inline-block;
-      margin-top: 5%;
-      height:130px;
+      width:90%;
+      height:110px;
+      -webkit-line-clamp: 7;
     }
     .select{
       margin-top: -12.2%;
@@ -694,6 +708,7 @@ export default {
     }
     .d{
       margin-left: 20px;
+      font-size: 12px;
     }
     .serviceImage{
       width:90%;
@@ -769,7 +784,7 @@ export default {
     }
     .workInfo{
       width:69%;
-      font-size: 1.3em;
+      font-size: 1.22px;
       text-align: left;
       margin-left: 10px;
       padding-top: 20px;
@@ -815,9 +830,11 @@ export default {
     .item .itemText{
       margin-top: 0px;
       margin-left: 2px;
+      font-size: 16px;
     }
     .d{
       margin-left: 3px;
+      font-size: 14px;
     }
     .serviceImage{
       margin-left: 10%;
@@ -850,6 +867,7 @@ export default {
     }
     .nc span:last-child{
       line-height: 15px;
+      height: 105px;
     }
 .newsItem{
   flex-direction: column;
@@ -861,7 +879,7 @@ export default {
   margin-right:0%;
 }
     .tz p:last-child{
-      line-height: 28px;
+      line-height: 23px;
     }
     .workInfo{
       width:50%;
@@ -893,6 +911,11 @@ export default {
     }
     .serviceImage{
       margin-left: 4%;
+    }
+    .nc span:last-child{
+      width:82%;
+      height:120px;
+      -webkit-line-clamp: 8;
     }
     .fwItem img{
       margin-top: 15px;

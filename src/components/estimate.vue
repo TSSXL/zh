@@ -8,62 +8,96 @@
           <div class="redHr"></div></li>
         </ul>
       </div>
-      <div class="main" :style="zeroStyle">
+      <div class="main"  v-if="index==0">
         <div class="form">
           <el-form ref="form" :model="form" label-width="110px">
             <el-form-item label="贷款类别">
-              <el-select v-model="form.name" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
+              <el-select  v-model="form.dkID"  style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;" >
+                <el-option v-for="item in dk" :label="item.label" :value="item.label" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
             <el-form-item label="计算方式">
-              <el-select v-model="form.name" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
+              <el-select v-model="form.jsID" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
+                <el-option v-for="item in fs" :label="item.label" :value="item.way" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
             <el-form-item label="房屋单价">
-              <el-input v-model="form.name" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;"></el-input>
+              <el-input v-model="form.price" placeholder="请输入房屋单价" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;"></el-input>
+              <span class="msgRightOne">元/平方米</span>
             </el-form-item>
             <el-form-item label="房屋面积">
-              <el-input v-model="form.name" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;" ></el-input>
+              <el-input v-model="form.area" placeholder="请输入房屋面积" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;" ></el-input>
+              <span class="msgRightTwo">平方米</span>
             </el-form-item>
             <el-form-item label="按揭成数">
-              <el-select v-model="form.name" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
+              <el-select v-model="form.csID" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
+                <el-option v-for="item in cs" :label="item.label" :value="CS(item.label)" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
             <el-form-item label="按揭年数">
-              <el-select v-model="form.name" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
+              <el-select v-model="form.nsID" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
+                <el-option v-for="item in ns" :label="item.label" :value="NS(item.label)" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
             <el-form-item label="贷款利率">
-              <el-select v-model="form.name" style="width: 40%;border: 1px solid #89d9e2;border-radius: 5px;">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
+              <el-select v-model="form.lvID" style="width: 40%;border: 1px solid #89d9e2;border-radius: 5px;">
+                <el-option v-for="item in lv" :label="item.label" :value="LV(item.num)" :key="item.value"></el-option>
               </el-select>
-              <el-input v-model="form.name" style="width:25%;margin-left:5%;border: 1px solid #89d9e2;border-radius: 5px;" ></el-input>
+              <el-input v-model="value" style="width:25%;margin-left:5%;border: 1px solid #89d9e2;border-radius: 5px;" ></el-input>
+              <span class="msgRightThree" >%</span>
             </el-form-item>
             <el-form-item label="还款方式">
-              <el-select v-model="form.name" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
-              </el-select>
+              <el-radio-group v-model="radio2">
+                <el-radio :label="1">等额本息</el-radio>
+                <el-radio :label="2">等额本金</el-radio>
+              </el-radio-group>
             </el-form-item>
           </el-form>
-          <el-button type="danger" class="formBtn">开始计算</el-button>
-          <el-button>清空重置</el-button>
+          <el-button type="danger" class="formBtn" @click="handleJS">开始计算</el-button>
+          <el-button type="danger" class="formBtnTwo" @click="DialogShow">开始计算</el-button>
+          <el-button class="cle" @click="cle">清空重置</el-button>
         </div>
         <hr class="mainHr">
         <div class="content">
-          <img src="../image/icon_calculate.png" alt="">
+          <img  src="../image/icon_calculate.png" v-if="isJS">
+          <div class="jg" v-else>
+            <span>
+                <h1>计算结果</h1>
+            </span>
+              <span>
+                <h1>首付：</h1>
+                <h1 class="sf">{{resultList[0]}}</h1>
+                <h1>元</h1>
+                </span>
+            <span>
+                <h1>每月月供：</h1>
+                <h1>{{resultList[1]}}</h1>
+                <h1>元</h1>
+                </span>
+            <span>
+                <h1>贷款总额：</h1>
+                <h1>{{resultList[2]}}</h1>
+                <h1>元</h1>
+                </span>
+            <span>
+                <h1>支付利息：</h1>
+                <h1>{{resultList[3]}}</h1>
+                <h1>元</h1>
+                </span>
+            <span>
+                <h1>还款总额：</h1>
+                <h1>{{resultList[4]}}</h1>
+                <h1>元</h1>
+                </span>
+            <span>
+                <h1>还款月数：</h1>
+                <h1>{{resultList[5]}}</h1>
+                <h1>月</h1>
+                </span>
+          </div>
         </div>
       </div>
-      <div class="mainOne" :style="oneStyle">
+      <div class="mainOne" v-else-if="index==1">
         <div class="t">
           <div class="input">
             <input type="text" placeholder="请输入完整小区的名称">
@@ -106,7 +140,7 @@
         </div>
         <p>*此为2019年3月份所得数据</p>
       </div>
-      <div class="mainTwo" :style="twoStyle">
+      <div class="mainTwo" v-else="index==2">
         <div class="t">
           <div class="input">
             <input type="text" placeholder="请输入完整小区的名称">
@@ -125,6 +159,32 @@
 
         </div>
       </div>
+      <el-dialog title="计算结果" :visible.sync="dialogFormVisible" width="90%">
+        <el-form :model="form"  >
+          <el-form-item label="首付" label-width="70px">
+            <el-input v-model="form.name" autocomplete="off"></el-input>
+          </el-form-item>
+          <el-form-item label="每月月供" label-width="70px">
+            <el-input v-model="form.name" autocomplete="off"></el-input>
+          </el-form-item>
+          <el-form-item label="贷款总额" label-width="70px">
+            <el-input v-model="form.name" autocomplete="off"></el-input>
+          </el-form-item>
+          <el-form-item label="支付利息" label-width="70px">
+            <el-input v-model="form.name" autocomplete="off"></el-input>
+          </el-form-item>
+          <el-form-item label="还款总额" label-width="70px">
+            <el-input v-model="form.name" autocomplete="off"></el-input>
+          </el-form-item>
+          <el-form-item label="还款月数" label-width="70px">
+            <el-input v-model="form.name" autocomplete="off"></el-input>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+          <el-button @click="dialogFormVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+        </div>
+      </el-dialog>
       <Foot-Component class="footer"></Foot-Component>
     </div>
 </template>
@@ -135,6 +195,10 @@
     export default {
       data(){
           return{
+            index:0,
+            radio2:1,
+            isJS:true,
+            dialogFormVisible:false,
             tableData:[
               { name:"19500",
                 date:"22500",
@@ -145,25 +209,256 @@
               "在线估价",
               "申报房源"
             ],
+            dk:[
+              {
+                value:'1',
+                label:'商业贷款'
+              },
+              {
+                value:'2',
+                label:'公积金贷款'
+              },
+              {
+                value:'3',
+                label:'组合型贷款'
+              }
+            ],
+            fs:[
+              {
+                value:'1',
+                label:'根据单价、面积计算',
+                way:true,
+              },
+              {
+                value:'2',
+                label:'根据贷款总额计算',
+                way:false
+              }
+            ],
+            cs:[
+              {
+                value:'1',
+                label:'2成'
+              },
+              {
+                value:'2',
+                label:'2.5成'
+              },
+              {
+                value:'3',
+                label:'3成'
+              },
+              {
+                value:'4',
+                label:'3.5成'
+              },
+              {
+                value:'5',
+                label:'4成'
+              },
+              {
+                value:'6',
+                label:'4.5成'
+              },
+              {
+                value:'7',
+                label:'5成'
+              },
+              {
+                value:'8',
+                label:'5.5成'
+              },
+              {
+                value:'9',
+                label:'6成'
+              },
+              {
+                value:'10',
+                label:'6.5成'
+              },
+              {
+                value:'11',
+                label:'7成'
+              },
+              {
+                value:'12',
+                label:'7.5成'
+              },
+              {
+                value:'13',
+                label:'8成'
+              }
+            ],
+            ns:[
+              {
+                value:'1',
+                label:'25年(300期)'
+              },
+              {
+                value:'2',
+                label:'24年(288期)'
+              },
+              {
+                value:'3',
+                label:'23年(276期)'
+              },
+              {
+                value:'4',
+                label:'22年(264期)'
+              },
+              {
+                value:'5',
+                label:'21年(252期)'
+              },
+              {
+                value:'6',
+                label:'20年(240期)'
+              },
+              {
+                value:'7',
+                label:'19年(228期)'
+              },
+              {
+                value:'8',
+                label:'18年(216期)'
+              },
+              {
+                value:'9',
+                label:'17年(204期)'
+              },
+              {
+                value:'10',
+                label:'16年(192期)'
+              },
+              {
+                value:'11',
+                label:'15年(180期)'
+              },
+              {
+                value:'12',
+                label:'14年(168期)'
+              },
+              {
+                value:'13',
+                label:'13年(156期)'
+              },
+              {
+                value:'14',
+                label:'12年(144期)'
+              },
+              {
+                value:'15',
+                label:'11年(132期)'
+              },
+              {
+                value:'16',
+                label:'10年(120期)'
+              },
+              {
+                value:'17',
+                label:'9年(108期)'
+              },
+              {
+                value:'18',
+                label:'8年(96期)'
+              },
+              {
+                value:'19',
+                label:'7年(84期)'
+              },
+              {
+                value:'20',
+                label:'6年(72期)'
+              },
+              {
+                value:'21',
+                label:'5年(60期)'
+              },
+              {
+                value:'22',
+                label:'4年(48期)'
+              },
+              {
+                value:'23',
+                label:'3年(36期)'
+              },
+              {
+                value:'24',
+                label:'2年(24期)'
+              },
+              {
+                value:'25',
+                label:'1年(12期)'
+              }
+            ],
+            lv:[
+              {
+                value:'1',
+                label:'基准利率',
+                num:'4.9'
+              },
+              {
+                value:'2',
+                label:'7折',
+                num:'3.43'
+              },
+              {
+                value:'3',
+                label:'85折',
+                num:'4.165'
+              },
+              {
+                value:'4',
+                label:'88折',
+                num:'4.312'
+              },
+              {
+                value:'5',
+                label:'9折',
+                num:'4.41'
+              },
+              {
+                value:'6',
+                label:'95折',
+                num:'4.655'
+              },
+              {
+                value:'7',
+                label:'1.05倍',
+                num:'5.145'
+              },
+              {
+                value:'8',
+                label:'1.1倍',
+                num:'5.39'
+              },
+              {
+                value:'9',
+                label:'1.2倍',
+                num:'5.88'
+              },
+              {
+                value:'10',
+                label:'1.3倍',
+                num:'6.37'
+              }
+            ],
             form:{
-              name:"aa"
+               price:'',
+              area:'',
+              dkID:'',
+              jsID:'',
+              csID:'',
+              nsID:'',
+              lvID:''
             },
-            zeroStyle:{
-              display:"block"
-            },
-            oneStyle:{
-              display:"none"
-            },
-            twoStyle:{
-              display:"none"
-            },
+          resultList:[],
             select:0,
             colorStyle:{
               color:"red",
               fontWeight:"bolder"
             },
             value: '',
-            valueTwo:'',
             options: [{
               value: '选项1',
               label: '宁波'
@@ -203,23 +498,70 @@
       NavComponent
     },
       methods:{
+        LV(val)
+        {
+          return (val/100).toFixed(2)
+        },
+        NS(val){
+         return val.split("年")[0]
+        },
+        CS(val){
+          return val.split('成')[0]/10
+        },
+        chose(val){
+          console.log(val)
+        },
+        cle(){
+          this.isJS=true
+        },
+        handleJS(){
+          this.isJS=false
+          this.getOnline();
+          console.log(this.form)
+        },
+        DialogShow(){
+          this.dialogFormVisible=true
+        },
         changeMain(index){
           this.select=index
-          if(index===0)
-          {
-            this.oneStyle.display="none"
-            this.twoStyle.display="none"
-            this.zeroStyle.display="block"
-          }else if(index===1)
-          {
-            this.twoStyle.display="none"
-            this.zeroStyle.display="none"
-            this.oneStyle.display="block"
-          }else{
-            this.oneStyle.display="none"
-            this.zeroStyle.display="none"
-            this.twoStyle.display="block"
-          }
+        this.index=index
+        },
+        getOnline() {
+          let years=25
+          let interestRate=0.049
+          let type=true
+          let way=true
+          let ze=10000
+          let unitPrice=5000
+          let area=100
+          let pct=0.025
+          this.$http
+            .get("/api/Online/OnineCalculate", {
+              params: {
+                years:years,
+                interestRate:interestRate,
+                type:type,
+                way:way,
+                ze:ze,
+                unitPrice:unitPrice,
+                area:area,
+                pct:pct
+              }
+            })
+            .then(
+              function (response) {
+                this.resultList=response.data.Result
+              }.bind(this)
+            )
+            // 请求error
+            .catch(
+              function (error) {
+                this.$notify.error({
+                  title: "出错啦",
+                  message: "错误：请检查网络"
+                });
+              }.bind(this)
+            );
         }
       }
     }
@@ -263,8 +605,26 @@
       width:40%;
       margin-left: 10%;
       margin-top: 60px;
+      .msgRightOne{
+        position: absolute;
+        margin-left: -10%;
+        color:rgba(179,179,179,1)
+      }
+      .msgRightTwo{
+        position: absolute;
+        margin-left: -8%;
+        color:rgba(179,179,179,1)
+      }
+      .msgRightThree{
+        position: absolute;
+        margin-left: -4%;
+        color:rgba(179,179,179,1)
+      }
       .formBtn{
         margin-left: -16%;
+      }
+      .formBtnTwo{
+        display: none;
       }
     }
     .mainHr{
@@ -275,14 +635,37 @@
       margin-top: 16%;
     }
     .content{
-      height:200px;
-      width:12%;
-      position: absolute;
-      margin-top: -22%;
-      margin-left: 66%;
+      height:450px;
+      width: 40%;
+      position: relative;
+      margin-top: -25%;
+      margin-left:52%;
+      .jg{
+        height:400px;
+        width:50%;
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        span{
+          display: flex;
+          flex-direction: row;
+          h1:first-child{
+            width:120px;
+          }
+       h1:nth-child(2){
+         width:50%;
+       }
+          h1:nth-child(3){
+            margin-left: 10%;
+          }
+        }
+      }
       img{
-        height: 200px;
-        width:200px;
+        height: 250px;
+        width:250px;
+        position: absolute;
+        margin-left: -20%;
+        margin-top: 5%;
       }
     }
   }
@@ -295,7 +678,7 @@
     .t{
       width:100%;
       height:240px;
-      border: 1px solid black;
+      border: 1px solid white;
       background: url("../image/valuation_bg.png");
       background-size: 100% 100%;
       .input{
@@ -377,9 +760,18 @@
      margin-top: 22%;
    }
    .form{
+     .msgRightOne{
+       margin-left: -14%;
+     }
+     .msgRightTwo{
+       margin-left: -10%;
+     }
      .formBtn{
        margin-left: 6%;
      }
+   }
+   .content{
+     margin-top: -35%;
    }
  }
     .mainOne,.mainTwo{
@@ -389,13 +781,11 @@
       .t{
         width:100%;
         height:240px;
-        border: 1px solid black;
-        background-color: red;
         .input{
           height: 60px;
           width: 50%;
-          margin-left: 30%;
-          margin-top: 6%;
+          margin-left: 25%;
+          margin-top: 8%;
           color: #606060;
           input{
             width: 95%;
@@ -452,6 +842,20 @@
         width:100%;
         margin-left: -10px;
         margin-top: 75px;
+        .msgRightOne{
+          margin-left: -10%;
+        }
+        .msgRightTwo{
+          margin-left: -8%;
+        }
+        .formBtn{
+          display: none;
+        }
+        .formBtnTwo{
+          display: block;
+          margin-left: 27%;
+          position: absolute;
+        }
       }
       .mainHr{
         display: none;
@@ -487,7 +891,6 @@
   @media only screen and (max-width: 435px) {
     .navComponent{
       margin-top: 60px;
-
     }
     .bt ul{
       width:100%;
@@ -506,8 +909,20 @@
       .form{
         width:100%;
         margin-left: -10px;
-        .formBtn{
-          margin-left: 24%;
+        .msgRightOne{
+          margin-left: -21%;
+        }
+        .msgRightTwo{
+          margin-left: -16%;
+        }
+        .msgRightThree{
+          margin-left: -6%;
+        }
+        .formBtnTwo{
+          margin-left: 36%;
+        }
+        .cle{
+          margin-left: 45%;
         }
       }
     }
@@ -519,6 +934,7 @@
         .input{
           width:95%;
           margin-left: 2.5%;
+          margin-top: 20%;
           input{
             height:60%;
             text-indent: 130px;
@@ -529,7 +945,8 @@
           }
           .right{
             height:46px;
-            line-height: 40px;
+            font-size: 16px;
+            line-height: 47px;
             margin-top: -46px;
           }
         }
@@ -542,17 +959,22 @@
       }
     }
   }
-  @media only screen and (max-width: 411px) {
+  @media only screen and (max-width: 415px) {
     .main{
       .form{
-        .formBtn{
-          margin-left: 30%;
+
+        .formBtnTwo{
+          margin-left: 38%;
+        }
+        .cle{
+          margin-left: 50%;
         }
       }
     }
     .mainOne,.mainTwo{
       .t{
         .input{
+          margin-top: 21%;
           input{
             text-indent: 120px;
           }
@@ -573,8 +995,23 @@
     }
     .main{
       .form{
-        .formBtn{
-          margin-left: 5%;
+        .msgRightOne{
+          margin-left: -20%;
+          font-size: 10px;
+        }
+        .msgRightTwo{
+          margin-left: -16%;
+          font-size: 10px;
+        }
+        .msgRightThree{
+          margin-left: -6%;
+          font-size: 10px;
+        }
+        .formBtnTwo{
+          margin-left: 20%;
+        }
+        .cle{
+          margin-left: 35%;
         }
       }
     }
@@ -586,6 +1023,7 @@
         .input{
           width:100%;
           margin-left: 0;
+          margin-top: 24%;
           input{
             text-indent: 134px;
             font-size: 1em;
@@ -627,6 +1065,13 @@
       margin-left: -11%;
       li{
         margin-left: 1%;
+      }
+    }
+    .main{
+      .form{
+        .msgRightOne,.msgRightTwo{
+          display: none;
+        }
       }
     }
     .mainOne,.mainTwo{

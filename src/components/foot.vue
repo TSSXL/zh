@@ -255,10 +255,11 @@
   }
   @media only screen and (max-width: 450px){
     .footer{
-      height:520px;
+      padding-bottom: 30px;
     }
     .dontKnowFirst img{
       margin-top: 10px;
+      margin-left: -40%;
     }
     .companyInfo hr{
       margin-top: 25px;
@@ -266,25 +267,69 @@
       margin-left: 0;
     }
     .five{
-      width:72%;
-      margin-left: 20%;
+      width:120%;
+      margin-left: 0%;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .five .f{
+      width:100%;
+      margin-left: 0;
+    }
+    .five .f p{
+      margin-left: 9%;
     }
     .gzh{
       width:30%;
-      height:80px;
+      height:90px;
       float: left;
       margin-left: 6%;
       margin-top: 3%;
     }
     .gzNum{
-      margin-top:30px;
       display: inline-block;
       margin-left: -38%;
       font-size:10px;
+      margin-top: 14%;
     }
   }
   @media only screen and (max-width: 380px){
+    .dontKnowFirst img{
+     width:160px;
+      height:100px;
+    }
+    .five{
+      margin-left: -5%;
+    }
+    .five .f{
+      margin-left: 10%;
+    }
+  }
+  @media only screen and (max-width: 360px){
+    .fiveLeft{
+      display: flex;
+      flex-direction: column;
+      margin-top: 1%;
+      margin-left: 8%;
+    }
+    .gzNum{
+      margin-top: 16%;
+    }
   }
   @media only screen and (max-width: 320px){
+    .five .f p{
+      margin-left: 2%;
+    }
+    .fiveLeft{
+      margin-left: 4.2%;
+    }
+    .fiveRight{
+      margin-left: 5%;
+    }
+    .gzh{
+      height:80px;
+    }
   }
 </style>

@@ -12,13 +12,15 @@
     <div class="editor-container">
       <UE :defaultMsg=defaultMsg :config=config ref="ue"></UE>
     </div>
+    <Foot-Component></Foot-Component>
   </div>
 </template>
 <script>
   import UE from './ue';
   import NavComponent from './nav'
+  import FootComponent from  './foot'
   export default {
-    components: {UE,NavComponent},
+    components: {UE,NavComponent,FootComponent},
     data() {
       return {
         defaultMsg: '这里是UE测试',
@@ -86,6 +88,26 @@
       width:80%;
       margin-left: 10%;
       padding-bottom: 30px;
+    }
+  }
+  @media only screen and (max-width: 380px){
+    .navComponent{
+      margin-top: 16%;
+    }
+  }
+  @media only screen and (max-width: 360px){
+    .navComponent{
+      margin-top: 18%;
+    }
+    .bread{
+      width:60%;
+      margin-left: 10%;
+      margin-top: 30px;
+    }
+  }
+  @media only screen and (max-width: 320px){
+    .navComponent{
+      margin-top: 20%;
     }
   }
 }

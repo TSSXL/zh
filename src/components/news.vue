@@ -4,9 +4,18 @@
       <img src="../image/divider.png" alt="" style="height:60px;width:100%;">
       <div class="title">
         <ul>
-          <li><el-button type="danger">全部</el-button></li>
-          <li><el-button>公司新闻</el-button></li>
-          <li><el-button>行业状态</el-button></li>
+          <!--<li><el-button type="danger">全部</el-button></li>-->
+          <!--<li><el-button>公司新闻</el-button></li>-->
+          <!--<li><el-button>行业状态</el-button></li>-->
+          <li>
+            <button>全部</button>
+          </li>
+          <li>
+            <button>公司新闻</button>
+          </li>
+          <li>
+            <button>行业状态</button>
+          </li>
         </ul>
       </div>
        <div class="a">
@@ -14,21 +23,21 @@
          <span @click="gotoInfo"></span>
          <div class="m">
            <p>新闻标题</p>
-           <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+           <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
          </div>
        </div>
          <div class="item">
            <span></span>
            <div class="m">
              <p>新闻标题</p>
-             <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+             <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
            </div>
          </div>
          <div class="item">
            <span></span>
            <div class="m">
              <p>新闻标题</p>
-             <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+             <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
            </div>
          </div>
        </div>
@@ -76,6 +85,20 @@
       li{
         float: left;
         margin-left: 60px;
+        button{
+          width:88px;
+          height:36px;
+          background:white;
+          border-radius:10px;
+          border: 1px solid red;
+          color:red
+        }
+      }
+      li:active{
+        button{
+          background-color: rgba(234,61,63,1);
+          color:white;
+        }
       }
     }
   }
@@ -113,8 +136,12 @@
           }
           p:last-child{
             height:150px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 6;
             overflow: hidden;
             line-height: 25px;
+            color:#808080;
           }
           p{
             text-align: left;
@@ -183,8 +210,7 @@
             font-weight: bolder;
           }
           p:last-child{
-            height:80%;
-            overflow: hidden;
+            height:72%;
             line-height: 25px;
           }
           p{
@@ -218,6 +244,7 @@
     .a{
       width:90%;
       margin-left: 5%;
+      margin-top: 0;
       .item{
         width:100%;
         margin-left:0%;
@@ -232,8 +259,10 @@
             font-weight: bolder;
           }
           p:last-child{
-            height:75%;
+            height:60%;
+            width:92%;
             line-height: 18px;
+            -webkit-line-clamp: 4;
           }
           p{
             font-size: 1em;
@@ -270,12 +299,30 @@
         }
       }
     }
+    .a{
+      .item{
+ .m{
+   p:last-child{
+     width:90%;
+   }
+ }
+      }
+    }
   }
   @media only screen and (max-width: 360px) {
     .title{
       ul{
         li{
           margin-left: 10px;
+        }
+      }
+    }
+    .a{
+      .item{
+        .m{
+          p:last-child{
+            width:93%;
+          }
         }
       }
     }
@@ -296,8 +343,14 @@
         }
       }
     }
-    .newsContent{
-      margin-top: 15px;
+    .a{
+      .item{
+        .m{
+          p:last-child{
+            width:90%;
+          }
+        }
+      }
     }
   }
 }

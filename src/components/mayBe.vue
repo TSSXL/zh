@@ -9,27 +9,15 @@
           <li><a @click="gotoMine">关于我们</a></li>
         </ul>
       </div>
-      <div class="isShow">
-      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-        <el-menu-item index="1">
-          <i class="el-icon-location"></i>
-          <span slot="title" @click="gotoIndex">首页</span>
-        </el-menu-item>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title" @click="gotoEstimate">在线估价</span>
-        </el-menu-item>
-        <el-menu-item index="3">
-          <i class="el-icon-document"></i>
-          <span slot="title" @click="gotoNews">新闻资讯</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title" @click="gotoMine">关于我们</span>
-        </el-menu-item>
-      </el-menu>
-      <el-button type="info" style="height:40px;margin-top: 15px;" @click="a">导航</el-button>
-    </div>
+      <div class="leftCon" v-if="num">
+        <ul>
+          <li>首页</li>
+          <li>在线评估</li>
+          <li>新闻资讯</li>
+          <li>关于我们</li>
+        </ul>
+      </div>
+      <img src="../image/navWhite.svg" class="navImg" @click="showLeft">
     </div>
 </template>
 
@@ -37,15 +25,12 @@
     export default {
      data(){
           return{
-            isCollapse: true
+            num:false
           }
      },
       methods:{
-       a(){
-         this.isCollapse=!this.isCollapse
-       },
         gotoIndex(){
-          this.$router.push({path:'/'})
+          this.$router.push({path:'/home'})
         },
         gotoEstimate(){
           this.$router.push({path:'/es'})
@@ -56,15 +41,9 @@
         gotoMine(){
           this.$router.push({path:'/mine'})
         },
-        handleSelect(key) {
-          this.activeIndex2=key;
-        },
-        handleOpen(key, keyPath) {
-          console.log(key, keyPath);
-        },
-        handleClose(key, keyPath) {
-          console.log(key, keyPath);
-        }
+       showLeft(){
+          this.num=!this.num
+       }
       }
     }
 </script>
@@ -98,7 +77,13 @@
   .nav ul li a:active{
     color:black
   }
-  .isShow{
+  .navImg{
+    height:40px;
+    width:40px;
+    margin-top: 30px;
+    margin-left: 5rem;
+  }
+  .navImg{
     display: none;
   }
   @media only screen and (max-width: 768px){
@@ -126,44 +111,58 @@
     .gjImg{
       height:80px;
       width:80px;
-      margin-left: 5%;
+      margin-left: 50%;
       margin-top: 4%;
+    }
+    .leftCon{
+      width:160px;
+      position: absolute;
+      margin-left: -300px;
+      background-color: gray;
+      border: 1px solid white;
+      border-radius: 5%;
+    }
+    .leftCon ul {
+      list-style: none;
+    }
+    .leftCon ul li{
+      width:90px;
+      height:69px;
+      font-size: 16px;
+      line-height: 60px;
+      color:white;
     }
     .nav {
      display: none;
     }
-    .isShow{
-      display: flex;
-      flex-direction: row;
-      margin-left: 6%;
-      position: absolute;
+    .navImg{
+      display: inline-block;
     }
   }
   @media only screen and (max-width: 414px){
-    .isShow{
-      margin-left:1%;
+    .leftCon{
+      margin-left: -286px;
     }
   }
   @media only screen and (max-width: 380px){
-    .isShow{
-      margin-left:-6%;
+    .leftCon{
+      margin-left: -268px;
+    }
+    .navImg{
+      margin-left: 3rem;
     }
   }
   @media only screen and (max-width: 360px){
-    .isShow{
-      margin-left:-9%;
+    .leftCon{
+      margin-left: -260px;
     }
   }
   @media only screen and (max-width: 320px){
-    .gjImg{
-    margin-top: 60px;
-      position: absolute;
-      height:60px;
-      width:60px;
-      margin-left: 14rem;
+    .navImg{
+      margin-left: 1rem;
     }
-    .isShow{
-      margin-left:0%;
+    .leftCon{
+      margin-left: -240px;
     }
   }
 </style>

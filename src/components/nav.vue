@@ -45,7 +45,7 @@
         this.isCollapse=!this.isCollapse
       },
       gotoIndex(){
-        this.$router.push({path:'/'})
+        this.$router.push({path:'/home'})
       },
       gotoEstimate(){
         this.$router.push({path:'/es'})

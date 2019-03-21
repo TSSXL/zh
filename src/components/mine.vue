@@ -25,9 +25,11 @@
                 <img class="liImg" src="../image/classic_case_selected.png" v-else>
                 <el-button @click="changeColor(2)">经典案例</el-button>
               </li>
-              <div class="twoUl" :style="isshowStyle(three)">
-                <span v-for="item in list" :key="item">{{item}}</span>
-              </div>
+              <li class="li" :style="isshowStyle(three)">
+                <div class="twoUl" :style="isshowStyle(three)">
+                  <span v-for="item in list" :key="item">{{item}}</span>
+                </div>
+              </li>
               <li>
                 <img class="liImg" src="../image/contact_us.png" v-if="four">
                 <img class="liImg" src="../image/contact_us_selected.png" v-else>
@@ -233,37 +235,41 @@ import HeadComponent from  './mayBe'
     margin-top: 60px;
     margin-left: 10%;
     padding-bottom: 30px;
-    display: inline-block;
+    position: relative;
+    display: flex;
     .leftBtn{
-      height:350px;
-      width:12%;
-      margin-left: 3.5%;
+      width:16%;
+      margin-left: 6%;
       ul{
-        width:100%;
-        margin-top: 0;
+        width:80%;
         list-style: none;
         box-shadow: 5px 5px 5px 5px #e2e2e2;
-        .twoUl{
-          width:120%;
-          margin-left: -40px;
-          border-radius: 5%;
-          span{
-            display: block;
-            height:2.5rem;
-            line-height: 2.5rem;
-          }
-          span:hover{
-            cursor: pointer;
-          }
-          span:active{
-            color:red
+        .li{
+          height:13rem;
+          overflow-y: scroll;
+          .twoUl{
+            width:100%;
+            span{
+              display: block;
+              height:2.5rem;
+              line-height: 2.8rem;
+              font-size: 13px;
+              text-indent: 12px;
+            }
+            span:hover{
+              cursor: pointer;
+            }
+            span:active{
+              color:red
+            }
           }
         }
         li{
-          width:120%;
+          width:121%;
           height:70px;
           margin-left: -40px;
           border: 1px solid #e2e2e2;
+          border-right: 2px solid white;
           margin-top: -2px;
           .liImg{
             margin-top: 1.2%;
@@ -281,16 +287,16 @@ import HeadComponent from  './mayBe'
       }
     }
     .rightCon{
-      width:55%;
-      margin-left: 25%;
-      margin-top: -28.5%;
+      width:70%;
+      margin-left: 10%;
+      margin-top: 0%;
       ul{
         margin-top: -80px;
         list-style: none;
-        margin-left: -15%;
+        margin-left: 0%;
         li{
           float: left;
-          margin-left: 120px;
+          margin-left: 10%;
           margin-top: 80px;
           img{
             height:200px;
@@ -301,9 +307,9 @@ import HeadComponent from  './mayBe'
       }
     }
     .zy{
-      width:50%;
-      margin-left: 25%;
-      margin-top: -24%;
+      width:70%;
+      margin-left: 10%;
+      margin-top: -1.3%;
       display: flex;
       flex-wrap: wrap;
       .licence{
@@ -342,17 +348,17 @@ import HeadComponent from  './mayBe'
       }
     }
     .example{
-      width:50%;
+      width:70%;
       display: flex;
-      margin-left: 25%;
-      margin-top: -25.2%;
+      margin-left:5%;
+      margin-top: -2.4%;
       flex-direction: column;
       .exampleItem{
         width:90%;
         margin-left: 5%;
         margin-top: 2%;
         .exampleImage{
-          margin-left: 50px;
+          margin-left: 8%;
           margin-top: 15px;
           display: inline-block;
           img{
@@ -368,9 +374,9 @@ import HeadComponent from  './mayBe'
       }
     }
     .callMe{
-      width:50%;
-      margin-left: 25%;
-      margin-top: -23%;
+      width:60%;
+      margin-left: 15%;
+      margin-top: 0%;
       height:450px;
       border: 2px solid #f0f0f0;
       border-radius: 3%;
@@ -421,7 +427,7 @@ import HeadComponent from  './mayBe'
   .mineInfo{
     .leftBtn{
       ul{
-        li,.twoUl{
+        li{
           width:130%;
           .liImg{
          margin-top: 1.5%;
@@ -433,8 +439,6 @@ import HeadComponent from  './mayBe'
       }
     }
     .rightCon{
-      width:60%;
-      margin-top: -38.5%;
       ul{
         margin-top: -60px;
         li{
@@ -448,8 +452,6 @@ import HeadComponent from  './mayBe'
       }
     }
     .zy{
-      width:60%;
-      margin-top: -32%;
       flex-wrap: wrap;
       .licence{
         height:320px;
@@ -483,17 +485,12 @@ import HeadComponent from  './mayBe'
       }
     }
     .example{
-      margin-top: -34%;
-      width:60%;
+  margin-left: 10%;
       .exampleItem{
         .exampleImage{
           margin-left: 30px;
         }
       }
-    }
-    .callMe{
-      width:60%;
-     margin-top: -32%;
     }
   }
   }
@@ -522,35 +519,34 @@ import HeadComponent from  './mayBe'
         width:100%;
         border: none;
         margin-left: 2rem;
+        margin-top: 20px;
         ul{
           height:40px;
           width:87%;
-          .twoUl{
-            width:80%;
-            height:40px;
-            margin-left: 1%;
-            margin-top: 3rem;
-            position: absolute;
-            span{
-              display: inline-block;
-              margin-left: 6%;
-              border: 1px solid black;
-              border-radius: 4%;
-              padding-left: 1rem;
-              padding-right: 1rem;
-            }
-            span:active{
-              background-color: red;
-              color:white;
+          .li{
+            margin-top: -6.5rem;
+            width:12rem;
+            height:6rem;
+            margin-left: -10.5rem;
+            border-radius: 4%;
+            .twoUl{
+              width:100%;
+              background-color: whitesmoke;
+              span{
+                display: inline-block;
+                width:35%;
+                height:2rem;
+              }
             }
           }
           li:first-child{
-            margin-left: 2%;
+            margin-left: 0%;
           }
           li{
             height:40px;
             float: left;
-            width: 18%;
+            width: 17.5%;
+            border-right: 1px solid #e0e0e0;
             margin-left: 1%;
             .liImg{
               margin-top: 1%;
@@ -694,18 +690,12 @@ import HeadComponent from  './mayBe'
         width:100%;
         border:none;
         margin-left: 6px;
+        margin-top: 30px;
         ul{
           height:40px;
           width:87%;
-          .twoUl{
-          width:100%;
-            margin-left: -11%;
-            span{
-              margin-left: 2%;
-              width:15%;
-              padding-left: 0;
-              padding-right: 0;
-            }
+          .li{
+            margin-left: -8.8rem;
           }
           li:first-child{
             margin-left: -8%;
@@ -732,7 +722,7 @@ import HeadComponent from  './mayBe'
         width:100%;
         height:300px;
         margin-left: 0%;
-        margin-top: 40px;
+        margin-top: 20px;
         ul{
           margin-top:0;
           list-style: none;
@@ -860,8 +850,8 @@ import HeadComponent from  './mayBe'
       .leftBtn{
         ul{
           margin-left: -0.4rem;
-          .twoUl{
-            margin-left: -12%;
+          .li{
+            margin-left: -8.5rem;
           }
           li{
             margin-left: 2px;
@@ -883,9 +873,6 @@ import HeadComponent from  './mayBe'
       .leftBtn{
         ul{
         margin-left: -0.5rem;
-          .twoUl{
-            margin-left: -11%;
-          }
           li{
             margin-left: 0.2rem;
           }
@@ -899,6 +886,11 @@ import HeadComponent from  './mayBe'
     }
   }
   @media only screen and (max-width:320px) {
+    .img{
+      .info{
+        margin-top: 30%;
+      }
+    }
     .mineInfo{
       .leftBtn{
         ul{

@@ -77,7 +77,7 @@
     height:150px;
     border-top: 1px solid #EFEFEF;
     ul{
-      width:30%;
+      width:80%;
       height:60px;
       list-style: none;
       margin-top: 5%;
@@ -158,7 +158,6 @@
   @media only screen and (max-width: 1366px){
     .title{
      ul{
-       width:40%;
        margin-left: 13%;
      }
     }

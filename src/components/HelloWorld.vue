@@ -23,15 +23,32 @@
        </div>
      </div>
     <div class="info">
-      <el-row>
-        <el-col  :xs="0" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
-        <el-col  :xs="0" :sm="3"  :lg="3" :xl="3"><div class="item"></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/evaluation_project.png" alt=""><div class="itemText">评估项目</div><div class="itemHr"></div><div class="itemText z">600</div><div class="d" >(个)</div></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/construction_area.png" alt=""><div class="itemText">建筑面积</div><div class="itemHr"></div><div class="itemText z" >4.2亿</div><div class="d">(平方米)</div></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/land_area.png" alt=""><div class="itemText">土地面积</div><div class="itemHr"></div><div class="itemText z" >1.1亿</div><div class="d">(平方米)</div></div></el-col>
-        <el-col  :xs="6" :sm="3"  :lg="3" :xl="3"><div class="item"><img src="../image/total_cost_assessment.png" alt=""><div class="itemText">评估总值</div><div class="itemHr"></div><div class="itemText z" >128万亿</div><div class="d">(元)</div></div></el-col>
-        <el-col  :xs="0" :sm="6"  :lg="6" :xl="6"><div class="item"></div></el-col>
-      </el-row>
+      <ul>
+        <li><img src="../image/evaluation_project.png" alt="">
+          <p>评估项目</p>
+          <hr>
+          <p>600</p>
+          <p>(个)</p>
+        </li>
+        <li><img src="../image/construction_area.png" alt="">
+          <p>建筑面积</p>
+          <hr>
+          <p>4.2亿</p>
+          <p>(平方米)</p>
+        </li>
+        <li><img src="../image/land_area.png" alt="">
+          <p>土地面积</p>
+          <hr>
+          <p>1.1亿</p>
+          <p>(平方米)</p>
+        </li>
+        <li><img src="../image/total_cost_assessment.png" alt="">
+          <p>评估总值</p>
+          <hr>
+          <p>128万亿</p>
+          <p>(元)</p>
+        </li>
+      </ul>
     </div>
     <div class="title ser">
       <span class="q" style="font-weight: bolder;">服务理念</span>
@@ -166,9 +183,7 @@ export default {
         require("../image/top_banner.png")
       ],
       peopleList:[
-        require("../image/first.jpg"),
-        require("../image/two.jpg"),
-        require("../image/three.jpg")
+        require("../image/first.jpg")
       ],
       category:1,
       options: [{
@@ -195,34 +210,9 @@ export default {
     FootComponent
   },
   methods:{
-    getInfo() {
-      this.$http
-        .get("/api/Baidu/BaiduE", {
-          params: {
-          category:this.category
-          }
-        })
-        .then(
-          function (response) {
-           console.log(response)
-          }.bind(this)
-        )
-        // 请求error
-        .catch(
-          function (error) {
-            this.$notify.error({
-              title: "错误",
-              message: "错误：请检查网络"
-            });
-          }.bind(this)
-        );
-    },
     showLoading(){
       console.log("555")
     }
-  },
-  mounted() {
-    this.getInfo()
   }
 }
 </script>
@@ -258,86 +248,83 @@ export default {
   margin-top:0px;
 }
     .image .input {
-      height: 60px;
-      width: 30%;
+      height: 50px;
+      width: 40%;
       margin-left: 35%;
-      margin-top: 15%;
+      margin-top: 20%;
       color: #606060;
       position: absolute;
       z-index: 10;
     }
     .input input {
-      width: 95%;
+      width: 65%;
       height: 80%;
       padding: 5px 5px;
       border-radius: 30px;
       padding-left: 20px;
       border: none;
       float: left;
-      text-indent: 180px;
+      text-indent: 30%;
       font-size: 1.8em;
-    }
-    .z{
-      font-weight: bolder;
-      font-size: 24px;
-    }
-    .d{
-      font-size: 16px;
-      margin-left: 5px;
     }
     .q{
       font-size: 22px;
     }
     .select{
-      margin-top: -9%;
-      float: left;
-      width:25%;
-      margin-left: 5%;
+      margin-top: 0.8%;
+      position: absolute;
+      width:15%;
+     margin-left: -80%;
     }
   .right{
     display: inline-block;
-    height: 58px;
+    height: 50px;
     padding-right: 20px;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
     font-size: 2em;
     width:80px;
-    float: right;
+    position: absolute;
     background-color: #009645;
-    margin-top: -58px;
-    line-height: 60px;
-    margin-right: 1px;
+    margin-top: 0px;
+    line-height: 50px;
+  margin-left: -27%;
   }
   .right a{
     color:#ffffff;
   }
     .info {
-      width: 100%;
+      width:100%;
+      display: flex;
     }
-.item{
-  display: flex;
-  height:180px;
-  margin-top: 60px;
-  flex-direction: column;
-}
-.item img{
-  height:60px;
-  width:60px;
-  margin-left: 38%;
-  margin-top: 5px;
-}
-.item .itemHr{
-  height:2px;
-  width:30px;
-  background-color: red;
-  margin-left: 45%;
-  margin-top: 2px;
-}
-.item .itemText{
-  font-size: 2em;
-  margin-top: 7px;
-  margin-left: 5px;
-}
+    .info ul{
+      width:80%;
+      list-style: none;
+      margin-left: 17%;
+      margin-top: 2%;
+    }
+    .info ul li{
+      float: left;
+      width:12%;
+      margin-left: 5%;
+    }
+ .info ul li hr{
+   width: 15%;
+   margin-top: -10px;
+ }
+  .info ul li p:nth-child(2){
+    font-size: 17px;
+    font-weight: bolder;
+    margin-top: -5px;
+  }
+ .info ul li p:nth-child(4){
+   font-size: 24px;
+   font-weight: bolder;
+   margin-top: -5px;
+ }
+  .info ul li p:last-child{
+    margin-top: -25px;
+  }
 .title{
   width:100%;
   margin-top:3%;
@@ -353,22 +340,23 @@ export default {
   margin-top: 30px;
 }
 .serviceImage{
-  width:60%;
-  margin-left: 20%;
+  width: 100%;
   margin-top: 30px;
   display: flex;
 }
 .serviceImage ul{
-  width:100%;
+  width:70%;
   list-style: none;
+  margin-left: 15%;
 }
 .serviceImage ul li{
-  float: left;
-  margin-left: 60px;
-}
+   float: left;
+  margin-left: 4%;
+  width:18%;
+ }
 .serviceImage ul li img{
-  height:220px;
-  width: 180px;
+  height:280px;
+  width:240px;
   border-radius: 4%;
 }
 .fw{
@@ -567,17 +555,12 @@ export default {
   padding-bottom: 200px;
 }
   @media only screen and (max-width: 1366px) {
+    .image .input{
+      margin-top: 30%;
+      width:50%;
+    }
     .image input{
-      text-indent: 120px;
       font-size: 1.5em;
-    }
-    .d{
-      margin-left: 15px;
-    }
-    .item .itemText{
-      font-size: 2em;
-      margin-top: 2px;
-      margin-left: 15px;
     }
     .right{
       margin-right: -5px;
@@ -602,25 +585,26 @@ export default {
       width:50%;
     }
     .serviceImage{
-     width:80%;
-      margin-left: 10%;
+     width:100%;
+      margin-left: 0%;
+    }
+    .serviceImage ul{
+      width: 90%;
+      margin-left: 5%;
+    }
+    .newsTitle{
+      margin-left: 20%;
     }
     .more{
       display: inline-block;
       font-size: 1.5em;
       float: right;
-      margin-right: 13%
+      margin-right: 15%
     }
     .nc span:last-child{
       width:90%;
       height:110px;
       -webkit-line-clamp: 7;
-    }
-    .select{
-      margin-top: -12.2%;
-      float: left;
-      width:25%;
-      margin-left: 5%;
     }
     .mainImage{
       width:70%;
@@ -633,17 +617,35 @@ export default {
       width:100%;
       background-color: #80b2c3;
     }
-    .item .itemText{
-      font-size: 1.2em;
+    .info ul{
+      width:100%;
+      list-style: none;
+      margin-left:0%;
+    }
+    .info ul li{
+      float: left;
+      width:12%;
+      margin-left: 10%;
+    }
+    .info ul li hr{
+      width: 40%;
+      margin-top: -10px;
+    }
+    .info ul li p:nth-child(2){
+      font-size: 12px;
+      font-weight: bolder;
+      margin-top: 0px;
+    }
+    .info ul li p:nth-child(4){
+      font-size: 18px;
+      font-weight: bolder;
+      margin-top: -3px;
+    }
+    .info ul li p:last-child{
+      margin-top: -20px;
     }
     .lb{
       height:300px;
-    }
-    .select{
-      margin-top: -5.8%;
-      float: left;
-      width:31%;
-      margin-left: 5%;
     }
     .el-carousel{
       overflow: hidden;
@@ -657,10 +659,10 @@ export default {
     }
     .image .input{
       height:40px;
-      width:70%;
+      width:50%;
       margin-top:25%;
       position: absolute;
-      margin-left: 15%;
+      margin-left: 28%;
     }
     .input input {
       width:90%;
@@ -671,10 +673,11 @@ export default {
       padding-left: 20px;
       line-height: 30px;
       font-size: 1.1em;
-      text-indent: 40.3%;
     }
     .select{
-      margin-top: -7.5%;
+      margin-top: 0%;
+      margin-left: -93%;
+      width:26%;
     }
     .right{
       display: inline-block;
@@ -684,46 +687,23 @@ export default {
       border-bottom-right-radius: 40px;
       font-size: 2em;
       width:60px;
-      float: right;
       background-color: #009645;
-      margin-top: -40px;
+      margin-top: 0px;
       line-height: 40px;
-      margin-right: 1px;
+      margin-left: -20%;
     }
-    .info{
-      height:90px;
+    .serviceImage ul{
+      width:100%;
+      margin-left: -7%;
     }
-    .item{
-      height:80px;
-      margin-top: 0px;
-    }
-    .item img{
-      height:50px;
-      width:50px;
-      margin-left: 36%;
-    }
-    .item .itemText{
-      font-size: 1em;
-      margin-left: 20px;
-    }
-    .d{
-      margin-left: 20px;
-      font-size: 12px;
-    }
-    .serviceImage{
-      width:90%;
-      margin-left: 5%;
-      display: flex;
-      margin-top: 0px;
-    }
-    .serviceItem img{
-      height:60%;
-      width:80%;
+    .serviceImage ul li img{
+      height:250px;
+      width:200px;
     }
     .serviceImage ul li{
       float: left;
-      margin-left: 13%;
-      margin-top: 2%;
+      margin-left: 5%;
+      width:18%;
     }
     .fw{
       width:90%;
@@ -754,13 +734,17 @@ export default {
      width:100%;
      margin-left: 0;
    }
+   .more{
+     margin-right: 5%;
+   }
    .newsTitle{
-     margin-left: 21%;
+     margin-left: 13%;
    }
    .news{
      width:90%;
      margin-left: 5%;
    }
+
     .worker{
       display: flex;
       flex-direction: column;
@@ -791,6 +775,12 @@ export default {
       height:90%;
       overflow-y: hidden;
     }
+    .tz p:last-child{
+      line-height: 30px;
+    }
+    .tzCon{
+      margin-top: -0.5rem;
+    }
     .zd{
       font-size: 1.5em;
       font-weight: bolder;
@@ -806,6 +796,15 @@ export default {
     .header{
      margin-top: 0%;
     }
+    .info ul li{
+      float: left;
+      width:18%;
+      margin-left: 4%;
+    }
+    .info ul li img{
+      height:40px;
+      width:40px;
+    }
     .image .input{
       height:40px;
       width:90%;
@@ -813,31 +812,18 @@ export default {
       position: absolute;
       margin-left: 5%;
     }
-    .select{
-      margin-top: -10.2%;
+    .serviceImage ul{
+     margin-left: -15%;
+    }
+    .serviceImage ul li img{
+      height:180px;
+      width:150px;
+    }
+    .serviceImage ul li{
+      margin-left: 20%;
     }
     .input input {
      text-indent: 35%;
-    }
-    .item{
-      margin-top: 10px;
-    }
-    .item img{
-      height:40px;
-      width:40px;
-      margin-left: 32%;
-    }
-    .item .itemText{
-      margin-top: 0px;
-      margin-left: 2px;
-      font-size: 16px;
-    }
-    .d{
-      margin-left: 3px;
-      font-size: 14px;
-    }
-    .serviceImage{
-      margin-left: 10%;
     }
     .fwItem{
       margin-top: 0;
@@ -857,7 +843,7 @@ export default {
     }
     .newsTitle{
       font-size:2em;
-      margin-left: 12%;
+      margin-left: 16%;
     }
     .w span{
       font-size: 2em;
@@ -875,9 +861,6 @@ export default {
 .n{
   width:100%;
 }
-.more{
-  margin-right:0%;
-}
     .tz p:last-child{
       line-height: 23px;
     }
@@ -885,33 +868,49 @@ export default {
       width:50%;
       padding-top: 15px;
     }
+    .tzCon{
+      letter-spacing: 2px;
+    }
   }
   @media only screen and (max-width: 415px){
     .select{
-           margin-top: -10.8%;
-         }
-    .serviceImage{
-      margin-left: 8%;
+      width:30%;
+    }
+    .serviceImage ul{
+      margin-left: -17%;
+    }
+    .newsTitle{
+      margin-left: 18%;
     }
   }
   @media only screen and (max-width: 380px){
-    .select{
-      margin-top: -11.8%;
+    .serviceImage ul{
+      margin-left: -20%;
     }
-    .input input {
-      text-indent: 33.4%;
+    .info ul li{
+      float: left;
+      width:20%;
+      margin-left: 2.5%;
     }
-    .serviceImage{
-      margin-left: 6%;
+    .newsTitle{
+      margin-left: 19%;
     }
   }
   @media only screen and (max-width: 360px){
     .select{
-      margin-top: -12.2%;
+      width:32%;
     }
-    .serviceImage{
-      margin-left: 4%;
+    .info ul li{
+      float: left;
+      width:22%;
+      margin-left: 0.5%;
     }
+    .input input{
+      text-indent: 36%;
+    }
+    .serviceImage ul{
+         margin-left: -21%;
+       }
     .nc span:last-child{
       width:82%;
       height:120px;
@@ -922,14 +921,31 @@ export default {
     }
   }
   @media only screen and (max-width: 320px){
-    .select{
-      margin-top: -13.8%;
+    .input input{
+      text-indent: 39%;
     }
-    .serviceImage{
-      margin-left: 0%;
+    .info ul{
+      margin-left: -8%;
+    }
+    .info ul li{
+      float: left;
+      width:24%;
+      margin-left:0%;
+    }
+    .select{
+      width:35%;
+    }
+    .serviceImage ul{
+      margin-left: -26%;
+    }
+    .serviceImage ul li{
+      margin-left: 22%;
     }
     .workInfo{
       width:55%;
+    }
+    .newsTitle{
+      margin-left:22%;
     }
   }
 </style>

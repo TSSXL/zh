@@ -98,12 +98,12 @@
       <span class="q" style="font-weight: bolder">技术力量</span>
       <div class="msg">
         <div class="msgText zd">估价师例会制度</div>
-        <div class="msgText">大师的坏事回答啊倒萨的哈啥护士都哈刷书的哈四大行速度撒红灯大大师的坏事回答啊</div>
+        <div class="msgText">公司设立估价师例会制度，每月至少举行一次估价师技术例会，针对大型疑难估价项目的估价技术路线、技术参数的选取、估价技术报告的核心的把控，全体注册房地产估价师、土地估价师等专业技术人员集中谈论，确定路线和方法，解决疑难问题，整理经验数据，建立公司内部技术档案</div>
       </div>
     </div>
     <div class="news" >
      <span class="newsTitle q" style="font-weight: bolder">新闻资讯</span>
-      <span class="more"><a href="">更多 >></a></span>
+      <span class="more"><a href="">查看更多 </a><img src="../image/more.png" alt=""></span>
       <div class="newsItem">
         <div class="n">
           <img src="../image/first.jpg" alt="">
@@ -232,7 +232,6 @@ export default {
     .image {
       height: 600px;
       width: 100%;
-      background-color: #80b2c3;
       position: relative;
     }
     .lb{
@@ -357,7 +356,7 @@ export default {
 .serviceImage ul li img{
   height:280px;
   width:240px;
-  border-radius: 4%;
+  border-radius: 20px;
 }
 .fw{
   width:60%;
@@ -371,11 +370,10 @@ export default {
   margin-top: 60px;
 }
 .fwLeft{
-   width:45%;
+   width:40%;
   display: flex;
   flex-direction: column;
-  margin-top: 2%;
-  margin-left: 5%;
+  margin-left: 6%;
   text-align: left;
 }
 .fwLeft span:first-child{
@@ -383,17 +381,21 @@ export default {
   letter-spacing: 2px;
 }
 .fwItem img{
-  width:45%;
-
+  width:40%;
+  height:250px;
   border: 1px solid black;
-  border-radius: 2%;
+  border-radius: 20px;
   margin-left:5%;
+  background-color: rgba(237,235,247,1);
 }
 .js{
   width:100%;
-  background-color: wheat;
+   height:400px;
   background: url("../image/technical_force_bg.png");
   background-size: 100% 100%;
+}
+.js span{
+  margin-top: 60px;
 }
 .msg{
   margin-top: 2%;
@@ -405,12 +407,15 @@ export default {
   margin-left: 21%;
   text-align: center;
   padding-bottom: 20px;
-  letter-spacing: 1px;
-  font-size: 0.8em;
+  font-size:16px;
+  color:rgba(51,51,51,1);
+  line-height:34px;
 }
 .zd{
-  font-size: 18px;
-  color:black
+  font-size:18px;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  line-height:24px;
 }
 .news{
   width:80%;
@@ -419,7 +424,7 @@ export default {
 }
 .newsTitle{
   font-size: 22px;
-  margin-left: 17%;
+  margin-left: 19%;
 }
 .newsItem{
   width:75%;
@@ -443,7 +448,7 @@ export default {
   height:100%;
   width:48%;
   margin-left: 2%;
-  border-radius: 4%;
+  border-radius: 20px;
 }
 .nc{
   display: flex;
@@ -470,7 +475,7 @@ export default {
   display: inline-block;
   font-size: 1.5em;
   float: right;
-  margin-right: 14.5%
+  margin-right: 14%
 }
 .more a{
   color:gray;
@@ -497,25 +502,25 @@ export default {
 }
 .workerItem{
   height:180px;
-  width:44%;
+  width:40%;
   margin-top: 2%;
   box-shadow:3px 3px 3px 3px #aaaaaa;
-  border-radius: 5px;
+  border-radius: 20px;
   display: flex;
-  margin-left: 5%;
+  margin-left: 8%;
   background-color: #ffffff;
 }
 .workerImage{
   height:100px;
   width:100px;
   border-radius: 50%;
-  border: 1px solid black;
   margin-left: 10%;
-  margin-top: 5%;
+  margin-top: 8%;
+  background-color: rgba(180,112,112,1);
 }
 .workInfo{
    height:90%;
-   width:40%;
+   width:50%;
    margin-left: 4%;
    font-size: 1.5em;
    text-align: left;
@@ -526,6 +531,9 @@ export default {
   font-size: 0.9em;
   letter-spacing: 2px;
   color:#808080;
+  height:120px;
+  line-height: 1.5rem;
+  overflow: hidden;
 }
 .tz{
   display: flex;
@@ -555,6 +563,9 @@ export default {
   padding-bottom: 200px;
 }
   @media only screen and (max-width: 1366px) {
+    .select{
+      width:16%;
+    }
     .image .input{
       margin-top: 30%;
       width:50%;
@@ -564,6 +575,13 @@ export default {
     }
     .right{
       margin-right: -5px;
+    }
+    .fwLeft{
+      width:45%;
+    }
+    .fwItem img{
+      width:50%;
+      height:200px;
     }
     .msg{
       margin-top: 2%;
@@ -728,6 +746,7 @@ export default {
    .js{
      line-height: 15px;
      margin-top: 40px;
+     height:350px;
    }
    .newsItem{
      margin-top:3%;
@@ -762,8 +781,7 @@ export default {
       height:80px;
       width:80px;
       border-radius: 50%;
-      border: 1px solid black;
-      margin-top: 25px;
+      margin-top: 30px;
       margin-left: 5%;
     }
     .workInfo{
@@ -771,25 +789,38 @@ export default {
       font-size: 1.22px;
       text-align: left;
       margin-left: 10px;
-      padding-top: 20px;
       height:90%;
-      overflow-y: hidden;
-    }
-    .tz p:last-child{
-      line-height: 30px;
     }
     .tzCon{
-      margin-top: -0.5rem;
+      margin-top: -1rem;
+      line-height: 1rem;
     }
-    .zd{
-      font-size: 1.5em;
-      font-weight: bolder;
-      letter-spacing: 1px;
+    .tz p:last-child{
+      line-height: 25px;
     }
     .mainImage{
       width:100%;
       margin-left: 0;
       padding-bottom:60px;
+    }
+  }
+  @media only screen and (max-width: 600px){
+    .image .input{
+      width:60%;
+      margin-left: 20%;
+    }
+    .input input{
+      text-indent: 35%;
+    }
+    .select{
+      width:28%;
+  }
+    .serviceImage ul li img{
+      height:220px;
+      width:160px;
+    }
+    .serviceImage ul li{
+      margin-left: 5%;
     }
   }
   @media only screen and (max-width: 435px){
@@ -825,6 +856,12 @@ export default {
     .input input {
      text-indent: 35%;
     }
+    .fwLeft{
+      width:45%;
+      margin-top: 5%;
+      letter-spacing: 0px;
+      line-height: 20px;
+    }
     .fwItem{
       margin-top: 0;
     }
@@ -837,9 +874,6 @@ export default {
     }
     .title{
       font-size: 1em;
-    }
-    .js span{
-      margin-top: 20px;
     }
     .newsTitle{
       font-size:2em;
@@ -882,8 +916,11 @@ export default {
     .newsTitle{
       margin-left: 18%;
     }
+    .js span{
+      margin-top: 25px;
+    }
   }
-  @media only screen and (max-width: 380px){
+  @media only screen and (max-width: 384px){
     .serviceImage ul{
       margin-left: -20%;
     }

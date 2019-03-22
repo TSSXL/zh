@@ -1,5 +1,5 @@
 <template>
-    <div class="mine">
+    <div class="mine" style="background-color: rgba(245,247,250,1)">
         <div class="img">
           <Head-Component class="headComponent"></Head-Component>
           <div class="info">
@@ -13,32 +13,37 @@
               <li>
                 <img class="liImg" src="../image/company_honor.png" v-if="one">
                 <img class="liImg" src="../image/company_honor_selected.png" v-else>
-                <el-button @click="changeColor(0)">公司荣誉</el-button>
+                <el-button   @click="changeColor(0)" v-if="one">公司荣誉</el-button>
+                <el-button style="color:red;"  @click="changeColor(0)" v-else>公司荣誉</el-button>
               </li>
               <li>
                 <img class="liImg" src="../image/professional_qualifications.png" v-if="two">
                 <img class="liImg" src="../image/professional_qualifications_selected.png" v-else>
-                <el-button @click="changeColor(1)">执业资质</el-button>
+                <el-button  @click="changeColor(1)" v-if="two">执业资质</el-button>
+                <el-button  style="color:red;" @click="changeColor(1)" v-else>执业资质</el-button>
               </li>
               <li>
                 <img class="liImg" src="../image/classic_case.png" v-if="three">
                 <img class="liImg" src="../image/classic_case_selected.png" v-else>
-                <el-button @click="changeColor(2)">经典案例</el-button>
+                <el-button  @click="changeColor(2)" v-if="three">经典案例</el-button>
+                <el-button style="color:red;"  @click="changeColor(2)" v-else>经典案例</el-button>
               </li>
               <li class="li" :style="isshowStyle(three)">
                 <div class="twoUl" :style="isshowStyle(three)">
-                  <span v-for="item in list" :key="item">{{item}}</span>
+                  <span v-for="(item,index) in list" :style="numTwo==index?txtColor:''"   :key="item" @click="getTwo(index)">{{item}}</span>
                 </div>
               </li>
               <li>
                 <img class="liImg" src="../image/contact_us.png" v-if="four">
                 <img class="liImg" src="../image/contact_us_selected.png" v-else>
-                <el-button @click="changeColor(3)">联系我们</el-button>
+                <el-button  @click="changeColor(3)" v-if="four">联系我们</el-button>
+                <el-button style="color:red;"  @click="changeColor(3)" v-else>联系我们</el-button>
               </li>
               <li>
                 <img class="liImg" src="../image/hiring.png" v-if="five">
                 <img class="liImg" src="../image/hiring_selected.png" v-else>
-                <el-button @click="changeColor(4)">招贤纳士</el-button>
+                <el-button  @click="changeColor(4)" v-if="five">招贤纳士</el-button>
+                <el-button style="color:red;"   @click="changeColor(4)" v-else>招贤纳士</el-button>
               </li>
             </ul>
           </div>
@@ -132,7 +137,11 @@ import HeadComponent from  './mayBe'
     export default {
       data(){
         return{
+          txtColor:{
+            color:'red'
+          },
           num:0,
+          numTwo:0,
           one:true,
           two:true,
           three:true,
@@ -159,6 +168,9 @@ import HeadComponent from  './mayBe'
          }
       },
       methods:{
+        getTwo(index){
+         this.numTwo=index
+        },
         isshowStyle(three){
           return three===false?{display: 'block'}:{display:'none'}
         },
@@ -241,12 +253,11 @@ import HeadComponent from  './mayBe'
       width:16%;
       margin-left: 6%;
       ul{
-        width:80%;
+        width:10rem;
+        margin-top: 0;
         list-style: none;
-        box-shadow: 5px 5px 5px 5px #e2e2e2;
         .li{
           height:13rem;
-          overflow-y: scroll;
           .twoUl{
             width:100%;
             span{
@@ -254,7 +265,7 @@ import HeadComponent from  './mayBe'
               height:2.5rem;
               line-height: 2.8rem;
               font-size: 13px;
-              text-indent: 12px;
+              background-color: #ffffff;
             }
             span:hover{
               cursor: pointer;
@@ -265,105 +276,103 @@ import HeadComponent from  './mayBe'
           }
         }
         li{
-          width:121%;
-          height:70px;
+          width:12.5rem;
           margin-left: -40px;
-          border: 1px solid #e2e2e2;
-          border-right: 2px solid white;
           margin-top: -2px;
+          border-radius: 20px;
           .liImg{
-            margin-top: 1.2%;
+            margin-top: 2.2%;
             position: absolute;
-            margin-left: 1%;
+            margin-left: 3%;
           }
           button{
             width:100%;
-            height:70px;
+            height:90px;
             font-size: 1.5em;
-            border: none;
             border-bottom: 1px solid #c6c6c6;
+          }
+        }
+        li:first-child{
+          button{
+            border-radius: 20px 20px 0 0;
+          }
+        }
+        li:last-child{
+          button{
+            border-radius: 0 0 20px 20px ;
           }
         }
       }
     }
     .rightCon{
-      width:70%;
-      margin-left: 10%;
-      margin-top: 0%;
+      width:90%;
       ul{
         margin-top: -80px;
         list-style: none;
-        margin-left: 0%;
         li{
           float: left;
-          margin-left: 10%;
+          margin-left: 5%;
           margin-top: 80px;
           img{
-            height:200px;
-            width:300px;
+            height:280px;
+            width:350px;
             border-radius: 5%;
           }
         }
       }
     }
     .zy{
-      width:70%;
-      margin-left: 10%;
+      width:90%;
       margin-top: -1.3%;
       display: flex;
       flex-wrap: wrap;
       .licence{
-        height:320px;
         width:34%;
         margin-top: 20px;
-        margin-left: 10%;
+        margin-left: 5%;
        img{
-       height:290px;
-       width:90%;
-         border-radius: 5%;
+       height:340px;
+       width:70%;
+         border-radius: 20px;
      }
       }
       .book{
-        height:320px;
         width:34%;
         margin-top: 20px;
-        margin-left: 10%;
         img{
-          height:290px;
-          width:90%;
-          border-radius: 5%;
+          height:340px;
+          width:70%;
+          border-radius: 20px;
         }
       }
       .house{
-        height:180px;
         width:34%;
         margin-top: 40px;
-        padding-bottom: 60px;
-        margin-left: 10%;
+        padding-bottom: 40px;
+        margin-left: 5%;
         img{
-          height:150px;
-          width:90%;
-          border-radius: 5%;
+          height:180px;
+          width:70%;
+          border-radius: 20px;
         }
       }
     }
     .example{
-      width:70%;
+      width:90%;
       display: flex;
-      margin-left:5%;
       margin-top: -2.4%;
       flex-direction: column;
       .exampleItem{
-        width:90%;
-        margin-left: 5%;
+        width:95%;
         margin-top: 2%;
+        margin-left: 2.5%;
         .exampleImage{
           margin-left: 8%;
           margin-top: 15px;
           display: inline-block;
           img{
-            height:180px;
-            width:260px;
+            height:260px;
+            width:300px;
             border-radius: 5%;
           }
           p{
@@ -375,11 +384,12 @@ import HeadComponent from  './mayBe'
     }
     .callMe{
       width:60%;
-      margin-left: 15%;
+      margin-left: 10%;
       margin-top: 0%;
       height:450px;
       border: 2px solid #f0f0f0;
       border-radius: 3%;
+      background-color: #ffffff;
       box-shadow: 5px 5px 5px  #e2e2e2;
       position: relative;
       .callMeTitle{
@@ -428,25 +438,11 @@ import HeadComponent from  './mayBe'
     .leftBtn{
       ul{
         li{
-          width:130%;
           .liImg{
-         margin-top: 1.5%;
-          }
+         margin-top: 3%;
+        }
           button{
            text-indent: 10px;
-          }
-        }
-      }
-    }
-    .rightCon{
-      ul{
-        margin-top: -60px;
-        li{
-          margin-left: 110px;
-          margin-top: 60px;
-          img{
-            height:140px;
-            width:200px;
           }
         }
       }
@@ -476,7 +472,7 @@ import HeadComponent from  './mayBe'
       .house{
         height:180px;
         width:35%;
-        margin-top: 15%;
+        margin-top: 10%;
         margin-left: 10%;
         img{
           height:150px;
@@ -484,15 +480,18 @@ import HeadComponent from  './mayBe'
         }
       }
     }
-    .example{
-  margin-left: 10%;
-      .exampleItem{
-        .exampleImage{
-          margin-left: 30px;
-        }
-      }
-    }
   }
+  }
+  @media only screen and (max-width: 1280px){
+   .mineInfo{
+     .rightCon{
+       ul li{
+         img{
+           width:300px;
+         }
+       }
+     }
+   }
   }
   @media only screen and (max-width: 768px){
     .img{
@@ -539,23 +538,29 @@ import HeadComponent from  './mayBe'
               }
             }
           }
-          li:first-child{
-            margin-left: 0%;
-          }
           li{
             height:40px;
             float: left;
             width: 17.5%;
-            border-right: 1px solid #e0e0e0;
             margin-left: 1%;
             .liImg{
-              margin-top: 1%;
+              display: none;
             }
             button{
               height:40px;
               font-size:1em;
               border: none;
               border-radius:5%;
+            }
+          }
+          li:first-child{
+            button{
+              border-radius:0;
+            }
+          }
+          li:last-child{
+            button{
+              border-radius: 0;
             }
           }
         }
@@ -629,7 +634,7 @@ import HeadComponent from  './mayBe'
       }
       .callMe{
         width: 95%;
-        margin-left: -1.5%;
+        margin-left: 2.5%;
         margin-top: 42px;
         .callMeTitle{
           margin-left: 0;
@@ -662,6 +667,15 @@ import HeadComponent from  './mayBe'
       }
     }
   }
+  @media only screen and (max-width: 600px){
+  .mineInfo{
+    .rightCon{
+    ul{
+      margin-left: -3.5%;
+    }
+    }
+  }
+  }
   @media only screen and (max-width: 450px){
     .img{
       .info{
@@ -689,7 +703,7 @@ import HeadComponent from  './mayBe'
         height:40px;
         width:100%;
         border:none;
-        margin-left: 6px;
+        margin-left: 10px;
         margin-top: 30px;
         ul{
           height:40px;
@@ -781,10 +795,17 @@ import HeadComponent from  './mayBe'
         }
       }
       .example{
-        width:100%;
+        width:90%;
+        margin-left: 3%;
         margin-top: 40px;
         .exampleItem{
-          margin-left: 3%;
+          margin-left: 0%;
+          .exampleImage{
+            img{
+              height:200px;
+              width:250px;
+            }
+          }
         }
       }
       .callMe{
@@ -832,9 +853,10 @@ import HeadComponent from  './mayBe'
   @media only screen and (max-width: 415px){
    .mineInfo{
      .leftBtn{
+       margin-left: 5px;
        ul{
          li{
-           margin-left: 2px;
+           margin-left: 6px;
          }
        }
      }
@@ -845,16 +867,15 @@ import HeadComponent from  './mayBe'
      }
    }
   }
-  @media only screen and (max-width:380px) {
+  @media only screen and (max-width:384px) {
     .mineInfo{
       .leftBtn{
         ul{
-          margin-left: -0.4rem;
+          margin-left: -5px;
           .li{
             margin-left: -8.5rem;
           }
           li{
-            margin-left: 2px;
             button{
               text-indent: -10px;
             }
@@ -870,14 +891,6 @@ import HeadComponent from  './mayBe'
   }
   @media only screen and (max-width:360px) {
     .mineInfo{
-      .leftBtn{
-        ul{
-        margin-left: -0.5rem;
-          li{
-            margin-left: 0.2rem;
-          }
-        }
-      }
       .rightCon{
         ul{
           margin-left: -14%;
@@ -888,15 +901,15 @@ import HeadComponent from  './mayBe'
   @media only screen and (max-width:320px) {
     .img{
       .info{
-        margin-top: 30%;
+        margin-top: 10%;
       }
     }
     .mineInfo{
       .leftBtn{
         ul{
-          margin-left: -1rem;
+          margin-left:-10px;
           li{
-            margin-left: 0.1rem;
+            margin-left: 5px;
             width:3.5rem;
             .liImg{
             display: none;

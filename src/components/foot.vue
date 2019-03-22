@@ -100,7 +100,7 @@
     margin-top: 8%;
   }
   .center{
-    width:50%;
+    width:60%;
   }
   .five{
     height:100%;
@@ -110,14 +110,16 @@
     color: #e4e4e4;
     margin-top: 30px;
   }
-  .fiveLeft{
-    margin-left: 10%;
+  .fiveLeft,.fiveRight,.f{
+    margin-left: 5%;
     margin-top: 5%;
   }
   .f{
-    margin-left: 10%;
-    margin-top: 5%;
-    width:45%;
+    width:25%;
+    margin-left: 15%;
+  }
+  .fiveLeft,.fiveRight{
+    width:30%;
   }
   .five p{
     display: inline-block;
@@ -128,10 +130,6 @@
   }
   .five p:active{
     color:black;
-  }
-  .fiveRight{
-    margin-left: 10%;
-    margin-top: 5%;
   }
   .gzh{
     height: 70%;
@@ -210,26 +208,20 @@
       margin-top: 5%;
       font-size: 1.5em;
     }
-    .fiveLeft{
+    .fiveLeft,.fiveRight{
       display: flex;
       flex-direction: column;
       margin-top: 1%;
-      margin-left: 12%;
+      margin-left: 2%;
     }
     .f{
-      width:20%;
-      margin-left: 10%;
+      width:25%;
+      margin-left:0%;
     }
     .five p{
       display: inline-block;
       margin-top:5px;
       margin-left: 0;
-    }
-    .fiveRight{
-      display: flex;
-      flex-direction: column;
-      margin-left: 10%;
-      margin-top: 1%;
     }
     .five{
       width:100%;
@@ -255,7 +247,7 @@
   }
   @media only screen and (max-width: 450px){
     .footer{
-      padding-bottom: 30px;
+      padding-bottom: 10px;
     }
     .dontKnowFirst img{
       margin-top: 10px;
@@ -268,30 +260,37 @@
     }
     .five{
       width:120%;
-      margin-left: 0%;
+      margin-left: -5%;
       margin-top: 10px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      font-size: 14px;
     }
     .five .f{
       width:100%;
-      margin-left: 0;
+      margin-left: -10%;
+    }
+    .fiveLeft{
+      margin-left: 10%;
+    }
+    .fiveRight{
+      margin-left: 16%;
     }
     .five .f p{
-      margin-left: 9%;
+      margin-left: 20%;
     }
     .gzh{
       width:30%;
       height:90px;
       float: left;
-      margin-left: 6%;
+      margin-left: 5%;
       margin-top: 3%;
     }
     .gzNum{
       display: inline-block;
-      margin-left: -38%;
-      font-size:10px;
+      margin-left: -40%;
+      font-size:14px;
       margin-top: 14%;
     }
   }
@@ -303,33 +302,33 @@
     .five{
       margin-left: -5%;
     }
-    .five .f{
-      margin-left: 10%;
-    }
   }
   @media only screen and (max-width: 360px){
-    .fiveLeft{
-      display: flex;
-      flex-direction: column;
-      margin-top: 1%;
-      margin-left: 8%;
-    }
     .gzNum{
       margin-top: 16%;
+      margin-left: -35%;
+      font-size: 12px;
     }
   }
   @media only screen and (max-width: 320px){
     .five .f p{
-      margin-left: 2%;
+      margin-left: 10%;
     }
     .fiveLeft{
-      margin-left: 4.2%;
+      margin-left:8%;
     }
     .fiveRight{
-      margin-left: 5%;
+      margin-left: 3%;
+    }
+    .fiveLeft,.fiveRight{
+      width:35%;
     }
     .gzh{
-      height:80px;
+      height:70px;
+      margin-left: 2%;
+    }
+    .gzNum{
+      margin-top: 15%;
     }
   }
 </style>

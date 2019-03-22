@@ -5,7 +5,8 @@
       <div class="bt">
         <ul>
           <li v-for="(item,index) in list"><a @click="changeMain(index)" :style="index===select?colorStyle:''" >{{item}}</a>
-          <div class="redHr"></div></li>
+          <div :style="index==select?bgStyle:''"  class="redHr"></div>
+          </li>
         </ul>
       </div>
       <div class="main"  v-if="index==0">
@@ -22,12 +23,14 @@
               </el-select>
             </el-form-item>
             <el-form-item label="房屋单价">
-              <el-input v-model="form.price" placeholder="请输入房屋单价" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;"></el-input>
-              <span class="msgRightOne">元/平方米</span>
+              <el-input v-model="form.price" placeholder="请输入房屋单价" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
+                <template slot="append">元/平方米</template>
+              </el-input>
             </el-form-item>
             <el-form-item label="房屋面积">
-              <el-input v-model="form.area" placeholder="请输入房屋面积" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;" ></el-input>
-              <span class="msgRightTwo">平方米</span>
+              <el-input v-model="form.area" placeholder="请输入房屋面积" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;" >
+                <template slot="append">平方米</template>
+              </el-input>
             </el-form-item>
             <el-form-item label="按揭成数">
               <el-select v-model="form.csID" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
@@ -43,8 +46,9 @@
               <el-select v-model="form.lvID" style="width: 40%;border: 1px solid #89d9e2;border-radius: 5px;">
                 <el-option v-for="item in lv" :label="Txt(item.label)" :value="LV(item.num)" :key="item.value"></el-option>
               </el-select>
-              <el-input v-model="form.lvID" style="width:25%;margin-left:5%;border: 1px solid #89d9e2;border-radius: 5px;" ></el-input>
-              <span class="msgRightThree" >%</span>
+              <el-input v-model="form.lvID" style="width:25%;margin-left:5%;border: 1px solid #89d9e2;border-radius: 5px;" >
+                <template slot="append">%</template>
+              </el-input>
             </el-form-item>
             <el-form-item label="还款方式">
               <el-select v-model="form.hkID" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
@@ -52,9 +56,11 @@
               </el-select>
             </el-form-item>
           </el-form>
-          <el-button type="danger" class="formBtn" @click="handleJS">开始计算</el-button>
-          <el-button type="danger" class="formBtnTwo" @click="DialogShow">开始计算</el-button>
-          <el-button class="cle" @click="cle">清空重置</el-button>
+          <div style="width:60%;margin-left: 30%;">
+            <el-button type="danger" class="formBtn" @click="handleJS">开始计算</el-button>
+            <el-button type="danger" class="formBtnTwo" @click="DialogShow">开始计算</el-button>
+            <el-button class="cle" @click="cle">清空重置</el-button>
+          </div>
         </div>
         <hr class="mainHr">
         <div class="content">
@@ -197,6 +203,9 @@
     export default {
       data(){
           return{
+            bgStyle:{
+              backgroundColor:'red'
+            },
             sbForm:{
               aname:'',
               area:'',
@@ -656,7 +665,7 @@
         .redHr{
           height:3px;
           width:200px;
-          background-color: red;
+          background-color: rgba(232,235,233,1);
         }
       }
     }
@@ -669,27 +678,6 @@
       width:40%;
       margin-left: 10%;
       margin-top: 60px;
-      .msgRightOne{
-        position: absolute;
-        margin-left: -10%;
-        font-size: 10px;
-        color:rgba(179,179,179,1)
-      }
-      .msgRightTwo{
-        position: absolute;
-        margin-left: -8%;
-        font-size: 10px;
-        color:rgba(179,179,179,1)
-      }
-      .msgRightThree{
-        position: absolute;
-        margin-left: -4%;
-        font-size: 10px;
-        color:rgba(179,179,179,1)
-      }
-      .formBtn{
-        margin-left: -10%;
-      }
       .formBtnTwo{
         display: none;
       }
@@ -768,9 +756,9 @@
           font-size: 1.8em;
         }
         .select{
-          margin-top: 0.2%;
+          margin-top: 0.3%;
           float: left;
-          width:6%;
+          width:7%;
           position: absolute;
           z-index: 1000;
           margin-left: -28%;
@@ -869,18 +857,6 @@
       }
     }
  .main{
-
-   .form{
-     .msgRightOne{
-       margin-left: -14%;
-     }
-     .msgRightTwo{
-       margin-left: -10%;
-     }
-     .formBtn{
-       margin-left: 6%;
-     }
-   }
    .content{
      margin-top: -35%;
    }
@@ -939,18 +915,12 @@
         width:100%;
         margin-left: -10px;
         margin-top: 75px;
-        .msgRightOne{
-          margin-left: -10%;
-        }
-        .msgRightTwo{
-          margin-left: -8%;
-        }
         .formBtn{
           display: none;
         }
         .formBtnTwo{
           display: block;
-          margin-left: 27%;
+          margin-left: 10%;
           position: absolute;
         }
       }
@@ -1000,6 +970,27 @@
       }
     }
   }
+  @media only screen and (max-width: 600px){
+ .bt{
+  ul{
+    width:93%;
+    margin-left: 0;
+    li{
+      margin-left: 2%;
+      .redHr{
+        width:160px;
+      }
+    }
+  }
+ }
+    .main{
+      .form{
+        .formBtnTwo{
+          margin-left: 4%;
+        }
+      }
+    }
+  }
   @media only screen and (max-width: 435px) {
     .navComponent{
       margin-top: 60px;
@@ -1021,17 +1012,8 @@
       .form{
         width:100%;
         margin-left: -10px;
-        .msgRightOne{
-          margin-left: -21%;
-        }
-        .msgRightTwo{
-          margin-left: -16%;
-        }
-        .msgRightThree{
-          margin-left: -6%;
-        }
         .formBtnTwo{
-          margin-left: 36%;
+          margin-left: 9%;
         }
         .cle{
           margin-left: 45%;
@@ -1092,7 +1074,7 @@
     .main{
       .form{
         .formBtnTwo{
-          margin-left: 38%;
+          margin-left: 9%;
         }
         .cle{
           margin-left: 50%;
@@ -1119,7 +1101,7 @@
       }
     }
   }
-  @media only screen and (max-width: 380px){
+  @media only screen and (max-width: 384px){
     .bt ul{
       width:90%;
       margin-left: -2%;
@@ -1129,20 +1111,8 @@
     }
     .main{
       .form{
-        .msgRightOne{
-          margin-left: -20%;
-          font-size: 10px;
-        }
-        .msgRightTwo{
-          margin-left: -16%;
-          font-size: 10px;
-        }
-        .msgRightThree{
-          margin-left: -6%;
-          font-size: 10px;
-        }
         .formBtnTwo{
-          margin-left: 20%;
+          margin-left: -8%;
         }
         .cle{
           margin-left: 35%;
@@ -1199,13 +1169,6 @@
       width:100%;
       margin-left: -11%;
     }
-    .main{
-      .form{
-        .msgRightOne,.msgRightTwo{
-          display: none;
-        }
-      }
-    }
     .mainTwo{
       .sb{
         span{
@@ -1218,6 +1181,4 @@
     }
   }
 }
-
-
 </style>

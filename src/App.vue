@@ -20,6 +20,9 @@ export default {
     padding: 0;
     font-size: 62.5%;
   }
+  .el-input-group__append, .el-input-group__prepend{
+    padding: 0;
+  }
   .el-menu{
     border: none;
   }

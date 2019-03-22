@@ -4,47 +4,35 @@
       <img src="../image/divider.png" alt="" style="height:60px;width:100%;">
       <div class="title">
         <ul>
-          <!--<li><el-button type="danger">全部</el-button></li>-->
-          <!--<li><el-button>公司新闻</el-button></li>-->
-          <!--<li><el-button>行业状态</el-button></li>-->
           <li>
-            <button>全部</button>
+            <button  @click="allNews" v-if="num">全部</button>
+            <button style="background-color: red;color:#ffffff" @click="allNews" v-else>全部</button>
           </li>
           <li>
-            <button>公司新闻</button>
+            <button  @click="comNews" v-if="numTwo">公司新闻</button>
+            <button style="background-color: red;color:#ffffff" @click="comNews" v-else>公司新闻</button>
           </li>
           <li>
-            <button>行业状态</button>
+            <button  @click="hyStatus" v-if="numThree">行业状态</button>
+            <button style="background-color: red;color:#ffffff"  @click="hyStatus" v-else>行业状态</button>
           </li>
         </ul>
       </div>
        <div class="a">
-       <div class="item">
+       <div class="item" v-for="item in newsList">
          <span @click="gotoInfo"></span>
          <div class="m">
-           <p>新闻标题</p>
-           <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+           <p>{{item.Title}}</p>
+           <p>{{item.Contexts}}</p>
          </div>
        </div>
-         <div class="item">
-           <span></span>
-           <div class="m">
-             <p>新闻标题</p>
-             <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
-           </div>
-         </div>
-         <div class="item">
-           <span></span>
-           <div class="m">
-             <p>新闻标题</p>
-             <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
-           </div>
-         </div>
+
        </div>
         <el-pagination
           background
           layout="prev, pager, next"
           :total="1000"
+          @current-change="changePage"
           small
         style="margin-top: 20px;">
         </el-pagination>
@@ -57,14 +45,74 @@
   import FootComponent from './foot'
     export default {
         name: "news",
+      data(){
+          return{
+            num:true,
+            numTwo:true,
+            numThree:true,
+            newsList:{},
+            PageIndex:1,
+            PageSize:10,
+            Category:"公司新闻"
+          }
+      },
       components:{
         NavComponent,
         FootComponent
       },
       methods:{
+        changePage(val){
+          this.PageIndex=val;
+          console.log(val)
+        },
         gotoInfo(){
           this.$router.push({path:'/info'})
-        }
+        },
+        allNews(){
+          this.numTwo=true
+          this.numThree=true
+          this.num=!this.num
+          this.getNews("全部")
+        },
+        comNews(){
+          this.num=true
+          this.numThree=true
+          this.numTwo=!this.numTwo
+          this.getNews("公司新闻")
+        },
+        hyStatus(){
+          this.numTwo=true
+          this.num=true
+          this.numThree=!this.numThree
+          this.getNews("行业状态  ")
+        },
+        getNews(Category) {
+          this.$http
+            .get("/api/News/GetNews", {
+              params: {
+                PageIndex:this.PageIndex,
+                PageSize:this.PageSize,
+                Category:Category,
+              }
+            })
+            .then(
+              function (response) {
+                 this.newsList=response.data.Result.data
+              }.bind(this)
+            )
+            // 请求error
+            .catch(
+              function (error) {
+                this.$notify.error({
+                  title: "出错啦",
+                  message: "错误：请检查网络"
+                });
+              }.bind(this)
+            );
+        },
+      },
+      mounted() {
+          this.getNews(this.Category)
       }
     }
 </script>
@@ -94,18 +142,11 @@
           color:red
         }
       }
-      li:active{
-        button{
-          background-color: rgba(234,61,63,1);
-          color:white;
-        }
-      }
     }
   }
     .a{
       width:70%;
       margin-left: 17.2%;
-      margin-top: 20px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -119,9 +160,9 @@
         span{
           display: inline-block;
           height:200px;
-          width:40%;
-          background-color: blue;
-          border-radius: 6%;
+          width:50%;
+          background-color: rgba(237,235,247,1);
+          border-radius: 20px;
         }
         span:hover{
           cursor: pointer;
@@ -133,6 +174,7 @@
           p:first-child{
             font-size: 2em;
             font-weight: bolder;
+            color:#4C4C4C;
           }
           p:last-child{
             height:150px;
@@ -142,6 +184,7 @@
             overflow: hidden;
             line-height: 25px;
             color:#808080;
+            margin-top: -10px;
           }
           p{
             text-align: left;
@@ -186,8 +229,8 @@
       display: flex;
       flex-direction: column;
       .item{
-        width:70%;
-        margin-left: 15%;
+        width:100%;
+        margin-left: 0%;
         margin-top: 8%;
         display: flex;
         flex-direction: row;
@@ -197,8 +240,7 @@
           display: inline-block;
           height:100%;
           width:40%;
-          background-color: blue;
-          border-radius: 6%;
+          background-color: rgba(237,235,247,1);
         }
         .m{
           margin-left: 4%;
@@ -286,7 +328,7 @@
       }
     }
   }
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 384px) {
     .title{
       ul{
         width:88%;

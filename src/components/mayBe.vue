@@ -9,28 +9,29 @@
           <li><a @click="gotoMine">关于我们</a></li>
         </ul>
       </div>
-      <div class="leftCon" v-if="num">
+      <div id="leftCon" class="leftCon">
         <ul>
-          <li>首页</li>
-          <li>在线评估</li>
-          <li>新闻资讯</li>
-          <li>关于我们</li>
+          <li @click="gotoIndex">首页</li>
+          <li @click="gotoEstimate">在线评估</li>
+          <li @click="gotoNews">新闻资讯</li>
+          <li @click="gotoMine">关于我们</li>
         </ul>
       </div>
-      <img src="../image/navWhite.svg" class="navImg" @click="showLeft">
+      <img id="img" src="../image/navWhite.svg" class="navImg" @click="showLeft">
     </div>
 </template>
 
+
 <script>
+
     export default {
      data(){
           return{
-            num:false
           }
      },
       methods:{
         gotoIndex(){
-          this.$router.push({path:'/home'})
+          this.$router.push({path:'/'})
         },
         gotoEstimate(){
           this.$router.push({path:'/es'})
@@ -42,19 +43,21 @@
           this.$router.push({path:'/mine'})
         },
        showLeft(){
-          this.num=!this.num
+          $("#leftCon").fadeToggle("slow")
        }
       }
     }
 </script>
 
 <style  scoped>
+
   .gj{
     display: flex;
     padding-bottom: 10px;
   }
   .gjImg{
   margin-left: 18%;
+    margin-top: 1rem;
   }
   .nav{
     width:60%;
@@ -81,14 +84,23 @@
     height:40px;
     width:40px;
     margin-top: 30px;
-    margin-left: 5rem;
-  }
-  .navImg{
+    margin-left: 16rem;
     display: none;
+  }
+  .leftCon{
+    display: none;
+  }
+  @media only screen and (max-width: 1280px)
+  {
+    .nav{
+      margin-top: 3%;
+    }
   }
   @media only screen and (max-width: 768px){
     .gjImg{
-      margin-top: 0%;
+      height:80px;
+      width:80px;
+      margin-top: 2%;
     }
     .nav{
       width:100%;
@@ -107,20 +119,51 @@
       color:white;
     }
   }
-  @media only screen and (max-width: 450px){
+  @media only screen and (max-width: 600px){
     .gjImg{
-      height:80px;
-      width:80px;
-      margin-left: 50%;
-      margin-top: 4%;
+      margin-left: 4%;
     }
     .leftCon{
       width:160px;
       position: absolute;
-      margin-left: -300px;
+      margin-left:-6.5rem;
       background-color: gray;
       border: 1px solid white;
-      border-radius: 5%;
+      margin-top:0%;
+    }
+    .leftCon ul {
+      list-style: none;
+    }
+    .leftCon ul li{
+      width:90px;
+      height:60px;
+      font-size: 16px;
+      line-height: 60px;
+      color:white;
+    }
+    .nav {
+      display: none;
+    }
+    .navImg{
+      display: inline-block;
+      margin-top:4%;
+      margin-left: 70%;
+    }
+  }
+  @media only screen and (max-width: 450px){
+    .gjImg{
+      height:80px;
+      width:80px;
+      margin-top: 4%;
+      margin-left: 6%;
+    }
+    .leftCon{
+      width:180px;
+      position: absolute;
+      background-color: #8E8E8E;
+      border: 1px solid white;
+      z-index: 1000;
+      margin-left: -7rem;
     }
     .leftCon ul {
       list-style: none;
@@ -139,30 +182,25 @@
       display: inline-block;
     }
   }
-  @media only screen and (max-width: 414px){
-    .leftCon{
-      margin-left: -286px;
-    }
-  }
-  @media only screen and (max-width: 380px){
-    .leftCon{
-      margin-left: -268px;
-    }
+  @media only screen and (max-width: 435px){
     .navImg{
-      margin-left: 3rem;
+      margin-left: 60%;
+      margin-top: 7%;
     }
   }
-  @media only screen and (max-width: 360px){
-    .leftCon{
-      margin-left: -260px;
+  @media only screen and (max-width: 414px){
+    .navImg{
+      margin-left: 15rem;
+    }
+  }
+  @media only screen and (max-width: 384px){
+    .navImg{
+      margin-left: 13rem;
     }
   }
   @media only screen and (max-width: 320px){
     .navImg{
-      margin-left: 1rem;
-    }
-    .leftCon{
-      margin-left: -240px;
+      margin-left: 10rem;
     }
   }
 </style>

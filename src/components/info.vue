@@ -9,9 +9,7 @@
         <el-breadcrumb-item>正文</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <div class="editor-container">
-      <UE :defaultMsg=defaultMsg :config=config ref="ue"></UE>
-    </div>
+      <UE class="editor-container" :defaultMsg=defaultMsg :config=config ref="ue"></UE>
     <Foot-Component></Foot-Component>
   </div>
 </template>
@@ -23,7 +21,7 @@
     components: {UE,NavComponent,FootComponent},
     data() {
       return {
-        defaultMsg: '这里是UE测试',
+        defaultMsg: '',
         config: {
           initialFrameWidth:null,
           initialFrameHeight: 600
@@ -56,7 +54,7 @@
   .editor-container{
     width:52%;
     margin-left: 21%;
-    margin-top: 30px;
+    margin-top: 50px;
     padding-bottom: 60px;
   }
   @media only screen and (max-width: 1366px){

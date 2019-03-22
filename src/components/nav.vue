@@ -9,27 +9,15 @@
         <li><a @click="gotoMine">关于我们</a></li>
       </ul>
     </div>
-    <div class="isShow">
-      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-        <el-menu-item index="1">
-          <i class="el-icon-location"></i>
-          <span slot="title" @click="gotoIndex">首页</span>
-        </el-menu-item>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title" @click="gotoEstimate">在线估价</span>
-        </el-menu-item>
-        <el-menu-item index="3">
-          <i class="el-icon-document"></i>
-          <span slot="title" @click="gotoNews">新闻资讯</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title" @click="gotoMine">关于我们</span>
-        </el-menu-item>
-      </el-menu>
-      <el-button type="info" style="height:40px;margin-top: 15px;" @click="a">导航</el-button>
+    <div id="leftCon" class="leftCon">
+      <ul>
+        <li @click="gotoIndex">首页</li>
+        <li @click="gotoEstimate">在线评估</li>
+        <li @click="gotoNews">新闻资讯</li>
+        <li @click="gotoMine">关于我们</li>
+      </ul>
     </div>
+    <img id="img" src="../image/nav.svg" class="navImg" @click="showLeft">
   </div>
 </template>
 
@@ -41,11 +29,8 @@
       }
     },
     methods:{
-      a(){
-        this.isCollapse=!this.isCollapse
-      },
       gotoIndex(){
-        this.$router.push({path:'/home'})
+        this.$router.push({path:'/'})
       },
       gotoEstimate(){
         this.$router.push({path:'/es'})
@@ -56,14 +41,8 @@
       gotoMine(){
         this.$router.push({path:'/mine'})
       },
-      handleSelect(key) {
-        this.activeIndex2=key;
-      },
-      handleOpen(key, keyPath) {
-
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
+      showLeft(){
+        $("#leftCon").fadeToggle("slow")
       }
     }
   }
@@ -76,6 +55,7 @@
   }
   .gjImg{
     margin-left: 20%;
+    margin-top: 1rem;
   }
   .nav{
     width:60%;
@@ -99,10 +79,27 @@
   .nav ul li a:active{
     color:red
   }
-  .isShow{
+  .navImg{
+    height:40px;
+    width:40px;
+    margin-top: -9%;
+    margin-left: 16rem;
     display: none;
   }
+  .leftCon{
+    display: none;
+  }
+  @media only screen and (max-width: 1280px)
+  {
+    .nav{
+      margin-top: 3%;
+    }
+  }
   @media only screen and (max-width: 768px){
+    .gjImg{
+      height:80px;
+      width:80px;
+    }
     .nav{
       width:100%;
       height:60px;
@@ -120,49 +117,105 @@
       color:black;
     }
   }
+  @media only screen and (max-width: 600px){
+    .gjImg{
+      margin-left: 6%;
+      margin-top: 0;
+    }
+    .leftCon{
+      width:160px;
+      position: absolute;
+      margin-left:-7.5rem;
+      background-color: gray;
+      border: 1px solid white;
+      margin-top:-0.2%;
+    }
+    .leftCon ul {
+      list-style: none;
+    }
+    .leftCon ul li{
+      width:90px;
+      height:60px;
+      font-size: 16px;
+      line-height: 60px;
+      color:white;
+    }
+    .nav {
+      display: none;
+    }
+    .navImg{
+      display: inline-block;
+      margin-top:4%;
+      margin-left: 65%;
+    }
+  }
     @media only screen and (max-width: 450px){
       .gjImg{
-        height:80px;
-        width:80px;
-        margin-left: 5%;
-        margin-top: -60px;
+        margin-left: 6%;
+        margin-top: -55px;
+      }
+      .leftCon{
+        width:160px;
+        position: absolute;
+        margin-left:-7rem;
+        background-color: gray;
+        border: 1px solid white;
+        margin-top: -15%;
+      }
+      .leftCon ul {
+        list-style: none;
+      }
+      .leftCon ul li{
+        width:90px;
+        height:60px;
+        font-size: 16px;
+        line-height: 60px;
+        color:white;
       }
       .nav {
         display: none;
       }
-      .isShow{
-        display: flex;
-        flex-direction: row;
-        margin-left: 6%;
-        position: absolute;
-        margin-top: -70px;
+      .navImg{
+        display: inline-block;
       }
     }
   @media only screen and (max-width: 414px){
-    .isShow{
-      margin-left:1%;
+    .navImg{
+      margin-left: 14rem;
+    }
+  }
+  @media only screen and (max-width: 420px){
+    .leftCon{
+      margin-top: -16%;
+    }
+    .navImg{
+      margin-left: 13rem;
+      margin-top: -10%;
     }
   }
     @media only screen and (max-width: 380px){
-      .isShow{
-        margin-left:-6%;
+      .leftCon{
+        margin-top: -16%;
+      }
+      .navImg{
+        margin-left: 13rem;
       }
     }
   @media only screen and (max-width: 360px){
-    .isShow{
-      margin-left:-9%;
+    .leftCon{
+      margin-top: -17%;
+    }
+    .navImg{
+      margin-left: 12rem;
     }
   }
     @media only screen and (max-width: 320px){
-      .gjImg{
-        margin-top: -5px;
-        position: absolute;
-        height:60px;
-        width:60px;
-        margin-left: 14rem;
+      .leftCon{
+        margin-top: -19%;
       }
-      .isShow{
-        margin-left:0%;
+      .navImg{
+        margin-left: 10rem;
+        margin-top: -10%;
       }
     }
 

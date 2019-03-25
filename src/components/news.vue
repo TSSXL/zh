@@ -20,10 +20,10 @@
       </div>
        <div class="a">
        <div class="item" v-for="item in newsList">
-         <span @click="gotoInfo"></span>
+         <span @click="gotoInfo(item.Contexts,item.Category)"></span>
          <div class="m">
            <p>{{item.Title}}</p>
-           <p>{{item.Contexts}}</p>
+           <p>{{item.Summary}}</p>
          </div>
        </div>
 
@@ -31,10 +31,11 @@
         <el-pagination
           background
           layout="prev, pager, next"
-          :total="1000"
+          :page-count="totalPage"
           @current-change="changePage"
+          :current-page="Page"
           small
-        style="margin-top: 20px;">
+          style="margin-top: 20px;">
         </el-pagination>
       <Foot-Component class="footCom" ></Foot-Component>
     </div>
@@ -47,13 +48,15 @@
         name: "news",
       data(){
           return{
+            Page:1,
+            totalPage:10,
             num:true,
             numTwo:true,
             numThree:true,
             newsList:{},
             PageIndex:1,
-            PageSize:10,
-            Category:"公司新闻"
+            PageSize:1,
+            Category:"全部"
           }
       },
       components:{
@@ -62,42 +65,54 @@
       },
       methods:{
         changePage(val){
-          this.PageIndex=val;
-          console.log(val)
+          this.Page=val
+          this.getNews(val,this.PageSize,this.Category)
         },
-        gotoInfo(){
-          this.$router.push({path:'/info'})
+        gotoInfo(Contexts,Category){
+          this.$router.push({path:'/info',query:{a:Contexts,b:Category}})
         },
         allNews(){
           this.numTwo=true
           this.numThree=true
           this.num=!this.num
-          this.getNews("全部")
+          this.Page=1
+          this.Category="全部"
+          this.getNews(1,this.PageSize,this.Category)
         },
         comNews(){
           this.num=true
           this.numThree=true
           this.numTwo=!this.numTwo
-          this.getNews("公司新闻")
+          this.Page=1
+          this.Category="公司新闻"
+          this.getNews(1,this.PageSize,this.Category)
         },
         hyStatus(){
           this.numTwo=true
           this.num=true
           this.numThree=!this.numThree
-          this.getNews("行业状态  ")
+          this.Page=1
+          this.Category="行业状态"
+          this.getNews(1,this.PageSize,this.Category)
         },
-        getNews(Category) {
+        getNews(pageIndex,pageSize,Category) {
           this.$http
             .get("/api/News/GetNews", {
               params: {
-                PageIndex:this.PageIndex,
-                PageSize:this.PageSize,
-                Category:Category,
+                PageIndex:pageIndex,
+                PageSize:pageSize,
+                Category:Category
               }
             })
             .then(
               function (response) {
-                 this.newsList=response.data.Result.data
+                if(JSON.stringify(response.data.Result.data)=="{}")
+                {
+                  this.newsList={0:[]}
+                }else{
+                  this.newsList=response.data.Result.data
+                }
+                this.totalPage=response.data.Result.PageIndex
               }.bind(this)
             )
             // 请求error
@@ -112,7 +127,7 @@
         },
       },
       mounted() {
-          this.getNews(this.Category)
+          this.getNews(this.PageIndex,this.PageSize,this.Category)
       }
     }
 </script>
@@ -140,6 +155,9 @@
           border-radius:10px;
           border: 1px solid red;
           color:red
+        }
+        button:hover{
+          cursor: pointer;
         }
       }
     }

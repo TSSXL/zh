@@ -245,6 +245,11 @@
       font-size:16px;
     }
   }
+  @media only screen and (max-width: 650px){
+ .five .f{
+   margin-top: 1%;
+ }
+  }
   @media only screen and (max-width: 450px){
     .footer{
       padding-bottom: 10px;
@@ -297,7 +302,7 @@
   @media only screen and (max-width: 380px){
     .dontKnowFirst img{
      width:160px;
-      height:100px;
+      height:93px;
     }
     .five{
       margin-left: -5%;

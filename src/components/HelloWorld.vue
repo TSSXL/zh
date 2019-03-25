@@ -10,16 +10,17 @@
          </el-carousel>
        </div>
        <div class="input">
-         <input type="text" placeholder="请输入完整小区的名称">
-         <el-select class="select" v-model="value" placeholder="选择城市">
+         <input v-model="adname" type="text" placeholder="请输入小区地址或名称" style="background-color: #F5F7F6">
+         <el-select class="select" v-model="value" placeholder="选择城市" @change="changeSelect(value)">
            <el-option
              v-for="item in options"
-             :key="item.value"
-             :label="item.label"
-             :value="item.value">
+             :key="item.ID"
+             :label="item.Name"
+             :value="item.Name"
+           >
            </el-option>
          </el-select>
-         <span class="right"><a href="javascript:void(0)" @click="showLoading" >评估</a></span>
+         <span class="right"><a @click="showLoading" >评估</a></span>
        </div>
      </div>
     <div class="info">
@@ -103,7 +104,7 @@
     </div>
     <div class="news" >
      <span class="newsTitle q" style="font-weight: bolder">新闻资讯</span>
-      <span class="more"><a href="">查看更多 </a><img src="../image/more.png" alt=""></span>
+      <span class="more"><a @click="gotoNews">查看更多 </a><img src="../image/more.png" alt=""></span>
       <div class="newsItem">
         <div class="n">
           <img src="../image/first.jpg" alt="">
@@ -179,6 +180,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      adname:'',
       imageList:[
         require("../image/top_banner.png")
       ],
@@ -186,22 +188,7 @@ export default {
         require("../image/first.jpg")
       ],
       category:1,
-      options: [{
-        value: '选项1',
-        label: '宁波'
-      }, {
-        value: '选项2',
-        label: '金华'
-      }, {
-        value: '选项3',
-        label: '温州'
-      }, {
-        value: '选项4',
-        label: '奉化'
-      }, {
-        value: '选项5',
-        label: '衢州'
-      }],
+      options: [],
       value: ''
     }
   },
@@ -209,9 +196,56 @@ export default {
     HeadComponent,
     FootComponent
   },
+  created(){
+  this.setCookie('token',"aa")
+  this.getCity()
+  },
   methods:{
+    gotoNews(){
+      this.$router.push({path:'/news'})
+    },
+    changeSelect(val){
+      this.value=val
+    },
     showLoading(){
-      console.log("555")
+      this.$http
+        .get("/api/Online/OnlineService", {
+          params: {
+            city:"宁波",
+            adname:this.adname
+          }
+        })
+        .then(
+          function (response) {
+            this.$router.push({path:'/es',query:{online:1,tableData:response.data.Result}})
+          }.bind(this)
+        )
+        // 请求error
+        .catch(
+          function (error) {
+            this.$notify.error({
+              title: "出错啦",
+              message: "错误：请输入正确的小区地址或名称",
+            });
+          }.bind(this)
+        )
+    },
+    getCity(){
+      this.$http
+        .get("/api/Online/GetCity")
+        .then(
+          function (response) {
+           this.options=response.data.Result.slice(0,20)
+          }.bind(this)
+        )
+        .catch(
+          function (error) {
+            this.$notify.error({
+              title: "出错啦",
+              message: "错误：请检查网络"
+            });
+          }.bind(this)
+        )
     }
   }
 }
@@ -248,7 +282,7 @@ export default {
 }
     .image .input {
       height: 50px;
-      width: 40%;
+      width: 45%;
       margin-left: 35%;
       margin-top: 20%;
       color: #606060;
@@ -270,10 +304,10 @@ export default {
       font-size: 22px;
     }
     .select{
-      margin-top: 0.8%;
+      margin-top: 0.6%;
       position: absolute;
-      width:15%;
-     margin-left: -80%;
+      width:18%;
+     margin-left: -81%;
     }
   .right{
     display: inline-block;
@@ -287,10 +321,13 @@ export default {
     background-color: #009645;
     margin-top: 0px;
     line-height: 50px;
-  margin-left: -27%;
+    margin-left: -27%;
   }
   .right a{
     color:#ffffff;
+  }
+  .right a:hover{
+    cursor: pointer;
   }
     .info {
       width:100%;
@@ -480,6 +517,9 @@ export default {
 .more a{
   color:gray;
 }
+.more a:hover{
+  cursor: pointer;
+}
 .w{
   width:100%;
   background-color: #F5F7FA;
@@ -492,7 +532,7 @@ export default {
 }
 .worker{
   width:63%;
-  margin-left: 18%;
+  margin-left: 17%;
   padding-bottom: 60px;
   display: flex;
   flex-wrap: wrap;
@@ -527,7 +567,7 @@ export default {
    padding-top: 10px;
  }
 .tzCon{
-  margin-top: -1rem;
+  margin-top: -0.5rem;
   font-size: 0.9em;
   letter-spacing: 2px;
   color:#808080;
@@ -547,7 +587,7 @@ export default {
 }
 .tz p:last-child{
   font-size: 10px;
-  line-height: 40px;
+ margin-top: 23%;
   color:#808080;
 }
 .mainPeople{
@@ -602,6 +642,7 @@ export default {
       padding-top: 20px;
       width:50%;
     }
+
     .serviceImage{
      width:100%;
       margin-left: 0%;
@@ -624,9 +665,36 @@ export default {
       height:110px;
       -webkit-line-clamp: 7;
     }
+    .tz p:last-child{
+      margin-top: 30%;
+    }
+    .tzCon{
+      margin-top: -1rem;
+      line-height: 1.2rem;
+    }
     .mainImage{
       width:70%;
       margin-left: 15%;
+    }
+  }
+  @media only screen and (max-width: 900px){
+    .image .input{
+      width:70%;
+      margin-left: 25%;
+      margin-top: 50%;
+    }
+    .select{
+      width:18%;
+    }
+    .serviceImage ul li img{
+      width:200px;
+    }
+    .serviceImage ul{
+      width:90%;
+      margin-left: -7%;
+    }
+    .serviceImage ul li{
+      margin-left: 7%;
     }
   }
   @media only screen and (max-width: 768px) {
@@ -792,11 +860,11 @@ export default {
       height:90%;
     }
     .tzCon{
-      margin-top: -1rem;
       line-height: 1rem;
+     margin-top: -0.7rem;
     }
     .tz p:last-child{
-      line-height: 25px;
+      margin-top: 8%;
     }
     .mainImage{
       width:100%;
@@ -821,6 +889,12 @@ export default {
     }
     .serviceImage ul li{
       margin-left: 5%;
+    }
+    .tz p:last-child{
+      margin-top: 10%;
+    }
+    .tzCon{
+      margin-top: -0.5rem;
     }
   }
   @media only screen and (max-width: 435px){
@@ -896,7 +970,7 @@ export default {
   width:100%;
 }
     .tz p:last-child{
-      line-height: 23px;
+      margin-top: 17%;
     }
     .workInfo{
       width:50%;
@@ -956,10 +1030,21 @@ export default {
     .fwItem img{
       margin-top: 15px;
     }
+    .tz p:last-child{
+      margin-top: 20%;
+    }
   }
   @media only screen and (max-width: 320px){
+    .image .input{
+      margin-left: 1%;
+    }
     .input input{
       text-indent: 39%;
+    }
+    .right{
+      width:40px;
+      margin-left: -15%;
+      padding-left: 8px;
     }
     .info ul{
       margin-left: -8%;
@@ -970,7 +1055,7 @@ export default {
       margin-left:0%;
     }
     .select{
-      width:35%;
+      width: 35%;
     }
     .serviceImage ul{
       margin-left: -26%;

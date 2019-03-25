@@ -73,12 +73,13 @@
     margin-left: 10%;
     font-size: 2em;
     color:white;
+    font-weight: bolder;
   }
   .nav ul li a:hover{
     cursor: pointer;
   }
   .nav ul li a:active{
-    color:black
+    color:red
   }
   .navImg{
     height:40px;
@@ -90,10 +91,33 @@
   .leftCon{
     display: none;
   }
-  @media only screen and (max-width: 1280px)
-  {
+  @media only screen and (max-width: 1280px){
     .nav{
       margin-top: 3%;
+    }
+  }
+  @media only screen and (max-width: 900px){
+    .gjImg{
+      height:90px;
+      width:90px;
+      margin-top: 2%;
+      margin-left: 8rem;
+    }
+    .nav{
+      width:100%;
+      height:60px;
+      margin-top: 4%;
+      margin-left: -10%;
+    }
+    .nav ul{
+      list-style: none;
+      width:100%;
+    }
+    .nav ul li{
+      float: left;
+      margin-left: 10%;
+      font-size: 2em;
+      color:white;
     }
   }
   @media only screen and (max-width: 768px){
@@ -119,14 +143,14 @@
       color:white;
     }
   }
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 650px){
     .gjImg{
-      margin-left: 4%;
+      margin-left: 6%;
     }
     .leftCon{
       width:160px;
       position: absolute;
-      margin-left:-6.5rem;
+      margin-left:-7.5rem;
       background-color: gray;
       border: 1px solid white;
       margin-top:0%;

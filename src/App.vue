@@ -20,8 +20,18 @@ export default {
     padding: 0;
     font-size: 62.5%;
   }
+  .edui-editor-imagescale{
+    left: 307px !important;
+    top: 399px !important;
+  }
+  .edui-popup-body{
+    width:92px !important;
+  }
+  .edui-popup-content{
+    width:150px !important;
+  }
   .el-input-group__append, .el-input-group__prepend{
-    padding: 0;
+    padding: 2px;
   }
   .el-menu{
     border: none;

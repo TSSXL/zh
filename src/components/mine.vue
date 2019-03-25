@@ -118,7 +118,7 @@
             <div class="callMeTitle">
               <p>宁波仲恒房地产估价有限公司</p>
               <p>公司常年诚招房地产估价师,土地估价师、</p>
-              <p>测绘工程师，仲恒估价公司欢迎您的加入。</p>
+              <p>测绘工程师，仲恒估价公司欢迎您的加入.</p>
               <p>人事部电话：0574-87620698</p>
               <p>联系人：蔡老师</p>
             </div>
@@ -311,11 +311,11 @@ import HeadComponent from  './mayBe'
         list-style: none;
         li{
           float: left;
-          margin-left: 5%;
+          margin-left: 5.5%;
           margin-top: 80px;
           img{
             height:280px;
-            width:350px;
+            width:330px;
             border-radius: 5%;
           }
         }
@@ -331,7 +331,7 @@ import HeadComponent from  './mayBe'
         margin-top: 20px;
         margin-left: 5%;
        img{
-       height:340px;
+       height:320px;
        width:70%;
          border-radius: 20px;
      }
@@ -340,7 +340,7 @@ import HeadComponent from  './mayBe'
         width:34%;
         margin-top: 20px;
         img{
-          height:340px;
+          height:320px;
           width:70%;
           border-radius: 20px;
         }
@@ -383,10 +383,10 @@ import HeadComponent from  './mayBe'
       }
     }
     .callMe{
-      width:60%;
+      width:58%;
       margin-left: 10%;
       margin-top: 0%;
-      height:450px;
+      height:430px;
       border: 2px solid #f0f0f0;
       border-radius: 3%;
       background-color: #ffffff;
@@ -432,66 +432,17 @@ import HeadComponent from  './mayBe'
   .mineFoot{
     margin-top: 60px;
   }
-
-  @media only screen and (max-width: 1366px) {
-  .mineInfo{
-    .leftBtn{
-      ul{
-        li{
-          .liImg{
-         margin-top: 3%;
+  @media only screen and (max-width: 1366px){
+    .mineInfo{
+      .zy{
+        .licence,.book{
+          width:46%;
         }
-          button{
-           text-indent: 10px;
-          }
+        .house{
+          width:46%;
         }
       }
     }
-    .zy{
-      flex-wrap: wrap;
-      .licence{
-        height:320px;
-        width:35%;
-        margin-top: 20px;
-        margin-left: 10%;
-        img{
-          height:320px;
-          width:100%;
-        }
-      }
-      .book{
-        height:320px;
-        width:35%;
-        margin-top: 20px;
-        margin-left: 10%;
-        img{
-          height:320px;
-          width:100%;
-        }
-      }
-      .house{
-        height:180px;
-        width:35%;
-        margin-top: 10%;
-        margin-left: 10%;
-        img{
-          height:150px;
-          width:100%;
-        }
-      }
-    }
-  }
-  }
-  @media only screen and (max-width: 1280px){
-   .mineInfo{
-     .rightCon{
-       ul li{
-         img{
-           width:300px;
-         }
-       }
-     }
-   }
   }
   @media only screen and (max-width: 768px){
     .img{
@@ -505,6 +456,7 @@ import HeadComponent from  './mayBe'
         margin-top: 30px;
         p{
         margin-left: 0;
+          line-height: 25px;
         }
       }
     }
@@ -667,12 +619,26 @@ import HeadComponent from  './mayBe'
       }
     }
   }
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 650px){
   .mineInfo{
     .rightCon{
     ul{
-      margin-left: -3.5%;
+      margin-left: -4.5%;
     }
+    }
+    .example{
+    .exampleItem{
+      margin-left: 0;
+    }
+    }
+    .callMe{
+      .callMeTitle{
+     p:nth-child(2)
+     {
+       width:38%;
+       line-height: 30px;
+     }
+      }
     }
   }
   }
@@ -809,20 +775,24 @@ import HeadComponent from  './mayBe'
         }
       }
       .callMe{
-        width:100%;
+        width:95%;
         margin-top: 30px;
         border: 1px solid white;
         .callMeTitle{
           margin-left: 10%;
-          width:100%;
+          width:90%;
           p{
             margin-left: 2%;
+            width:85%;
+          }
+          p:nth-child(2){
+            width: 85%;
           }
         }
         .map{
           width:94%;
           height:60%;
-          margin-top: 42%;
+          margin-top: 45%;
           margin-left: 0;
           img{
             height:70%;
@@ -867,7 +837,7 @@ import HeadComponent from  './mayBe'
      }
    }
   }
-  @media only screen and (max-width:384px) {
+  @media only screen and (max-width:384px){
     .mineInfo{
       .leftBtn{
         ul{

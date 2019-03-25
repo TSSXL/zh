@@ -105,20 +105,20 @@
       <div class="mainOne" v-else-if="index==1">
         <div class="t">
           <div class="input">
-            <input type="text" placeholder="请输入完整小区的名称">
+            <input type="text" v-model="adname" placeholder="请输入小区地址或名称" style="background-color: #F5F7F6">
             <el-select class="select" v-model="value" placeholder="选择城市">
               <el-option
                 v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
+                :key="item.ID"
+                :label="item.Name"
+                :value="item.Name">
               </el-option>
             </el-select>
-            <span class="right"><a >评估</a></span>
+            <span class="right"><a @click="showLoading">评估</a></span>
           </div>
         </div>
         <div class="part">
-       <span>一个小区的名字</span>
+          <span>一个小区名称</span>
           <span class="lastSp">单位：元/平方米</span>
         </div>
         <div class="table">
@@ -128,16 +128,21 @@
               border
               style="width: 100%">
               <el-table-column
-                prop="date"
+                prop="VlgName"
+                label="小区名称"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="MaxPrice"
                 label="偏高价"
                 >
               </el-table-column>
               <el-table-column
-                prop="name"
+                prop="MidPrice"
                 label="中间价">
               </el-table-column>
               <el-table-column
-                prop="address"
+                prop="MinPrice"
                 label="偏低价">
               </el-table-column>
             </el-table>
@@ -203,6 +208,7 @@
     export default {
       data(){
           return{
+            adname:'',
             bgStyle:{
               backgroundColor:'red'
             },
@@ -218,9 +224,8 @@
             formTwo:{},
             dialogFormVisible:false,
             tableData:[
-              { name:"19500",
-                date:"22500",
-                address:"21000"}
+              {
+              }
             ],
             list:[
               "房贷计算器",
@@ -490,45 +495,47 @@
               fontWeight:"bolder"
             },
             value: '',
-            options: [{
-              value: '选项1',
-              label: '宁波'
-            }, {
-              value: '选项2',
-              label: '金华'
-            }, {
-              value: '选项3',
-              label: '温州'
-            }, {
-              value: '选项4',
-              label: '奉化'
-            }, {
-              value: '选项5',
-              label: '衢州'
-            }],
-            optionTwo: [{
-              value: '选项1',
-              label: '宁波'
-            }, {
-              value: '选项2',
-              label: '金华'
-            }, {
-              value: '选项3',
-              label: '温州'
-            }, {
-              value: '选项4',
-              label: '奉化'
-            }, {
-              value: '选项5',
-              label: '衢州'
-            }],
+            options: []
           }
       },
     components:{
       FootComponent,
       NavComponent
     },
+      created(){
+        if(this.$route.query.online!=undefined&&this.$route.query.tableData!=undefined )
+        {
+          this.select=this.$route.query.online
+          this.index=this.$route.query.online
+          this.tableData=this.$route.query.tableData
+        }
+        this.getCity()
+      },
       methods:{
+        showLoading(){
+          this.$http
+            .get("/api/Online/OnlineService", {
+              params: {
+                city:"宁波",
+                adname:this.adname
+              }
+            })
+            .then(
+              function (response) {
+               this.tableData=response.data.Result
+                console.log(response.data.Result)
+              }.bind(this)
+            )
+            // 请求error
+            .catch(
+              function (error) {
+                this.$notify.error({
+                  title: "出错啦",
+                  message: "错误：请输入正确的小区地址或名称"
+                });
+              }.bind(this)
+            )
+        },
         Txt(val){
           return "15年10月24日基准利率"+"("+val+")"
         },
@@ -596,7 +603,7 @@
               function (error) {
                 this.$notify.error({
                   title: "出错啦",
-                  message: "错误：请检查网络"
+                  message: "错误：请输入完整的信息"
                 });
               }.bind(this)
             );
@@ -632,7 +639,24 @@
           }else{
             this.$message("请填写正确的手机号")
           }
-        }
+        },
+      getCity(){
+    this.$http
+      .get("/api/Online/GetCity")
+      .then(
+        function (response) {
+          this.options=response.data.Result.slice(0,20)
+        }.bind(this)
+      )
+      .catch(
+        function (error) {
+          this.$notify.error({
+            title: "出错啦",
+            message: "错误：请检查网络"
+          });
+        }.bind(this)
+      )
+  }
       }
     }
 </script>
@@ -778,6 +802,9 @@
           margin-right: -5%;
           a{
             color:#ffffff;
+          }
+          a:hover{
+            cursor: pointer;
           }
         }
       }
@@ -970,7 +997,7 @@
       }
     }
   }
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 650px){
  .bt{
   ul{
     width:93%;
@@ -987,6 +1014,30 @@
       .form{
         .formBtnTwo{
           margin-left: 4%;
+        }
+      }
+    }
+    .mainOne{
+      .t{
+        .input{
+          input{
+            text-indent: 38%;
+          }
+          .select{
+            width:17%;
+          }
+          .right{
+            width:60px;
+          }
+        }
+      }
+    }
+    .mainTwo{
+      .sb{
+        width:70%;
+        margin-left: 50%;
+        .sbBtn{
+          margin-left: -18%;
         }
       }
     }
@@ -1141,6 +1192,7 @@
     .mainTwo{
       .sb{
         width:48%;
+        margin-left: 44%;
         span{
           input{
             text-indent: 2%;
@@ -1168,6 +1220,22 @@
     .bt ul{
       width:100%;
       margin-left: -11%;
+    }
+    .mainOne{
+      .t{
+        .input{
+         width:95%;
+          margin-left:0%;
+          .select{
+            margin-left: -92%;
+            width:31%;
+          }
+          .right{
+            padding-left: 5px;
+            padding-right: 5px;
+          }
+        }
+      }
     }
     .mainTwo{
       .sb{

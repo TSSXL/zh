@@ -97,7 +97,7 @@
   }
   .dontKnowFirst img{
     margin-left: -30px;
-    margin-top: 8%;
+    margin-top: 10px;
   }
   .center{
     width:60%;
@@ -108,7 +108,7 @@
     display: flex;
     font-size: 1.5em;
     color: #e4e4e4;
-    margin-top: 30px;
+    margin-top:10px;
   }
   .fiveLeft,.fiveRight,.f{
     margin-left: 5%;
@@ -141,7 +141,7 @@
       height:100px;
       width:180px;
       margin-left: -20px;
-      margin-top: 20%;
+      margin-top:20px;
     }
     .companyInfo hr{
       height:60%;
@@ -173,6 +173,14 @@
       margin-top: 15%;
     }
   }
+  @media only screen and (max-width: 1024px){
+    .five{
+      font-size: 1em;
+    }
+    .gzh{
+      width:59%;
+    }
+  }
   @media only screen and (max-width: 768px){
     .footer{
       height:450px;
@@ -192,6 +200,7 @@
       margin-left: 30%;
       display:flex;
       flex-direction: column;
+      padding-top: 10px;
     }
     .companyInfo hr{
       height:0;
@@ -229,9 +238,10 @@
       margin-left: 0;
       display: flex;
       flex-direction: row;
+      font-size: 1.6em;
     }
     .gzh{
-      width:20%;
+      width:17%;
       height:100px;
       float: left;
       margin-left: 10%;
@@ -241,7 +251,7 @@
     .gzNum{
       margin-top: 55px;
       display: inline-block;
-      margin-left: -45%;
+      margin-left: -55%;
       font-size:16px;
     }
   }
@@ -249,6 +259,14 @@
  .five .f{
    margin-top: 1%;
  }
+    .gzh{
+      margin-left: 7%;
+      width:20%;
+    }
+    .gzNum{
+      margin-top: 49px;
+      margin-left: -50%;
+    }
   }
   @media only screen and (max-width: 450px){
     .footer{
@@ -261,7 +279,7 @@
     .companyInfo hr{
       margin-top: 25px;
       width:60%;
-      margin-left: 0;
+      margin-left: 5px;
     }
     .five{
       width:120%;
@@ -289,13 +307,13 @@
       width:30%;
       height:90px;
       float: left;
-      margin-left: 5%;
+      margin-left: 3%;
       margin-top: 3%;
     }
     .gzNum{
       display: inline-block;
-      margin-left: -40%;
-      font-size:14px;
+      margin-left: -35%;
+      font-size:12px;
       margin-top: 14%;
     }
   }

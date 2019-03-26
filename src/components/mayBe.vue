@@ -17,7 +17,7 @@
           <li @click="gotoMine">关于我们</li>
         </ul>
       </div>
-      <img id="img" src="../image/navWhite.svg" class="navImg" @click="showLeft">
+      <img id="img" src="../image/dhWhite.svg" class="navImg" @click="showLeft">
     </div>
 </template>
 
@@ -96,6 +96,11 @@
       margin-top: 3%;
     }
   }
+  @media only screen and (max-width: 1024px){
+   .nav{
+     margin-left: 0;
+   }
+  }
   @media only screen and (max-width: 900px){
     .gjImg{
       height:90px;
@@ -154,6 +159,11 @@
       background-color: gray;
       border: 1px solid white;
       margin-top:0%;
+      transform:rotate(9deg);
+      -ms-transform:rotate(9deg); /* Internet Explorer */
+      -moz-transform:rotate(9deg); /* Firefox */
+      -webkit-transform:rotate(9deg); /* Safari 和 Chrome */
+      -o-transform:rotate(9deg); /* Opera */
     }
     .leftCon ul {
       list-style: none;

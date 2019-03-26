@@ -1,7 +1,7 @@
 <template>
     <div class="news">
       <NavComponent class="navComponent"></NavComponent>
-      <img src="../image/divider.png" alt="" style="height:60px;width:100%;">
+      <img src="../image/divider.png" alt="" style="height:40px;width:100%;">
       <div class="title">
         <ul>
           <li>
@@ -55,7 +55,7 @@
             numThree:true,
             newsList:{},
             PageIndex:1,
-            PageSize:1,
+            PageSize:6,
             Category:"全部"
           }
       },

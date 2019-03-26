@@ -14,7 +14,7 @@
                 <img class="liImg" src="../image/company_honor.png" v-if="one">
                 <img class="liImg" src="../image/company_honor_selected.png" v-else>
                 <el-button   @click="changeColor(0)" v-if="one">公司荣誉</el-button>
-                <el-button style="color:red;"  @click="changeColor(0)" v-else>公司荣誉</el-button>
+                <el-button @click="changeColor(0)" style="color:red;"  v-else>公司荣誉</el-button>
               </li>
               <li>
                 <img class="liImg" src="../image/professional_qualifications.png" v-if="two">
@@ -26,10 +26,10 @@
                 <img class="liImg" src="../image/classic_case.png" v-if="three">
                 <img class="liImg" src="../image/classic_case_selected.png" v-else>
                 <el-button  @click="changeColor(2)" v-if="three">经典案例</el-button>
-                <el-button style="color:red;"  @click="changeColor(2)" v-else>经典案例</el-button>
+                <el-button  style="color:red;" @click="aa"   v-else>经典案例</el-button>
               </li>
-              <li class="li" :style="isshowStyle(three)">
-                <div class="twoUl" :style="isshowStyle(three)">
+              <li class="li" :style="isShowStyle">
+                <div class="twoUl">
                   <span v-for="(item,index) in list" :style="numTwo==index?txtColor:''"   :key="item" @click="getTwo(index)">{{item}}</span>
                 </div>
               </li>
@@ -37,13 +37,13 @@
                 <img class="liImg" src="../image/contact_us.png" v-if="four">
                 <img class="liImg" src="../image/contact_us_selected.png" v-else>
                 <el-button  @click="changeColor(3)" v-if="four">联系我们</el-button>
-                <el-button style="color:red;"  @click="changeColor(3)" v-else>联系我们</el-button>
+                <el-button style="color:red;" @click="changeColor(3)"  v-else>联系我们</el-button>
               </li>
               <li>
                 <img class="liImg" src="../image/hiring.png" v-if="five">
                 <img class="liImg" src="../image/hiring_selected.png" v-else>
                 <el-button  @click="changeColor(4)" v-if="five">招贤纳士</el-button>
-                <el-button style="color:red;"   @click="changeColor(4)" v-else>招贤纳士</el-button>
+                <el-button style="color:red;" @click="changeColor(4)"   v-else>招贤纳士</el-button>
               </li>
             </ul>
           </div>
@@ -55,9 +55,6 @@
               <li><img src="../image/three.jpg" alt=""></li>
               <li><img src="../image/two.jpg" alt=""></li>
               <li><img src="../image/first.jpg" alt=""></li>
-              <li><img src="../image/three.jpg" alt=""></li>
-              <li><img src="../image/zero.jpg" alt=""></li>
-              <li><img src="../image/two.jpg" alt=""></li>
             </ul>
           </div>
           <div class="zy" v-else-if="num==1" >
@@ -153,7 +150,10 @@ import HeadComponent from  './mayBe'
             "咨询策划",
             "司法评估",
             "土地评估"
-          ]
+          ],
+          isShowStyle:{
+            display:"none"
+          }
         }
       },
       components:{
@@ -168,11 +168,12 @@ import HeadComponent from  './mayBe'
          }
       },
       methods:{
+        aa(){
+         this.isShowStyle={display:"none"}
+         this.three=true
+        },
         getTwo(index){
          this.numTwo=index
-        },
-        isshowStyle(three){
-          return three===false?{display: 'block'}:{display:'none'}
         },
         changeColor(index){
           this.num=index
@@ -182,14 +183,16 @@ import HeadComponent from  './mayBe'
             this.three=true
             this.four=true
             this.five=true
-            this.one=false
+            this.isShowStyle={display:"none"}
+            this.one=!this.one
           }else if(index==1)
           {
             this.one=true
             this.three=true
             this.four=true
             this.five=true
-            this.two=false
+            this.isShowStyle={display:"none"}
+            this.two=!this.two
           }else if(index==2)
           {
             this.one=true
@@ -197,19 +200,22 @@ import HeadComponent from  './mayBe'
             this.four=true
             this.five=true
             this.three=false
+           this.isShowStyle={display:'block'}
           }else if(index==3)
           {
             this.one=true
             this.two=true
             this.three=true
             this.five=true
-            this.four=false
+            this.isShowStyle={display:"none"}
+            this.four=!this.four
           }else{
             this.one=true
             this.two=true
             this.three=true
             this.four=true
-            this.five=false
+            this.isShowStyle={display:"none"}
+            this.five=!this.five
           }
         }
       }
@@ -251,7 +257,7 @@ import HeadComponent from  './mayBe'
     display: flex;
     .leftBtn{
       width:16%;
-      margin-left: 6%;
+      margin-left: 15%;
       ul{
         width:10rem;
         margin-top: 0;
@@ -266,6 +272,8 @@ import HeadComponent from  './mayBe'
               line-height: 2.8rem;
               font-size: 13px;
               background-color: #ffffff;
+              color:rgba(207,175,177,1);
+              font-weight: bolder;
             }
             span:hover{
               cursor: pointer;
@@ -283,13 +291,14 @@ import HeadComponent from  './mayBe'
           .liImg{
             margin-top: 2.2%;
             position: absolute;
-            margin-left: 3%;
+            margin-left: 2.5%;
           }
           button{
             width:100%;
             height:90px;
             font-size: 1.5em;
             border-bottom: 1px solid #c6c6c6;
+            font-weight: bolder;
           }
         }
         li:first-child{
@@ -309,13 +318,14 @@ import HeadComponent from  './mayBe'
       ul{
         margin-top: -80px;
         list-style: none;
+        width:100%;
         li{
           float: left;
-          margin-left: 5.5%;
+          margin-left: 8%;
           margin-top: 80px;
           img{
-            height:280px;
-            width:330px;
+            height:250px;
+            width:300px;
             border-radius: 5%;
           }
         }
@@ -326,33 +336,23 @@ import HeadComponent from  './mayBe'
       margin-top: -1.3%;
       display: flex;
       flex-wrap: wrap;
-      .licence{
+      margin-left: 6%;
+      .licence,.book{
         width:34%;
         margin-top: 20px;
-        margin-left: 5%;
        img{
        height:320px;
-       width:70%;
+       width:260px;
          border-radius: 20px;
      }
-      }
-      .book{
-        width:34%;
-        margin-top: 20px;
-        img{
-          height:320px;
-          width:70%;
-          border-radius: 20px;
-        }
       }
       .house{
         width:34%;
         margin-top: 40px;
         padding-bottom: 40px;
-        margin-left: 5%;
         img{
           height:180px;
-          width:70%;
+          width:260px;
           border-radius: 20px;
         }
       }
@@ -365,7 +365,6 @@ import HeadComponent from  './mayBe'
       .exampleItem{
         width:95%;
         margin-top: 2%;
-        margin-left: 2.5%;
         .exampleImage{
           margin-left: 8%;
           margin-top: 15px;
@@ -383,8 +382,8 @@ import HeadComponent from  './mayBe'
       }
     }
     .callMe{
-      width:58%;
-      margin-left: 10%;
+      width:57%;
+      margin-left: 5%;
       margin-top: 0%;
       height:430px;
       border: 2px solid #f0f0f0;
@@ -412,7 +411,7 @@ import HeadComponent from  './mayBe'
         p{
           text-align: left;
           margin-left: 10%;
-          font-size: 1.2em;
+          font-size: 1.5em;
           margin-top: 8%;
         }
       }
@@ -432,8 +431,11 @@ import HeadComponent from  './mayBe'
   .mineFoot{
     margin-top: 60px;
   }
-  @media only screen and (max-width: 1366px){
+  @media only screen and (max-width: 1500px){
     .mineInfo{
+      .leftBtn{
+        margin-left: 5%;
+      }
       .zy{
         .licence,.book{
           width:46%;
@@ -442,7 +444,65 @@ import HeadComponent from  './mayBe'
           width:46%;
         }
       }
+      .callMe{
+        width:72%;
+      }
     }
+  }
+  @media only screen and (max-width: 1288px){
+     .mineInfo{
+       .leftBtn{
+         margin-left: 0%;
+       }
+       .rightCon{
+         margin-left: 12%;
+         ul{
+           li{
+             img{
+               width:220px;
+               height:180px;
+             }
+           }
+         }
+     }
+       .zy{
+         margin-left: 16%;
+         .licence,.book{
+           img{
+             height:240px;
+             width:200px;
+           }
+         }
+         .house{
+           img{
+             height:160px;
+             width: 200px;
+           }
+         }
+       }
+       .example{
+         margin-left: 12%;
+         .exampleItem{
+           .exampleImage{
+             img{
+               height:200px;
+               width:200px;
+             }
+           }
+         }
+       }
+       .callMe{
+         margin-left: 12%;
+         .callMeTitle{
+           p:first-child{
+             font-size: 16px;
+           }
+           p{
+             font-size: 14px;
+           }
+         }
+       }
+   }
   }
   @media only screen and (max-width: 768px){
     .img{
@@ -475,19 +535,18 @@ import HeadComponent from  './mayBe'
           height:40px;
           width:87%;
           .li{
-            margin-top: -6.5rem;
-            width:12rem;
-            height:6rem;
-            margin-left: -10.5rem;
-            border-radius: 4%;
+            margin-top: 2.3rem;
+            margin-left: 33%;
+            position: absolute;
             .twoUl{
-              width:100%;
-              background-color: whitesmoke;
+              width:88%;
               span{
-                display: inline-block;
-                width:35%;
-                height:2rem;
+                display:block;
               }
+           span:last-child{
+             border-bottom-right-radius: 4px;
+             border-bottom-left-radius: 4px;
+           }
             }
           }
           li{
@@ -526,13 +585,12 @@ import HeadComponent from  './mayBe'
           margin-top:10px;
           list-style: none;
           width:100%;
-          margin-left: 8%;
+          margin-left: -1%;
           li{
             float: left;
-            margin-left: 20px;
             margin-top: 20px;
             img{
-              height:160px;
+              height:200px;
               width:260px;
             }
           }
@@ -540,48 +598,35 @@ import HeadComponent from  './mayBe'
       }
       .zy{
         width:100%;
-        float: right;
-        margin-right: 0;
         margin-top: 30px;
+        margin-left: 5%;
         border: none;
         display: flex;
         flex-wrap: wrap;
-        .licence{
+        .licence,.book{
           height:200px;
-          width:45%;
+          width:44%;
           margin-top: 20px;
-          margin-left: 3%;
           img{
-            height:200px;
-            width:90%;
-          }
-        }
-        .book{
-          height:200px;
-          width:45%;
-          margin-top: 20px;
-          margin-left: 3%;
-          img{
-            height:200px;
-            width:90%;
+            height:280px;
+            width:70%;
           }
         }
         .house{
           height:180px;
           width:60%;
-          margin-top: 6%;
+          margin-top: 18%;
           padding-bottom: 0;
-          margin-left: 20%;
+          margin-left: 15%;
           img{
-            height:160px;
-            width:60%;
+            height:180px;
+            width:70%;
           }
         }
       }
       .example{
         width:100%;
-        margin-left: 0;
-        margin-top: 30px;
+        margin-left: -3%;
         border: none;
       }
       .callMe{
@@ -593,8 +638,8 @@ import HeadComponent from  './mayBe'
           height:50%;
           width:100%;
           p:first-child{
-            font-size: 1em;
-            margin-top: 3%;
+            font-size: 1.5em;
+            margin-top: 5%;
           }
           p:nth-child(2){
             margin-top: 6%;
@@ -602,12 +647,13 @@ import HeadComponent from  './mayBe'
           p{
             margin-left: 8%;
             margin-top: 4%;
+            font-size: 1.2em;
           }
         }
         .map{
           width:47%;
           height:80%;
-          margin-top: 2%;
+          margin-top: 5%;
           margin-left: 45%;
           img{
             margin-top: 0;
@@ -621,15 +667,30 @@ import HeadComponent from  './mayBe'
   }
   @media only screen and (max-width: 650px){
   .mineInfo{
+    .leftBtn{
+      margin-left: 1rem;
+    }
     .rightCon{
     ul{
       margin-left: -4.5%;
+      li{
+        img{
+          width:220px;
+        }
+      }
     }
     }
-    .example{
-    .exampleItem{
-      margin-left: 0;
-    }
+    .zy{
+      .licence,.book{
+        img{
+          height:240px;
+        }
+      }
+      .house{
+      img{
+        height:160px;
+      }
+      }
     }
     .callMe{
       .callMeTitle{
@@ -675,7 +736,7 @@ import HeadComponent from  './mayBe'
           height:40px;
           width:87%;
           .li{
-            margin-left: -8.8rem;
+            margin-left: 30%;
           }
           li:first-child{
             margin-left: -8%;
@@ -728,41 +789,29 @@ import HeadComponent from  './mayBe'
         border: none;
         display: flex;
         flex-wrap: wrap;
-        .licence{
-          height:200px;
+        .licence,.book{
           width:45%;
-          margin-top: 20px;
+          margin-top: 0px;
           margin-left: 3%;
           img{
-            height:200px;
-            width:100%;
-          }
-        }
-        .book{
-          height:200px;
-          width:45%;
-          margin-top: 20px;
-          margin-left: 3%;
-          img{
-            height:200px;
+            height:220px;
             width:100%;
           }
         }
         .house{
-          height:180px;
           width:60%;
-          margin-top: 12%;
+          margin-top: 15%;
           padding-bottom: 0;
           margin-left: 20%;
           img{
-            height:140px;
+            height:160px;
             width:100%;
           }
         }
       }
       .example{
         width:90%;
-        margin-left: 3%;
+        margin-left: 4%;
         margin-top: 40px;
         .exampleItem{
           margin-left: 0%;
@@ -783,16 +832,16 @@ import HeadComponent from  './mayBe'
           width:90%;
           p{
             margin-left: 2%;
-            width:85%;
+            width:93%;
           }
           p:nth-child(2){
-            width: 85%;
+            width: 93%;
           }
         }
         .map{
           width:94%;
           height:60%;
-          margin-top: 45%;
+          margin-top: 50%;
           margin-left: 0;
           img{
             height:70%;
@@ -825,6 +874,9 @@ import HeadComponent from  './mayBe'
      .leftBtn{
        margin-left: 5px;
        ul{
+         .li{
+         margin-left: 31%;
+         }
          li{
            margin-left: 6px;
          }
@@ -842,9 +894,6 @@ import HeadComponent from  './mayBe'
       .leftBtn{
         ul{
           margin-left: -5px;
-          .li{
-            margin-left: -8.5rem;
-          }
           li{
             button{
               text-indent: -10px;
@@ -861,6 +910,11 @@ import HeadComponent from  './mayBe'
   }
   @media only screen and (max-width:360px) {
     .mineInfo{
+      .leftBtn{
+        ul{
+          margin-left: -5px;
+        }
+      }
       .rightCon{
         ul{
           margin-left: -14%;
@@ -878,6 +932,11 @@ import HeadComponent from  './mayBe'
       .leftBtn{
         ul{
           margin-left:-10px;
+          .li{
+            .twoUl{
+              width:100%;
+            }
+          }
           li{
             margin-left: 5px;
             width:3.5rem;
@@ -906,7 +965,7 @@ import HeadComponent from  './mayBe'
       }
       .callMe{
         .map{
-          margin-top: 48%;
+          margin-top: 55%;
         }
       }
     }

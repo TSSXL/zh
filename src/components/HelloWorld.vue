@@ -1,5 +1,6 @@
 <template>
   <div class="hel">
+    <!--头部导航栏-->
      <div class="image">
        <div class="header"><Head-Component></Head-Component></div>
        <div class="lb">
@@ -11,18 +12,19 @@
        </div>
        <div class="input">
          <input v-model="adname" type="text" placeholder="请输入小区地址或名称" style="background-color: #F5F7F6">
-         <el-select class="select" v-model="value" placeholder="选择城市" @change="changeSelect(value)">
-           <el-option
-             v-for="item in options"
-             :key="item.ID"
-             :label="item.Name"
-             :value="item.Name"
-           >
-           </el-option>
-         </el-select>
-         <span class="right"><a @click="showLoading" >评估</a></span>
+         <!--<el-select class="select" v-model="value" placeholder="选择城市" @change="changeSelect(value)">-->
+           <!--<el-option-->
+             <!--v-for="item in options"-->
+             <!--:key="item.ID"-->
+             <!--:label="item.Name"-->
+             <!--:value="item.Name"-->
+           <!--&gt;-->
+           <!--</el-option>-->
+         <!--</el-select>-->
+         <span class="right"><a @click="showLoading"  id="a">评估</a></span>
        </div>
      </div>
+    <!--四张图-->
     <div class="info">
       <ul>
         <li><img src="../image/evaluation_project.png" alt="">
@@ -51,6 +53,7 @@
         </li>
       </ul>
     </div>
+    <!--服务理念-->
     <div class="title ser">
       <span class="q" style="font-weight: bolder;">服务理念</span>
       <div class="serviceImage">
@@ -62,6 +65,7 @@
         </ul>
       </div>
       </div>
+    <!--业务范围-->
      <div class="title" >
        <span class="q" style="font-weight: bolder">业务范围</span>
        <div class="fw">
@@ -70,10 +74,10 @@
              <span>非法定估价</span>
              <span>·抵押估价·转让租赁估价·投资性房地产公允价值计量估价·移民资产估价</span>
            </div>
-           <img src="../image/first.svg" alt="">
+           <img src="../image/technical_force_bg.png"  alt="">
          </div>
          <div class="fwItem">
-           <img src="../image/first.svg" alt="">
+           <img src="../image/technical_force_bg.png"  alt="">
            <div class="fwLeft">
              <span>法定估价</span>
              <span>·司法估价·征收估价·政府委托估价</span>
@@ -84,10 +88,10 @@
              <span>咨询顾问估价</span>
              <span>投资、收购估价·纠纷赁估价·资产处置估价·分割、合并估价</span>
            </div>
-           <img src="../image/first.svg" alt="">
+           <img src="../image/technical_force_bg.png"  alt="">
          </div>
          <div class="fwItem">
-           <img src="../image/first.svg" alt="">
+           <img src="../image/technical_force_bg.png"  alt="">
            <div class="fwLeft">
              <span>非法定估价</span>
              <span>·抵押估价·转让租赁估价·投资性房地产公允价值计量估价·移民资产估价</span>
@@ -95,47 +99,29 @@
          </div>
        </div>
      </div>
+    <!--技术力量-->
     <div class="title js">
-      <span class="q" style="font-weight: bolder">技术力量</span>
+      <span class="q" style="font-weight: bolder;">技术力量</span>
       <div class="msg">
         <div class="msgText zd">估价师例会制度</div>
         <div class="msgText">公司设立估价师例会制度，每月至少举行一次估价师技术例会，针对大型疑难估价项目的估价技术路线、技术参数的选取、估价技术报告的核心的把控，全体注册房地产估价师、土地估价师等专业技术人员集中谈论，确定路线和方法，解决疑难问题，整理经验数据，建立公司内部技术档案</div>
       </div>
     </div>
+    <!--新闻资讯-->
     <div class="news" >
      <span class="newsTitle q" style="font-weight: bolder">新闻资讯</span>
       <span class="more"><a @click="gotoNews">查看更多 </a><img src="../image/more.png" alt=""></span>
       <div class="newsItem">
-        <div class="n">
-          <img src="../image/first.jpg" alt="">
+        <div class="n" v-for="item in newsList">
+          <img @click="gotoInfo(item.Contexts,item.Category)" src="../image/first.jpg" alt="">
           <div class="nc">
-            <span>新闻标题</span>
-            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
-          </div>
-        </div>
-        <div class="n">
-          <img src="../image/first.jpg" alt="">
-          <div class="nc">
-            <span>新闻标题</span>
-            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
-          </div>
-        </div>
-        <div class="n">
-          <img src="../image/first.jpg" alt="">
-          <div class="nc">
-            <span>新闻标题</span>
-            <span>内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
-          </div>
-        </div>
-        <div class="n">
-          <img src="../image/first.jpg" alt="">
-          <div class="nc">
-            <span>新闻标题</span>
-            <span>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</span>
+            <span>{{item.Title}}</span>
+            <span>{{item.Summary}}</span>
           </div>
         </div>
       </div>
     </div>
+    <!--员工风采-->
     <div class="w">
     <span>员工风采</span>
       <div class="worker" >
@@ -161,6 +147,7 @@
         </div>
       </div>
     </div>
+    <!--重要客户-->
     <div class="mainPeople q">重要客户</div>
       <div class="mainImage">
         <el-carousel height="300px" class="x"  trigger="click"  :loop="true">
@@ -169,6 +156,7 @@
           </el-carousel-item>
         </el-carousel>
       </div>
+    <!--底部导航栏-->
     <Foot-Component></Foot-Component>
   </div>
 </template>
@@ -189,7 +177,8 @@ export default {
       ],
       category:1,
       options: [],
-      value: ''
+      value: '',
+      newsList:{}
     }
   },
   components:{
@@ -197,10 +186,22 @@ export default {
     FootComponent
   },
   created(){
-  this.setCookie('token',"aa")
-  this.getCity()
+    let _this=this
+  _this.setCookie('token',"aa")
+    _this.getNews()
+    document.onkeydown=function (e) {
+      let _key=window.event.keyCode
+      if(_key==13)
+      {
+        _this.showLoading()
+      }
+    }
+  // this.getCity()
   },
   methods:{
+    gotoInfo(Contexts,Category){
+      this.$router.push({path:'/info',query:{a:Contexts,b:Category}})
+    },
     gotoNews(){
       this.$router.push({path:'/news'})
     },
@@ -211,7 +212,6 @@ export default {
       this.$http
         .get("/api/Online/OnlineService", {
           params: {
-            city:"宁波",
             adname:this.adname
           }
         })
@@ -230,14 +230,26 @@ export default {
           }.bind(this)
         )
     },
-    getCity(){
+    getNews() {
       this.$http
-        .get("/api/Online/GetCity")
+        .get("/api/News/GetNews", {
+          params: {
+            PageIndex:1,
+            PageSize:4,
+            Category:"全部"
+          }
+        })
         .then(
           function (response) {
-           this.options=response.data.Result.slice(0,20)
+            if(JSON.stringify(response.data.Result.data)=="{}")
+            {
+              this.newsList={0:[]}
+            }else{
+              this.newsList=response.data.Result.data
+            }
           }.bind(this)
         )
+        // 请求error
         .catch(
           function (error) {
             this.$notify.error({
@@ -245,8 +257,25 @@ export default {
               message: "错误：请检查网络"
             });
           }.bind(this)
-        )
-    }
+        );
+    },
+    // getCity(){
+    //   this.$http
+    //     .get("/api/Online/GetCity")
+    //     .then(
+    //       function (response) {
+    //        this.options=response.data.Result.slice(0,20)
+    //       }.bind(this)
+    //     )
+    //     .catch(
+    //       function (error) {
+    //         this.$notify.error({
+    //           title: "出错啦",
+    //           message: "错误：请检查网络"
+    //         });
+    //       }.bind(this)
+    //     )
+    // }
   }
 }
 </script>
@@ -297,7 +326,7 @@ export default {
       padding-left: 20px;
       border: none;
       float: left;
-      text-indent: 30%;
+      text-indent: 5%;
       font-size: 1.8em;
     }
     .q{
@@ -326,7 +355,7 @@ export default {
   .right a{
     color:#ffffff;
   }
-  .right a:hover{
+  .right:hover{
     cursor: pointer;
   }
     .info {
@@ -416,11 +445,15 @@ export default {
 .fwLeft span:first-child{
   font-weight: bolder;
   letter-spacing: 2px;
+  font-size: 18px;
+}
+.fwLeft span:last-child{
+  font-size: 16px;
+  color:rgba(76,76,76,1);
 }
 .fwItem img{
   width:40%;
   height:250px;
-  border: 1px solid black;
   border-radius: 20px;
   margin-left:5%;
   background-color: rgba(237,235,247,1);
@@ -447,6 +480,7 @@ export default {
   font-size:16px;
   color:rgba(51,51,51,1);
   line-height:34px;
+  font-weight: bold;
 }
 .zd{
   font-size:18px;
@@ -465,7 +499,7 @@ export default {
 }
 .newsItem{
   width:75%;
-  margin-top: 5%;
+  margin-top: 2%;
   margin-left: 13%;
   text-align: left;
   padding-bottom: 50px;
@@ -476,8 +510,8 @@ export default {
 .n{
   height:160px;
   width:47%;
-  margin-left: 2%;
-  margin-top: 2%;
+  margin-left: 2.5%;
+  margin-top: 4%;
   display: flex;
   flex-direction: row;
 }
@@ -486,6 +520,9 @@ export default {
   width:48%;
   margin-left: 2%;
   border-radius: 20px;
+}
+.n img:hover{
+  cursor: pointer;
 }
 .nc{
   display: flex;
@@ -562,17 +599,16 @@ export default {
    height:90%;
    width:50%;
    margin-left: 4%;
-   font-size: 1.5em;
    text-align: left;
    padding-top: 10px;
  }
 .tzCon{
   margin-top: -0.5rem;
-  font-size: 0.9em;
+  font-size: 16px;
   letter-spacing: 2px;
   color:#808080;
-  height:120px;
-  line-height: 1.5rem;
+  height:70%;
+  line-height: 1.3em;
   overflow: hidden;
 }
 .tz{
@@ -581,12 +617,12 @@ export default {
   width:50%;
 }
 .tz p:first-child{
-  font-size: 1.2em;
+  font-size: 18px;
   color:black;
   font-weight: bolder;
 }
 .tz p:last-child{
-  font-size: 10px;
+  font-size: 12px;
  margin-top: 23%;
   color:#808080;
 }
@@ -633,7 +669,7 @@ export default {
       margin-left: 12%;
     }
     .n{
-      margin-top: 4%;
+      margin-top: 6%;
     }
     .workerImage {
       margin-top: 10%;
@@ -675,6 +711,31 @@ export default {
     .mainImage{
       width:70%;
       margin-left: 15%;
+    }
+  }
+  @media only screen and (max-width: 1266px){
+    .serviceImage ul li img{
+      height:240px;
+      width:200px;
+    }
+    .fwItem img{
+      width:45%;
+      height:180px;
+    }
+    .workerImage{
+      height:80px;
+      width:80px;
+      margin-top: 18%;
+    }
+    .tz p:first-child{
+      font-size: 13px;
+    }
+    .tz p:last-child{
+      margin-top: 25%;
+    }
+    .tzCon{
+      font-size: 12px;
+      margin-top: -6%;
     }
   }
   @media only screen and (max-width: 900px){
@@ -854,7 +915,6 @@ export default {
     }
     .workInfo{
       width:69%;
-      font-size: 1.22px;
       text-align: left;
       margin-left: 10px;
       height:90%;
@@ -862,9 +922,10 @@ export default {
     .tzCon{
       line-height: 1rem;
      margin-top: -0.7rem;
+      font-size: 14px;
     }
     .tz p:last-child{
-      margin-top: 8%;
+      margin-top: 10%;
     }
     .mainImage{
       width:100%;
@@ -877,9 +938,9 @@ export default {
       width:60%;
       margin-left: 20%;
     }
-    .input input{
-      text-indent: 35%;
-    }
+    /*.input input{*/
+      /*text-indent: 35%;*/
+    /*}*/
     .select{
       width:28%;
   }
@@ -891,7 +952,7 @@ export default {
       margin-left: 5%;
     }
     .tz p:last-child{
-      margin-top: 10%;
+      margin-top: 14%;
     }
     .tzCon{
       margin-top: -0.5rem;
@@ -927,14 +988,20 @@ export default {
     .serviceImage ul li{
       margin-left: 20%;
     }
-    .input input {
-     text-indent: 35%;
-    }
+    /*.input input {*/
+     /*text-indent: 35%;*/
+    /*}*/
     .fwLeft{
       width:45%;
       margin-top: 5%;
       letter-spacing: 0px;
       line-height: 20px;
+    }
+    .fwLeft span:first-child{
+      font-size: 14px;
+    }
+    .fwLeft span:last-child{
+      font-size: 13px;
     }
     .fwItem{
       margin-top: 0;
@@ -951,7 +1018,7 @@ export default {
     }
     .newsTitle{
       font-size:2em;
-      margin-left: 16%;
+      margin-left: 20%;
     }
     .w span{
       font-size: 2em;
@@ -970,14 +1037,26 @@ export default {
   width:100%;
 }
     .tz p:last-child{
-      margin-top: 17%;
+      margin-top: 20%;
+      margin-left: 0.2rem;
+    }
+    .tz p:first-child{
+      font-size: 15px;
     }
     .workInfo{
       width:50%;
-      padding-top: 15px;
+      padding-top: 5px;
     }
     .tzCon{
-      letter-spacing: 2px;
+      letter-spacing: 3px;
+      height:90px;
+      font-size: 14px;
+    }
+    .js span{
+      margin-top: 40px;
+    }
+    .more a{
+      font-size: 12px;
     }
   }
   @media only screen and (max-width: 415px){
@@ -986,9 +1065,6 @@ export default {
     }
     .serviceImage ul{
       margin-left: -17%;
-    }
-    .newsTitle{
-      margin-left: 18%;
     }
     .js span{
       margin-top: 25px;
@@ -1004,7 +1080,11 @@ export default {
       margin-left: 2.5%;
     }
     .newsTitle{
-      margin-left: 19%;
+      margin-left: 22%;
+    }
+    .tz p:last-child{
+      margin-top: 23%;
+      letter-spacing: 2px;
     }
   }
   @media only screen and (max-width: 360px){
@@ -1016,9 +1096,9 @@ export default {
       width:22%;
       margin-left: 0.5%;
     }
-    .input input{
-      text-indent: 36%;
-    }
+    /*.input input{*/
+      /*text-indent: 36%;*/
+    /*}*/
     .serviceImage ul{
          margin-left: -21%;
        }
@@ -1031,16 +1111,16 @@ export default {
       margin-top: 15px;
     }
     .tz p:last-child{
-      margin-top: 20%;
+      margin-top: 26%;
     }
   }
   @media only screen and (max-width: 320px){
     .image .input{
       margin-left: 1%;
     }
-    .input input{
-      text-indent: 39%;
-    }
+    /*.input input{*/
+      /*text-indent: 39%;*/
+    /*}*/
     .right{
       width:40px;
       margin-left: -15%;
@@ -1068,6 +1148,9 @@ export default {
     }
     .newsTitle{
       margin-left:22%;
+    }
+    .msgText{
+      letter-spacing: 2px;
     }
   }
 </style>

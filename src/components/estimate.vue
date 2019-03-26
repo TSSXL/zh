@@ -1,7 +1,7 @@
 <template>
     <div class="estimate">
         <Nav-Component class="navComponent"></Nav-Component>
-      <img src="../image/divider.png" alt="" style="height:60px;width:100%;">
+      <img src="../image/divider.png" alt="" style="height:40px;width:100%;">
       <div class="bt">
         <ul>
           <li v-for="(item,index) in list"><a @click="changeMain(index)" :style="index===select?colorStyle:''" >{{item}}</a>
@@ -12,46 +12,46 @@
       <div class="main"  v-if="index==0">
         <div class="form">
           <el-form ref="form" :model="form" label-width="110px">
-            <el-form-item label="贷款类别">
-              <el-select  v-model="form.dkID"  style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;" >
+            <el-form-item label="贷款类别：">
+              <el-select  v-model="form.dkID"  style="width: 70%;border-radius: 5px;" >
                 <el-option v-for="item in dk" :label="item.label" :value="item.label" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="计算方式">
-              <el-select v-model="form.jsID" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
+            <el-form-item label="计算方式：">
+              <el-select v-model="form.jsID" style="width: 70%;border-radius: 5px;">
                 <el-option v-for="item in fs" :label="item.label" :value="item.way" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="房屋单价">
-              <el-input v-model="form.price" placeholder="请输入房屋单价" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
+            <el-form-item label="房屋单价：">
+              <el-input v-model="form.price" placeholder="请输入房屋单价" style="width: 70%;border-radius: 5px;">
                 <template slot="append">元/平方米</template>
               </el-input>
             </el-form-item>
-            <el-form-item label="房屋面积">
-              <el-input v-model="form.area" placeholder="请输入房屋面积" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;" >
+            <el-form-item label="房屋面积：">
+              <el-input v-model="form.area" placeholder="请输入房屋面积" style="width: 70%;border-radius: 5px;" >
                 <template slot="append">平方米</template>
               </el-input>
             </el-form-item>
-            <el-form-item label="按揭成数">
-              <el-select v-model="form.csID" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
+            <el-form-item label="按揭成数：">
+              <el-select v-model="form.csID" style="width: 70%;border-radius: 5px;">
                 <el-option v-for="item in cs" :label="item.label" :value="CS(item.label)" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="按揭年数">
-              <el-select v-model="form.nsID" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
+            <el-form-item label="按揭年数：">
+              <el-select v-model="form.nsID" style="width: 70%;border-radius: 5px;">
                 <el-option v-for="item in ns" :label="item.label" :value="NS(item.label)" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="贷款利率">
-              <el-select v-model="form.lvID" style="width: 40%;border: 1px solid #89d9e2;border-radius: 5px;">
+            <el-form-item label="贷款利率：">
+              <el-select v-model="form.lvID" style="width: 40%;border-radius: 5px;">
                 <el-option v-for="item in lv" :label="Txt(item.label)" :value="LV(item.num)" :key="item.value"></el-option>
               </el-select>
-              <el-input v-model="form.lvID" style="width:25%;margin-left:5%;border: 1px solid #89d9e2;border-radius: 5px;" >
+              <el-input v-model="form.lvID" style="width:25%;margin-left:5%;border-radius: 5px;" >
                 <template slot="append">%</template>
               </el-input>
             </el-form-item>
-            <el-form-item label="还款方式">
-              <el-select v-model="form.hkID" style="width: 70%;border: 1px solid #89d9e2;border-radius: 5px;">
+            <el-form-item label="还款方式：">
+              <el-select v-model="form.hkID" style="width: 70%;border-radius: 5px;">
                 <el-option v-for="item in hk" :label="item.label" :value="item.way" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
@@ -106,14 +106,14 @@
         <div class="t">
           <div class="input">
             <input type="text" v-model="adname" placeholder="请输入小区地址或名称" style="background-color: #F5F7F6">
-            <el-select class="select" v-model="value" placeholder="选择城市">
-              <el-option
-                v-for="item in options"
-                :key="item.ID"
-                :label="item.Name"
-                :value="item.Name">
-              </el-option>
-            </el-select>
+            <!--<el-select class="select" v-model="value" placeholder="选择城市">-->
+              <!--<el-option-->
+                <!--v-for="item in options"-->
+                <!--:key="item.ID"-->
+                <!--:label="item.Name"-->
+                <!--:value="item.Name">-->
+              <!--</el-option>-->
+            <!--</el-select>-->
             <span class="right"><a @click="showLoading">评估</a></span>
           </div>
         </div>
@@ -223,10 +223,12 @@
             isJS:true,
             formTwo:{},
             dialogFormVisible:false,
-            tableData:[
-              {
-              }
-            ],
+            tableData:[{
+              VlgName:"某小区",
+              MaxPrice:"0",
+              MidPrice:"0",
+              MinPrice:"0"
+            }],
             list:[
               "房贷计算器",
               "在线估价",
@@ -509,21 +511,19 @@
           this.index=this.$route.query.online
           this.tableData=this.$route.query.tableData
         }
-        this.getCity()
+        // this.getCity()
       },
       methods:{
         showLoading(){
           this.$http
             .get("/api/Online/OnlineService", {
               params: {
-                city:"宁波",
                 adname:this.adname
               }
             })
             .then(
               function (response) {
                this.tableData=response.data.Result
-                console.log(response.data.Result)
               }.bind(this)
             )
             // 请求error
@@ -560,6 +560,7 @@
         },
         handleJS(){
           this.isJS=false
+         console.log(this.form)
           this.getOnline();
         },
         DialogShow(){
@@ -570,25 +571,19 @@
           this.select=index
         this.index=index
         },
+        //计算
         getOnline() {
           let form=this.form
-          let years=form.nsID
-          let interestRate=form.lvID
-          let type=form.hkID
-          let way=form.jsID
-          let unitPrice=form.price
-          let area=form.area
-          let pct=form.csID
           this.$http
             .get("/api/Online/OnineCalculate", {
               params: {
-                years:years,
-                interestRate:interestRate,
-                type:type,
-                way:way,
-                unitPrice:unitPrice,
-                area:area,
-                pct:pct
+                years:form.nsID,
+                interestRate:form.lvID,
+                type:form.hkID,
+                way:form.jsID,
+                unitPrice:form.price,
+                area:form.area,
+                pct:form.csID
               }
             })
             .then(
@@ -608,6 +603,7 @@
               }.bind(this)
             );
         },
+        //申报
         getDecalare() {
           let sbForm=this.sbForm
           let re= /^1\d{10}$/
@@ -640,23 +636,24 @@
             this.$message("请填写正确的手机号")
           }
         },
-      getCity(){
-    this.$http
-      .get("/api/Online/GetCity")
-      .then(
-        function (response) {
-          this.options=response.data.Result.slice(0,20)
-        }.bind(this)
-      )
-      .catch(
-        function (error) {
-          this.$notify.error({
-            title: "出错啦",
-            message: "错误：请检查网络"
-          });
-        }.bind(this)
-      )
-  }
+        //获取城市
+  //     getCity(){
+  //   this.$http
+  //     .get("/api/Online/GetCity")
+  //     .then(
+  //       function (response) {
+  //         this.options=response.data.Result.slice(0,20)
+  //       }.bind(this)
+  //     )
+  //     .catch(
+  //       function (error) {
+  //         this.$notify.error({
+  //           title: "出错啦",
+  //           message: "错误：请检查网络"
+  //         });
+  //       }.bind(this)
+  //     )
+  // }
       }
     }
 </script>
@@ -669,16 +666,15 @@
     height:100px;
     ul{
       height:100%;
-      width:65%;
+      width:75%;
       margin: 0 auto;
       list-style: none;
-      border-bottom: 1px solid rgba(232,235,233,1);
       li{
         float: left;
-        margin-left: 10.5%;
         line-height: 100px;
         font-size: 16px;
         font-weight: bolder;
+        width:33.3%;
       a{
         text-decoration: none;
         color:rgba(178,177,177,1);
@@ -688,7 +684,7 @@
         }
         .redHr{
           height:3px;
-          width:200px;
+           width:100%;
           background-color: rgba(232,235,233,1);
         }
       }
@@ -731,7 +727,7 @@
           display: flex;
           flex-direction: row;
           h1:first-child{
-            width:120px;
+            width:140px;
             text-align: left;
           }
        h1:nth-child(2){
@@ -751,8 +747,8 @@
       }
     }
   }
-  .mainOne,.mainTwo{
-    margin-top: 30px;
+  .mainOne{
+    margin-top: 60px;
     width:72%;
     margin-left: 13%;
     display: flex;
@@ -776,7 +772,7 @@
           border-radius: 30px;
           border: none;
           float: left;
-          text-indent: 31%;
+          text-indent: 5%;
           font-size: 1.8em;
         }
         .select{
@@ -803,9 +799,9 @@
           a{
             color:#ffffff;
           }
-          a:hover{
-            cursor: pointer;
-          }
+        }
+        .right:hover{
+          cursor: pointer;
         }
       }
     }
@@ -833,16 +829,19 @@
     }
   }
   .mainTwo{
+    width:72%;
+    margin-left: 13%;
+    margin-top: 60px;
     .sb{
       width:60%;
       margin-left: 25%;
-      height:300px;
       margin-top: 2%;
       display: flex;
       flex-direction: column;
       span{
         display: flex;
         flex-direction: row;
+        margin-top: 2%;
         p{
           color:black;
           font-weight: bolder;
@@ -861,34 +860,29 @@
         }
       }
       .sbBtn{
-        width:25%;
-        height:80px;
+        width:20%;
+        height:50px;
         background:rgba(231,50,49,1);
         border-radius:5px;
         margin-left: 40%;
         font-size: 16px;
+        margin-top: 2%;
         color:rgba(255,255,255,1);
         line-height:47px;
       }
     }
     .mainT{
       background-color: white;
-      height:200px;
+      height:120px;
     }
   }
   @media only screen and (max-width: 1366px){
-    .bt{
-      ul{
-        width:80%;
-        margin-left: 5%;
-      }
-    }
  .main{
    .content{
      margin-top: -35%;
    }
  }
-    .mainOne,.mainTwo{
+    .mainOne{
       span{
         margin-left: -78%;
       }
@@ -912,15 +906,16 @@
         }
       }
     }
-    .mainTwo{
-      .sb{
-        width:40%;
-        margin-left: 55%;
-        .sbBtn{
-          margin-left: 0%;
-        }
-      }
-    }
+  }
+  @media only screen and (max-width: 1288px){
+ .main{
+   .content{
+     margin-top: -50%;
+     .jg{
+       width:57%;
+     }
+   }
+ }
   }
   @media only screen and (max-width: 768px) {
     .navComponent{
@@ -928,19 +923,18 @@
     }
     .bt ul{
       width:100%;
-      margin-left: 0;
+      margin-left: -5%;
       height:60%;
       li{
-        margin-left:3%;
         line-height: 60px;
       }
     }
     .main{
       padding-bottom: 60px;
-      margin-top: -100px;
+      margin-top: -60px;
       .form{
         width:100%;
-        margin-left: -10px;
+        margin-left: 30px;
         margin-top: 75px;
         .formBtn{
           display: none;
@@ -958,7 +952,8 @@
         display: none;
       }
     }
-    .mainOne,.mainTwo{
+    .mainOne{
+      margin-top: 30px;
       .t{
         .input{
           width:80%;
@@ -972,7 +967,7 @@
             border-radius: 30px;
             border: none;
             float: left;
-            text-indent: 35%;
+            /*text-indent: 35%;*/
           }
           .select{
            width:14%;
@@ -983,33 +978,18 @@
       }
     }
     .mainTwo{
+      margin-top: 30px;
       .sb{
-        margin-left: 45%;
-        span{
-          p{
-            width:20%;
-          }
-        }
-        .sbBtn{
-          width:50%;
-          margin-left: -5%;
-        }
-      }
+         width:80%;
+         margin-left: 15%;
+       }
     }
   }
   @media only screen and (max-width: 650px){
- .bt{
-  ul{
-    width:93%;
-    margin-left: 0;
-    li{
-      margin-left: 2%;
-      .redHr{
-        width:160px;
-      }
+    .bt ul{
+      width:100%;
+      margin-left: -6.5%;
     }
-  }
- }
     .main{
       .form{
         .formBtnTwo{
@@ -1020,9 +1000,9 @@
     .mainOne{
       .t{
         .input{
-          input{
-            text-indent: 38%;
-          }
+          /*input{*/
+            /*text-indent: 38%;*/
+          /*}*/
           .select{
             width:17%;
           }
@@ -1033,13 +1013,8 @@
       }
     }
     .mainTwo{
-      .sb{
-        width:70%;
-        margin-left: 50%;
-        .sbBtn{
-          margin-left: -18%;
-        }
-      }
+      width:100%;
+      margin-left: 0%;
     }
   }
   @media only screen and (max-width: 435px) {
@@ -1047,16 +1022,8 @@
       margin-top: 60px;
     }
     .bt ul{
-      width:100%;
-   li{
-     margin-left: 7%;
-     font-size: 1.5em;
-     line-height: 60px;
-     .redHr{
-       width:5rem;
-     }
-   }
- }
+        margin-left: -9.5%;
+      }
     .main{
       padding-bottom: 60px;
       margin-top: -50px;
@@ -1071,7 +1038,7 @@
         }
       }
     }
-    .mainOne,.mainTwo{
+    .mainOne{
      margin-top: 0;
       width:98%;
       margin-left: 1%;
@@ -1082,8 +1049,9 @@
           margin-top: 20%;
           input{
             height:70%;
-            font-size: 1.3em;
-            text-indent: 36%;
+            /*font-size: 1.3em;*/
+            /*text-indent: 36%;*/
+            font-size: 1.5em;
           }
           .select{
             margin-left: -73%;
@@ -1098,13 +1066,16 @@
           }
         }
       }
+      .part{
+        span{
+          margin-left: 0;
+          font-size: 0.8em;
+        }
+      }
     }
     .mainTwo{
-      .mainT{
-        background-color: white;
-        height:150px;
-      }
         .sb{
+          margin-left: 8%;
           span{
             p{
               width:30%;
@@ -1113,15 +1084,13 @@
               font-size: 12px;
             }
         }
+          .sbBtn{
+            width:30%;
+          }
       }
     }
   }
   @media only screen and (max-width: 415px) {
-    .bt ul{
-      li{
-        margin-left: 6%;
-      }
-    }
     .main{
       .form{
         .formBtnTwo{
@@ -1132,7 +1101,7 @@
         }
       }
     }
-    .mainOne,.mainTwo{
+    .mainOne{
       .t{
         .input{
           width:85%;
@@ -1154,11 +1123,7 @@
   }
   @media only screen and (max-width: 384px){
     .bt ul{
-      width:90%;
-      margin-left: -2%;
-      li{
-        margin-left: 6%;
-      }
+      margin-left: -10.2%;
     }
     .main{
       .form{
@@ -1170,7 +1135,7 @@
         }
       }
     }
-    .mainOne,.mainTwo{
+    .mainOne{
       margin-top: 0;
       width:98%;
       margin-left: 1%;
@@ -1179,9 +1144,9 @@
           width:90%;
           margin-left: 3%;
           margin-top: 24%;
-          input{
-            text-indent: 38%;
-          }
+          /*input{*/
+            /*text-indent: 38%;*/
+          /*}*/
           .select{
             margin-left: -85%;
             width:28%;
@@ -1189,37 +1154,24 @@
         }
       }
     }
-    .mainTwo{
-      .sb{
-        width:48%;
-        margin-left: 44%;
-        span{
-          input{
-            text-indent: 2%;
-          }
-        }
-      }
-    }
   }
   @media only screen and (max-width: 360px){
     .bt ul{
-      width:100%;
-      margin-left: -5%;
+      margin-left: -10.6%;
     }
-    .mainOne,.mainTwo{
-      .t{
-        .input{
-          input{
-            text-indent: 37%;
-          }
-        }
-      }
-    }
+    /*.mainOne{*/
+      /*.t{*/
+        /*.input{*/
+          /*input{*/
+            /*text-indent: 37%;*/
+          /*}*/
+        /*}*/
+      /*}*/
+    /*}*/
   }
   @media only screen and (max-width: 320px){
     .bt ul{
-      width:100%;
-      margin-left: -11%;
+      margin-left: -12.5%;
     }
     .mainOne{
       .t{
@@ -1239,12 +1191,8 @@
     }
     .mainTwo{
       .sb{
-        span{
-          input{
-            text-indent: 0%;
-            font-size: 5px;
-          }
-        }
+        width:90%;
+        margin-left: 3%;
       }
     }
   }

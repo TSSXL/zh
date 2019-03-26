@@ -20,6 +20,9 @@ export default {
     padding: 0;
     font-size: 62.5%;
   }
+  .el-form-item__label{
+    font-weight: bolder;
+  }
   .edui-editor-imagescale{
     left: 307px !important;
     top: 399px !important;
@@ -32,6 +35,9 @@ export default {
   }
   .el-input-group__append, .el-input-group__prepend{
     padding: 2px;
+    font-size: 10px;
+    background-color: #F5F7F6;
+    border: none;
   }
   .el-menu{
     border: none;

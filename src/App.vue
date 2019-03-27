@@ -78,7 +78,7 @@ export default {
     border-bottom: 0;
   }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: FZLTHK--GBK1-0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

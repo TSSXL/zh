@@ -773,7 +773,7 @@
           border: none;
           float: left;
           text-indent: 5%;
-          font-size: 1.8em;
+          font-size: 2em;
         }
         .select{
           margin-top: 0.3%;
@@ -1051,7 +1051,7 @@
             height:70%;
             /*font-size: 1.3em;*/
             /*text-indent: 36%;*/
-            font-size: 1.5em;
+            font-size: 2em;
           }
           .select{
             margin-left: -73%;

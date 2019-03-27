@@ -15,7 +15,7 @@ import App from './App'
 import axios from 'axios'
 import qs from 'qs'
 Vue.prototype.$http = axios;
-axios.defaults.baseURL = 'http://192.168.1.148/ZhongHeng';
+axios.defaults.baseURL = 'http://zhongheng.nbxuanma.com';
 
 // 全局定义 cookie方法
 Vue.prototype.setCookie = function (name, value) {

@@ -180,6 +180,9 @@
     .gzh{
       width:59%;
     }
+    .f{
+      margin-top: 4%;
+    }
   }
   @media only screen and (max-width: 768px){
     .footer{
@@ -226,6 +229,7 @@
     .f{
       width:25%;
       margin-left:0%;
+      margin-top: 1.5%;
     }
     .five p{
       display: inline-block;
@@ -271,87 +275,106 @@
   @media only screen and (max-width: 450px){
     .footer{
       padding-bottom: 10px;
+      height:150px;
     }
-    .dontKnowFirst img{
-      margin-top: 10px;
-      margin-left: -40%;
+    .companyInfo{
+      width:100%;
+      margin-left: 0;
+    }
+    .dontKnow{
+      width:10%;
+    }
+    .center{
+      width:100%;
+    }
+    .dontKnowFirst{
+      display: none;
     }
     .companyInfo hr{
-      margin-top: 25px;
-      width:60%;
-      margin-left: 5px;
+      display: none;
     }
     .five{
-      width:120%;
-      margin-left: -5%;
-      margin-top: 10px;
+      width:100%;
+      margin-left: 0%;
+      margin-top: -10px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       font-size: 14px;
     }
+    .five p{
+      margin-top: 1rem;
+    }
     .five .f{
-      width:100%;
-      margin-left: -10%;
+      width:25%;
+      margin-left:0%;
     }
-    .fiveLeft{
-      margin-left: 10%;
+    .dontKnow{
+      margin-left: 299px;
+      margin-top: -90px;
     }
-    .fiveRight{
-      margin-left: 16%;
+    .fiveLeft,.fiveRight{
+      margin-left: 0%;
+      width:25%;
     }
     .five .f p{
       margin-left: 20%;
     }
     .gzh{
-      width:30%;
-      height:90px;
+      width:87px;
+      height:83px;
       float: left;
-      margin-left: 3%;
-      margin-top: 3%;
+      margin-top: -2rem;
+      margin-left: 1rem;
     }
     .gzNum{
       display: inline-block;
-      margin-left: -35%;
-      font-size:12px;
-      margin-top: 14%;
+      font-size:14px;
+      margin-top: 0;
+      width:100px;
+      margin-left: 0.5rem;
     }
   }
-  @media only screen and (max-width: 380px){
-    .dontKnowFirst img{
-     width:160px;
-      height:93px;
+  @media only screen and (max-width: 415px){
+    .gzh{
+      margin-left: 0.5rem;
     }
-    .five{
-      margin-left: -5%;
+    .gzNum{
+      margin-left: 0.1rem;
+    }
+  }
+  @media only screen and (max-width: 384px){
+    .gzh{
+      margin-left: -1rem;
+    }
+    .gzNum{
+      margin-left: -1.3rem
+    }
+  }
+  @media only screen and (max-width: 375px){
+    .gzh{
+      margin-left: -1.5rem;
+    }
+    .gzNum{
+      margin-left: -1.8rem
     }
   }
   @media only screen and (max-width: 360px){
+    .gzh{
+      margin-left: -2.2rem;
+    }
     .gzNum{
-      margin-top: 16%;
-      margin-left: -35%;
-      font-size: 12px;
+      margin-left: -2.5rem
     }
   }
   @media only screen and (max-width: 320px){
-    .five .f p{
-      margin-left: 10%;
-    }
-    .fiveLeft{
-      margin-left:8%;
-    }
-    .fiveRight{
-      margin-left: 3%;
-    }
-    .fiveLeft,.fiveRight{
-      width:35%;
-    }
     .gzh{
       height:70px;
-      margin-left: 2%;
+      width:70px;
+      margin-left: -3.5rem;
     }
     .gzNum{
-      margin-top: 15%;
+     margin-left: -4.8rem;
     }
   }
 </style>

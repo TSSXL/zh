@@ -49,53 +49,56 @@
           </div>
           <div class="rightCon"  v-if="num==0">
             <ul>
-              <li><img src="../image/first.jpg" alt=""></li>
-              <li><img src="../image/two.jpg" alt=""></li>
-              <li><img src="../image/zero.jpg" alt=""></li>
-              <li><img src="../image/three.jpg" alt=""></li>
-              <li><img src="../image/two.jpg" alt=""></li>
-              <li><img src="../image/first.jpg" alt=""></li>
+              <li><img src="../image/ryone.jpg" alt=""></li>
+              <li><img src="../image/ryt.jpg" alt=""></li>
+              <li><img src="../image/rythree.jpg" alt=""></li>
+              <li><img src="../image/ryfour.jpg" alt=""></li>
+              <li><img src="../image/ryfive.jpg" alt=""></li>
+              <li><img src="../image/rysix.jpg" alt=""></li>
+              <li><img src="../image/ryse.jpg" alt=""></li>
+              <li><img src="../image/rye.jpg" alt=""></li>
+              <li><img src="../image/ryn.jpg" alt=""></li>
             </ul>
           </div>
           <div class="zy" v-else-if="num==1" >
             <div class="licence">
-              <img src="../image/first.jpg" alt="">
+              <img src="../image/yyzz.jpg" alt="">
               <p>营业执照</p>
             </div>
             <div class="book">
-              <img src="../image/three.jpg" alt="">
+              <img src="../image/tdba.jpg" alt="">
               <p>土估备案证书</p>
             </div>
             <div class="house">
-              <img src="../image/two.jpg" alt="">
+              <img src="../image/fdc.jpg" alt="">
               <p>房地产资质</p>
             </div>
           </div>
           <div class="example"  v-else-if="num==2">
             <div class="exampleItem">
               <div class="exampleImage">
-                <img src="../image/three.jpg" alt="">
+                <img src="../image/ct.jpg" alt="">
                 <p>诚投大厦办公房地产抵押项目</p>
               </div>
               <div class="exampleImage">
-                <img src="../image/three.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
+                <img src="../image/fh.jpg" alt="">
+                <p>奉化区南山路174号房地产抵押项目</p>
               </div>
               <div class="exampleImage">
-                <img src="../image/three.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
+                <img src="../image/jb.jpg" alt="">
+                <p>宁波市江北区北海路239弄28号</p>
               </div>
               <div class="exampleImage">
-                <img src="../image/three.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
+                <img src="../image/cx.jpg" alt="">
+                <p>江北区长兴路677、685、687号</p>
               </div>
               <div class="exampleImage">
-                <img src="../image/three.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
+                <img src="../image/zbs.jpg" alt="">
+                <p>招宝山街道鼓楼步行街38套商业抵押</p>
               </div>
               <div class="exampleImage">
-                <img src="../image/three.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
+                <img src="../image/ls.jpg" alt="">
+                <p>江北区某工业厂区抵押项目</p>
               </div>
             </div>
           </div>
@@ -108,7 +111,7 @@
               <p>传真：0574-87620828</p>
             </div>
             <div class="map">
-              <img src="../image/first.jpg" alt="">
+              <img src="../image/map.jpg" alt="">
             </div>
           </div>
           <div class="callMe"  v-else="num==4">
@@ -120,7 +123,7 @@
               <p>联系人：蔡老师</p>
             </div>
             <div class="map">
-              <img src="../image/first.jpg" alt="">
+              <img src="../image/map.jpg" alt="">
             </div>
           </div>
         </div>
@@ -375,7 +378,7 @@ import HeadComponent from  './mayBe'
             border-radius: 5%;
           }
           p{
-            font-size: 1em;
+            font-size: 1.5em;
             color:black;
           }
         }
@@ -421,7 +424,7 @@ import HeadComponent from  './mayBe'
         margin-left: 50%;
         img{
           height:50%;
-          width:100%; 
+          width:100%;
           margin-top: 20%;
           border-radius: 4%;
         }

@@ -30,25 +30,25 @@
         <li><img src="../image/evaluation_project.png" alt="">
           <p>评估项目</p>
           <hr>
-          <p>600</p>
+          <p>6万</p>
           <p>(个)</p>
         </li>
         <li><img src="../image/construction_area.png" alt="">
           <p>建筑面积</p>
           <hr>
-          <p>4.2亿</p>
+          <p>1.2亿</p>
           <p>(平方米)</p>
         </li>
         <li><img src="../image/land_area.png" alt="">
           <p>土地面积</p>
           <hr>
-          <p>1.1亿</p>
+          <p>1亿</p>
           <p>(平方米)</p>
         </li>
         <li><img src="../image/total_cost_assessment.png" alt="">
           <p>评估总值</p>
           <hr>
-          <p>128万亿</p>
+          <p>1.9万亿</p>
           <p>(元)</p>
         </li>
       </ul>
@@ -67,7 +67,7 @@
       </div>
     <!--业务范围-->
      <div class="title" >
-       <span class="q" style="font-weight: bolder">业务范围</span>
+       <span class="q yw" style="font-weight: bolder">业务范围</span>
        <div class="fw">
          <div class="fwItem">
            <div class="fwLeft">
@@ -86,15 +86,48 @@
          <div class="fwItem">
            <div class="fwLeft">
              <span>咨询顾问估价</span>
-             <span>投资、收购估价·纠纷赁估价·资产处置估价·分割、合并估价</span>
+             <span>投资、收购估价·纠纷估价·资产处置估价·分割、合并估价·保险估价·拍卖估价·房地产损害赔偿价值估价·房屋质量缺陷损失估价·城市更新可行性研究报告、开发方案</span>
            </div>
            <img src="../image/technical_force_bg.png"  alt="">
          </div>
          <div class="fwItem">
            <img src="../image/technical_force_bg.png"  alt="">
            <div class="fwLeft">
+             <span>土地估价</span>
+             <span>·土地使用权出让底价估价、规划变更调整地价款评估、协议出让价格评估
+·涉税估价：涉及土地增值税、契税、房产税、所得税等的估价·用地策划方案及咨询·建设模式策划、成本估算、建设融资及项目评估</span>
+           </div>
+         </div>
+       </div>
+       <div class="fw fwTwo">
+         <div class="fwItem">
+           <img src="../image/technical_force_bg.png"  alt="">
+           <div class="fwLeft">
              <span>非法定估价</span>
              <span>·抵押估价·转让租赁估价·投资性房地产公允价值计量估价·移民资产估价</span>
+           </div>
+         </div>
+         <div class="fwItem">
+           <img src="../image/technical_force_bg.png"  alt="">
+           <div class="fwLeft">
+             <span>法定估价</span>
+             <span>·司法估价·征收估价·政府委托估价</span>
+           </div>
+         </div>
+         <div class="fwItem">
+           <img src="../image/technical_force_bg.png"  alt="">
+           <div class="fwLeft">
+             <span>咨询顾问估价</span>
+             <span>投资、收购估价·纠纷估价·资产处置估价·分割、合并估价·保险估价·拍卖估价·房地产损害赔偿价值估价·房屋质量缺陷损失估价·城市更新可行性研究报告、开发方案</span>
+           </div>
+         </div>
+         <div class="fwItem">
+           <img src="../image/technical_force_bg.png"  alt="">
+           <div class="fwLeft">
+             <span>土地估价</span>
+             <span>·土地使用权出让底价估价、规划变更调整地价款评估、协议出让价格评估<br>
+·涉税估价：涉及土地增值税、契税、房产税、所得税等的估价·用地策划方案及咨询·建设模式策划、成本估算、建设融资及项目评估
+</span>
            </div>
          </div>
        </div>
@@ -113,13 +146,15 @@
       <span class="more"><a @click="gotoNews">查看更多 </a><img src="../image/more.png" alt=""></span>
       <div class="newsItem">
         <div class="n" v-for="item in newsList">
-          <img @click="gotoInfo(item.Contexts,item.Category)" src="../image/first.jpg" alt="">
+          <img @click="gotoInfo(item.Contexts,item.Category)" src="../image/jb.jpg"  alt="后台无图片">
           <div class="nc">
             <span>{{item.Title}}</span>
             <span>{{item.Summary}}</span>
           </div>
         </div>
+        <span class="more moreTwo" style="display: none"><a @click="getMore">查看更多 </a><img src="../image/more.png" alt="" style="transform: rotate(90deg);"></span>
       </div>
+
     </div>
     <!--员工风采-->
     <div class="w">
@@ -150,11 +185,19 @@
     <!--重要客户-->
     <div class="mainPeople q">重要客户</div>
       <div class="mainImage">
-        <el-carousel height="300px" class="x"  trigger="click"  :loop="true">
-          <el-carousel-item v-for="item in peopleList" :key="item">
-              <img class="xImg" :src="item" alt="" style="width:80%;">
-          </el-carousel-item>
-        </el-carousel>
+        <img class="jt" src="../image/left.png" alt="" @click="gotoLeft">
+            <ul>
+              <li><img :src="peopleList[0]" alt=""></li>
+              <li><img :src="peopleList[1]" alt=""></li>
+              <li><img :src="peopleList[2]" alt=""></li>
+              <li><img :src="peopleList[3]" alt=""></li>
+              <li><img :src="peopleList[4]" alt=""></li>
+              <li><img :src="peopleList[5]" alt=""></li>
+              <li><img :src="peopleList[6]" alt=""></li>
+              <li><img :src="peopleList[7]" alt=""></li>
+              <li><img :src="peopleList[8]" alt=""></li>
+            </ul>
+        <img class="jt" src="../image/right.png" alt="" @click="gotoLeft">
       </div>
     <!--底部导航栏-->
     <Foot-Component></Foot-Component>
@@ -173,12 +216,21 @@ export default {
         require("../image/top_banner.png")
       ],
       peopleList:[
-        require("../image/first.jpg")
+        require("../image/gs.png"),
+        require("../image/ny.png"),
+        require("../image/ms.png"),
+        require("../image/jt.png"),
+        require("../image/zs.png"),
+        require("../image/pa.png"),
+        require("../image/dh.png"),
+        require("../image/gf.png"),
+        require("../image/yz.png")
       ],
       category:1,
       options: [],
       value: '',
-      newsList:{}
+      newsList:{},
+      pageIndex:1
     }
   },
   components:{
@@ -187,8 +239,8 @@ export default {
   },
   created(){
     let _this=this
-  _this.setCookie('token',"aa")
-    _this.getNews()
+    _this.setCookie('token',"aa")
+    _this.getNews(_this.pageIndex)
     document.onkeydown=function (e) {
       let _key=window.event.keyCode
       if(_key==13)
@@ -199,6 +251,12 @@ export default {
   // this.getCity()
   },
   methods:{
+    gotoLeft(){
+      this.peopleList=this.peopleList.reverse()
+    },
+    getMore(){
+      this.getNews(++this.pageIndex)
+    },
     gotoInfo(Contexts,Category){
       this.$router.push({path:'/info',query:{a:Contexts,b:Category}})
     },
@@ -230,11 +288,11 @@ export default {
           }.bind(this)
         )
     },
-    getNews() {
+    getNews(pageIndex) {
       this.$http
         .get("/api/News/GetNews", {
           params: {
-            PageIndex:1,
+            PageIndex:pageIndex,
             PageSize:4,
             Category:"全部"
           }
@@ -245,7 +303,12 @@ export default {
             {
               this.newsList={0:[]}
             }else{
-              this.newsList=response.data.Result.data
+              if(response.data.Result.PageIndex==1)
+              {
+                this.newsList=response.data.Result.data
+              }else{
+                this.newsList=this.newsList.concat(response.data.Result.data)
+              }
             }
           }.bind(this)
         )
@@ -429,6 +492,9 @@ export default {
   margin-left: 20%;
   margin-top: 6%;
 }
+.fwTwo{
+  display: none;
+}
 .fwItem{
   width:100%;
   display: flex;
@@ -508,7 +574,7 @@ export default {
   flex-wrap: wrap;
 }
 .n{
-  height:160px;
+  height:200px;
   width:47%;
   margin-left: 2.5%;
   margin-top: 4%;
@@ -531,7 +597,7 @@ export default {
   margin-left: 2%;
 }
 .nc span:first-child{
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bolder;
 
 }
@@ -637,6 +703,31 @@ export default {
   height:300px;
   margin-top: 2%;
   padding-bottom: 200px;
+  display: flex;
+  flex-direction: row;
+}
+.jt{
+  height:50px;
+  width:50px;
+  margin-top: 12%;
+}
+.jt:hover{
+  cursor: pointer;
+}
+.mainImage ul{
+  width:100%;
+  height:100%;
+  list-style: none;
+}
+.mainImage ul li{
+  float: left;
+  width:33%;
+  height:33%;
+}
+.mainImage ul li img{
+  height:60%;
+  width:50%;
+  margin-top: 5%;
 }
   @media only screen and (max-width: 1366px) {
     .select{
@@ -737,6 +828,15 @@ export default {
       font-size: 12px;
       margin-top: -6%;
     }
+    .mainImage{
+      margin-left: 11%;
+    }
+    .mainImage ul li img{
+      width:60%;
+    }
+    .jt{
+      margin-top: 18%;
+    }
   }
   @media only screen and (max-width: 900px){
     .image .input{
@@ -819,7 +919,7 @@ export default {
       border: none;
       padding-left: 20px;
       line-height: 30px;
-      font-size: 1.1em;
+      font-size: 2em;
     }
     .select{
       margin-top: 0%;
@@ -925,11 +1025,11 @@ export default {
       font-size: 14px;
     }
     .tz p:last-child{
-      margin-top: 10%;
+      margin-top: 8%;
     }
     .mainImage{
-      width:100%;
-      margin-left: 0;
+      width: 95%;
+      margin-left: 2.5%;
       padding-bottom:60px;
     }
   }
@@ -944,6 +1044,9 @@ export default {
     .select{
       width:28%;
   }
+    .n{
+      width:100%;
+    }
     .serviceImage ul li img{
       height:220px;
       width:160px;
@@ -952,20 +1055,39 @@ export default {
       margin-left: 5%;
     }
     .tz p:last-child{
-      margin-top: 14%;
+      margin-top: 10%;
     }
     .tzCon{
       margin-top: -0.5rem;
+    }
+    .mainImage ul li img{
+      height:60%;
+      width:80%;
+    }
+    .jt{
+      margin-top: 21%;
     }
   }
   @media only screen and (max-width: 435px){
     .header{
      margin-top: 0%;
     }
+    .info ul{
+      margin-left: -6%;
+    }
     .info ul li{
       float: left;
       width:18%;
-      margin-left: 4%;
+      margin-left: 5%;
+    }
+    .info ul li p:nth-child(4){
+      font-size: 20px;
+    }
+    .info ul li p:nth-child(2){
+      font-size: 14px;
+    }
+    .info ul li p:last-child{
+     color:#B1BFC7
     }
     .info ul li img{
       height:40px;
@@ -979,11 +1101,11 @@ export default {
       margin-left: 5%;
     }
     .serviceImage ul{
-     margin-left: -15%;
+     margin-left: -18%;
     }
     .serviceImage ul li img{
-      height:180px;
-      width:150px;
+      height:220px;
+      width:180px;
     }
     .serviceImage ul li{
       margin-left: 20%;
@@ -992,39 +1114,115 @@ export default {
      /*text-indent: 35%;*/
     /*}*/
     .fwLeft{
-      width:45%;
+      width:90%;
       margin-top: 5%;
       letter-spacing: 0px;
       line-height: 20px;
     }
     .fwLeft span:first-child{
-      font-size: 14px;
+      font-size: 18px;
+      color:black
     }
     .fwLeft span:last-child{
-      font-size: 13px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: #808080;
     }
     .fwItem{
       margin-top: 0;
+      flex-direction: column;
+    }
+    .fw{
+      display: none;
+    }
+    .fwTwo{
+      display: block;
     }
     .fwItem img{
-      height:120px;
+      height:180px;
+      width:90%;
       margin-top: 20px;
     }
+    .title span{
+      color:rgba(251,95,107,1);
+    }
+    .msgText{
+      font-size: 14px;
+      letter-spacing: 0;
+    }
     .q{
-      font-size: 2em;
+      font-size: 24px;
     }
     .title{
       font-size: 1em;
     }
-    .newsTitle{
-      font-size:2em;
-      margin-left: 20%;
+    .yw:after{
+      content: "";
+      display: block;
+      height:2px;
+      width:5rem;
+      background:rgba(251,96,108,1);
+      border-radius:1px;
+      margin-left: 10%;
+      margin-top: 1%;
     }
-    .w span{
-      font-size: 2em;
+    .newsTitle{
+        margin-left: 0%;
+      color:rgba(251,95,107,1);
+    }
+    .newsTitle:after{
+      content: "";
+      display: block;
+      height:2px;
+      width:6rem;
+      background:rgba(251,96,108,1);
+      border-radius:1px;
+      margin-left: 38%;
+      margin-top: 1%;
+    }
+    .w span:after{
+      content: "";
+      display: block;
+      height:2px;
+      width:5rem;
+      background:rgba(251,96,108,1);
+      border-radius:1px;
+      margin-left:8%;
+      margin-top: 1%;
     }
     .mainPeople{
-      font-size: 2em;
+      font-size: 22px;
+      color:rgba(251,95,107,1);
+    }
+    .ser span:after{
+      content: "";
+      display: block;
+      height:2px;
+      width:5rem;
+      background:rgba(251,96,108,1);
+      border-radius:1px;
+      margin-left: 10%;
+      margin-top: 1%;
+    }
+    .js span:after{
+      content: "";
+      display: block;
+      height:2px;
+      width:5rem;
+      background:rgba(251,96,108,1);
+      border-radius:1px;
+      margin-left: 10%;
+      margin-top: 8%;
+    }
+    .mainPeople:after{
+      content: "";
+      display: block;
+      height:2px;
+      width:5rem;
+      background:rgba(251,96,108,1);
+      border-radius:1px;
+      margin-left: 40.5%;
+      margin-top: 1%;
     }
     .nc span:last-child{
       line-height: 15px;
@@ -1033,8 +1231,21 @@ export default {
 .newsItem{
   flex-direction: column;
 }
+.nc span:first-child{
+  font-size: 24px;
+}
+.nc span:last-child{
+  font-size: 18px;
+}
 .n{
   width:100%;
+  height:120px;
+}
+.n img{
+  width:40%;
+}
+.w span{
+  color:rgba(251,95,107,1);
 }
     .tz p:last-child{
       margin-top: 20%;
@@ -1050,13 +1261,30 @@ export default {
     .tzCon{
       letter-spacing: 3px;
       height:90px;
-      font-size: 14px;
+      font-size: 12px;
+      line-height: 20px;
     }
     .js span{
       margin-top: 40px;
     }
-    .more a{
-      font-size: 12px;
+    .more{
+      display: none;
+    }
+    .moreTwo{
+      display: inline-block !important;
+      margin-top: 10%;
+      margin-left: 40%;
+    }
+    .mainImage ul li img{
+      height:49%;
+    }
+    .mainImage ul{
+    margin-left: -30px;
+    }
+    .jt{
+      width:25px;
+      height:25px;
+      margin-top: 32%;
     }
   }
   @media only screen and (max-width: 415px){
@@ -1064,7 +1292,7 @@ export default {
       width:30%;
     }
     .serviceImage ul{
-      margin-left: -17%;
+      margin-left: -19%;
     }
     .js span{
       margin-top: 25px;
@@ -1072,19 +1300,28 @@ export default {
   }
   @media only screen and (max-width: 384px){
     .serviceImage ul{
-      margin-left: -20%;
+      margin-left: -30%;
+    }
+    .serviceImage ul li{
+      margin-left: 25%;
     }
     .info ul li{
       float: left;
       width:20%;
       margin-left: 2.5%;
     }
-    .newsTitle{
-      margin-left: 22%;
-    }
     .tz p:last-child{
       margin-top: 23%;
       letter-spacing: 2px;
+    }
+    .newsTitle:after{
+      margin-left: 36%;
+    }
+    .mainPeople:after{
+      margin-left: 39.5%;
+    }
+    .jt{
+      margin-top: 38%;
     }
   }
   @media only screen and (max-width: 360px){
@@ -1100,8 +1337,8 @@ export default {
       /*text-indent: 36%;*/
     /*}*/
     .serviceImage ul{
-         margin-left: -21%;
-       }
+      margin-left: -32%;
+    }
     .nc span:last-child{
       width:82%;
       height:120px;
@@ -1112,6 +1349,9 @@ export default {
     }
     .tz p:last-child{
       margin-top: 26%;
+    }
+    .jt{
+      margin-top: 42%;
     }
   }
   @media only screen and (max-width: 320px){
@@ -1134,23 +1374,26 @@ export default {
       width:24%;
       margin-left:0%;
     }
-    .select{
-      width: 35%;
-    }
     .serviceImage ul{
-      margin-left: -26%;
+      margin-left: -44%;
     }
     .serviceImage ul li{
-      margin-left: 22%;
+      margin-left: 30%;
+    }
+    .select{
+      width: 35%;
     }
     .workInfo{
       width:55%;
     }
-    .newsTitle{
-      margin-left:22%;
-    }
     .msgText{
-      letter-spacing: 2px;
+      letter-spacing: 0px;
+    }
+    .tz p:first-child{
+      font-size: 14px;
+    }
+    .jt{
+      margin-top: 46%;
     }
   }
 </style>

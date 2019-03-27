@@ -17,7 +17,8 @@
         <li @click="gotoMine">关于我们</li>
       </ul>
     </div>
-    <img id="img" src="../image/dhBlack.svg" class="navImg" @click="showLeft">
+    <img  src="../image/dhBlack.svg" class="navImg" @click="showLeft" v-if="show">
+    <img  src="../image/nav_selected.svg" class="navImg" @click="showLeft" v-else>
   </div>
 </template>
 
@@ -25,7 +26,8 @@
   export default {
     data(){
       return{
-        isCollapse: true
+        isCollapse: true,
+        show:true
       }
     },
     methods:{
@@ -42,6 +44,7 @@
         this.$router.push({path:'/mine'})
       },
       showLeft(){
+        this.show=!this.show
         $("#leftCon").fadeToggle("slow")
       }
     }
@@ -167,8 +170,8 @@
       .leftCon{
         width:160px;
         position: absolute;
-        margin-left:-7rem;
-        background-color: gray;
+        margin-left:0rem;
+        background-color: white;
         border: 1px solid white;
         margin-top: -15%;
       }
@@ -180,7 +183,7 @@
         height:60px;
         font-size: 16px;
         line-height: 60px;
-        color:white;
+        color:black;
       }
       .nav {
         display: none;

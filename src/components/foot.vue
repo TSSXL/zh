@@ -203,7 +203,6 @@
       margin-left: 30%;
       display:flex;
       flex-direction: column;
-      padding-top: 10px;
     }
     .companyInfo hr{
       height:0;
@@ -274,7 +273,6 @@
   }
   @media only screen and (max-width: 450px){
     .footer{
-      padding-bottom: 10px;
       height:150px;
     }
     .companyInfo{
@@ -308,14 +306,16 @@
     .five .f{
       width:25%;
       margin-left:0%;
+      margin-top: 6%;
     }
     .dontKnow{
-      margin-left: 299px;
+      margin-left:18.5rem;
       margin-top: -90px;
     }
     .fiveLeft,.fiveRight{
       margin-left: 0%;
       width:25%;
+      margin-top: 6%;
     }
     .five .f p{
       margin-left: 20%;

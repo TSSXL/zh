@@ -13,26 +13,28 @@
         <div class="form">
           <el-form ref="form" :model="form" label-width="110px">
             <el-form-item label="贷款类别：">
-              <el-select  v-model="form.dkID"  style="width: 70%;border-radius: 5px;" >
-                <el-option v-for="item in dk" :label="item.label" :value="item.label" :key="item.value"></el-option>
-              </el-select>
+              <el-input v-model="dk"  style="width: 70%;border-radius: 5px;" disabled></el-input>
             </el-form-item>
             <el-form-item label="计算方式：">
               <el-select v-model="form.jsID" style="width: 70%;border-radius: 5px;">
                 <el-option v-for="item in fs" :label="item.label" :value="item.way" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="房屋单价：">
+            <el-form-item label="贷款总额：" :style="dkStyle(form.jsID)">
+              <el-input v-model="form.ze" placeholder="请输入贷款总额" style="width: 70%;border-radius: 5px;" >
+              </el-input>
+            </el-form-item>
+            <el-form-item label="房屋单价："  :style="form.jsID===false?{display:'none'}:''">
               <el-input v-model="form.price" placeholder="请输入房屋单价" style="width: 70%;border-radius: 5px;">
                 <template slot="append">元/平方米</template>
               </el-input>
             </el-form-item>
-            <el-form-item label="房屋面积：">
+            <el-form-item label="房屋面积："  :style="form.jsID===false?{display:'none'}:''">
               <el-input v-model="form.area" placeholder="请输入房屋面积" style="width: 70%;border-radius: 5px;" >
                 <template slot="append">平方米</template>
               </el-input>
             </el-form-item>
-            <el-form-item label="按揭成数：">
+            <el-form-item label="按揭成数："  :style="form.jsID===false?{display:'none'}:''">
               <el-select v-model="form.csID" style="width: 70%;border-radius: 5px;">
                 <el-option v-for="item in cs" :label="item.label" :value="CS(item.label)" :key="item.value"></el-option>
               </el-select>
@@ -44,7 +46,7 @@
             </el-form-item>
             <el-form-item label="贷款利率：">
               <el-select v-model="form.lvID" style="width: 40%;border-radius: 5px;">
-                <el-option v-for="item in lv" :label="Txt(item.label)" :value="LV(item.num)" :key="item.value"></el-option>
+                <el-option v-for="item in lv" :label="Txt(item.label)" :value="item.num" :key="item.value"></el-option>
               </el-select>
               <el-input v-model="form.lvID" style="width:25%;margin-left:5%;border-radius: 5px;" >
                 <template slot="append">%</template>
@@ -71,32 +73,32 @@
             </span>
               <span>
                 <h1>首付：</h1>
-                <h1 class="sf">{{resultList[0]}}</h1>
+                <h1 class="sf">{{formTwo.sf}}</h1>
                 <h1>元</h1>
                 </span>
             <span>
                 <h1>每月月供：</h1>
-                <h1>{{resultList[1]}}</h1>
+                <h1>{{formTwo.yg}}</h1>
                 <h1>元</h1>
                 </span>
             <span>
                 <h1>贷款总额：</h1>
-                <h1>{{resultList[2]}}</h1>
+                <h1>{{formTwo.ze}}</h1>
                 <h1>元</h1>
                 </span>
             <span>
                 <h1>支付利息：</h1>
-                <h1>{{resultList[3]}}</h1>
+                <h1>{{formTwo.lx}}</h1>
                 <h1>元</h1>
                 </span>
             <span>
                 <h1>还款总额：</h1>
-                <h1>{{resultList[4]}}</h1>
+                <h1>{{formTwo.hkze}}</h1>
                 <h1>元</h1>
                 </span>
             <span>
                 <h1>还款月数：</h1>
-                <h1>{{resultList[5]}}</h1>
+                <h1>{{formTwo.hkys}}</h1>
                 <h1>月</h1>
                 </span>
           </div>
@@ -209,6 +211,9 @@
       data(){
           return{
             adname:'',
+            otherStyle:{
+              display:'block'
+            },
             bgStyle:{
               backgroundColor:'red'
             },
@@ -246,20 +251,7 @@
                 way:false
               }
             ],
-            dk:[
-              {
-                value:'1',
-                label:'商业贷款'
-              },
-              {
-                value:'2',
-                label:'公积金贷款'
-              },
-              {
-                value:'3',
-                label:'组合型贷款'
-              }
-            ],
+         dk:'商业贷款',
             fs:[
               {
                 value:'1',
@@ -326,8 +318,7 @@
                 label:'8成'
               }
             ],
-            ns:[
-              {
+            ns:[{
                 value:'1',
                 label:'25年(300期)'
               },
@@ -437,60 +428,59 @@
               {
                 value:'2',
                 label:'7折',
-                num:'3.43'
+                num:'3.4'
               },
               {
                 value:'3',
                 label:'85折',
-                num:'4.165'
+                num:'4.1'
               },
               {
                 value:'4',
                 label:'88折',
-                num:'4.312'
+                num:'4.3'
               },
               {
                 value:'5',
                 label:'9折',
-                num:'4.41'
+                num:'4.4'
               },
               {
                 value:'6',
                 label:'95折',
-                num:'4.655'
+                num:'4.6'
               },
               {
                 value:'7',
                 label:'1.05倍',
-                num:'5.145'
+                num:'5.1'
               },
               {
                 value:'8',
                 label:'1.1倍',
-                num:'5.39'
+                num:'5.3'
               },
               {
                 value:'9',
                 label:'1.2倍',
-                num:'5.88'
+                num:'5.8'
               },
               {
                 value:'10',
                 label:'1.3倍',
-                num:'6.37'
+                num:'6.3'
               }
             ],
             form:{
                price:'',
               area:'',
-              dkID:'',
               jsID:'',
               csID:'',
               nsID:'',
               lvID:'',
-              hkID:''
+              hkID:'',
+              ze:''
             },
-          resultList:[],
             select:0,
             colorStyle:{
               color:"red",
@@ -505,8 +495,8 @@
       NavComponent
     },
       created(){
-        if(this.$route.query.online!=undefined&&this.$route.query.tableData!=undefined )
-        {
+        //首页评估跳转
+        if(this.$route.query.online!=undefined&&this.$route.query.tableData!=undefined ) {
           this.select=this.$route.query.online
           this.index=this.$route.query.online
           this.tableData=this.$route.query.tableData
@@ -514,33 +504,16 @@
         // this.getCity()
       },
       methods:{
-        showLoading(){
-          this.$http
-            .get("/api/Online/OnlineService", {
-              params: {
-                adname:this.adname
-              }
-            })
-            .then(
-              function (response) {
-               this.tableData=response.data.Result
-              }.bind(this)
-            )
-            // 请求error
-            .catch(
-              function (error) {
-                this.$notify.error({
-                  title: "出错啦",
-                  message: "错误：请输入正确的小区地址或名称"
-                });
-              }.bind(this)
-            )
+        dkStyle(js){
+          if(js===true||js==='')
+          {
+            return {display:'none'}
+          }else{
+            return {display:'block'}
+          }
         },
         Txt(val){
           return "15年10月24日基准利率"+"("+val+")"
-        },
-        LV(val) {
-          return (val/100).toFixed(2)
         },
         NS(val){
          return val.split("年")[0]
@@ -548,60 +521,98 @@
         CS(val){
           return val.split('成')[0]/10
         },
-        chose(val){
-          console.log(val)
-        },
+        //清空重置
         cle(){
           this.isJS=true
-          this.form={}
+          this.form={price:'',
+            area:'',
+            jsID:'',
+            csID:'',
+            nsID:'',
+            lvID:'',
+            hkID:'',
+            ze:''}
         },
+        //申报
         Decalare(){
          this.getDecalare()
         },
+        //开始计算
         handleJS(){
           this.isJS=false
-         console.log(this.form)
           this.getOnline();
         },
+        //移动端开始计算内容以弹框形式显示
         DialogShow(){
           this.dialogFormVisible=true
           this.getOnline();
         },
+        //根据Index改变内容
         changeMain(index){
-          this.select=index
-        this.index=index
+            this.select=index
+            this.index=index
         },
         //计算
         getOnline() {
           let form=this.form
-          this.$http
-            .get("/api/Online/OnineCalculate", {
-              params: {
-                years:form.nsID,
-                interestRate:form.lvID,
-                type:form.hkID,
-                way:form.jsID,
-                unitPrice:form.price,
-                area:form.area,
-                pct:form.csID
-              }
-            })
-            .then(
-              function (response) {
-                let name=["sf","yg","ze","lx","hkze","hkys"]
-                this.resultList=response.data.Result
-                this.formTwo=_.object(name,response.data.Result)
-              }.bind(this)
-            )
-            // 请求error
-            .catch(
-              function (error) {
-                this.$notify.error({
-                  title: "出错啦",
-                  message: "错误：请输入完整的信息"
-                });
-              }.bind(this)
-            );
+          //根据面积计算
+          if(form.jsID===true) {
+            this.$http
+              .get("/api/Online/OnineCalculate", {
+                params: {
+                  years:form.nsID,
+                  interestRate:form.lvID/100,
+                  type:form.hkID,
+                  way:form.jsID,
+                  unitPrice:form.price,
+                  area:form.area,
+                  pct:form.csID
+                }
+              })
+              .then(
+                function (response) {
+                  //为后台返回的数据添加属性名
+                  let name=["sf","yg","ze","lx","hkze","hkys"]
+                  this.formTwo=_.object(name,response.data.Result)
+                }.bind(this)
+              )
+              .catch(
+                function (error) {
+                  this.$notify.error({
+                    title: "出错啦",
+                    message: "错误：请输入完整的信息"
+                  });
+                }.bind(this)
+              )}
+          //根据总额计算
+          else{
+            this.$http
+              .get("/api/Online/OnineCalculate", {
+                params: {
+                  years:form.nsID,
+                  interestRate:form.lvID/100,
+                  type:form.hkID,
+                  way:form.jsID,
+                  ze:form.ze
+                }
+              })
+              .then(
+                function (response) {
+                  let name=["sf","yg","ze","lx","hkze","hkys"]
+                  response.data.Result.unshift("无")
+                  this.formTwo=_.object(name,response.data.Result)
+                }.bind(this)
+              )
+              .catch(
+                function (error) {
+                  this.$notify.error({
+                    title: "出错啦",
+                    message: "错误：请输入完整的信息"
+                  });
+                }.bind(this)
+              )
+          }
+
         },
         //申报
         getDecalare() {
@@ -635,6 +646,29 @@
           }else{
             this.$message("请填写正确的手机号")
           }
+        },
+        //评估
+        showLoading(){
+          this.$http
+            .get("/api/Online/OnlineService", {
+              params: {
+                adname:this.adname
+              }
+            })
+            .then(
+              function (response) {
+                this.tableData=response.data.Result
+              }.bind(this)
+            )
+            // 请求error
+            .catch(
+              function (error) {
+                this.$notify.error({
+                  title: "出错啦",
+                  message: "错误：请输入正确的小区地址或名称"
+                });
+              }.bind(this)
+            )
         },
         //获取城市
   //     getCity(){
@@ -713,7 +747,7 @@
       width: 40%;
       position: relative;
       padding-bottom: 60px;
-      margin-top: -30%;
+      margin-top: -22%;
       margin-left:55%;
       .jg{
         height:400px;

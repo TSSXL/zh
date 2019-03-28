@@ -161,23 +161,23 @@
     <span>员工风采</span>
       <div class="worker" >
         <div class="workerItem">
-          <div class="workerImage"></div>
+          <img src="../image/c.jpg" class="workerImage"  alt="曹亦忠">
           <div class="workInfo">
             <div class="tz">
-              <p>方纪伟</p>
+              <p>曹亦忠</p>
               <p>同志</p>
             </div>
-            <p class="tzCon">在百丈街道宁舟港二期地块拆迁工作中，被评为"拆迁工作先进个人",为公司赢得了荣誉</p>
+            <p class="tzCon">在百丈街道宁舟港二期地块拆迁工作中，被评为"拆迁工作先进个人",<br>为公司赢得了荣誉</p>
           </div>
         </div>
         <div class="workerItem">
-          <div class="workerImage"></div>
+          <img src="../image/f.jpg" class="workerImage" alt="方纪伟">
           <div class="workInfo">
             <div class="tz">
               <p>方纪伟</p>
               <p>同志</p>
             </div>
-            <p class="tzCon">在百丈街道宁舟港二期地块拆迁工作中，被评为"拆迁工作先进个人",为公司赢得了荣誉</p>
+            <p class="tzCon">在房地产行业创先评优活动中，被评为"2018年度宁波市房地产评估行业优秀注册房地产估价师",<br>为公司赢得了荣誉</p>
           </div>
         </div>
       </div>
@@ -251,21 +251,26 @@ export default {
   // this.getCity()
   },
   methods:{
+    //重要客户左右点击切换
     gotoLeft(){
       this.peopleList=this.peopleList.reverse()
     },
+    //移动端获取更多
     getMore(){
       this.getNews(++this.pageIndex)
     },
+    //进入新闻详情
     gotoInfo(Contexts,Category){
       this.$router.push({path:'/info',query:{a:Contexts,b:Category}})
     },
+    //pc端查看更多跳转到新闻页面
     gotoNews(){
       this.$router.push({path:'/news'})
     },
     changeSelect(val){
       this.value=val
     },
+    //点击评估
     showLoading(){
       this.$http
         .get("/api/Online/OnlineService", {
@@ -288,6 +293,7 @@ export default {
           }.bind(this)
         )
     },
+    //获取新闻
     getNews(pageIndex) {
       this.$http
         .get("/api/News/GetNews", {
@@ -656,10 +662,8 @@ export default {
 .workerImage{
   height:100px;
   width:100px;
-  border-radius: 50%;
   margin-left: 10%;
   margin-top: 8%;
-  background-color: rgba(180,112,112,1);
 }
 .workInfo{
    height:90%;
@@ -670,11 +674,11 @@ export default {
  }
 .tzCon{
   margin-top: -0.5rem;
-  font-size: 16px;
-  letter-spacing: 2px;
+  font-size: 14px;
+  letter-spacing: 1px;
   color:#808080;
   height:70%;
-  line-height: 1.3em;
+  line-height: 1.5em;
   overflow: hidden;
 }
 .tz{
@@ -709,7 +713,7 @@ export default {
 .jt{
   height:50px;
   width:50px;
-  margin-top: 12%;
+  margin-top: 15%;
 }
 .jt:hover{
   cursor: pointer;
@@ -723,6 +727,9 @@ export default {
   float: left;
   width:33%;
   height:33%;
+}
+.mainImage ul li{
+  padding-top: 2%;
 }
 .mainImage ul li img{
   height:60%;
@@ -747,7 +754,7 @@ export default {
       width:45%;
     }
     .fwItem img{
-      width:50%;
+      width:45%;
       height:200px;
     }
     .msg{
@@ -795,13 +802,23 @@ export default {
     .tz p:last-child{
       margin-top: 30%;
     }
+    .tz p:first-child{
+      margin-top: 0;
+    }
+    .tz p:last-child{
+      margin-top: 10%;
+    }
     .tzCon{
       margin-top: -1rem;
-      line-height: 1.2rem;
+      line-height: 1.3rem;
+      font-size: 13px;
     }
     .mainImage{
       width:70%;
       margin-left: 15%;
+    }
+    .jt{
+      margin-top: 17%;
     }
   }
   @media only screen and (max-width: 1266px){
@@ -813,20 +830,31 @@ export default {
       width:45%;
       height:180px;
     }
+    .fwLeft span:last-child{
+      font-size: 14px;
+    }
+    .fwLeft span:first-child{
+      margin-top: 0;
+    }
+    .workerItem{
+      width:100%;
+    }
     .workerImage{
-      height:80px;
-      width:80px;
-      margin-top: 18%;
+      height:100px;
+      width:100px;
+      margin-top: 5%;
     }
     .tz p:first-child{
-      font-size: 13px;
+      font-size: 16px;
     }
     .tz p:last-child{
-      margin-top: 25%;
+      margin-top: 8%;
+      font-size: 12px;
     }
     .tzCon{
-      font-size: 12px;
-      margin-top: -6%;
+      font-size: 14px;
+      margin-top: -3%;
+      line-height: 1.5rem;
     }
     .mainImage{
       margin-left: 11%;
@@ -836,6 +864,12 @@ export default {
     }
     .jt{
       margin-top: 18%;
+    }
+    .n{
+      width:100%;
+    }
+    .n img{
+      width:40%;
     }
   }
   @media only screen and (max-width: 900px){
@@ -982,6 +1016,15 @@ export default {
      width:100%;
      margin-left: 0;
    }
+   .n img{
+     width:35%;
+   }
+   .nc{
+     width:55%;
+   }
+   .nc span:last-child{
+     width:100%;
+   }
    .more{
      margin-right: 5%;
    }
@@ -1005,11 +1048,12 @@ export default {
       width:96%;
       margin-top: 30px;
       margin-left: 2%;
+      padding-bottom: 20px;
+      padding-top: 10px;
     }
     .workerImage{
       height:80px;
       width:80px;
-      border-radius: 50%;
       margin-top: 30px;
       margin-left: 5%;
     }
@@ -1020,17 +1064,23 @@ export default {
       height:90%;
     }
     .tzCon{
-      line-height: 1rem;
+      line-height: 1.3rem;
      margin-top: -0.7rem;
-      font-size: 14px;
+      font-size: 15px;
+    }
+    .tz p:first-child{
+      font-size: 18px;
     }
     .tz p:last-child{
-      margin-top: 8%;
+      margin-top: 2%;
     }
     .mainImage{
       width: 95%;
       margin-left: 2.5%;
       padding-bottom:60px;
+    }
+    .mainImage ul{
+      margin-left: -16px;
     }
   }
   @media only screen and (max-width: 600px){
@@ -1055,10 +1105,11 @@ export default {
       margin-left: 5%;
     }
     .tz p:last-child{
-      margin-top: 10%;
+      margin-top: 5%;
     }
     .tzCon{
-      margin-top: -0.5rem;
+      margin-top: -0.8rem;
+      font-size: 14px;
     }
     .mainImage ul li img{
       height:60%;
@@ -1081,7 +1132,7 @@ export default {
       margin-left: 5%;
     }
     .info ul li p:nth-child(4){
-      font-size: 20px;
+      font-size: 19px;
     }
     .info ul li p:nth-child(2){
       font-size: 14px;
@@ -1248,21 +1299,22 @@ export default {
   color:rgba(251,95,107,1);
 }
     .tz p:last-child{
-      margin-top: 20%;
+      margin-top: 15%;
       margin-left: 0.2rem;
     }
     .tz p:first-child{
       font-size: 15px;
+      margin-top: 10%;
     }
     .workInfo{
-      width:50%;
+      width:65%;
       padding-top: 5px;
     }
     .tzCon{
       letter-spacing: 3px;
       height:90px;
       font-size: 12px;
-      line-height: 20px;
+      line-height: 23px;
     }
     .js span{
       margin-top: 40px;
@@ -1275,16 +1327,23 @@ export default {
       margin-top: 10%;
       margin-left: 40%;
     }
+    .mainImage{
+      padding-bottom: 120px;
+    }
+    .mainImage ul li{
+      width:48%;
+      height:25%;
+    }
     .mainImage ul li img{
-      height:49%;
+      height:50%;
     }
     .mainImage ul{
-    margin-left: -30px;
+    margin-left: -20px;
     }
     .jt{
       width:25px;
       height:25px;
-      margin-top: 32%;
+      margin-top: 48%;
     }
   }
   @media only screen and (max-width: 415px){
@@ -1293,6 +1352,12 @@ export default {
     }
     .serviceImage ul{
       margin-left: -19%;
+    }
+    .tzCon{
+      letter-spacing: 2px;
+    }
+    .tz p:last-child{
+      margin-top: 16%;
     }
     .js span{
       margin-top: 25px;
@@ -1310,18 +1375,19 @@ export default {
       width:20%;
       margin-left: 2.5%;
     }
-    .tz p:last-child{
-      margin-top: 23%;
-      letter-spacing: 2px;
-    }
     .newsTitle:after{
       margin-left: 36%;
     }
     .mainPeople:after{
-      margin-left: 39.5%;
+      margin-left: 39%;
     }
     .jt{
-      margin-top: 38%;
+      margin-top: 53%;
+    }
+    .tzCon{
+      height:120px;
+      letter-spacing: 0px;
+      font-size: 13px;
     }
   }
   @media only screen and (max-width: 360px){
@@ -1347,11 +1413,8 @@ export default {
     .fwItem img{
       margin-top: 15px;
     }
-    .tz p:last-child{
-      margin-top: 26%;
-    }
     .jt{
-      margin-top: 42%;
+      margin-top: 56%;
     }
   }
   @media only screen and (max-width: 320px){
@@ -1393,7 +1456,7 @@ export default {
       font-size: 14px;
     }
     .jt{
-      margin-top: 46%;
+      margin-top: 60%;
     }
   }
 </style>

@@ -6,15 +6,15 @@
         <ul>
           <li>
             <button  @click="allNews" v-if="num">全部</button>
-            <button style="background-color: red;color:#ffffff" @click="allNews" v-else>全部</button>
+            <button style="background-color: rgba(234,61,63,1);color:#ffffff" @click="allNews" v-else>全部</button>
           </li>
           <li>
             <button  @click="comNews" v-if="numTwo">公司新闻</button>
-            <button style="background-color: red;color:#ffffff" @click="comNews" v-else>公司新闻</button>
+            <button style="background-color: rgba(234,61,63,1);color:#ffffff" @click="comNews" v-else>公司新闻</button>
           </li>
           <li>
             <button  @click="hyStatus" v-if="numThree">行业状态</button>
-            <button style="background-color: red;color:#ffffff"  @click="hyStatus" v-else>行业状态</button>
+            <button style="background-color: rgba(234,61,63,1);color:#ffffff"  @click="hyStatus" v-else>行业状态</button>
           </li>
         </ul>
       </div>
@@ -64,13 +64,16 @@
         FootComponent
       },
       methods:{
+          //分页获取数据
         changePage(val){
           this.Page=val
           this.getNews(val,this.PageSize,this.Category)
         },
+        //进入新闻详情
         gotoInfo(Contexts,Category){
           this.$router.push({path:'/info',query:{a:Contexts,b:Category}})
         },
+        //获取全部新闻
         allNews(){
           this.numTwo=true
           this.numThree=true
@@ -79,6 +82,7 @@
           this.Category="全部"
           this.getNews(1,this.PageSize,this.Category)
         },
+        //获取公司新闻
         comNews(){
           this.num=true
           this.numThree=true
@@ -87,6 +91,7 @@
           this.Category="公司新闻"
           this.getNews(1,this.PageSize,this.Category)
         },
+        //获取行业状态
         hyStatus(){
           this.numTwo=true
           this.num=true
@@ -95,6 +100,7 @@
           this.Category="行业状态"
           this.getNews(1,this.PageSize,this.Category)
         },
+        //获取新闻接口
         getNews(pageIndex,pageSize,Category) {
           this.$http
             .get("/api/News/GetNews", {
@@ -154,7 +160,8 @@
           background:white;
           border-radius:10px;
           border: 1px solid red;
-          color:red
+          color:#EA3D3F;
+          font-size: 14px;
         }
         button:hover{
           cursor: pointer;

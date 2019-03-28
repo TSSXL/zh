@@ -14,19 +14,19 @@
                 <img class="liImg" src="../image/company_honor.png" v-if="one">
                 <img class="liImg" src="../image/company_honor_selected.png" v-else>
                 <el-button   @click="changeColor(0)" v-if="one">公司荣誉</el-button>
-                <el-button @click="changeColor(0)" style="color:red;"  v-else>公司荣誉</el-button>
+                <el-button @click="changeColor(0)" style="color:#EA3D3F;"  v-else>公司荣誉</el-button>
               </li>
               <li>
                 <img class="liImg" src="../image/professional_qualifications.png" v-if="two">
                 <img class="liImg" src="../image/professional_qualifications_selected.png" v-else>
                 <el-button  @click="changeColor(1)" v-if="two">执业资质</el-button>
-                <el-button  style="color:red;" @click="changeColor(1)" v-else>执业资质</el-button>
+                <el-button  style="color:#EA3D3F;" @click="changeColor(1)" v-else>执业资质</el-button>
               </li>
               <li>
                 <img class="liImg" src="../image/classic_case.png" v-if="three">
                 <img class="liImg" src="../image/classic_case_selected.png" v-else>
                 <el-button  @click="changeColor(2)" v-if="three">经典案例</el-button>
-                <el-button  style="color:red;" @click="aa"   v-else>经典案例</el-button>
+                <el-button  style="color:#EA3D3F;" @click="aa"   v-else>经典案例</el-button>
               </li>
               <li class="li" :style="isShowStyle">
                 <div class="twoUl">
@@ -37,13 +37,13 @@
                 <img class="liImg" src="../image/contact_us.png" v-if="four">
                 <img class="liImg" src="../image/contact_us_selected.png" v-else>
                 <el-button  @click="changeColor(3)" v-if="four">联系我们</el-button>
-                <el-button style="color:red;" @click="changeColor(3)"  v-else>联系我们</el-button>
+                <el-button style="color:#EA3D3F;" @click="changeColor(3)"  v-else>联系我们</el-button>
               </li>
               <li>
                 <img class="liImg" src="../image/hiring.png" v-if="five">
                 <img class="liImg" src="../image/hiring_selected.png" v-else>
                 <el-button  @click="changeColor(4)" v-if="five">招贤纳士</el-button>
-                <el-button style="color:red;" @click="changeColor(4)"   v-else>招贤纳士</el-button>
+                <el-button style="color:#EA3D3F;" @click="changeColor(4)"   v-else>招贤纳士</el-button>
               </li>
             </ul>
           </div>
@@ -110,9 +110,7 @@
               <p>电话：0574-87621198</p>
               <p>传真：0574-87620828</p>
             </div>
-            <div class="map">
-              <img src="../image/map.jpg" alt="">
-            </div>
+            <Baidu-Component class="baiduMap"></Baidu-Component>
           </div>
           <div class="callMe"  v-else="num==4">
             <div class="callMeTitle">
@@ -122,9 +120,7 @@
               <p>人事部电话：0574-87620698</p>
               <p>联系人：蔡老师</p>
             </div>
-            <div class="map">
-              <img src="../image/map.jpg" alt="">
-            </div>
+            <Baidu-Component class="baiduMap"></Baidu-Component>
           </div>
         </div>
         <Foot-Component class="mineFoot" ></Foot-Component>
@@ -134,6 +130,7 @@
 <script>
 import HeadComponent from  './mayBe'
   import FootComponent from './foot'
+import BaiduComponent from './BaiduMap'
     export default {
       data(){
         return{
@@ -161,7 +158,8 @@ import HeadComponent from  './mayBe'
       },
       components:{
         FootComponent,
-        HeadComponent
+        HeadComponent,
+        BaiduComponent
       },
       created(){
         this.num=this.$route.query.idx
@@ -171,13 +169,16 @@ import HeadComponent from  './mayBe'
          }
       },
       methods:{
+        //点击隐藏二级菜单
         aa(){
          this.isShowStyle={display:"none"}
          this.three=true
         },
+        //二级菜单点击变色
         getTwo(index){
          this.numTwo=index
         },
+        //点击按钮变色
         changeColor(index){
           this.num=index
           if(index==0)
@@ -396,7 +397,7 @@ import HeadComponent from  './mayBe'
       position: relative;
       .callMeTitle{
         height:100%;
-        width:45%;
+        width:46%;
         margin-left: 2.5%;
         position: absolute;
         p:first-child{
@@ -418,17 +419,13 @@ import HeadComponent from  './mayBe'
           margin-top: 8%;
         }
       }
-      .map{
-        height:100%;
-        width:45%;
-        margin-left: 50%;
-        img{
-          height:50%;
-          width:100%;
-          margin-top: 20%;
-          border-radius: 4%;
-        }
-      }
+     .baiduMap{
+       width:45%;
+       margin-left: 50%;
+       height:60%;
+       margin-top: 8%;
+     border-radius: 20px;
+     }
     }
   }
   .mineFoot{
@@ -449,6 +446,10 @@ import HeadComponent from  './mayBe'
       }
       .callMe{
         width:72%;
+        .baiduMap{
+          width:45%;
+          margin-left: 50%;
+        }
       }
     }
   }
@@ -639,9 +640,10 @@ import HeadComponent from  './mayBe'
         .callMeTitle{
           margin-left: 0;
           height:50%;
-          width:100%;
+          width:50%;
+          margin-top: 5%;
           p:first-child{
-            font-size: 1.5em;
+            font-size: 2em;
             margin-top: 5%;
           }
           p:nth-child(2){
@@ -650,19 +652,8 @@ import HeadComponent from  './mayBe'
           p{
             margin-left: 8%;
             margin-top: 4%;
-            font-size: 1.2em;
-          }
-        }
-        .map{
-          width:47%;
-          height:80%;
-          margin-top: 5%;
-          margin-left: 45%;
-          img{
-            margin-top: 0;
-            height: 61%;
-            width: 108%;
-            margin-left:3%;
+            font-size: 1.5em;
+            width:100%;
           }
         }
       }
@@ -696,12 +687,18 @@ import HeadComponent from  './mayBe'
       }
     }
     .callMe{
+      height:300px;
       .callMeTitle{
-     p:nth-child(2)
-     {
-       width:38%;
-       line-height: 30px;
-     }
+        height:70%;
+        margin-top: 6%;
+        width:55%;
+        p{
+          font-size: 1.4em;
+        }
+      }
+      .baiduMap{
+        width:40%;
+        margin-left: 55%;
       }
     }
   }
@@ -827,12 +824,14 @@ import HeadComponent from  './mayBe'
         }
       }
       .callMe{
+        height:450px;
         width:95%;
         margin-top: 30px;
         border: 1px solid white;
         .callMeTitle{
-          margin-left: 10%;
+          margin-left: 5%;
           width:90%;
+          height:50%;
           p{
             margin-left: 2%;
             width:93%;
@@ -841,16 +840,12 @@ import HeadComponent from  './mayBe'
             width: 93%;
           }
         }
-        .map{
-          width:94%;
-          height:60%;
-          margin-top: 50%;
-          margin-left: 0;
-          img{
-            height:70%;
-            width:80%;
-            margin-top: 0;
-          }
+        .baiduMap{
+          width:90%;
+          margin-left: 5%;
+          margin-top: 52%;
+          height:50%;
+          background-color:red;
         }
       }
       .need{
@@ -909,6 +904,16 @@ import HeadComponent from  './mayBe'
           margin-left: -11%;
         }
       }
+      .callMe{
+        height:480px;
+        .callMeTitle{
+          height:40%;
+        }
+        .baiduMap{
+          margin-top: 60%;
+          height:45%;
+        }
+      }
     }
   }
   @media only screen and (max-width:360px) {
@@ -921,6 +926,11 @@ import HeadComponent from  './mayBe'
       .rightCon{
         ul{
           margin-left: -14%;
+        }
+      }
+      .callMe{
+        .baiduMap{
+          margin-top: 68%;
         }
       }
     }
@@ -967,8 +977,17 @@ import HeadComponent from  './mayBe'
         }
       }
       .callMe{
-        .map{
-          margin-top: 55%;
+        .callMeTitle{
+          p{
+            width:100%;
+          }
+      p:nth-child(2){
+        width:100%;
+        line-height: 20px;
+      }
+        }
+        .baiduMap{
+          margin-top: 75%;
         }
       }
     }

@@ -19,6 +19,13 @@ export default {
     margin: 0;
     padding: 0;
     font-size: 62.5%;
+    font-family: FZLTHK--GBK1-0;
+  }
+  .el-pagination.is-background .el-pager li:not(.disabled).active{
+    background-color: #EA3D3F;
+  }
+  .el-button{
+    font-family: FZLTHK--GBK1-0;
   }
   .el-form-item__label{
     font-weight: bolder;
@@ -82,7 +89,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #454B4D;
   border: 1px solid #EFEFEF;
   width: 100%;
 }

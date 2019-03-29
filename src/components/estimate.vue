@@ -1,6 +1,6 @@
 <template>
     <div class="estimate">
-        <Nav-Component class="navComponent"></Nav-Component>
+        <Nav-Component class="navComponent" num="2" ></Nav-Component>
       <img src="../image/divider.png" alt="" style="height:40px;width:100%;">
       <div class="bt">
         <ul>
@@ -806,7 +806,7 @@
           border-radius: 30px;
           border: none;
           float: left;
-          text-indent: 5%;
+          text-indent: 7%;
           font-size: 2em;
         }
         .select{
@@ -913,7 +913,7 @@
   @media only screen and (max-width: 1366px){
  .main{
    .content{
-     margin-top: -35%;
+     margin-top: -32%;
    }
  }
     .mainOne{
@@ -926,9 +926,6 @@
           margin-left: 25%;
           margin-top: 8%;
           color: #606060;
-          input{
-            font-size: 1.5em;
-          }
           .select{
             width:8%;
             margin-left: -35%;
@@ -944,12 +941,17 @@
   @media only screen and (max-width: 1288px){
  .main{
    .content{
-     margin-top: -50%;
+     margin-top: -40%;
      .jg{
        width:57%;
      }
    }
  }
+  }
+  @media only screen and (max-width:1024px){
+    .mainTwo{
+      width:75%;
+    }
   }
   @media only screen and (max-width: 768px) {
     .navComponent{

@@ -47,7 +47,7 @@
 .components-container{
   width:100%;
   .bread{
-    width:20%;
+    width:79%;
     margin-left: 21%;
     margin-top: 30px;
   }
@@ -63,14 +63,21 @@
       margin-left: 21%;
     }
   }
+  @media only screen and (max-width: 1024px){
+    .bread{
+      margin-left: 10%;
+    }
+    .editor-container{
+      width:80%;
+      margin-left: 10%;
+    }
+  }
   @media only screen and (max-width: 768px){
     .navComponent{
      margin-top: 0%;
     }
     .bread{
-      width:40%;
       margin-left: 10%;
-      margin-top: 30px;
     }
     .editor-container{
       width:80%;
@@ -81,18 +88,13 @@
     .navComponent{
       margin-top: 14%;
     }
-    .bread{
-      width:50%;
-      margin-left: 10%;
-      margin-top: 30px;
-    }
     .editor-container{
       width:80%;
       margin-left: 10%;
       padding-bottom: 30px;
     }
   }
-  @media only screen and (max-width: 380px){
+  @media only screen and (max-width: 384px){
     .navComponent{
       margin-top: 16%;
     }
@@ -100,11 +102,6 @@
   @media only screen and (max-width: 360px){
     .navComponent{
       margin-top: 18%;
-    }
-    .bread{
-      width:60%;
-      margin-left: 10%;
-      margin-top: 30px;
     }
   }
   @media only screen and (max-width: 320px){

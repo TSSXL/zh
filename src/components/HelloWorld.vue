@@ -2,7 +2,7 @@
   <div class="hel">
     <!--头部导航栏-->
      <div class="image">
-       <div class="header"><Head-Component></Head-Component></div>
+       <div class="header"><Head-Component num="1"></Head-Component></div>
        <div class="lb">
          <el-carousel height="600px" class="carousel"  trigger="click"  :loop="true">
            <el-carousel-item v-for="item in imageList" :key="item">
@@ -74,10 +74,10 @@
              <span>非法定估价</span>
              <span>·抵押估价·转让租赁估价·投资性房地产公允价值计量估价·移民资产估价</span>
            </div>
-           <img src="../image/technical_force_bg.png"  alt="">
+           <img src="../image/fh.jpg"  alt="">
          </div>
          <div class="fwItem">
-           <img src="../image/technical_force_bg.png"  alt="">
+           <img src="../image/jb.jpg"  alt="">
            <div class="fwLeft">
              <span>法定估价</span>
              <span>·司法估价·征收估价·政府委托估价</span>
@@ -88,10 +88,10 @@
              <span>咨询顾问估价</span>
              <span>投资、收购估价·纠纷估价·资产处置估价·分割、合并估价·保险估价·拍卖估价·房地产损害赔偿价值估价·房屋质量缺陷损失估价·城市更新可行性研究报告、开发方案</span>
            </div>
-           <img src="../image/technical_force_bg.png"  alt="">
+           <img src="../image/zbs.jpg"  alt="">
          </div>
          <div class="fwItem">
-           <img src="../image/technical_force_bg.png"  alt="">
+           <img src="../image/ls.jpg"  alt="">
            <div class="fwLeft">
              <span>土地估价</span>
              <span>·土地使用权出让底价估价、规划变更调整地价款评估、协议出让价格评估
@@ -101,28 +101,28 @@
        </div>
        <div class="fw fwTwo">
          <div class="fwItem">
-           <img src="../image/technical_force_bg.png"  alt="">
+           <img src="../image/fh.jpg"  alt="">
            <div class="fwLeft">
              <span>非法定估价</span>
              <span>·抵押估价·转让租赁估价·投资性房地产公允价值计量估价·移民资产估价</span>
            </div>
          </div>
          <div class="fwItem">
-           <img src="../image/technical_force_bg.png"  alt="">
+           <img src="../image/jb.jpg"  alt="">
            <div class="fwLeft">
              <span>法定估价</span>
              <span>·司法估价·征收估价·政府委托估价</span>
            </div>
          </div>
          <div class="fwItem">
-           <img src="../image/technical_force_bg.png"  alt="">
+           <img src="../image/zbs.jpg"  alt="">
            <div class="fwLeft">
              <span>咨询顾问估价</span>
              <span>投资、收购估价·纠纷估价·资产处置估价·分割、合并估价·保险估价·拍卖估价·房地产损害赔偿价值估价·房屋质量缺陷损失估价·城市更新可行性研究报告、开发方案</span>
            </div>
          </div>
          <div class="fwItem">
-           <img src="../image/technical_force_bg.png"  alt="">
+           <img src="../image/ls.jpg"  alt="">
            <div class="fwLeft">
              <span>土地估价</span>
              <span>·土地使用权出让底价估价、规划变更调整地价款评估、协议出让价格评估<br>
@@ -146,7 +146,7 @@
       <span class="more"><a @click="gotoNews">查看更多 </a><img src="../image/more.png" alt=""></span>
       <div class="newsItem">
         <div class="n" v-for="item in newsList">
-          <img @click="gotoInfo(item.Contexts,item.Category)" src="../image/jb.jpg"  alt="后台无图片">
+          <img @click="gotoInfo(item.Contexts,item.Category)" :src="item.ImgPath"  alt="后台无图片">
           <div class="nc">
             <span>{{item.Title}}</span>
             <span>{{item.Summary}}</span>
@@ -239,8 +239,9 @@ export default {
   },
   created(){
     let _this=this
-    _this.setCookie('token',"aa")
+    // _this.setCookie('token',"aa")
     _this.getNews(_this.pageIndex)
+    //绑定键盘enter事件
     document.onkeydown=function (e) {
       let _key=window.event.keyCode
       if(_key==13)
@@ -401,12 +402,12 @@ export default {
     .q{
       font-size: 22px;
     }
-    .select{
-      margin-top: 0.6%;
-      position: absolute;
-      width:18%;
-     margin-left: -81%;
-    }
+    /*.select{*/
+      /*margin-top: 0.6%;*/
+      /*position: absolute;*/
+      /*width:18%;*/
+     /*margin-left: -81%;*/
+    /*}*/
   .right{
     display: inline-block;
     height: 50px;
@@ -737,15 +738,12 @@ export default {
   margin-top: 5%;
 }
   @media only screen and (max-width: 1366px) {
-    .select{
-      width:16%;
-    }
+    /*.select{*/
+      /*width:16%;*/
+    /*}*/
     .image .input{
       margin-top: 30%;
       width:50%;
-    }
-    .image input{
-      font-size: 1.5em;
     }
     .right{
       margin-right: -5px;
@@ -878,9 +876,9 @@ export default {
       margin-left: 25%;
       margin-top: 50%;
     }
-    .select{
-      width:18%;
-    }
+    /*.select{*/
+      /*width:18%;*/
+    /*}*/
     .serviceImage ul li img{
       width:200px;
     }
@@ -896,7 +894,6 @@ export default {
     .image{
       height:300px;
       width:100%;
-      background-color: #80b2c3;
     }
     .info ul{
       width:100%;
@@ -955,11 +952,11 @@ export default {
       line-height: 30px;
       font-size: 2em;
     }
-    .select{
-      margin-top: 0%;
-      margin-left: -93%;
-      width:26%;
-    }
+    /*.select{*/
+      /*margin-top: 0%;*/
+      /*margin-left: -93%;*/
+      /*width:26%;*/
+    /*}*/
     .right{
       display: inline-block;
       height: 100%;
@@ -1091,9 +1088,9 @@ export default {
     /*.input input{*/
       /*text-indent: 35%;*/
     /*}*/
-    .select{
-      width:28%;
-  }
+    /*.select{*/
+      /*width:28%;*/
+  /*}*/
     .n{
       width:100%;
     }
@@ -1117,6 +1114,9 @@ export default {
     }
     .jt{
       margin-top: 21%;
+    }
+    .fwLeft span:last-child{
+      font-size: 11px;
     }
   }
   @media only screen and (max-width: 435px){
@@ -1347,9 +1347,9 @@ export default {
     }
   }
   @media only screen and (max-width: 415px){
-    .select{
-      width:30%;
-    }
+    /*.select{*/
+      /*width:30%;*/
+    /*}*/
     .serviceImage ul{
       margin-left: -19%;
     }
@@ -1391,9 +1391,9 @@ export default {
     }
   }
   @media only screen and (max-width: 360px){
-    .select{
-      width:32%;
-    }
+    /*.select{*/
+      /*width:32%;*/
+    /*}*/
     .info ul li{
       float: left;
       width:22%;
@@ -1443,9 +1443,9 @@ export default {
     .serviceImage ul li{
       margin-left: 30%;
     }
-    .select{
-      width: 35%;
-    }
+    /*.select{*/
+      /*width: 35%;*/
+    /*}*/
     .workInfo{
       width:55%;
     }

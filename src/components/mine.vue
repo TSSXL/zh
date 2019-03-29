@@ -1,7 +1,7 @@
 <template>
     <div class="mine" style="background-color: rgba(245,247,250,1)">
         <div class="img">
-          <Head-Component class="headComponent"></Head-Component>
+          <Head-Component class="headComponent" num="4"></Head-Component>
           <div class="info">
             <p>公司概况</p>
             <p>宁波仲恒房地产估价有限公司成立于2001年，原为房管处转制企业，是具有国家房地产二级评估资质和土地评估资质的双资质房地产评估专业机构</p>
@@ -76,29 +76,9 @@
           </div>
           <div class="example"  v-else-if="num==2">
             <div class="exampleItem">
-              <div class="exampleImage">
-                <img src="../image/ct.jpg" alt="">
-                <p>诚投大厦办公房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/fh.jpg" alt="">
-                <p>奉化区南山路174号房地产抵押项目</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/jb.jpg" alt="">
-                <p>宁波市江北区北海路239弄28号</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/cx.jpg" alt="">
-                <p>江北区长兴路677、685、687号</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/zbs.jpg" alt="">
-                <p>招宝山街道鼓楼步行街38套商业抵押</p>
-              </div>
-              <div class="exampleImage">
-                <img src="../image/ls.jpg" alt="">
-                <p>江北区某工业厂区抵押项目</p>
+              <div class="exampleImage" v-for="item in exampleList">
+                <img :src="item.BaiEdit" alt="">
+                <p>{{item.Title}}</p>
               </div>
             </div>
           </div>
@@ -116,7 +96,7 @@
             <div class="callMeTitle">
               <p>宁波仲恒房地产估价有限公司</p>
               <p>公司常年诚招房地产估价师,土地估价师、</p>
-              <p>测绘工程师，仲恒估价公司欢迎您的加入.</p>
+              <p>测绘工程师，仲恒估价公司欢迎您的加入。</p>
               <p>人事部电话：0574-87620698</p>
               <p>联系人：蔡老师</p>
             </div>
@@ -134,6 +114,7 @@ import BaiduComponent from './BaiduMap'
     export default {
       data(){
         return{
+          category:"银行抵押",
           txtColor:{
             color:'red'
           },
@@ -151,6 +132,14 @@ import BaiduComponent from './BaiduMap'
             "司法评估",
             "土地评估"
           ],
+          exampleList:[
+            // {BaiEdit:require("../image/ct.jpg"),Title:"诚投大厦办公房地产抵押项目"},
+            // {BaiEdit:require("../image/fh.jpg"),Title:"奉化区南山路174号房地产抵押项目"},
+            // {BaiEdit:require("../image/jb.jpg"),Title:"宁波市江北区北海路239弄28号"},
+            // {BaiEdit:require("../image/cx.jpg"),Title:"江北区长兴路677、685、687号"},
+            // {BaiEdit:require("../image/zbs.jpg"),Title:"招宝山街道鼓楼步行街38套商业抵押"},
+            // {BaiEdit:require("../image/ls.jpg"),Title:"江北区某工业厂区抵押项目"},
+          ],
           isShowStyle:{
             display:"none"
           }
@@ -162,11 +151,13 @@ import BaiduComponent from './BaiduMap'
         BaiduComponent
       },
       created(){
+        //底部跳转
         this.num=this.$route.query.idx
          if(this.num==undefined)
          {
            this.num=0
          }
+         this.getContent()
       },
       methods:{
         //点击隐藏二级菜单
@@ -177,6 +168,21 @@ import BaiduComponent from './BaiduMap'
         //二级菜单点击变色
         getTwo(index){
          this.numTwo=index
+          if(index===0){
+            this.category="银行抵押"
+          }else if(index===1)
+          {
+            this.category="征收评估"
+          }else if(index===2)
+          {
+            this.category="咨询策划"
+          }else if(index===3)
+          {
+            this.category="司法评估"
+          }else{
+            this.category="土地评估"
+          }
+          this.getContent()
         },
         //点击按钮变色
         changeColor(index){
@@ -221,6 +227,30 @@ import BaiduComponent from './BaiduMap'
             this.isShowStyle={display:"none"}
             this.five=!this.five
           }
+        },
+        //经典案例分类获取内容
+        getContent(){
+          this.$http
+            .get("/api/Baidu/BaiduE", {
+              params: {
+                isjd:"1",
+                category:this.category
+              }
+            })
+            .then(
+              function (response) {
+                this.exampleList=response.data.Result.all
+              }.bind(this)
+            )
+            // 请求error
+            .catch(
+              function (error) {
+                this.$notify.error({
+                  title: "出错啦",
+                  message: "错误：请通知后台"
+                });
+              }.bind(this)
+            );
         }
       }
     }
@@ -240,13 +270,13 @@ import BaiduComponent from './BaiduMap'
       height:20%;
       width:80%;
       position: absolute;
-      margin-top: 5%;
+      margin-top: 2%;
       font-size: 2em;
+      margin-left: 10%;
       p{
         display: inline-block;
         text-align: center;
-        width:86%;
-        margin-left: 20%;
+        width:100%;
         color: white;
         font-weight: bolder;
       }
@@ -396,14 +426,15 @@ import BaiduComponent from './BaiduMap'
       box-shadow: 5px 5px 5px  #e2e2e2;
       position: relative;
       .callMeTitle{
-        height:100%;
+        height:60%;
         width:46%;
+        margin-top: 8%;
         margin-left: 2.5%;
         position: absolute;
         p:first-child{
-          margin-top: 20%;
           font-size: 2em;
           font-weight: bolder;
+          margin-top: 0%;
         }
         p:nth-child(2){
           margin-top: 10%;
@@ -416,7 +447,7 @@ import BaiduComponent from './BaiduMap'
           text-align: left;
           margin-left: 10%;
           font-size: 1.5em;
-          margin-top: 8%;
+          margin-top: 4%;
         }
       }
      .baiduMap{
@@ -453,10 +484,20 @@ import BaiduComponent from './BaiduMap'
       }
     }
   }
-  @media only screen and (max-width: 1288px){
+  @media only screen and (max-width: 1366px){
+    .img{
+      .info{
+        margin-top: 4%;
+      }
+    }
      .mineInfo{
        .leftBtn{
          margin-left: 0%;
+         ul{
+           .li{
+             height:12.7rem;
+           }
+         }
        }
        .rightCon{
          margin-left: 12%;
@@ -513,11 +554,12 @@ import BaiduComponent from './BaiduMap'
       width:100%;
       height: 300px;
       .info{
-        height:8%;
+        height:15%;
         width:100%;
         position: absolute;
         font-size: 1em;
         margin-top: 30px;
+        margin-left: 0;
         p{
         margin-left: 0;
           line-height: 25px;
@@ -868,6 +910,11 @@ import BaiduComponent from './BaiduMap'
     }
   }
   @media only screen and (max-width: 415px){
+    .img{
+      .info{
+        height:20%;
+      }
+    }
    .mineInfo{
      .leftBtn{
        margin-left: 5px;
@@ -939,6 +986,7 @@ import BaiduComponent from './BaiduMap'
     .img{
       .info{
         margin-top: 10%;
+        height:25%;
       }
     }
     .mineInfo{

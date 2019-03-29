@@ -1,6 +1,6 @@
 <template>
     <div class="news">
-      <NavComponent class="navComponent"></NavComponent>
+      <NavComponent class="navComponent" num="3"></NavComponent>
       <img src="../image/divider.png" alt="" style="height:40px;width:100%;">
       <div class="title">
         <ul>
@@ -20,7 +20,7 @@
       </div>
        <div class="a">
        <div class="item" v-for="item in newsList">
-         <span @click="gotoInfo(item.Contexts,item.Category)"></span>
+         <img :src="item.ImgPath" @click="gotoInfo(item.Contexts,item.Category)" alt="后台无图片">
          <div class="m">
            <p>{{item.Title}}</p>
            <p>{{item.Summary}}</p>
@@ -37,6 +37,7 @@
           small
           style="margin-top: 20px;">
         </el-pagination>
+      <div class="kb"></div>
       <Foot-Component class="footCom" ></Foot-Component>
     </div>
 </template>
@@ -53,7 +54,9 @@
             num:true,
             numTwo:true,
             numThree:true,
-            newsList:{},
+            newsList:{
+              0:{}
+            },
             PageIndex:1,
             PageSize:6,
             Category:"全部"
@@ -118,7 +121,7 @@
                 }else{
                   this.newsList=response.data.Result.data
                 }
-                this.totalPage=response.data.Result.PageIndex
+                this.totalPage=response.data.Result.PageCount
               }.bind(this)
             )
             // 请求error
@@ -182,14 +185,13 @@
         display: flex;
         flex-direction: row;
         padding-bottom: 30px;
-        span{
+        img{
           display: inline-block;
           height:200px;
           width:50%;
-          background-color: rgba(237,235,247,1);
           border-radius: 20px;
         }
-        span:hover{
+        img:hover{
           cursor: pointer;
         }
         .m{
@@ -219,6 +221,9 @@
         }
       }
     }
+  .kb{
+    display: none;
+  }
   .footCom{
     margin-top: 100px;
   }
@@ -261,11 +266,10 @@
         flex-direction: row;
         padding-bottom: 30px;
         height: 200px;
-        span{
+        img{
           display: inline-block;
           height:100%;
           width:40%;
-          background-color: rgba(237,235,247,1);
         }
         .m{
           margin-left: 4%;
@@ -335,6 +339,12 @@
           }
         }
       }
+    }
+    .kb{
+      display: block;
+      width:100%;
+      height:30px;
+      padding-top: 95px;
     }
     .footCom{
       margin-top: 30px;

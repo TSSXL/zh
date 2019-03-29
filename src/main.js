@@ -13,7 +13,6 @@ Vue.use(ElementUI);
 import App from './App'
 
 import axios from 'axios'
-import qs from 'qs'
 Vue.prototype.$http = axios;
 axios.defaults.baseURL = 'http://zhongheng.nbxuanma.com';
 

@@ -4,8 +4,8 @@
     <div class="nav">
       <ul>
         <li><a  @click="gotoIndex">首页</a></li>
-        <li><a @click="gotoEstimate">在线估价</a></li>
-        <li><a @click="gotoNews">新闻资讯</a></li>
+        <li><a @click="gotoEstimate" :style="colorStyle">在线估价</a></li>
+        <li><a @click="gotoNews" :style="colorTwoStyle">新闻资讯</a></li>
         <li><a @click="gotoMine">关于我们</a></li>
       </ul>
     </div>
@@ -27,7 +27,18 @@
     data(){
       return{
         isCollapse: true,
-        show:true
+        show:true,
+        colorStyle:{},
+        colorTwoStyle:{}
+      }
+    },
+    props:['num'],
+    created(){
+      if(this.num==="2")
+      {
+        this.colorStyle={color:'#fb5f6b'}
+      }else{
+        this.colorTwoStyle={color:'#fb5f6b'}
       }
     },
     methods:{
@@ -79,9 +90,6 @@
   }
   .nav ul li a:hover{
     cursor: pointer;
-  }
-  .nav ul li a:active{
-    color:red
   }
   .navImg{
     height:40px;

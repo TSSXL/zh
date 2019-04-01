@@ -120,7 +120,7 @@ import BaiduComponent from './BaiduMap'
           },
           num:0,
           numTwo:0,
-          one:true,
+          one:false,
           two:true,
           three:true,
           four:true,
@@ -133,12 +133,6 @@ import BaiduComponent from './BaiduMap'
             "土地评估"
           ],
           exampleList:[
-            // {BaiEdit:require("../image/ct.jpg"),Title:"诚投大厦办公房地产抵押项目"},
-            // {BaiEdit:require("../image/fh.jpg"),Title:"奉化区南山路174号房地产抵押项目"},
-            // {BaiEdit:require("../image/jb.jpg"),Title:"宁波市江北区北海路239弄28号"},
-            // {BaiEdit:require("../image/cx.jpg"),Title:"江北区长兴路677、685、687号"},
-            // {BaiEdit:require("../image/zbs.jpg"),Title:"招宝山街道鼓楼步行街38套商业抵押"},
-            // {BaiEdit:require("../image/ls.jpg"),Title:"江北区某工业厂区抵押项目"},
           ],
           isShowStyle:{
             display:"none"
@@ -152,12 +146,59 @@ import BaiduComponent from './BaiduMap'
       },
       created(){
         //底部跳转
-        this.num=this.$route.query.idx
-         if(this.num==undefined)
-         {
-           this.num=0
-         }
-         this.getContent()
+        let _this=this
+        if(_this.$route.query.idx===undefined)
+        {
+          _this.num=0
+        }else{
+          _this.num=_this.$route.query.idx
+        }
+       //路由跳转
+        if(_this.$route.query.id===undefined)
+        {
+          _this.num=0
+        }else{
+          _this.num=this.$route.query.id
+          //左边按钮颜色
+          if(_this.$route.query.id==="0") {
+            _this.two=true
+            _this.three=true
+            _this.four=true
+            _this.five=true
+            _this.isShowStyle={display:"none"}
+            _this.one=false
+          }
+          else if(_this.$route.query.id==="1") {
+            _this.one=true
+            _this.three=true
+            _this.four=true
+            _this.five=true
+            _this.isShowStyle={display:"none"}
+            _this.two=!_this.two
+          }else if(_this.$route.query.id==="2") {
+            _this.one=true
+            _this.two=true
+            _this.four=true
+            _this.five=true
+            _this.three=false
+            _this.isShowStyle={display:'block'}
+          }else if(_this.$route.query.id==="3") {
+            _this.one=true
+            _this.two=true
+            _this.three=true
+            _this.five=true
+            _this.isShowStyle={display:"none"}
+            _this.four=!_this.four
+          }else{
+            _this.one=true
+            _this.two=true
+            _this.three=true
+            _this.four=true
+            _this.isShowStyle={display:"none"}
+            _this.five=!_this.five
+          }
+        }
+        _this.getContent()
       },
       methods:{
         //点击隐藏二级菜单
@@ -187,32 +228,30 @@ import BaiduComponent from './BaiduMap'
         //点击按钮变色
         changeColor(index){
           this.num=index
-          if(index==0)
-          {
+          this.$router.push({path:'/mine',query:{id:index}})
+          if(index===0) {
             this.two=true
             this.three=true
             this.four=true
             this.five=true
             this.isShowStyle={display:"none"}
             this.one=!this.one
-          }else if(index==1)
-          {
+          }
+          else if(index===1) {
             this.one=true
             this.three=true
             this.four=true
             this.five=true
             this.isShowStyle={display:"none"}
             this.two=!this.two
-          }else if(index==2)
-          {
+          }else if(index===2) {
             this.one=true
             this.two=true
             this.four=true
             this.five=true
             this.three=false
            this.isShowStyle={display:'block'}
-          }else if(index==3)
-          {
+          }else if(index===3) {
             this.one=true
             this.two=true
             this.three=true
@@ -497,6 +536,12 @@ import BaiduComponent from './BaiduMap'
            .li{
              height:12.7rem;
            }
+           li{
+             .liImg{
+               margin-top: 3%;
+               margin-left: 3%;
+             }
+           }
          }
        }
        .rightCon{
@@ -549,6 +594,21 @@ import BaiduComponent from './BaiduMap'
        }
    }
   }
+  @media only screen and (max-width: 1024px){
+    .mineInfo{
+      .leftBtn{
+        ul{
+          li{
+            .liImg{
+              margin-top: 4%;
+              margin-left: 4%;
+            }
+          }
+        }
+      }
+    }
+  }
+
   @media only screen and (max-width: 768px){
     .img{
       width:100%;

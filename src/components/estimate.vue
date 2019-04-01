@@ -58,6 +58,35 @@
               </el-select>
             </el-form-item>
           </el-form>
+          <el-dialog title="计算结果" :visible.sync="dialogFormVisible" width="90%">
+            <el-form :model="formTwo"  >
+              <el-form-item label="首付" label-width="70px">
+                <el-input v-model="formTwo.sf" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="每月月供" label-width="70px">
+                <el-input v-model="formTwo.yg" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="每月递减" label-width="70px" :style="djTwoStyle">
+                <el-input v-model="formTwo.dj" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="贷款总额" label-width="70px">
+                <el-input v-model="formTwo.ze" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="支付利息" label-width="70px">
+                <el-input v-model="formTwo.lx" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="还款总额" label-width="70px">
+                <el-input v-model="formTwo.hkze" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="还款月数" label-width="70px">
+                <el-input v-model="formTwo.hkys" autocomplete="off"></el-input>
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="dialogFormVisible = false">取 消</el-button>
+              <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+            </div>
+          </el-dialog>
           <div style="width:60%;margin-left: 30%;">
             <el-button type="danger" class="formBtn" @click="handleJS">开始计算</el-button>
             <el-button type="danger" class="formBtnTwo" @click="DialogShow">开始计算</el-button>
@@ -79,6 +108,11 @@
             <span>
                 <h1>每月月供：</h1>
                 <h1>{{formTwo.yg}}</h1>
+                <h1>元</h1>
+                </span>
+            <span :style="djStyle">
+                <h1>每月递减：</h1>
+                <h1>{{formTwo.dj}}</h1>
                 <h1>元</h1>
                 </span>
             <span>
@@ -174,32 +208,6 @@
 
         </div>
       </div>
-      <el-dialog title="计算结果" :visible.sync="dialogFormVisible" width="90%">
-        <el-form :model="formTwo"  >
-          <el-form-item label="首付" label-width="70px">
-            <el-input v-model="formTwo.sf" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="每月月供" label-width="70px">
-            <el-input v-model="formTwo.yg" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="贷款总额" label-width="70px">
-            <el-input v-model="formTwo.ze" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="支付利息" label-width="70px">
-            <el-input v-model="formTwo.lx" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="还款总额" label-width="70px">
-            <el-input v-model="formTwo.hkze" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="还款月数" label-width="70px">
-            <el-input v-model="formTwo.hkys" autocomplete="off"></el-input>
-          </el-form-item>
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-        </div>
-      </el-dialog>
       <Foot-Component class="footer"></Foot-Component>
     </div>
 </template>
@@ -211,6 +219,12 @@
       data(){
           return{
             adname:'',
+            djTwoStyle:{
+              display:'none'
+            },
+            djStyle:{
+              display:'none'
+            },
             otherStyle:{
               display:'block'
             },
@@ -495,6 +509,14 @@
       NavComponent
     },
       created(){
+        if(this.$route.query.id===undefined)
+        {
+          this.select=0
+          this.index=0
+        }else{
+          this.select=this.$route.query.id
+          this.index=this.$route.query.id
+        }
         //首页评估跳转
         if(this.$route.query.online!=undefined&&this.$route.query.tableData!=undefined ) {
           this.select=this.$route.query.online
@@ -531,7 +553,8 @@
             nsID:'',
             lvID:'',
             hkID:'',
-            ze:''}
+            ze:''
+          }
         },
         //申报
         Decalare(){
@@ -545,12 +568,15 @@
         //移动端开始计算内容以弹框形式显示
         DialogShow(){
           this.dialogFormVisible=true
-          this.getOnline();
+          this.$nextTick(function () {
+            this.getOnline()
+          })
         },
         //根据Index改变内容
         changeMain(index){
             this.select=index
             this.index=index
+            this.$router.push({path:'/es',query:{id:index}})
         },
         //计算
         getOnline() {
@@ -572,20 +598,30 @@
               .then(
                 function (response) {
                   //为后台返回的数据添加属性名
-                  let name=["sf","yg","ze","lx","hkze","hkys"]
-                  this.formTwo=_.object(name,response.data.Result)
+                 if(form.hkID===true)
+                 {
+                   this.djStyle={display:'none'}
+                   this.djTwoStyle={display:'none'}
+                   let name=["sf","yg","ze","lx","hkze","hkys"]
+                   this.formTwo=_.object(name,response.data.Result)
+                 }else{
+                   this.djStyle={display:'flex'}
+                   this.djTwoStyle={display:'block'}
+                   let name=["sf","yg","dj","ze","lx","hkze","hkys"]
+                   this.formTwo=_.object(name,response.data.Result)
+                 }
                 }.bind(this)
               )
               .catch(
                 function (error) {
                   this.$notify.error({
                     title: "出错啦",
-                    message: "错误：请输入完整的信息"
+                    message: "请输入完整的信息"
                   });
                 }.bind(this)
               )}
           //根据总额计算
-          else{
+          else if(form.jsID===false){
             this.$http
               .get("/api/Online/OnineCalculate", {
                 params: {
@@ -598,21 +634,36 @@
               })
               .then(
                 function (response) {
-                  let name=["sf","yg","ze","lx","hkze","hkys"]
-                  response.data.Result.unshift("无")
-                  this.formTwo=_.object(name,response.data.Result)
+                  if(form.hkID===true)
+                  {
+                    this.djStyle={display:'none'}
+                    this.djTwoStyle={display:'none'}
+                    let name=["sf","yg","ze","lx","hkze","hkys"]
+                    response.data.Result.unshift("无")
+                    this.formTwo=_.object(name,response.data.Result)
+                  }else{
+                    this.djStyle={display:'flex'}
+                    this.djTwoStyle={display:'block'}
+                    let name=["sf","yg","dj","ze","lx","hkze","hkys"]
+                    response.data.Result.unshift("无")
+                    this.formTwo=_.object(name,response.data.Result)
+                  }
                 }.bind(this)
               )
               .catch(
                 function (error) {
                   this.$notify.error({
                     title: "出错啦",
-                    message: "错误：请输入完整的信息"
+                    message: "请输入完整的信息"
                   });
                 }.bind(this)
               )
+          }else{
+            this.$notify.error({
+              title: "请选择",
+              message: "计算方式"
+            });
           }
-
         },
         //申报
         getDecalare() {

@@ -27,6 +27,9 @@ export default {
   .el-button{
     font-family: FZLTHK--GBK1-0;
   }
+  .el-button--primary{
+    background-color: #EA3D3F;
+  }
   .el-form-item__label{
     font-weight: bolder;
   }

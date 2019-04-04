@@ -21,6 +21,9 @@ export default {
     font-size: 62.5%;
     font-family: FZLTHK--GBK1-0;
   }
+  input:focus{
+    outline: none;
+  }
   .el-pagination.is-background .el-pager li:not(.disabled).active{
     background-color: #EA3D3F;
   }

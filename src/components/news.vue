@@ -20,7 +20,7 @@
       </div>
        <div class="a">
        <div class="item" v-for="item in newsList">
-         <img :src="item.ImgPath" @click="gotoInfo(item.Contexts,item.Category)" alt="后台无图片">
+         <img :src="item.ImgPath" @click="gotoInfo(item)" alt="后台无图片">
          <div class="m">
            <p>{{item.Title}}</p>
            <p>{{item.Summary}}</p>
@@ -73,8 +73,8 @@
           this.getNews(val,this.PageSize,this.Category)
         },
         //进入新闻详情
-        gotoInfo(Contexts,Category){
-          this.$router.push({path:'/info',query:{a:Contexts,b:Category}})
+        gotoInfo(item){
+          this.$router.push({path:'/info',query:{a:item}})
         },
         //获取全部新闻
         allNews(){
@@ -227,7 +227,11 @@
   .footCom{
     margin-top: 100px;
   }
-
+  @media only screen and (max-width: 1680px){
+    .footCom{
+      margin-top: 200px;
+    }
+  }
   @media only screen and (max-width: 1366px){
     .title{
      ul{

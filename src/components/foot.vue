@@ -45,19 +45,19 @@
       },
       methods:{
           gotoFirst(){
-          this.$router.push({path:'/mine',query:{idx:0}})
+          this.$router.push({path:'/mine',query:{id:"0"}})
         },
         gotoSecond(){
-          this.$router.push({path:'/mine',query:{idx:1}})
+          this.$router.push({path:'/mine',query:{id:"1"}})
         },
         gotoThird(){
-          this.$router.push({path:'/mine',query:{idx:2}})
+          this.$router.push({path:'/mine',query:{id:"2"}})
         },
         gotoFour(){
-          this.$router.push({path:'/mine',query:{idx:3}})
+          this.$router.push({path:'/mine',query:{id:"3"}})
         },
         gotoFive(){
-          this.$router.push({path:'/mine',query:{idx:4}})
+          this.$router.push({path:'/mine',query:{id:"4"}})
         }
       }
     }
@@ -109,6 +109,8 @@
     font-size: 1.5em;
     color: #e4e4e4;
     margin-top:10px;
+    text-align: left;
+    margin-left: 5%;
   }
   .fiveLeft,.fiveRight,.f{
     margin-left: 5%;
@@ -136,6 +138,16 @@
     width:45%;
     margin-top: 8%;
   }
+  @media only screen and (max-width: 1680px){
+    .gzh{
+      width:55%;
+    }
+  }
+  @media only screen and (max-width: 1440px){
+    .gzh{
+      width:65%;
+    }
+  }
   @media only screen and (max-width: 1366px){
     .dontKnowFirst img{
       height:100px;
@@ -150,21 +162,21 @@
     }
     .five{
       width:100%;
-      margin-left: -5%;
       font-size: 1.6em;
       margin-top: 20px;
     }
     .f{
       margin-left: 7%;
       margin-top: 5%;
-      width:44%;
+      width:25%;
+      text-align: center;
     }
     .fiveLeft{
-      margin-left: 10%;
+      margin-left: 6%;
       margin-top: 4%;
     }
     .fiveRight{
-      margin-left: 10%;
+      margin-left: 5%;
       margin-top: 4%;
     }
     .gzh{
@@ -178,7 +190,8 @@
       font-size: 1em;
     }
     .gzh{
-      width:59%;
+      width:70%;
+      margin-top: 25%;
     }
     .f{
       margin-top: 4%;
@@ -186,7 +199,7 @@
   }
   @media only screen and (max-width: 768px){
     .footer{
-      height:450px;
+      height:400px;
       width:100%;
       padding-bottom: 40px;
       bottom: 0;

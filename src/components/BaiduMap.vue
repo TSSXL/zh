@@ -1,6 +1,5 @@
 <template>
   <div class="map" id="allmap">
-
   </div>
 </template>
 

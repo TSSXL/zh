@@ -9,34 +9,33 @@
         <el-breadcrumb-item>正文</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-      <UE class="editor-container" :defaultMsg=defaultMsg :config=config ref="ue"></UE>
+       <p class="title">{{title}}</p>
+     <p class="time">{{time}}</p>
+      <div class="a" v-html="defaultMsg"></div>
+    <div class="kbContent"></div>
     <Foot-Component></Foot-Component>
   </div>
 </template>
 <script>
-  import UE from './ue';
   import NavComponent from './nav'
   import FootComponent from  './foot'
   export default {
-    components: {UE,NavComponent,FootComponent},
+    components: {NavComponent,FootComponent},
     data() {
       return {
         msg:"",
         defaultMsg: '',
-        config: {
-          initialFrameWidth:null,
-          initialFrameHeight: 600
-        }
+        title:'',
+        time:''
       }
     },
     created(){
-      this.defaultMsg=decodeURIComponent(this.$route.query.a)
-      this.msg=this.$route.query.b
+      this.defaultMsg=decodeURIComponent(this.$route.query.a.Contexts)
+      this.msg=this.$route.query.a.Category
+      this.title=this.$route.query.a.Title
+      this.time=this.$route.query.a.CreateTime
     },
     methods: {
-      getUEContent() {
-        let content = this.$refs.ue.getUEContent();
-      },
       back(){
         this.$router.go(-1);
       }
@@ -51,26 +50,37 @@
     margin-left: 21%;
     margin-top: 30px;
   }
-  .editor-container{
-    width:52%;
-    margin-left: 21%;
-    margin-top: 50px;
-    padding-bottom: 60px;
+  .a{
+    width:100%;
+    margin-top: 40px;
+  }
+  .title{
+    font-size: 18px;
+    font-weight: bolder;
+    color:#4C4C4C
+  }
+  .time{
+    font-size: 14px;
+    color:#B2B2B2;
+  }
+.kbContent{
+  height:450px;
+}
+  @media only screen and (max-width: 1680px){
+    .kbContent{
+      height:550px;
+    }
   }
   @media only screen and (max-width: 1366px){
-    .editor-container{
-      width:60%;
-      margin-left: 21%;
+    .kbContent{
+      height:400px;
     }
   }
   @media only screen and (max-width: 1024px){
     .bread{
       margin-left: 10%;
     }
-    .editor-container{
-      width:80%;
-      margin-left: 10%;
-    }
+
   }
   @media only screen and (max-width: 768px){
     .navComponent{
@@ -79,19 +89,18 @@
     .bread{
       margin-left: 10%;
     }
-    .editor-container{
-      width:80%;
-      margin-left: 10%;
+  }
+  @media only screen and (max-width: 600px){
+    .kbContent{
+      height:350px;
     }
   }
   @media only screen and (max-width: 450px){
     .navComponent{
       margin-top: 14%;
     }
-    .editor-container{
-      width:80%;
-      margin-left: 10%;
-      padding-bottom: 30px;
+    .kbContent{
+      height:310px;
     }
   }
   @media only screen and (max-width: 384px){
@@ -110,5 +119,15 @@
     }
   }
 }
-
+</style>
+<!--因为是对v-html样式进行处理-->
+<style>
+  @media only screen and (max-width: 450px){
+    .a p{
+      width:100%;
+    }
+    .a p img{
+     width:100%;
+    }
+  }
 </style>

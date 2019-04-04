@@ -9,11 +9,17 @@ import '../static/utf8-php/ueditor.config.js'  //根据自己文件的路径接�
 import '../static/utf8-php/ueditor.all.min.js'
 import '../static/utf8-php/lang/zh-cn/zh-cn.js'
 import '../static/utf8-php/ueditor.parse.min.js'
+
+import Viewer from 'v-viewer'
+import 'viewerjs/dist/viewer.css'
+Vue.use(Viewer);
+
 Vue.use(ElementUI);
 import App from './App'
 
 import axios from 'axios'
 Vue.prototype.$http = axios;
+
 axios.defaults.baseURL = 'http://zhongheng.nbxuanma.com';
 
 // 全局定义 cookie方法

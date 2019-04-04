@@ -48,31 +48,14 @@
             </ul>
           </div>
           <div class="rightCon"  v-if="num==0">
-            <ul>
-              <li><img src="../image/ryone.jpg" alt=""></li>
-              <li><img src="../image/ryt.jpg" alt=""></li>
-              <li><img src="../image/rythree.jpg" alt=""></li>
-              <li><img src="../image/ryfour.jpg" alt=""></li>
-              <li><img src="../image/ryfive.jpg" alt=""></li>
-              <li><img src="../image/rysix.jpg" alt=""></li>
-              <li><img src="../image/ryse.jpg" alt=""></li>
-              <li><img src="../image/rye.jpg" alt=""></li>
-              <li><img src="../image/ryn.jpg" alt=""></li>
+            <ul >
+              <li v-for="item in companyList"><img :src="item.BaiEdit" alt="正在加载中"><p style="font-size: 1.5em">{{item.Title}}</p></li>
             </ul>
           </div>
           <div class="zy" v-else-if="num==1" >
-            <div class="licence">
-              <img src="../image/yyzz.jpg" alt="">
-              <p>营业执照</p>
-            </div>
-            <div class="book">
-              <img src="../image/tdba.jpg" alt="">
-              <p>土估备案证书</p>
-            </div>
-            <div class="house">
-              <img src="../image/fdc.jpg" alt="">
-              <p>房地产资质</p>
-            </div>
+            <ul id="images">
+              <li  v-for="item in zyInfo"><img @click="big" :src="item.BaiEdit" alt="正在加载中"><p>{{item.Title}}</p></li>
+            </ul>
           </div>
           <div class="example"  v-else-if="num==2">
             <div class="exampleItem">
@@ -95,10 +78,7 @@
           <div class="callMe"  v-else="num==4">
             <div class="callMeTitle">
               <p>宁波仲恒房地产估价有限公司</p>
-              <p>公司常年诚招房地产估价师,土地估价师、</p>
-              <p>测绘工程师，仲恒估价公司欢迎您的加入。</p>
-              <p>人事部电话：0574-87620698</p>
-              <p>联系人：蔡老师</p>
+             <p v-html="ZH(zpInfo.Contexts)"></p>
             </div>
             <Baidu-Component class="baiduMap"></Baidu-Component>
           </div>
@@ -111,9 +91,13 @@
 import HeadComponent from  './mayBe'
   import FootComponent from './foot'
 import BaiduComponent from './BaiduMap'
+import Viewer from 'viewerjs'
     export default {
       data(){
         return{
+          zyInfo:{},
+          zpInfo:{},
+          companyList:[],
           category:"银行抵押",
           txtColor:{
             color:'red'
@@ -147,16 +131,10 @@ import BaiduComponent from './BaiduMap'
       created(){
         //底部跳转
         let _this=this
-        if(_this.$route.query.idx===undefined)
-        {
-          _this.num=0
-        }else{
-          _this.num=_this.$route.query.idx
-        }
-       //路由跳转
         if(_this.$route.query.id===undefined)
         {
           _this.num=0
+          _this.getContentTwo("公司荣誉")
         }else{
           _this.num=this.$route.query.id
           //左边按钮颜色
@@ -167,6 +145,7 @@ import BaiduComponent from './BaiduMap'
             _this.five=true
             _this.isShowStyle={display:"none"}
             _this.one=false
+            _this.getContentTwo("公司荣誉")
           }
           else if(_this.$route.query.id==="1") {
             _this.one=true
@@ -175,6 +154,7 @@ import BaiduComponent from './BaiduMap'
             _this.five=true
             _this.isShowStyle={display:"none"}
             _this.two=!_this.two
+            _this.getContentFour("执业资质")
           }else if(_this.$route.query.id==="2") {
             _this.one=true
             _this.two=true
@@ -182,6 +162,7 @@ import BaiduComponent from './BaiduMap'
             _this.five=true
             _this.three=false
             _this.isShowStyle={display:'block'}
+            _this.getContent()
           }else if(_this.$route.query.id==="3") {
             _this.one=true
             _this.two=true
@@ -196,11 +177,21 @@ import BaiduComponent from './BaiduMap'
             _this.four=true
             _this.isShowStyle={display:"none"}
             _this.five=!_this.five
+            this.getContentThree("招贤纳士")
           }
         }
-        _this.getContent()
       },
       methods:{
+        //对后台传的进行转译
+        ZH(val){
+       return decodeURIComponent(val)
+        },
+        //点击放大缩小
+        big(){
+          const viewer=new Viewer(document.getElementById("images"), {
+            inline: false
+          })
+        },
         //点击隐藏二级菜单
         aa(){
          this.isShowStyle={display:"none"}
@@ -236,6 +227,7 @@ import BaiduComponent from './BaiduMap'
             this.five=true
             this.isShowStyle={display:"none"}
             this.one=!this.one
+            this.getContentTwo("公司荣誉")
           }
           else if(index===1) {
             this.one=true
@@ -244,6 +236,7 @@ import BaiduComponent from './BaiduMap'
             this.five=true
             this.isShowStyle={display:"none"}
             this.two=!this.two
+            this.getContentFour("执业资质")
           }else if(index===2) {
             this.one=true
             this.two=true
@@ -251,6 +244,7 @@ import BaiduComponent from './BaiduMap'
             this.five=true
             this.three=false
            this.isShowStyle={display:'block'}
+            this.getContent()
           }else if(index===3) {
             this.one=true
             this.two=true
@@ -265,6 +259,7 @@ import BaiduComponent from './BaiduMap'
             this.four=true
             this.isShowStyle={display:"none"}
             this.five=!this.five
+            this.getContentThree("招贤纳士")
           }
         },
         //经典案例分类获取内容
@@ -289,7 +284,76 @@ import BaiduComponent from './BaiduMap'
                   message: "错误：请通知后台"
                 });
               }.bind(this)
-            );
+            )
+        },
+        //公司荣誉
+        getContentTwo(val){
+          this.$http
+            .get("/api/Baidu/BaiduE", {
+              params: {
+                category:val
+              }
+            })
+            .then(
+              function (response) {
+                this.companyList=response.data.Result.all
+              }.bind(this)
+            )
+            // 请求error
+            .catch(
+              function (error) {
+                this.$notify.error({
+                  title: "出错啦",
+                  message: "错误：请通知后台"
+                });
+              }.bind(this)
+            )
+        },
+        //招聘信息
+        getContentThree(val){
+      this.$http
+    .get("/api/Baidu/BaiduE", {
+      params: {
+        category:val
+      }
+    })
+    .then(
+      function (response) {
+     this.zpInfo=response.data.Result.all[0]
+      }.bind(this)
+    )
+    // 请求error
+    .catch(
+      function (error) {
+        this.$notify.error({
+          title: "出错啦",
+          message: "错误：请通知后台"
+        });
+      }.bind(this)
+    )
+},
+        //执业资质
+        getContentFour(val){
+          this.$http
+            .get("/api/Baidu/BaiduE", {
+              params: {
+                category:val
+              }
+            })
+            .then(
+              function (response) {
+                this.zyInfo=response.data.Result.all
+              }.bind(this)
+            )
+            // 请求error
+            .catch(
+              function (error) {
+                this.$notify.error({
+                  title: "出错啦",
+                  message: "错误：请通知后台"
+                });
+              }.bind(this)
+            )
         }
       }
     }
@@ -409,24 +473,21 @@ import BaiduComponent from './BaiduMap'
       margin-top: -1.3%;
       display: flex;
       flex-wrap: wrap;
-      margin-left: 6%;
-      .licence,.book{
-        width:34%;
-        margin-top: 20px;
-       img{
-       height:320px;
-       width:260px;
-         border-radius: 20px;
-     }
-      }
-      .house{
-        width:34%;
-        margin-top: 40px;
-        padding-bottom: 40px;
-        img{
-          height:180px;
-          width:260px;
-          border-radius: 20px;
+      margin-left: 0%;
+      ul{
+        width:100%;
+        li{
+          width:30%;
+          float: left;
+          margin-left: 5%;
+          img{
+            height:320px;
+            width:260px;
+            border-radius: 20px;
+          }
+          img:hover{
+            cursor: pointer;
+          }
         }
       }
     }
@@ -501,24 +562,32 @@ import BaiduComponent from './BaiduMap'
   .mineFoot{
     margin-top: 60px;
   }
-  @media only screen and (max-width: 1500px){
+  @media only screen and (max-width: 1680px){
     .mineInfo{
       .leftBtn{
         margin-left: 5%;
       }
       .zy{
-        .licence,.book{
-          width:46%;
-        }
-        .house{
-          width:46%;
-        }
+        margin-left: 5%;
+      padding-top: 0;
       }
       .callMe{
         width:72%;
         .baiduMap{
           width:45%;
           margin-left: 50%;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 1440px){
+    .mineInfo{
+      .zy{
+        margin-top: -2%;
+        ul{
+          li{
+            margin-left: 10%;
+          }
         }
       }
     }
@@ -555,21 +624,6 @@ import BaiduComponent from './BaiduMap'
            }
          }
      }
-       .zy{
-         margin-left: 16%;
-         .licence,.book{
-           img{
-             height:240px;
-             width:200px;
-           }
-         }
-         .house{
-           img{
-             height:160px;
-             width: 200px;
-           }
-         }
-       }
        .example{
          margin-left: 12%;
          .exampleItem{
@@ -602,6 +656,18 @@ import BaiduComponent from './BaiduMap'
             .liImg{
               margin-top: 4%;
               margin-left: 4%;
+            }
+          }
+        }
+      }
+      .zy{
+        margin-left: 10%;
+        ul{
+          li{
+            width:40%;
+            img{
+              width:200px;
+              height:240px;
             }
           }
         }
@@ -704,31 +770,16 @@ import BaiduComponent from './BaiduMap'
       }
       .zy{
         width:100%;
-        margin-top: 30px;
-        margin-left: 5%;
+        margin-left: 0;
         border: none;
         display: flex;
         flex-wrap: wrap;
-        .licence,.book{
-          height:200px;
-          width:44%;
-          margin-top: 20px;
-          img{
-            height:280px;
-            width:70%;
-          }
-        }
-        .house{
-          height:180px;
-          width:60%;
-          margin-top: 18%;
-          padding-bottom: 0;
-          margin-left: 15%;
-          img{
-            height:180px;
-            width:70%;
-          }
-        }
+        margin-top: 30px;
+       ul{
+         li{
+           margin-left: 5%;
+         }
+       }
       }
       .example{
         width:100%;
@@ -777,15 +828,10 @@ import BaiduComponent from './BaiduMap'
     }
     }
     .zy{
-      .licence,.book{
+      .licence{
         img{
           height:240px;
         }
-      }
-      .house{
-      img{
-        height:160px;
-      }
       }
     }
     .callMe{
@@ -891,25 +937,16 @@ import BaiduComponent from './BaiduMap'
         border: none;
         display: flex;
         flex-wrap: wrap;
-        .licence,.book{
-          width:45%;
-          margin-top: 0px;
-          margin-left: 3%;
-          img{
-            height:220px;
-            width:100%;
-          }
-        }
-        .house{
-          width:60%;
-          margin-top: 15%;
-          padding-bottom: 0;
-          margin-left: 20%;
-          img{
-            height:160px;
-            width:100%;
-          }
-        }
+       ul{
+         margin-left: -8%;
+         li{
+           width:50%;
+           margin-left: 0;
+           img{
+             width:170px;
+           }
+         }
+       }
       }
       .example{
         width:90%;
@@ -933,7 +970,7 @@ import BaiduComponent from './BaiduMap'
         .callMeTitle{
           margin-left: 5%;
           width:90%;
-          height:50%;
+          height:40%;
           p{
             margin-left: 2%;
             width:93%;
@@ -992,6 +1029,12 @@ import BaiduComponent from './BaiduMap'
          margin-left: -5%;
        }
      }
+     .callMe{
+         .baiduMap{
+           height:47%;
+           margin-top: 55%;
+       }
+     }
    }
   }
   @media only screen and (max-width:384px){
@@ -1017,7 +1060,7 @@ import BaiduComponent from './BaiduMap'
           height:40%;
         }
         .baiduMap{
-          margin-top: 60%;
+          margin-top: 65%;
           height:45%;
         }
       }
@@ -1038,6 +1081,17 @@ import BaiduComponent from './BaiduMap'
       .callMe{
         .baiduMap{
           margin-top: 68%;
+        }
+      }
+      .zy{
+        ul{
+          margin-left: -10%;
+          li{
+            img{
+              height:200px;
+              width:140px;
+            }
+          }
         }
       }
     }

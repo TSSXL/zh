@@ -146,7 +146,7 @@
       <span class="more"><a @click="gotoNews">查看更多 </a><img src="../image/more.png" alt=""></span>
       <div class="newsItem">
         <div class="n" v-for="item in newsList">
-          <img @click="gotoInfo(item.Contexts,item.Category)" :src="item.ImgPath"  alt="后台无图片">
+          <img @click="gotoInfo(item)" :src="item.ImgPath"  alt="后台无图片">
           <div class="nc">
             <span>{{item.Title}}</span>
             <span>{{item.Summary}}</span>
@@ -261,8 +261,8 @@ export default {
       this.getNews(++this.pageIndex)
     },
     //进入新闻详情
-    gotoInfo(Contexts,Category){
-      this.$router.push({path:'/info',query:{a:Contexts,b:Category}})
+    gotoInfo(item){
+      this.$router.push({path:'/info',query:{a:item}})
     },
     //pc端查看更多跳转到新闻页面
     gotoNews(){

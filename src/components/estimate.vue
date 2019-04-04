@@ -141,7 +141,7 @@
       <div class="mainOne" v-else-if="index==1">
         <div class="t">
           <div class="input">
-            <input type="text" v-model="adname" placeholder="请输入小区地址或名称" style="background-color: #F5F7F6">
+            <input class="leftInput" type="text" v-model="adname" placeholder="请输入小区地址或名称" style="background-color: #F5F7F6">
             <!--<el-select class="select" v-model="value" placeholder="选择城市">-->
               <!--<el-option-->
                 <!--v-for="item in options"-->
@@ -150,12 +150,16 @@
                 <!--:value="item.Name">-->
               <!--</el-option>-->
             <!--</el-select>-->
+            <div class="mj">
+              <span>*</span>
+              <input type="text" v-model="mj" placeholder="请输入面积">
+            </div>
             <span class="right"><a @click="showLoading">评估</a></span>
           </div>
         </div>
         <div class="part">
           <span>一个小区名称</span>
-          <span class="lastSp">单位：元/平方米</span>
+          <span class="lastSp">单位：元</span>
         </div>
         <div class="table">
           <template>
@@ -164,22 +168,30 @@
               border
               style="width: 100%">
               <el-table-column
-                prop="VlgName"
                 label="小区名称"
               >
+                <template slot-scope="scope">
+                  {{scope.row.VlgName}}
+                </template>
               </el-table-column>
               <el-table-column
-                prop="MaxPrice"
                 label="偏高价"
                 >
+                <template slot-scope="scope">
+                  {{Change(scope.row.MaxPrice)}}
+                </template>
               </el-table-column>
               <el-table-column
-                prop="MidPrice"
                 label="中间价">
+                <template slot-scope="scope">
+                  {{Change(scope.row.MidPrice)}}
+                </template>
               </el-table-column>
               <el-table-column
-                prop="MinPrice"
                 label="偏低价">
+                <template slot-scope="scope">
+                  {{Change(scope.row.MinPrice)}}
+                </template>
               </el-table-column>
             </el-table>
           </template>
@@ -218,6 +230,7 @@
     export default {
       data(){
           return{
+            mj:'',
             adname:'',
             djTwoStyle:{
               display:'none'
@@ -526,6 +539,15 @@
         // this.getCity()
       },
       methods:{
+        Change(val){
+          if(this.mj==='')
+          {
+            return val*"1"
+          }else{
+            return val*(this.mj)
+          }
+
+        },
         dkStyle(js){
           if(js===true||js==='')
           {
@@ -708,7 +730,7 @@
             })
             .then(
               function (response) {
-                this.tableData=response.data.Result
+               this.tableData=response.data.Result
               }.bind(this)
             )
             // 请求error
@@ -848,17 +870,40 @@
         height: 50px;
         width: 40%;
         margin-left: 30%;
-        margin-top: 6%;
+        margin-top: 8%;
         color: #606060;
+        display: flex;
+        flex-direction: row;
+        .leftInput{
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+        }
         input{
-          width: 100%;
+          width: 50%;
           height: 80%;
           padding: 5px 5px;
-          border-radius: 30px;
           border: none;
           float: left;
           text-indent: 7%;
-          font-size: 2em;
+          font-size: 1.9em;
+        }
+        .mj{
+          width:50%;
+          height:50px;
+          display: flex;
+          flex-direction: row;
+          span{
+            display: inline-block;
+            width:20%;
+            height:50px;
+            background-color: rgb(245, 247, 246);
+            font-size: 3em;
+            line-height: 48px;
+          }
+          input{
+            width:85%;
+            background-color: rgb(245, 247, 246);
+          }
         }
         .select{
           margin-top: 0.3%;
@@ -878,7 +923,6 @@
           width:80px;
           float: right;
           background-color:  #009645;
-          margin-top: -50px;
           line-height: 50px;
           margin-right: -5%;
           a{
@@ -961,6 +1005,17 @@
       height:120px;
     }
   }
+  @media only screen and (max-width: 1440px){
+    .mainOne{
+      .t{
+        .input{
+          input{
+            font-size: 1.5em;
+          }
+        }
+      }
+    }
+  }
   @media only screen and (max-width: 1366px){
  .main{
    .content{
@@ -968,25 +1023,14 @@
    }
  }
     .mainOne{
-      span{
-        margin-left: -78%;
-      }
-      .t{
-        .input{
-          width: 50%;
-          margin-left: 25%;
-          margin-top: 8%;
-          color: #606060;
-          .select{
-            width:8%;
-            margin-left: -35%;
-            margin-top: 0.3%;
-          }
-          .right{
-            margin-top: 0;
-          }
-        }
-      }
+     .t{
+       .input{
+         margin-top: 10%;
+         input{
+           width:60%;
+         }
+       }
+     }
     }
   }
   @media only screen and (max-width: 1288px){
@@ -1000,6 +1044,15 @@
  }
   }
   @media only screen and (max-width:1024px){
+    .mainOne{
+      .t{
+        .input{
+          width:50%;
+          margin-left: 25%;
+          margin-top: 13%;
+        }
+      }
+    }
     .mainTwo{
       width:75%;
     }
@@ -1045,22 +1098,7 @@
         .input{
           width:80%;
           margin-left: 10%;
-          margin-top: 15%;
-          color: #606060;
-          input{
-            width: 95%;
-            height: 80%;
-            padding: 5px 5px;
-            border-radius: 30px;
-            border: none;
-            float: left;
-            /*text-indent: 35%;*/
-          }
-          .select{
-           width:14%;
-            margin-left: -53%;
-            margin-top: 0.5%;
-          }
+          margin-top: 18%;
         }
       }
     }
@@ -1090,6 +1128,9 @@
           /*input{*/
             /*text-indent: 38%;*/
           /*}*/
+          input{
+            width:64%;
+          }
           .select{
             width:17%;
           }
@@ -1138,7 +1179,13 @@
             height:70%;
             /*font-size: 1.3em;*/
             /*text-indent: 36%;*/
-            font-size: 2em;
+            font-size: 1.3em;
+          }
+          .mj{
+            span{
+              height:45px;
+              line-height: 45px;
+            }
           }
           .select{
             margin-left: -73%;
@@ -1150,6 +1197,7 @@
             font-size: 16px;
             line-height: 45px;
             margin-right: 1%;
+            padding-left: 10px;
           }
         }
       }
@@ -1194,13 +1242,7 @@
           width:85%;
           margin-left: 7.5%;
           margin-top: 21%;
-          input{
-          width:100%;
-          }
-          .select{
-            margin-left: -80%;
-            width:25%;
-          }
+
           .right{
             margin-right: -4%;
           }
@@ -1246,15 +1288,15 @@
     .bt ul{
       margin-left: -10.6%;
     }
-    /*.mainOne{*/
-      /*.t{*/
-        /*.input{*/
-          /*input{*/
-            /*text-indent: 37%;*/
-          /*}*/
-        /*}*/
-      /*}*/
-    /*}*/
+    .mainOne{
+      .t{
+        .input{
+          input{
+         font-size: 1.3em;
+          }
+        }
+      }
+    }
   }
   @media only screen and (max-width: 320px){
     .bt ul{
@@ -1265,13 +1307,15 @@
         .input{
          width:95%;
           margin-left:0%;
+          input{
+            font-size: 1.2em;
+          }
           .select{
             margin-left: -92%;
             width:31%;
           }
           .right{
             padding-left: 5px;
-            padding-right: 5px;
           }
         }
       }
